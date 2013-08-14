@@ -1,0 +1,78 @@
+@charset "iso-8859-1";
+
+div.top {
+/*  background: transparent url("../images/forecast_title.png") no-repeat top left; */
+    height: 55px;
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
+}
+
+div.top div.box {
+    background: transparent;
+    /*text-align: center;*/
+    /*float: center;*/
+    color: #2d880d;
+    /*padding-top:5px;*/
+    border: none;
+    font-size: 250%;
+    text-align: middle;
+}
+
+div.top div.box table {
+    width: 100%;
+}
+
+div.footer{
+    background:transparent url("../images/pulogo.gif") no-repeat top left;
+	margin: 0px 0 5px 0;
+	padding: 0px 0 5px 80px;
+	text-align:left;
+	font-size:90%;
+}
+
+div.code{
+   background:#eee;
+   margin: 3ex;
+   padding: 1ex;
+   font-size: 90%;
+   text-align:justify;
+}
+
+div.footer a{
+    text-decoration:none;
+    color: #2f2f2f;
+    font-weight: bold;
+}
+
+div.hbar{
+    background: #41627E;
+    height: 10px;
+    width: 100%;
+/*    position:absolute; */
+}
+
+/* basic element*/
+blockquote{
+    padding: 4px 10px 4px 10px;
+}
+
+#nav td {
+	background: #2783C4;
+	color: white;
+	text-align: center;
+	padding: 5 5 3 5;
+	font-size: 14px;
+	font-weight: bold;
+	}
+
+#nav td.link {
+	background: #51A5E0;
+}
+
+#nav td.link:hover {
+	background: #186194;
+	cursor: pointer;
+}
+
+

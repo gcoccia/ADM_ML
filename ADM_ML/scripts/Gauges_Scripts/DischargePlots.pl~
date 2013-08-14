@@ -1,0 +1,201 @@
+use FileHandle;
+use strict;
+#Input Variables
+my @Final_Time = ($ARGV[0],$ARGV[1],$ARGV[2]);#2011,10,9);
+my @Initial_Time = ($ARGV[3],$ARGV[4],$ARGV[5]);
+my $gauge_number = $ARGV[6];#1992900;
+my $Webpage_Root_Dir = $ARGV[7];
+my $workspace = "/tmp/ADM_workspace";
+my $html_workspace = "ADM_workspace";
+my $file_realtime = $Webpage_Root_Dir."/Africa_Drought_Monitor_Webpage/Data/ADM_Data/Realtime/Routed_output/gauge_${gauge_number}";
+my $file_spinup = $Webpage_Root_Dir."/Africa_Drought_Monitor_Webpage/Data/ADM_Data/Catch_up/Routed_output/gauge_${gauge_number}";
+my $file_historical = $Webpage_Root_Dir."/Africa_Drought_Monitor_Webpage/Data/ADM_Data/Historical/Routed_output/gauge_${gauge_number}";
+my $Image_output = $workspace."/ds_${gauge_number}_${Initial_Time[0]}${Initial_Time[1]}${Initial_Time[2]}-${Final_Time[0]}${Final_Time[1]}${Final_Time[2]}.png";
+
+#Local Variables
+my @Temp_Time;
+my $range = 10000;
+my $random_number = int(rand($range)); #Random number to make sure queries do not overlap
+my $gnuplot_script = $workspace."/gauge_gnuplot_script_${random_number}.txt";
+my $Image_temp = $workspace."/Image_gauge_ds_temp_${random_number}.ps";
+my $gauge_ascii_gnuplot = $workspace."/gauge_gnuplot_temp_${random_number}.txt";
+my $ascii_output = $html_workspace."/gauge_gnuplot_temp_${random_number}.txt";
+my $nheader = 7;
+
+#Remove he previous text file
+if (-e ${gauge_ascii_gnuplot})
+	{
+	system("rm ${gauge_ascii_gnuplot}");
+	}
+
+#Write the first lines to the output file
+system("echo \'column 1: Year\' > ${gauge_ascii_gnuplot}");
+system("echo \'column 2: Month\' >> ${gauge_ascii_gnuplot}");
+system("echo \'column 3: Day\' >> ${gauge_ascii_gnuplot}");
+system("echo \'column 4: Daily Average Discharge (m^3/s)\' >> ${gauge_ascii_gnuplot}");
+system("echo \'column 5: Percentile with respect to historical record\' >> ${gauge_ascii_gnuplot}");
+system("echo \'column 6: 50% Percentile\' >> ${gauge_ascii_gnuplot}");
+system("echo \'column 7: Cumulative yearly surplus (m^3)\' >> ${gauge_ascii_gnuplot}");
+#
+
+#Grab each part of the time series from the corresponding file
+@Temp_Time = @Initial_Time;
+if (&julian_day(@Initial_Time) <= &julian_day(2008,12,31))
+	{
+	my $awk_script =  "awk \'/${Temp_Time[0]} *${Temp_Time[1]} *${Temp_Time[2]}/,/${Final_Time[0]} *${Final_Time[1]} *${Final_Time[2]}/\' /${file_historical} >> ${gauge_ascii_gnuplot}";
+	system("${awk_script}");
+	@Temp_Time = (2009,1,1);
+	}
+if (&julian_day(@Initial_Time) <= &julian_day(2011,9,30) && &julian_day(@Final_Time) >= &julian_day(2008,12,31))
+	{
+	my $awk_script =  "awk \'/${Temp_Time[0]} *${Temp_Time[1]} *${Temp_Time[2]}/,/${Final_Time[0]} *${Final_Time[1]} *${Final_Time[2]}/\' /${file_spinup} >> ${gauge_ascii_gnuplot}";
+	system("${awk_script}");;
+	@Temp_Time = (2011,10,1);
+	}
+if (&julian_day(@Final_Time) >= &julian_day(2011,9,30))
+	{
+	my $awk_script =  "awk \'/${Temp_Time[0]} *${Temp_Time[1]} *${Temp_Time[2]}/,/${Final_Time[0]} *${Final_Time[1]} *${Final_Time[2]}/\' /${file_realtime} >> ${gauge_ascii_gnuplot}";
+	system("${awk_script}");
+	}
+
+#Figure out the number of days
+my $ndays = &julian_day(@Final_Time) - &julian_day(@Initial_Time) + 1;
+my $xtickfmt;
+if ($ndays <= 60){$xtickfmt ='"%m/%d"';}
+elsif ($ndays > 60 && $ndays <= 5*365){$xtickfmt = '"%m/%y"';}
+else {$xtickfmt = '"%Y"'};
+
+#Find the minimum and maximum of our data
+my $line_temp = `awk 'NR == 8 {max=\$7 ; min=\$7} \$7 >= max {max = \$7} \$7 <= min {min = \$7} END { print min, max }' ${gauge_ascii_gnuplot}`;
+my ($min_CD,$max_CD) = split(' ',$line_temp);
+my $line_temp = `awk 'NR == 8 {max=\$4 ; min=\$4} \$4 >= max {max = \$4} \$4 <= min {min = \$4} END { print min, max }' ${gauge_ascii_gnuplot}`;
+my ($min_Q,$max_Q) = split(' ',$line_temp);
+my $Q_int = sprintf("%f",$max_Q/5);
+my $max_Q = sprintf("%f",$max_Q + $Q_int);
+my $CD_int = sprintf("%f",($max_CD - $min_CD)/3);
+my $max_CD = sprintf("%f",$max_CD + $CD_int/3);
+my $min_CD = sprintf("%f",$min_CD - $CD_int/3);
+
+my $abs_CD;
+if (abs($max_CD) > abs($min_CD)){$abs_CD = abs($max_CD);}
+else {$abs_CD = abs($min_CD);}
+
+#Create the gnuplot script 
+my $fh_gnuplot_script = new FileHandle (">$gnuplot_script");
+print $fh_gnuplot_script <<EOF;
+unset log                              # remove any log-scaling
+unset label                            # remove any previous labels
+set title "Simulated Discharge ($Initial_Time[0]/$Initial_Time[1]/$Initial_Time[2] - $Final_Time[0]/$Final_Time[1]/$Final_Time[2])" font "Helvetica,25";
+set xdata time
+set timefmt "%Y %m %d"
+set format x $xtickfmt
+set grid
+set size 1.2,0.85
+set xr ["$Initial_Time[0] $Initial_Time[1] $Initial_Time[2]":"$Final_Time[0] $Final_Time[1] $Final_Time[2]"]
+unset xtics
+set key horiz
+set ytics font "Helvetica,18"
+set y2tics font "Helvetica,18"
+set ytic nomirror
+set yrange [0:$max_Q];
+set ytic $Q_int - $Q_int/2,$Q_int,$max_Q-$Q_int/2;
+set y2range [0:110];
+set y2tic 10,20,90;
+set ylabel "Q(m^{3}/s)" font "Helvetica,18";
+set y2label "Percentile(%)" font "Helvetica,18";
+set terminal postscript enhanced color
+set output "$Image_temp"
+set multiplot;                          # get into multiplot mode
+set size 1.2,0.5
+set origin 0.0,0.35;
+set format y "%9.2e"
+plot "${gauge_ascii_gnuplot}" using 1:5 every :: $nheader axes x1y2 title 'Percentile(%)' with line lt 2 lw 1 lc rgb "red",\\
+ "${gauge_ascii_gnuplot}" using 1:6 every :: $nheader title 'Median(m^{3}/s)' with line lt 1 lw 3 lc rgb "green",\\
+"${gauge_ascii_gnuplot}" using 1:4 every :: $nheader title 'Q(m^{3}/s)' with line lt 1 lw 3 lc rgb "blue"
+set size 1.122,0.35
+set origin 0.0,0.05;
+unset key;
+unset yrange;
+unset ytic;
+set yrange [$min_CD:$max_CD];
+set ytic $min_CD,$CD_int,$max_CD;
+set ylabel "V(m^{3})*" font "Helvetica,18";
+set ytics font "Helvetica,18";
+set xtics font "Helvetica,18";
+set xlabel "Time (day)" font "Helvetica,20";
+unset y2tics;
+unset y2label;
+unset title;
+set label "*Note: V = {/Symbol S}[24*3600*(Q(t) - Median(t))] where t = 1:n (t = 1 <=> 1/1/2011)." at screen 0.05,0.03
+plot "< awk '{for (i=1; i<=NF; i++) if (\$7 > 0) \$7 = 0; if (\$7 < 0) \$7 = \$7/1000000; print }' ${gauge_ascii_gnuplot}" using 1:7 every :: $nheader title 'Cumulative Deficit (m^{3})' with boxes fs solid 0.7 lt 1 lc rgb "red",\\
+"< awk '{for (i=1; i<=NF; i++) if (\$7 < 0) \$7 = 0; if (\$7 > 0) \$7 = \$7/1000000; print }' ${gauge_ascii_gnuplot}" using 1:7 every :: $nheader with boxes fs solid 0.7 lt 1 lc rgb "blue",\\
+0 w lines lt 1 lw 1 lc rgb "black"
+unset multiplot  
+
+EOF
+close($fh_gnuplot_script);
+system("gnuplot $gnuplot_script");
+system("convert $Image_temp -rotate 90 -background white -mosaic +matte $Image_output");
+
+#Rename image output for webserver
+my $Image_output = $html_workspace."/ds_${gauge_number}_${Initial_Time[0]}${Initial_Time[1]}${Initial_Time[2]}-${Final_Time[0]}${Final_Time[1]}${Final_Time[2]}.png";
+
+#Print image filename to the screen
+print $Image_output." ".$ascii_output;
+
+sub julian_day
+	{
+    use integer;
+    my($year, $month, $day) = @_;
+    my($tmp);
+    $tmp = $day - 32075
+      + 1461 * ( $year + 4800 - ( 14 - $month ) / 12 )/4
+      + 367 * ( $month - 2 + ( ( 14 - $month ) / 12 ) * 12 ) / 12
+      - 3 * ( ( $year + 4900 - ( 14 - $month ) / 12 ) / 100 ) / 4
+      ;
+    return($tmp);
+	}
+
+sub inverse_julian_day
+{
+	use integer;
+        my($jd) = @_;
+        my($jdate_tmp);
+        my($m,$d,$y);
+	$jdate_tmp = $jd - 1721119;
+        $y = (4 * $jdate_tmp - 1)/146097;
+        $jdate_tmp = 4 * $jdate_tmp - 1 - 146097 * $y;
+        $d = $jdate_tmp/4;
+        $jdate_tmp = (4 * $d + 3)/1461;
+        $d = 4 * $d + 3 - 1461 * $jdate_tmp;
+        $d = ($d + 4)/4;
+        $m = (5 * $d - 3)/153;
+        $d = 5 * $d - 3 - 153 * $m;
+        $d = ($d + 5) / 5;
+        $y = 100 * $y + $jdate_tmp;
+        if($m < 10) {
+                $m += 3;
+        } else {
+                $m -= 9;
+                ++$y;
+        }
+        return ($y, $m, $d);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
