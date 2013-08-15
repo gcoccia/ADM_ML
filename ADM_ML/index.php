@@ -54,8 +54,6 @@ $label_array = array($LinktoImage => $_('Link to Image'),
 										 $ProcessNTI => $_('Process new time interval'),
 										 $ProcessRPW => $_('Processing request, please wait'));
 
-print_r($label_array);
-
 $page_title = {$_("Africa Drought Monitor")};
 
 ?>
@@ -86,6 +84,8 @@ var basinImage  = <?php echo $mask_gauge ?>;
 		echo "var ".$key." = ".$val.";\n";
 	}
 ?>
+
+console.log(ProcessNTI);
 
 function update_markers(j)
 {
