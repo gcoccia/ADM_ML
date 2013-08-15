@@ -1,7 +1,8 @@
 <?php
+phpinfo()
 error_reporting(E_ALL);
 ini_set('display_errors', 'on');
-phpinfo()
+
 
 require_once('php-gettext-1.0.11/gettext.inc');
 include 'scripts/Read_Gauges.php';
