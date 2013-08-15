@@ -71,6 +71,7 @@ $page_title = $_("Africa Drought Monitor");
 <script type="text/javascript" src="jsscripts/MiscFunctions.js"></script>
 <script type="text/javascript" src="jsscripts/VarDeclaration.js"></script>
 <script type="text/javascript" src="jsscripts/AnimationPrep.js"></script>
+<script type="text/javascript" src="jsscripts/MainFunctions.js"></script>
 
 <script type="text/javascript">
 	var basinImage  = <?php echo $mask_gauge ?>;
@@ -82,7 +83,7 @@ $page_title = $_("Africa Drought Monitor");
 
 <?php 
 $main_page = <<< EOF
-	<script type="text/javascript" src="jsscripts/MainFunctions.js"></script>
+	
 	<script type="text/javascript">
 	
 	var LinktoImage = "{$_('Link to Image')}";
