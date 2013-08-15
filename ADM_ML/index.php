@@ -1,4 +1,8 @@
 <?php
+error_reporting(E_ALL);
+ini_set('display_errors', 'on');
+phpinfo()
+
 require_once('php-gettext-1.0.11/gettext.inc');
 include 'scripts/Read_Gauges.php';
 include 'scripts/Read_DM_log.php';#Script to read in the drought monitor parameters to set as limits
@@ -56,9 +60,7 @@ $label_array = array($LinktoImage => $_('Link to Image'),
 
 $page_title = {$_("Africa Drought Monitor")};
 
-error_reporting(E_ALL);
-ini_set('display_errors', 'on');
-phpinfo()
+
 
 ?>
 
