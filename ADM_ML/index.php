@@ -62,9 +62,10 @@ $page_title = {$_("Africa Drought Monitor")};
 <script type="text/javascript" src="jsscripts/MiscFunctions.js"></script>
 <script type="text/javascript" src="jsscripts/VarDeclaration.js"></script>
 <script type="text/javascript" src="jsscripts/AnimationPrep.js"></script>
+<script type="text/javascript" src="jsscripts/MainFunctions.js"></script>
+
 <script type="text/javascript">
 var basinImage  = $mask_gauge;
-
 <?php 
 	foreach($date_array as key => val) {
 		echo "var ".$key." = ".$val.";\n"
@@ -73,7 +74,6 @@ var basinImage  = $mask_gauge;
 ?>
 </script>
 
-<script type="text/javascript" src="jsscripts/MainFunctions.js"></script>
 <script type="text/javascript">
 
 var LinktoImage = "{$_('Link to Image')}";
