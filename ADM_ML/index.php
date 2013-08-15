@@ -200,19 +200,19 @@ $page_title = $_("Africa Drought Monitor");
 <div class='hbar'>
   <table id="nav"><tr>
     <td class="link" onClick="document.location.href='BasicInterface.php'+window.location.search">
-      <?php echo {$_("Basic Interface")}; ?>
+      <?php echo $_("Basic Interface"); ?>
     </td>
     <td >
-      <?php echo {$_("Google Maps Interface")}; ?>
+      <?php echo $_("Google Maps Interface"); ?>
     </td>
     <td class="link" onClick="document.location.href='Resources/ADM_Background.pdf'">
-      <?php echo {$_("Background")}; ?>
+      <?php echo $_("Background"); ?>
     </td>
     <td class="link" onClick="document.location.href='Resources/ADM_Glossary.pdf'">
-      <?php echo {$_("Glossary")}; ?>
+      <?php echo $_("Glossary"); ?>
     </td>
     <td class="link" onClick="document.location.href='Resources/Tutorial_HornAfrica.pdf'">
-      <?php echo {$_("Tutorial")}; ?>
+      <?php echo $_("Tutorial"); ?>
     </td>
     <td class="flag">
       <img id="Flag_Image" src="icons/flags/english_flag.gif" onclick=ChangeLanguage("English")>
@@ -234,10 +234,6 @@ $page_title = $_("Africa Drought Monitor");
 
 <?php 
 $main_page = <<< EOF
-
-
-
-  
 
   <div id="blanket" style="display:none;"></div>
   <div id="popUpDivparent">
