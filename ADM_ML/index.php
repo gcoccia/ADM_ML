@@ -45,6 +45,15 @@ $date_array = compact("year_initial", "month_initial", "day_initial",
 											"gauge_year_final_monthly", "gauge_month_final_monthly",
 											"gauge_year_final", "gauge_month_final", "gauge_day_final");
 
+$label_array = array($LinktoImage => $_('Link to Image'),
+										 $LinktoData => $_('Link to Data'),
+										 $PlotTitle => $_('Simulated_Discharge').",".$_('Water_Balance').",".$_('Soil_Moisture_Products'),
+										 $PlotYlabel => $_('Surplus_[mm]').",".$_('Q_[mm/day]').",".$_('Basin_Average'),
+										 $PlotXlabel => $_('Time_[day]'),
+										 $PlotXlabel_Month => $_('Time_[month]'),
+										 $ProcessNTI => $_('Process new time interval'),
+										 $ProcessRPW => $_('Processing request, please wait'));
+
 $page_title = {$_("Africa Drought Monitor")};
 
 ?>
@@ -65,16 +74,16 @@ $page_title = {$_("Africa Drought Monitor")};
 <script type="text/javascript" src="jsscripts/MainFunctions.js"></script>
 
 <script type="text/javascript">
-var basinImage  = $mask_gauge;
+var basinImage  = <?php echo $mask_gauge ?>;
 <?php 
 	foreach($date_array as key => val) {
-		echo "var ".$key." = ".$val.";\n"
-		echo "var ".$key."_orig = ".$val.";\n"
+		echo "var ".$key." = ".$val.";\n";
+		echo "var ".$key."_orig = ".$val.";\n";
+	}
+	foreach($label_array as key => val) {
+		echo "var ".$key." = ".$val.";\n";
 	}
 ?>
-</script>
-
-<script type="text/javascript">
 
 var LinktoImage = "{$_('Link to Image')}";
 var LinktoData = "{$_('Link to Data')}";
