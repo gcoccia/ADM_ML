@@ -245,29 +245,19 @@ $page_title = $_("Africa Drought Monitor");
   </select>
 </div>  
 
+<div id="Colorbar" style="visibility:hidden;"></div>
+<div id="TimeStamp" style="visibility:hidden;"></div>
+<div id="Logo" style="visibility:hidden;"></div>
+<div id="DBandMC"></div>
+
+<div id="sidebar_call" style="visibility:hidden;">
+  <h1 onclick=animate_sidebar() > <img src="icons/Arrow_down.png"/> </h1>
+</div>
+
 
 <?php 
 $main_page = <<< EOF
-
   
-  <div id="Colorbar" style="visibility:hidden;">
-  </div>
-  <div id="TimeStamp" style="visibility:hidden;">
-  </div>
-        <div id="Logo" style="visibility:hidden;">
-        </div>
-  <div id="DBandMC">
-  </div>
-  <!--<div id="Language_Flags">
-  <table>
-  <tr><td><img id="Flag_Image" src="icons/flags/english_flag.gif" onclick=ChangeLanguage("English")></td></tr>
-  <tr><td><img id="Flag_Image" src="icons/flags/french_flag.gif" onclick=ChangeLanguage("French")></td></tr>
-        <tr><td><img id="Flag_Image" src="icons/flags/chinese_flag.gif" onclick=ChangeLanguage("Chinese")></td></tr>
-  </table>
-  </div>-->
-  <div id="sidebar_call" style="visibility:hidden;">
-      <h1 onclick=animate_sidebar() > <img src="icons/Arrow_down.png"/> </h1>
-  </div>
   <div id="sidebar" style="visibility:visible"> 
     <div id="Display_Control"> 
       <h1 id="DC_header" onclick=animate_div("DC_div")>{$_("User Interface")}</h1> 
