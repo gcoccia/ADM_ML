@@ -201,20 +201,15 @@ $gauge_info_arrays = array("gauge_number" => $gauge_number_2,
 <div class='hbar'>
   <table id="nav"><tr>
     <td class="link" onClick="document.location.href='BasicInterface.php'+window.location.search">
-      <?php echo $_("Basic Interface"); ?>
-    </td>
-    <td >
-      <?php echo $_("Google Maps Interface"); ?>
-    </td>
+      <?php echo $_("Basic Interface"); ?></td>
+    <td>
+      <?php echo $_("Google Maps Interface"); ?></td>
     <td class="link" onClick="document.location.href='Resources/ADM_Background.pdf'">
-      <?php echo $_("Background"); ?>
-    </td>
+      <?php echo $_("Background"); ?></td>
     <td class="link" onClick="document.location.href='Resources/ADM_Glossary.pdf'">
-      <?php echo $_("Glossary"); ?>
-    </td>
+      <?php echo $_("Glossary"); ?></td>
     <td class="link" onClick="document.location.href='Resources/Tutorial_HornAfrica.pdf'">
-      <?php echo $_("Tutorial"); ?>
-    </td>
+      <?php echo $_("Tutorial"); ?></td>
     <td class="flag">
       <img id="Flag_Image" src="icons/flags/english_flag.gif" onclick=ChangeLanguage("English")></td>
     <td class="flag">
