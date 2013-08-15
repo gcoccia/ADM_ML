@@ -61,14 +61,19 @@ $info_box_strings = array(1 => $_("Weather data used to drive the hydrologic mod
                           5 => $_("This is the SMOS CATDS L4 Root zone soil moisture index. The product is obtained from the integration of SMOS surface soil moisture L3 products into a double bucket hydrological model. It represents the soil moisture in the first meters of the soil in percentage."),
                           6 => $_("The SPI is an index based on the probability of recording a given amount of precipitation after standardizing the probabilities so that an index of zero indicates the median precipitation amount for the entire precipitation record. The SPI can be calculated at any time step. The index is negative for drought, and positive for wet conditions."));
 
-$page_title = $_("Africa Drought Monitor");
+$gauge_info_arrays = array("gauge_number" => $gauge_number_2,
+                            "gauge_lat" => $gauge_lat,
+                            "gauge_lon" => $gauge_lon,
+                            "gauge_area" => $gauge_area,
+                            "gauge_percentile" => $gauge_percentile,
+                            "gauge_flag" => $gauge_flag);
 
 ?>
 
 <!DOCTYPE html> 
 <html style="height:100%"> 
 <head> 
-<title><?php echo $page_title ?></title>
+<title><?php echo $_("Africa Drought Monitor") ?></title>
 <meta name="viewport" content="initial-scale=1.0, user-scalable=no" /> 
 <meta http-equiv="content-type" content="text/html; charset=UTF-8"/> 
 <link href="css/s.css" rel=stylesheet> 
@@ -95,6 +100,9 @@ $page_title = $_("Africa Drought Monitor");
     }
     foreach($info_box_strings as $key => $value) {
       echo "info_box_strings[".$key."] = "."\"".$value."\"".";\n";
+    }
+    foreach($gauge_info_arrays as $key => $value) {
+      echo "var ".$key." = ".$value.";\n";
     }
   ?>
 
@@ -126,13 +134,6 @@ $page_title = $_("Africa Drought Monitor");
           ChangeTimeStamp(3);
         }
       }
-    
-      var gauge_number = <?php echo $gauge_number_2 ?>;
-      var gauge_lat = <?php echo $gauge_lat ?>;
-      var gauge_lon = <?php echo $gauge_lon ?>;
-      var gauge_area = <?php echo $gauge_area ?>;
-      var gauge_percentile = <?php echo $gauge_percentile ?>;
-      var gauge_flag = <?php echo $gauge_flag ?>;
 
       var contentString = [];
       var icon_image;
