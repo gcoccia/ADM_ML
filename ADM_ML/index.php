@@ -77,7 +77,7 @@ $page_title = $_("Africa Drought Monitor");
 	<?php foreach($date_array as $key => $value) {
 		echo "var ".$key." = ".$value.";\n";
 		echo "var ".$key."_orig = ".$value.";\n";
-	}
+	} ?>
 </script>
 
 <?php 
