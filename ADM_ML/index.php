@@ -197,15 +197,48 @@ $page_title = $_("Africa Drought Monitor");
   </div>
 </div>
 
+<div class='hbar'>
+  <table id="nav"><tr>
+    <td class="link" onClick="document.location.href='BasicInterface.php'+window.location.search">
+      <?php echo {$_("Basic Interface")}; ?>
+    </td>
+    <td >
+      <?php echo {$_("Google Maps Interface")}; ?>
+    </td>
+    <td class="link" onClick="document.location.href='Resources/ADM_Background.pdf'">
+      <?php echo {$_("Background")}; ?>
+    </td>
+    <td class="link" onClick="document.location.href='Resources/ADM_Glossary.pdf'">
+      <?php echo {$_("Glossary")}; ?>
+    </td>
+    <td class="link" onClick="document.location.href='Resources/Tutorial_HornAfrica.pdf'">
+      <?php echo {$_("Tutorial")}; ?>
+    </td>
+    <td class="flag">
+      <img id="Flag_Image" src="icons/flags/english_flag.gif" onclick=ChangeLanguage("English")>
+    </td>
+    <td class="flag">
+      <img id="Flag_Image" src="icons/flags/french_flag.gif" onclick=ChangeLanguage("French")>
+    </td>
+    <td class="flag">
+      <img id="Flag_Image" src="icons/flags/chinese_flag.gif" onclick=ChangeLanguage("Chinese")>
+    </td>
+    <td class="flag">
+      <img id="Flag_Image" src="icons/flags/spanish_flag.gif" onclick=ChangeLanguage("Spanish")>
+    </td>
+    <td class="flag">
+      <img id="Flag_Image" src="icons/flags/arabic_flag.gif" onclick=ChangeLanguage("Arabic")>
+    </td>
+    <td class="version">Version 1.1</td></tr></table>
+</div>
+
 <?php 
 $main_page = <<< EOF
 
 
 
   
-  <div class='hbar'>
-  <table id="nav"><tr><td class="link" onClick="document.location.href='BasicInterface.php'+window.location.search">{$_("Basic Interface")}</td><td > {$_("Google Maps Interface")}</td><td class="link" onClick="document.location.href='Resources/ADM_Background.pdf'">{$_("Background")}</td><td class="link" onClick="document.location.href='Resources/ADM_Glossary.pdf'">{$_("Glossary")}</td><td class="link" onClick="document.location.href='Resources/Tutorial_HornAfrica.pdf'">{$_("Tutorial")}</td><td class="flag"><img id="Flag_Image" src="icons/flags/english_flag.gif" onclick=ChangeLanguage("English")></td><td class="flag"><img id="Flag_Image" src="icons/flags/french_flag.gif" onclick=ChangeLanguage("French")></td><td class="flag"><img id="Flag_Image" src="icons/flags/chinese_flag.gif" onclick=ChangeLanguage("Chinese")></td><td class="flag"><img id="Flag_Image" src="icons/flags/spanish_flag.gif" onclick=ChangeLanguage("Spanish")></td><td class="flag"><img id="Flag_Image" src="icons/flags/arabic_flag.gif" onclick=ChangeLanguage("Arabic")></td><td class="version">Version 1.1</td></tr></table>
-</div>
+
   <div id="blanket" style="display:none;"></div>
   <div id="popUpDivparent">
     <div id="popUpDiv" style="display:none;">
