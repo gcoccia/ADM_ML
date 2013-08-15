@@ -38,6 +38,22 @@ $gauge_month_final = $month_final;
 $gauge_day_final = $day_final;
 $_ = 'T_';
 
+$date_array = compact("year_initial", "month_initial", "day_initial",
+											"year_final", "month_final", "day_final",
+											"gauge_year_initial", "gauge_month_initial", "gauge_day_initial",
+											"gauge_year_initial_monthly", "gauge_month_initial_monthly",
+											"gauge_year_final_monthly", "gauge_month_final_monthly",
+											"gauge_year_final", "gauge_month_final", "gauge_day_final");
+
+$label_array = array($LinktoImage => $_('Link to Image'),
+										 $LinktoData => $_('Link to Data'),
+										 $PlotTitle => $_('Simulated_Discharge').",".$_('Water_Balance').",".$_('Soil_Moisture_Products'),
+										 $PlotYlabel => $_('Surplus_[mm]').",".$_('Q_[mm/day]').",".$_('Basin_Average'),
+										 $PlotXlabel => $_('Time_[day]'),
+										 $PlotXlabel_Month => $_('Time_[month]'),
+										 $ProcessNTI => $_('Process new time interval'),
+										 $ProcessRPW => $_('Processing request, please wait'));
+
 $main_page = <<< EOF
 <!DOCTYPE html> 
 <html style="height:100%"> 
