@@ -54,6 +54,8 @@ $label_array = array($LinktoImage => $_('Link to Image'),
 										 $ProcessNTI => $_('Process new time interval'),
 										 $ProcessRPW => $_('Processing request, please wait'));
 
+$page_title = $_("Africa Drought Monitor");
+
 $main_page = <<< EOF
 <!DOCTYPE html> 
 <html style="height:100%"> 
