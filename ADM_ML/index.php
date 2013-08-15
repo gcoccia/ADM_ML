@@ -55,6 +55,7 @@ $label_array = array($LinktoImage => $_('Link to Image'),
 										 $ProcessRPW => $_('Processing request, please wait'));
 
 $page_title = {$_("Africa Drought Monitor")};
+error_reporting(E_ALL);
 
 ?>
 
