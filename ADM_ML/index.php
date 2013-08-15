@@ -181,25 +181,28 @@ $page_title = $_("Africa Drought Monitor");
 </script>
 </head> 
 
+<body onload="initialize();" style="height:100%;margin:0">  
+
+<div class="top">
+  <div class="box">
+    <div><table><tbody><tr>
+      <td align="center"><img id="UNESCO_logo" src="icons/Unesco_logo.gif"></td>
+      <td align="center"><img id="ICPAC_logo" src="icons/ICPAC_logo.gif"></td>
+                  <td align="center"><img id="AGRHYMET_logo" src="icons/agrhymet_logo.gif"></td>
+      <td align="center" width="65%"> Experimental African Drought Monitor </td>
+      <td align="center"><img id="PU_logo" src="icons/PU_logo.gif"></td>
+      <td align="center"><img id="UW_logo" src="icons/UW_logo.png"></td>
+      <td align="center"><img id="CB_logo" src="icons/cesbio_logo.png"></td>
+    </tr></tbody></table></div>
+  </div>
+</div>
 
 <?php 
 $main_page = <<< EOF
 
 
-<body onload="initialize();" style="height:100%;margin:0">  
-  <div class="top">
-        <div class="box">
-         <div><table><tbody><tr>
-                    <td align="center"><img id="UNESCO_logo" src="icons/Unesco_logo.gif"></td>
-                    <td align="center"><img id="ICPAC_logo" src="icons/ICPAC_logo.gif"></td>
-                                <td align="center"><img id="AGRHYMET_logo" src="icons/agrhymet_logo.gif"></td>
-                    <td align="center" width="65%"> Experimental African Drought Monitor </td>
-                    <td align="center"><img id="PU_logo" src="icons/PU_logo.gif"></td>
-                    <td align="center"><img id="UW_logo" src="icons/UW_logo.png"></td>
-        <td align="center"><img id="CB_logo" src="icons/cesbio_logo.png"></td>
-          </tr></tbody></table></div>
-      </div>
-  </div>
+
+  
   <div class='hbar'>
   <table id="nav"><tr><td class="link" onClick="document.location.href='BasicInterface.php'+window.location.search">{$_("Basic Interface")}</td><td > {$_("Google Maps Interface")}</td><td class="link" onClick="document.location.href='Resources/ADM_Background.pdf'">{$_("Background")}</td><td class="link" onClick="document.location.href='Resources/ADM_Glossary.pdf'">{$_("Glossary")}</td><td class="link" onClick="document.location.href='Resources/Tutorial_HornAfrica.pdf'">{$_("Tutorial")}</td><td class="flag"><img id="Flag_Image" src="icons/flags/english_flag.gif" onclick=ChangeLanguage("English")></td><td class="flag"><img id="Flag_Image" src="icons/flags/french_flag.gif" onclick=ChangeLanguage("French")></td><td class="flag"><img id="Flag_Image" src="icons/flags/chinese_flag.gif" onclick=ChangeLanguage("Chinese")></td><td class="flag"><img id="Flag_Image" src="icons/flags/spanish_flag.gif" onclick=ChangeLanguage("Spanish")></td><td class="flag"><img id="Flag_Image" src="icons/flags/arabic_flag.gif" onclick=ChangeLanguage("Arabic")></td><td class="version">Version 1.1</td></tr></table>
 </div>
