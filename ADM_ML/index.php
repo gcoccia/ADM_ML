@@ -72,37 +72,16 @@ $page_title = $_("Africa Drought Monitor");
 <script type="text/javascript" src="jsscripts/VarDeclaration.js"></script>
 <script type="text/javascript" src="jsscripts/AnimationPrep.js"></script>
 
+<script type="text/javascript">
+	var basinImage  = <?php echo $mask_gauge ?>;
+	<?php foreach($date_array as $key => $value) {
+		echo "var ".$key." = ".$value.";\n";
+		echo "var ".$key."_orig = ".$value.";\n";
+	}
+</script>
+
 <?php 
 $main_page = <<< EOF
-	<script type="text/javascript">
-	var basinImage  = $mask_gauge;
-	var year_initial = $year_initial;
-	var year_final = $year_final;
-	var month_initial = $month_initial;
-	var month_final = $month_final;
-	var day_initial = $day_initial;
-	var day_final = $day_final;
-	var gauge_year_initial = $gauge_year_initial;
-	var gauge_month_initial = $gauge_month_initial;
-	var gauge_day_initial = $gauge_day_initial;
-	var gauge_year_final = $gauge_year_final;
-	var gauge_month_final = $gauge_month_final;
-	var gauge_day_final = $gauge_day_final;
-	var gauge_year_initial_monthly = $gauge_year_initial_monthly;
-	var gauge_month_initial_monthly = $gauge_month_initial_monthly;
-	var gauge_year_final_monthly = $gauge_year_final_monthly;
-	var gauge_month_final_monthly = $gauge_month_final_monthly;
-	var gauge_year_initial_orig = $gauge_year_initial;
-	var gauge_month_initial_orig = $gauge_month_initial;
-	var gauge_day_initial_orig = $gauge_day_initial;
-	var gauge_year_final_orig = $gauge_year_final;
-	var gauge_month_final_orig = $gauge_month_final;
-	var gauge_day_final_orig = $gauge_day_final;
-	var gauge_year_initial_monthly_orig = $gauge_year_initial_monthly;
-	var gauge_month_initial_monthly_orig = $gauge_month_initial_monthly;
-	var gauge_year_final_monthly_orig = $gauge_year_final_monthly;
-	var gauge_month_final_monthly_orig = $gauge_month_final_monthly;
-	</script>
 	<script type="text/javascript" src="jsscripts/MainFunctions.js"></script>
 	<script type="text/javascript">
 	
