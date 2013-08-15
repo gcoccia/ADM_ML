@@ -56,6 +56,10 @@ $label_array = array($LinktoImage => $_('Link to Image'),
 
 $page_title = {$_("Africa Drought Monitor")};
 
+error_reporting(E_ALL);
+ini_set('display_errors', 'on');
+phpinfo()
+
 ?>
 
 <!DOCTYPE html> 
@@ -84,8 +88,6 @@ var basinImage  = <?php echo $mask_gauge ?>;
 		echo "var ".$key." = ".$val.";\n";
 	}
 ?>
-
-console.log(ProcessNTI);
 
 function update_markers(j)
 {
