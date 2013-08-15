@@ -36,6 +36,7 @@ $gauge_month_final_monthly = (int)(substr($Gauge_Final_Time_Monthly,3,2));
 $gauge_year_final = $year_final;
 $gauge_month_final = $month_final;
 $gauge_day_final = $day_final;
+$_ = 'T_';
 
 $date_array = compact("year_initial", "month_initial", "day_initial",
                       "year_final", "month_final", "day_final",
@@ -61,8 +62,6 @@ $info_box_strings = array(1 => $_("Weather data used to drive the hydrologic mod
                           6 => $_("The SPI is an index based on the probability of recording a given amount of precipitation after standardizing the probabilities so that an index of zero indicates the median precipitation amount for the entire precipitation record. The SPI can be calculated at any time step. The index is negative for drought, and positive for wet conditions."));
 
 $page_title = $_("Africa Drought Monitor");
-
-$_ = 'T_';
 
 ?>
 
