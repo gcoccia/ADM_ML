@@ -236,7 +236,7 @@ $page_title = $_("Africa Drought Monitor");
 
 <div id="Region_Placement">
   <select id="BasinSelect" onchange=ChangeBasin(value)>
-    <option value="Title"><?php echo {$_("Select Region...")}?></option>
+    <option value="Title"><?php echo $_("Select Region...")?></option>
     <option value="Congo">Congo</option>
     <option value="Nile">Nile</option>
     <option value="Niger">Niger</option>
