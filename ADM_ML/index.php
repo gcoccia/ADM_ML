@@ -81,7 +81,7 @@ $page_title = $_("Africa Drought Monitor");
 			echo "var ".$key."_orig = ".$value.";\n";
 		} 
 		foreach($label_array as $key => $value) {
-			echo "var ".$key." = ".$value.";\n";
+			echo $key;//"var ".$key." = ".$value.";\n";
 		}
 	?>
 </script>
