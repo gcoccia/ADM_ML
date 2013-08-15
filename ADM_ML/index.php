@@ -45,14 +45,14 @@ $date_array = compact("year_initial", "month_initial", "day_initial",
 											"gauge_year_final_monthly", "gauge_month_final_monthly",
 											"gauge_year_final", "gauge_month_final", "gauge_day_final");
 
-$label_array = array($LinktoImage => $_('Link to Image'),
-										 $LinktoData => $_('Link to Data'),
-										 $PlotTitle => $_('Simulated_Discharge').",".$_('Water_Balance').",".$_('Soil_Moisture_Products'),
-										 $PlotYlabel => $_('Surplus_[mm]').",".$_('Q_[mm/day]').",".$_('Basin_Average'),
-										 $PlotXlabel => $_('Time_[day]'),
-										 $PlotXlabel_Month => $_('Time_[month]'),
-										 $ProcessNTI => $_('Process new time interval'),
-										 $ProcessRPW => $_('Processing request, please wait'));
+$label_array = array("LinktoImage" => $_('Link to Image'),
+										 "LinktoData" => $_('Link to Data'),
+										 "PlotTitle" => $_('Simulated_Discharge').",".$_('Water_Balance').",".$_('Soil_Moisture_Products'),
+										 "PlotYlabel" => $_('Surplus_[mm]').",".$_('Q_[mm/day]').",".$_('Basin_Average'),
+										 "PlotXlabel" => $_('Time_[day]'),
+										 "PlotXlabel_Month" => $_('Time_[month]'),
+										 "ProcessNTI" => $_('Process new time interval'),
+										 "ProcessRPW" => $_('Processing request, please wait'));
 
 $page_title = $_("Africa Drought Monitor");
 
@@ -81,7 +81,7 @@ $page_title = $_("Africa Drought Monitor");
 			echo "var ".$key."_orig = ".$value.";\n";
 		} 
 		foreach($label_array as $key => $value) {
-			echo $key;//"var ".$key." = ".$value.";\n";
+			echo "var ".$key." = ".$value.";\n";
 		}
 	?>
 </script>
