@@ -83,6 +83,8 @@ $page_title = $_("Africa Drought Monitor");
 <script type="text/javascript">
 	var basinImage  = <?php echo $mask_gauge ?>;
 	var info_box_strings = {};
+	
+	// Define JS variables from PHP arrays
 	<?php 
 		foreach($date_array as $key => $value) {
 			echo "var ".$key." = ".$value.";\n";
@@ -99,12 +101,9 @@ $page_title = $_("Africa Drought Monitor");
 	function Info_Box_Call(data_type)
 	{
 		obj = document.getElementById("Info_Box");
-		if (obj.style.visibility == "visible")
-    {
+		if (obj.style.visibility == "visible") {
     	obj.style.visibility = "hidden";
-    }
-		else 
-    {
+    } else {
     	obj.style.visibility = "visible";
     }
 		obj.innerHTML = info_box_strings[data_type];
