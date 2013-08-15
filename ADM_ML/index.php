@@ -75,25 +75,21 @@ $page_title = $_("Africa Drought Monitor");
 
 <script type="text/javascript">
 	var basinImage  = <?php echo $mask_gauge ?>;
-	<?php foreach($date_array as $key => $value) {
-		echo "var ".$key." = ".$value.";\n";
-		echo "var ".$key."_orig = ".$value.";\n";
-	} ?>
+	<?php 
+		foreach($date_array as $key => $value) {
+			echo "var ".$key." = ".$value.";\n";
+			echo "var ".$key."_orig = ".$value.";\n";
+		} 
+		foreach($label_array as $key => $value) {
+			echo "var ".$key." = ".$value.";\n";
+		}
+	?>
 </script>
 
 <?php 
 $main_page = <<< EOF
 	
 	<script type="text/javascript">
-	
-	var LinktoImage = "{$_('Link to Image')}";
-	var LinktoData = "{$_('Link to Data')}";
-	var PlotTitle = "{$_('Simulated_Discharge')}" + ',' + "{$_('Water_Balance')}" + ',' + "{$_('Soil_Moisture_Products')}";
-	var PlotYlabel = "{$_('Surplus_[mm]')}" + ',' + "{$_('Q_[mm/day]')}" + ',' + "{$_('Basin_Average')}";
-	var PlotXlabel = "{$_('Time_[day]')}";
-	var PlotXlabel_Month = "{$_('Time_[month]')}";
-	var ProcessNTI = "{$_('Process new time interval')}";
-	var ProcessRPW = "{$_('Processing request, please wait')}";
 	
 	function update_markers(j)
 	{
