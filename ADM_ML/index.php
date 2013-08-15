@@ -98,17 +98,16 @@ $page_title = $_("Africa Drought Monitor");
 
 	function Info_Box_Call(data_type)
 	{
-		var data_type;
-		obj = document.getElementById("Info_Box").style;
-		if (obj.visibility == "visible")
+		obj = document.getElementById("Info_Box");
+		if (obj.style.visibility == "visible")
     {
-    	obj.visibility = "hidden";
+    	obj.style.visibility = "hidden";
     }
 		else 
     {
-    	obj.visibility = "visible";
+    	obj.style.visibility = "visible";
     }
-		document.getElementById("Info_Box").innerHTML = info_box_strings[data_type];
+		obj.innerHTML = info_box_strings[data_type];
 	}
 
 </script>
