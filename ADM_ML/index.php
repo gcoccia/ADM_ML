@@ -215,50 +215,41 @@ $page_title = $_("Africa Drought Monitor");
       <?php echo $_("Tutorial"); ?>
     </td>
     <td class="flag">
-      <img id="Flag_Image" src="icons/flags/english_flag.gif" onclick=ChangeLanguage("English")>
-    </td>
+      <img id="Flag_Image" src="icons/flags/english_flag.gif" onclick=ChangeLanguage("English")></td>
     <td class="flag">
-      <img id="Flag_Image" src="icons/flags/french_flag.gif" onclick=ChangeLanguage("French")>
-    </td>
+      <img id="Flag_Image" src="icons/flags/french_flag.gif" onclick=ChangeLanguage("French")></td>
     <td class="flag">
-      <img id="Flag_Image" src="icons/flags/chinese_flag.gif" onclick=ChangeLanguage("Chinese")>
-    </td>
+      <img id="Flag_Image" src="icons/flags/chinese_flag.gif" onclick=ChangeLanguage("Chinese")></td>
     <td class="flag">
-      <img id="Flag_Image" src="icons/flags/spanish_flag.gif" onclick=ChangeLanguage("Spanish")>
-    </td>
+      <img id="Flag_Image" src="icons/flags/spanish_flag.gif" onclick=ChangeLanguage("Spanish")></td>
     <td class="flag">
-      <img id="Flag_Image" src="icons/flags/arabic_flag.gif" onclick=ChangeLanguage("Arabic")>
-    </td>
+      <img id="Flag_Image" src="icons/flags/arabic_flag.gif" onclick=ChangeLanguage("Arabic")></td>
     <td class="version">Version 1.1</td></tr></table>
 </div>
+
+<div id="blanket" style="display:none;"></div>
+<div id="popUpDivparent">
+  <div id="popUpDiv" style="display:none;">
+    <a href="#" onclick="popup('popUpDiv')"></a>
+  </div>
+</div>
+
+<div id="Region_Placement">
+  <select id="BasinSelect" onchange=ChangeBasin(value)>
+    <option value="Title"><?php echo {$_("Select Region...")}?></option>
+    <option value="Congo">Congo</option>
+    <option value="Nile">Nile</option>
+    <option value="Niger">Niger</option>
+    <option value="Senegal">Senegal</option>
+    <option value="Volta">Volta</option>
+  </select>
+</div>  
+
 
 <?php 
 $main_page = <<< EOF
 
-  <div id="blanket" style="display:none;"></div>
-  <div id="popUpDivparent">
-    <div id="popUpDiv" style="display:none;">
-      <a href="#" onclick="popup('popUpDiv')"></a>
-    </div>
-  </div>
-  <div id="Region_Placement">
-    <select id="BasinSelect" onchange=ChangeBasin(value)>
-      <option value="Title">{$_("Select Region...")}</option>
-      <option value="Congo">Congo</option>
-      <option value="Nile">Nile</option>
-      <option value="Niger">Niger</option>
-      <option value="Senegal">Senegal</option>
-      <option value="Volta">Volta</option>
-    </select>
-  </div>
-    <div id="Language_Selection">
-    <!--<select id="LanguageSelect" onchange=ChangeLanguage(value)>
-  <option>{$_("Select Language...")}</option>
-      <option value="English">English</option>
-    <option value="French">Français</option>
-  <option value="Chinese">Chinese</option>
-    </select>-->
-  </div>
+  
   <div id="Colorbar" style="visibility:hidden;">
   </div>
   <div id="TimeStamp" style="visibility:hidden;">
