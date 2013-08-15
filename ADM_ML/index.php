@@ -116,7 +116,7 @@ $main_page = <<< EOF
   
   <script type="text/javascript">
   
-  function update_markers(j)
+  function update_markers()
   {
   if (markersArray[0] == undefined)
     {
