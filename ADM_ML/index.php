@@ -56,20 +56,24 @@ $label_array = array($LinktoImage => $_('Link to Image'),
 
 $page_title = $_("Africa Drought Monitor");
 
-$main_page = <<< EOF
+?>
+
 <!DOCTYPE html> 
 <html style="height:100%"> 
-	<head> 
-	<title>{$_("Africa Drought Monitor")}</title>
-	<meta name="viewport" content="initial-scale=1.0, user-scalable=no" /> 
-	<meta http-equiv="content-type" content="text/html; charset=UTF-8"/> 
-	<link href="css/s.css" rel=stylesheet> 
-	<link rel="stylesheet" type="text/css" media="screen,projection" href="css/Moz.css" title="Moz" />
-	<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
-	<script type="text/javascript" src="jsscripts/popupcss.js"></script>
-	<script type="text/javascript" src="jsscripts/MiscFunctions.js"></script>
-	<script type="text/javascript" src="jsscripts/VarDeclaration.js"></script>
-	<script type="text/javascript" src="jsscripts/AnimationPrep.js"></script>
+<head> 
+<title><?php echo $page_title ?></title>
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no" /> 
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"/> 
+<link href="css/s.css" rel=stylesheet> 
+<link rel="stylesheet" type="text/css" media="screen,projection" href="css/Moz.css" title="Moz" />
+<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+<script type="text/javascript" src="jsscripts/popupcss.js"></script>
+<script type="text/javascript" src="jsscripts/MiscFunctions.js"></script>
+<script type="text/javascript" src="jsscripts/VarDeclaration.js"></script>
+<script type="text/javascript" src="jsscripts/AnimationPrep.js"></script>
+
+<?php 
+$main_page = <<< EOF
 	<script type="text/javascript">
 	var basinImage  = $mask_gauge;
 	var year_initial = $year_initial;
