@@ -1,3 +1,15 @@
+<?php
+
+$sidebar_groups = array("Forcing" =>
+                        array("5" => array("value" => "Prec", "title" => $_("Precipitation (mm/day)")),
+                              "6" => array("value" => "Tmax", "title" => $_("Maximum Temperature (C)")),
+                              "7" => array("value" => "Temp", "title" => $_("Minimum Temperature (C)")),
+                              "8" => array("value" => "Wind", "title" => $_("Wind (m/s)"))),
+                        "title" => $_("Meteorology"),
+                        "default" => "");
+
+?>
+
 <div id="Display_Control"> 
   <h1 id="DC_header" onclick=animate_div("DC_div")><?php echo $_("User Interface")?></h1> 
   <div id="DC_div" style="visibility:visible;">
