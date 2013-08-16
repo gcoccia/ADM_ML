@@ -6,18 +6,21 @@ $sidebar_groups = array("Forcing" =>
                                                   "6" => array("value" => "Tmax", "title" => $_("Maximum Temperature (C)")),
                                                   "7" => array("value" => "Temp", "title" => $_("Minimum Temperature (C)")),
                                                   "8" => array("value" => "Wind", "title" => $_("Wind (m/s)"))),
-                              "title" => $_("Meteorology")),
+                              "title" => $_("Meteorology")
+                              "infobox_number" => 1),
 
                         "Model" =>
                         array("products" => array("9" => array("value" => "Evap", "title" => $_("Evaporation (mm/day)")),
                                                   "10" => array("value" => "Sm_1", "title" => $_("Soil Moisture(%) - Layer 1")),
                                                   "11" => array("value" => "Sm_2", "title" => $_("Soil Moisture(%) - Layer 2")),
                                                   "14" => array("value" => "runoff", "title" => $_("Surface Runoff (mm/day)"))),
-                              "title" => $_("Hydrologic Variables")),
+                              "title" => $_("Hydrologic Variables")
+                              "infobox_number" => 2),
 
                         "Drought" =>
                         array("products" => array("15" => array("value" => "smqall", "title" => $_("Drought Index"))),
-                              "title" => $_("Drought Products"))
+                              "title" => $_("Drought Products")
+                              "infobox_number" => 3)
                         );
 
 $sidebar_default = 15;
@@ -69,12 +72,18 @@ foreach($sidebar_groups as $key => $value) {
 ?>
 
 <div id=<?php echo $key?> >
-  <h1 id=<?php echo $key."_header"?> onclick=animate_div("Forcing_div")><?php echo $_("Meteorology")?> <img id="question_mark" src="icons/question_icon.png" onmouseover="Info_Box_Call(1)" onmouseout="Info_Box_Call(1)"></h1>
-  <div id="Forcing_div" style="visibility:visible;">
-    <input id="overlayImageSelect_5" type="radio" name="group1" value="Prec" onclick=animate_overlay(5)> <?php echo $_("Precipitation (mm/day)")?> <br/>
-    <input id="overlayImageSelect_6" type="radio" name="group1" value="Tmax" onclick=animate_overlay(6)> <?php echo $_("Maximum Temperature (C)")?> <br/>
-    <input id="overlayImageSelect_7" type="radio" name="group1" value="Temp" onclick=animate_overlay(7)> <?php echo $_("Minimum Temperature (C)")?> <br/>
-    <input id="overlayImageSelect_8" type="radio" name="group1" value="Wind" onclick=animate_overlay(8)> <?php echo $_("Wind (m/s)")?> <br/> 
+  <h1 id=<?php echo $key."_header"?> onclick=animate_div(<?php echo $key."_div"?>)>
+    <?php echo $sidebar_groups[$key]["title"]?> 
+    <img id="question_mark" src="icons/question_icon.png" onmouseover=<?php echo "Info_Box_Call(".$sidebar_groups[$key]["infobox_number"].")"?> onmouseout=<?php echo "Info_Box_Call(".$sidebar_groups[$key]["infobox_number"].")"?>>
+  </h1>
+  <div id=<?php echo $key."_div"?> style="visibility:visible;">
+    <?php 
+    foreach($value["products"] as $productID => $productAttr) {
+    ?>
+      <input id=<?php echo "overlayImageSelect_".$productID?> type="radio" name="group1" value=<?php echo $productAttr["value"]?> onclick=animate_overlay(<?php echo $productID?>)> <?php echo $productAttr("title")?> <br/>
+    <?php
+    }
+    ?>
   </div>
 </div>
 
