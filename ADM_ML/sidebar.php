@@ -64,8 +64,12 @@ $sidebar_default = 15;
   </div>
 </div>
 
-<div id="Forcings">
-  <h1 id="Forcing_header" onclick=animate_div("Forcing_div")><?php echo $_("Meteorology")?> <img id="question_mark" src="icons/question_icon.png" onmouseover="Info_Box_Call(1)" onmouseout="Info_Box_Call(1)"></h1>
+<?php
+foreach($sidebar_groups as $key => $value) {
+?>
+
+<div id=<?php echo $key?> >
+  <h1 id=<?php echo $key."_header"?> onclick=animate_div("Forcing_div")><?php echo $_("Meteorology")?> <img id="question_mark" src="icons/question_icon.png" onmouseover="Info_Box_Call(1)" onmouseout="Info_Box_Call(1)"></h1>
   <div id="Forcing_div" style="visibility:visible;">
     <input id="overlayImageSelect_5" type="radio" name="group1" value="Prec" onclick=animate_overlay(5)> <?php echo $_("Precipitation (mm/day)")?> <br/>
     <input id="overlayImageSelect_6" type="radio" name="group1" value="Tmax" onclick=animate_overlay(6)> <?php echo $_("Maximum Temperature (C)")?> <br/>
@@ -74,35 +78,9 @@ $sidebar_default = 15;
   </div>
 </div>
 
-<div id="Model">
-  <h1 id="Model_header" onclick=animate_div("Model_div")><?php echo $_("Hydrologic Variables")?> <img id="question_mark" src="icons/question_icon.png" onmouseover="Info_Box_Call(2)" onmouseout="Info_Box_Call(2)"></h1>
-  <div id="Model_div" style="visibility:visible;">
-    <input id="overlayImageSelect_9" type="radio" name="group1" value="Evap" onclick=animate_overlay(9)> <?php echo $_("Evaporation (mm/day)")?><br />
-    <input id="overlayImageSelect_10" type="radio" name="group1" value="Sm_1" onclick=animate_overlay(10)> <?php echo $_("Soil Moisture(%) - Layer 1")?><br />
-    <input id="overlayImageSelect_11" type="radio" name="group1" value="Sm_2" onclick=animate_overlay(11)> <?php echo $_("Soil Moisture(%) - Layer 2")?><br />
-    <input id="overlayImageSelect_14" type="radio" name="group1" value="runoff" onclick=animate_overlay(14)> <?php echo $_("Surface Runoff (mm/day)")?> <br />
-  </div>
-</div>
-
-<div id="Drought">
-  <h1 id="Drought_header" onclick=animate_div("Drought_div")><?php echo $_("Drought Products")?></h1>
-  <div id="Drought_div" style="visibility:visible;">
-  <input id="overlayImageSelect_15" input type="radio" name="group1" value="smqall" onclick=animate_overlay(15) checked = "checked" > <?php echo $_("Drought Index")?><img id="question_mark" src="icons/question_icon.png" onmouseover="Info_Box_Call(3)" onmouseout="Info_Box_Call(3)"><br/>
-    <!--<input id="overlayImageSelect_16" input type="radio" name="group1" value="SMOS_SW2F" onclick=animate_overlay(16)> SARI - SMOS Index <a href="http://www.cesbio.ups-tlse.fr/SMOS_blog/?page_id=2589" target="_blank">(CESBIO)</a> <img id="question_mark" src="icons/question_icon.png" onmouseover="Info_Box_Call(5)" onmouseout="Info_Box_Call(5)"> <br />
-        <input id="overlayImageSelect_17" type="radio" name="group1" onclick=SPIselect(1) style="float: left"> 
-    <div id="SPIdiv" class="SPIdiv">SPI <img id="question_mark" src="icons/question_icon.png" onmouseover="Info_Box_Call(5)" onmouseout="Info_Box_Call(5)"></div>
-    -->
-  <br/>
-  </div>
-</div>
-
-<!--<div id="RemoteSensing">
-    <h1 id="RS_header" onclick=animate_div("RS_div")>Remote Sensing Data <img id="question_mark" src="icons/question_icon.png" onmouseover="Info_Box_Call(5)" onmouseout="Info_Box_Call(5)"></h1>
-    <div id="RS_div" style="visibility:visible;">
-    <input id="overlayImageSelect_16" input type="radio" name="group1" value="SMOS_SW2F" onclick=animate_overlay(16)> SARI - SMOS Index <a href="http://www.cesbio.ups-tlse.fr/SMOS_blog/?page_id=2589" target="_blank">(CESBIO)</a>  <br />
-    </div>
-    </form>
-</div>-->
+<?php
+}
+?>
 
 <h1 id="sidebar_header" onclick=animate_sidebar()><img src="icons/Arrow_up.png"/></h1>
 <div id="Info_Box" style="visibility:hidden;"></div>
