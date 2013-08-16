@@ -68,6 +68,7 @@ $sidebar_default = 15;
 </div>
 
 <?php
+//Print the sidebar groups and all of their products to HTML
 foreach($sidebar_groups as $key => $value) {
 ?>
 
