@@ -251,7 +251,7 @@ $gauge_info_arrays = array("gauge_number" => $gauge_number_2,
 </div>
 
 <div id="sidebar" style="visibility:visible"> 
-<?php include('/sidebar.php'); ?>
+<?php include('sidebar.php'); ?>
 </div>
 
 </body> 
