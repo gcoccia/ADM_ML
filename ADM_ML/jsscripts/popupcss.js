@@ -53,9 +53,9 @@ function window_pos(popUpDivVar) {
 function popup(windowname,m,contentString,gaugen_temp,gauge_lat_temp,gauge_lon_temp,gauge_area_temp) {
 	var flag_popup = 0;
 	gaugen = gaugen_temp;
-	gauge_area = gauge_area_temp;
-	gauge_lat = gauge_lat_temp;
-	gauge_lon = gauge_lon_temp;
+  var gauge_area = gauge_area_temp;
+  var gauge_lat = gauge_lat_temp;
+  var gauge_lon = gauge_lon_temp;
 	blanket_size(windowname);
 	window_pos(windowname);
 	var el = document.getElementById(windowname);
