@@ -76,7 +76,7 @@ foreach($sidebar_groups as $key => $value) {
     <?php echo $sidebar_groups[$key]["title"]?> 
     <img id="question_mark" src="icons/question_icon.png" onmouseover=<?php echo "Info_Box_Call(".$sidebar_groups[$key]["infobox_number"].")"?> onmouseout=<?php echo "Info_Box_Call(".$sidebar_groups[$key]["infobox_number"].")"?>>
   </h1>
-  <div id=<?php echo $key."_div"?> style="visibility:visible;">
+<!--   <div id=<?php echo $key."_div"?> style="visibility:visible;">
     <?php 
     foreach($value["products"] as $productID => $productAttr) {
     ?>
@@ -84,7 +84,7 @@ foreach($sidebar_groups as $key => $value) {
     <?php
     }
     ?>
-  </div>
+  </div> -->
 </div>
 
 <?php
