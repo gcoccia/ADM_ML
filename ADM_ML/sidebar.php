@@ -72,7 +72,7 @@ foreach($sidebar_groups as $key => $value) {
 ?>
 
 <div id=<?php echo $key?> >
-  <h1 id=<?php echo $key."_header"?> onclick=animate_div(<?php echo $key."_div"?>)>
+  <h1 id=<?php echo $key."_header"?> onclick="animate_div(<?php echo $key."_div"?>)"">
     <?php echo $sidebar_groups[$key]["title"]?> 
     <img id="question_mark" src="icons/question_icon.png" onmouseover="<?php echo "Info_Box_Call(".$sidebar_groups[$key]["infobox_number"].")"?>" onmouseout="<?php echo "Info_Box_Call(".$sidebar_groups[$key]["infobox_number"].")"?>">
   </h1>
