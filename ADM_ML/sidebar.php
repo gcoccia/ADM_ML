@@ -82,7 +82,8 @@ foreach($sidebar_groups as $key => $value) {
     ?>
       <input id="<?php echo "overlayImageSelect_".$productID?>" 
              type="radio" name="group1" value="<?php echo $productAttr["value"]?>"
-             onclick=animate_overlay(<?php echo $productID?>)> <?php echo $productAttr["title"]?> <br/>
+             onclick=animate_overlay(<?php echo $productID?>)
+             <?php if($sidebar_default == $productID) echo "checked=true"?>> <?php echo $productAttr["title"]?> <br/>
     <?php
     }
     ?>
