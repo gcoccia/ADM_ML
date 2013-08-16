@@ -71,8 +71,8 @@ $sidebar_default = 15;
 foreach($sidebar_groups as $key => $value) {
 ?>
 
-<div id=<?php echo $key?> >
-  <h1 id=<?php echo $key."_header"?> onclick="animate_div(<?php echo $key."_div"?>)"">
+<div id="<?php echo $key?>" >
+  <h1 id="<?php echo $key."_header"?>" onclick="animate_div(<?php echo $key."_div"?>)">
     <?php echo $sidebar_groups[$key]["title"]?> 
     <img id="question_mark" src="icons/question_icon.png" onmouseover="<?php echo "Info_Box_Call(".$sidebar_groups[$key]["infobox_number"].")"?>" onmouseout="<?php echo "Info_Box_Call(".$sidebar_groups[$key]["infobox_number"].")"?>">
   </h1>
@@ -80,7 +80,7 @@ foreach($sidebar_groups as $key => $value) {
     <?php 
     foreach($value["products"] as $productID => $productAttr) {
     ?>
-      <input id=<?php echo "overlayImageSelect_".$productID?> type="radio" name="group1" value="<?php echo $productAttr["value"]?>" onclick="animate_overlay(<?php echo $productID?>)"> <?php echo $productAttr("title")?> <br/>
+      <input id="<?php echo "overlayImageSelect_".$productID?>" type="radio" name="group1" value="<?php echo $productAttr["value"]?>" onclick="animate_overlay(<?php echo $productID?>)"> <?php echo $productAttr("title")?> <br/>
     <?php
     }
     ?>
