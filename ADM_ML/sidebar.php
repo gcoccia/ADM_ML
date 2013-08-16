@@ -67,33 +67,22 @@ $sidebar_default = 15;
   </div>
 </div>
 
-<?php
-//Print the sidebar groups and all of their products to HTML
-foreach($sidebar_groups as $key => $value) {
-?>
-
-<div id="<?php echo $key?>" >
-  <h1 id="<?php echo $key."_header"?>" onclick=animate_div(<?php echo "\"".$key."_div"."\""?>)>
-    <?php echo $sidebar_groups[$key]["title"]?> 
-    <img id="question_mark" src="icons/question_icon.png" onmouseover="<?php echo "Info_Box_Call(".$sidebar_groups[$key]["infobox_number"].")"?>" onmouseout="<?php echo "Info_Box_Call(".$sidebar_groups[$key]["infobox_number"].")"?>">
+<?php foreach($sidebar_groups as $type => $data) { ?>
+<div id="<?php echo $type?>" >
+  <h1 id="<?php echo $type."_header"?>" onclick=animate_div(<?php echo "\"".$type."_div"."\""?>)>
+    <?php echo $data["title"]?> 
+    <img id="question_mark" src="icons/question_icon.png" onmouseover="<?php echo "Info_Box_Call(".$data["infobox_number"].")"?>" onmouseout="<?php echo "Info_Box_Call(".$data["infobox_number"].")"?>">
   </h1>
-  <div id="<?php echo $key."_div"?>" style="visibility:visible;">
-    <?php 
-    foreach($value["products"] as $productID => $productAttr) {
-    ?>
+  <div id="<?php echo $type."_div"?>" style="visibility:visible;">
+    <?php foreach($data["products"] as $productID => $productAttr) { ?>
       <input id="<?php echo "overlayImageSelect_".$productID?>" 
              type="radio" name="group1" value="<?php echo $productAttr["value"]?>"
              onclick=animate_overlay(<?php echo $productID?>)
              <?php if($sidebar_default == $productID) echo "checked=true"?>> <?php echo $productAttr["title"]?> <br/>
-    <?php
-    }
-    ?>
+    <?php } ?>
   </div>
 </div>
-
-<?php
-}
-?>
+<?php } ?>
 
 <h1 id="sidebar_header" onclick=animate_sidebar()><img src="icons/Arrow_up.png"/></h1>
 <div id="Info_Box" style="visibility:hidden;"></div>
