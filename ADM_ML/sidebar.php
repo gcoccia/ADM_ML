@@ -71,6 +71,8 @@ $sidebar_default = 15;
 foreach($sidebar_groups as $key => $value) {
 ?>
 
+<div id=<?php echo $key?> ></div>
+  
 
 <?php
 }
