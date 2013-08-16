@@ -34,7 +34,6 @@
 <div id="Forcings">
   <h1 id="Forcing_header" onclick=animate_div("Forcing_div")><?php echo $_("Meteorology")?> <img id="question_mark" src="icons/question_icon.png" onmouseover="Info_Box_Call(1)" onmouseout="Info_Box_Call(1)"></h1>
   <div id="Forcing_div" style="visibility:visible;">
-  <form id="variables_form">
     <input id="overlayImageSelect_5" type="radio" name="group1" value="Prec" onclick=animate_overlay(5)> <?php echo $_("Precipitation (mm/day)")?> <br/>
     <input id="overlayImageSelect_6" type="radio" name="group1" value="Tmax" onclick=animate_overlay(6)> <?php echo $_("Maximum Temperature (C)")?> <br/>
     <input id="overlayImageSelect_7" type="radio" name="group1" value="Temp" onclick=animate_overlay(7)> <?php echo $_("Minimum Temperature (C)")?> <br/>
@@ -68,7 +67,6 @@
   <h1 id="Basins_header" onclick=animate_div("Basins_div")><?php echo $_("Catchment Data")?> <img id="question_mark" src="icons/question_icon.png" onmouseover="Info_Box_Call(4)" onmouseout="Info_Box_Call(4)"></h1>
   <div id="Basins_div" style="visibility:visible;">
     <input id="overlayImageSelect_1" type="radio" name="group1" value="Basins" onclick=update_markers()> <?php echo $_("Stream Gauges")." : ".$gauge_day_final."/".$gauge_month_final."/".$gauge_year_final ?><br />
-  </form>
   </div>
 </div>
 
