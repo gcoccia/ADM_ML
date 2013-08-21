@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<dimensions>
+  <res>0.25</res> <!-- Resolution, in degrees -->
+  <minlat>-34.875</minlat>
+  <minlon>-18.875</minlon>
+  <nlat>292></nlat>
+  <nlon>296</nlon>
+</dimensions>
+
+<variables>
+
+  <group name="Meteorology" divtitle="Forcing">
+    <variable name="tmax" dataset="PGF" units="K" ts="ALL" num="5" title="Maximum Temperature (C)"></variable>
+    <variable name="tmin" dataset="PGF" units="K" ts="ALL" num="6" title="Minimum Temperature (C)"></variable>
+    <variable name="wind" dataset="PGF" units="m/s" ts="ALL" num="7" title="Wind (m/s)"></variable>
+    <variable name="prec" dataset="PGF" units="mm/day" ts="ALL" num="8" title="Precipitation (mm/day)"></variable>
+    <infobox>???</infobox>
+  </group>
+
+  <group name="Hydrologic Variables" divtitle="Model">
+    <variable name="evap" dataset="VIC_PGF" units="mm/day" ts="ALL" num="9" title="Evaporation (mm/day)"></variable>
+    <variable name="Sm_1" dataset="???" units="???" ts="???" num="10" title="Soil Moisture(%) - Layer 1"></variable>
+    <variable name="Sm_2" dataset="???" units="???" ts="???" num="11" title="Soil Moisture(%) - Layer 2"></variable>
+    <variable name="runoff" dataset="???" units="???" ts="???" num="14" title="Surface Runoff (mm/day)"></variable>
+    <infobox>???</infobox>
+  </group>
+
+  <group name="Drought Products" divtitle="Drought">
+    <variable name="smqall" dataset="???" units="???" ts="???" num="15" title="Drought Index"></variable>
+    <infobox>???</infobox>
+  </group>
+
+  <default num="15"></default>
+
+</variables>
