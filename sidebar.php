@@ -31,12 +31,12 @@
   </div>
 </div> 
 
-<div id="Basins">
+<!-- <div id="Basins">
   <h1 id="Basins_header" class="data-group-header"><?php echo $_("Catchment Data")?> <img class="question_mark" id="4" src="icons/question_icon.png"/></h1>
   <div id="Basins_div" class="data-form-block">
     <input id="overlayImageSelect_1" type="radio" name="group1" value="Basins" onclick=update_markers()> <?php echo $_("Stream Gauges")." : ".$gauge_day_final."/".$gauge_month_final."/".$gauge_year_final ?><br />
   </div>
-</div>
+</div> -->
 
 <?php foreach($xmlobj->variables->group as $group) { ?>
 <div id="<?php echo $group['divtitle']?>" >
