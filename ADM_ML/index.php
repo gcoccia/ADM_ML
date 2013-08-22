@@ -105,9 +105,6 @@ $gauge_info_arrays = array("gauge_number" => $gauge_number_2,
     foreach($label_array as $key => $value) {
       echo "var ".$key." = "."\"".$value."\"".";\n";
     }
-/*    foreach($info_box_strings as $key => $value) {
-      echo "info_box_strings[".$key."] = "."\"".$value."\"".";\n";
-    }*/
     foreach($gauge_info_arrays as $key => $value) {
       echo "var ".$key." = ".$value.";\n";
     }
