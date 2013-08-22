@@ -177,7 +177,6 @@ $gauge_info_arrays = array("gauge_number" => $gauge_number_2,
     });
 
     //Info Box events
-    $("#Info_Box").toggle();
     $(".question_mark").hover(function() {
         $("#Info_Box").toggle();
         $("#Info_Box").html(info_box_strings[$(this).attr('id')])},
@@ -185,7 +184,7 @@ $gauge_info_arrays = array("gauge_number" => $gauge_number_2,
         $("#Info_Box").toggle();
         $("#Info_Box").html('');
     });
-    
+
   });
 
 </script>
