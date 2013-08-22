@@ -1,4 +1,9 @@
 <?php
+
+if (file_exists('settings.xml')) {
+  $xmlobj = simplexml_load_file("settings.xml");
+} else { exit("Error: settings.xml file not found."); }
+
 require_once('php-gettext-1.0.11/gettext.inc');
 include 'scripts/Read_Gauges.php';
 include 'scripts/Read_DM_log.php';#Script to read in the drought monitor parameters to set as limits
@@ -61,12 +66,12 @@ $info_box_strings = array(1 => $_("Weather data used to drive the hydrologic mod
                           5 => $_("This is the SMOS CATDS L4 Root zone soil moisture index. The product is obtained from the integration of SMOS surface soil moisture L3 products into a double bucket hydrological model. It represents the soil moisture in the first meters of the soil in percentage."),
                           6 => $_("The SPI is an index based on the probability of recording a given amount of precipitation after standardizing the probabilities so that an index of zero indicates the median precipitation amount for the entire precipitation record. The SPI can be calculated at any time step. The index is negative for drought, and positive for wet conditions."));
 
-$gauge_info_arrays = array("gauge_number" => $gauge_number_2,
+/*$gauge_info_arrays = array("gauge_number" => $gauge_number_2,
                             "gauge_lat" => $gauge_lat,
                             "gauge_lon" => $gauge_lon,
                             "gauge_area" => $gauge_area,
                             "gauge_percentile" => $gauge_percentile,
-                            "gauge_flag" => $gauge_flag);
+                            "gauge_flag" => $gauge_flag);*/
 
 ?>
 
@@ -78,16 +83,18 @@ $gauge_info_arrays = array("gauge_number" => $gauge_number_2,
 <meta http-equiv="content-type" content="text/html; charset=UTF-8"/> 
 <link href="css/s.css" rel=stylesheet> 
 <link rel="stylesheet" type="text/css" media="screen,projection" href="css/Moz.css" title="Moz" />
+<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
 <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
 <script type="text/javascript" src="jsscripts/popupcss.js"></script>
 <script type="text/javascript" src="jsscripts/MiscFunctions.js"></script>
 <script type="text/javascript" src="jsscripts/VarDeclaration.js"></script>
 <script type="text/javascript" src="jsscripts/AnimationPrep.js"></script>
+<script type="text/javascript" src="jsscripts/ImageOverlay.js"></script>
 <script type="text/javascript" src="jsscripts/MainFunctions.js"></script>
 
 <script type="text/javascript">
   var basinImage  = <?php echo $mask_gauge ?>;
-  var info_box_strings = {};
+  var info_box_strings = <?php echo json_encode($info_box_strings, JSON_NUMERIC_CHECK) ?>;
   
   // Define JS variables from PHP arrays
   <?php 
@@ -98,23 +105,30 @@ $gauge_info_arrays = array("gauge_number" => $gauge_number_2,
     foreach($label_array as $key => $value) {
       echo "var ".$key." = "."\"".$value."\"".";\n";
     }
-    foreach($info_box_strings as $key => $value) {
-      echo "info_box_strings[".$key."] = "."\"".$value."\"".";\n";
-    }
-    foreach($gauge_info_arrays as $key => $value) {
+/*    foreach($gauge_info_arrays as $key => $value) {
       echo "var ".$key." = ".$value.";\n";
-    }
+    }*/
   ?>
 
-  function Info_Box_Call(data_type)
+  function initialize() 
   {
-    obj = document.getElementById("Info_Box");
-    if (obj.style.visibility == "visible") {
-      obj.style.visibility = "hidden";
-    } else {
-      obj.style.visibility = "visible";
-    }
-    obj.innerHTML = info_box_strings[data_type];
+    // Echo user settings from PHP
+    var dim = <?php echo json_encode($xmlobj->dimensions, JSON_NUMERIC_CHECK) ?>;
+    var swBound = new google.maps.LatLng(dim.minlat, dim.minlon);
+    var neBound = new google.maps.LatLng(dim.minlat + dim.nlat*dim.res, dim.minlon + dim.nlon*dim.res);
+    var mapCenter = new google.maps.LatLng(dim.minlat + dim.nlat*dim.res/2.5, dim.minlon + dim.nlon*dim.res/2);
+    
+    var styleArray = [{featureType: 'administrative.country',stylers: [{ visibility: 'simplified' }]}];
+
+    var myOptions = {styles: styleArray,zoom: 3,center: mapCenter,panControl: false,zoomControl: true,zoomControlOptions:{style:      
+    google.maps.ZoomControlStyle.DEFAULT,position: google.maps.ControlPosition.LEFT_TOP},scaleControl: false,streetViewControl: false,mapTypeControl: 
+    true,mapTypeControlOptions:{style: google.maps.MapTypeControlStyle.DROPDOWN_MENU,position: google.maps.ControlPosition.TOP_LEFT},mapTypeId: 
+    google.maps.MapTypeId.TERRAIN};
+
+    //Insert the map canvas into html
+    map_array[0] = new google.maps.Map(document.getElementById("map_canvas_1"), myOptions);
+    bounds = new google.maps.LatLngBounds(swBound, neBound);
+    animate_overlay(15) //Load the drought index map from the start
   }
 
   function update_markers()
@@ -179,10 +193,30 @@ $gauge_info_arrays = array("gauge_number" => $gauge_number_2,
     }
   }
 
+  $(document).ready(function() {
+
+    initialize();
+
+    //Collapsible sidebar elements
+    $(".data-group-header").click(function() {
+      $(this).parent().find(".data-form-block").toggle();
+    });
+
+    //Info Box events
+    $(".question_mark").hover(function() {
+        $("#Info_Box").css("visibility", "visible");
+        $("#Info_Box").html(info_box_strings[$(this).attr('id')])},
+      function() {
+        $("#Info_Box").css("visibility", "hidden");
+        $("#Info_Box").html('');
+    });
+
+  });
+
 </script>
 </head> 
 
-<body onload="initialize();" style="height:100%;margin:0">  
+<body style="height:100%;margin:0">  
 
 <div class="top">
   <div class="box">
@@ -244,10 +278,8 @@ $gauge_info_arrays = array("gauge_number" => $gauge_number_2,
 <div id="Colorbar" style="visibility:hidden;"></div>
 <div id="TimeStamp" style="visibility:hidden;"></div>
 <div id="Logo" style="visibility:hidden;"></div>
-<div id="DBandMC"></div>
-
-<div id="sidebar_call" style="visibility:hidden;">
-  <h1 onclick=animate_sidebar() > <img src="icons/Arrow_down.png"/> </h1>
+<div id="DBandMC">
+  <div id="map_canvas_1" style="width:100%; height:100%;"></div>
 </div>
 
 <div id="sidebar" style="visibility:visible"> 
