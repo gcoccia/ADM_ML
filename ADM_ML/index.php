@@ -253,11 +253,8 @@ $gauge_info_arrays = array("gauge_number" => $gauge_number_2,
 <div id="Logo" style="visibility:hidden;"></div>
 <div id="DBandMC"></div>
 
-<div id="sidebar_call" style="visibility:hidden;">
-  <h1 onclick=animate_sidebar() > <img src="icons/Arrow_down.png"/> </h1>
-</div>
-
 <div id="sidebar" style="visibility:visible"> 
+<h1 onclick=animate_sidebar() > <img src="icons/Arrow_down.png"/> </h1>
 <?php include('sidebar.php'); ?>
 </div>
 
