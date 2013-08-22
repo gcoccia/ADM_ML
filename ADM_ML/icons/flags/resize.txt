@@ -1,1 +1,0 @@
-convert file_in -resize 50X30\! file_out
