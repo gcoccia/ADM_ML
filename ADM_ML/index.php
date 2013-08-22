@@ -118,10 +118,10 @@ $gauge_info_arrays = array("gauge_number" => $gauge_number_2,
     var mapCenter = new google.maps.LatLng(-10, 30);
     var swBound = new google.maps.LatLng(-35.000, -19.000);
     var neBound = new google.maps.LatLng(38.000, 55.000);
-
+    
     var styleArray = [{featureType: 'administrative.country',stylers: [{ visibility: 'simplified' }]}];
 
-    var myOptions = {styles: styleArray,zoom: 3,panControl: false,zoomControl: true,zoomControlOptions:{style:      
+    var myOptions = {styles: styleArray,zoom: 3,center: mapCenter,panControl: false,zoomControl: true,zoomControlOptions:{style:      
     google.maps.ZoomControlStyle.DEFAULT,position: google.maps.ControlPosition.LEFT_TOP},scaleControl: false,streetViewControl: false,mapTypeControl: 
     true,mapTypeControlOptions:{style: google.maps.MapTypeControlStyle.DROPDOWN_MENU,position: google.maps.ControlPosition.TOP_LEFT},mapTypeId: 
     google.maps.MapTypeId.TERRAIN};
