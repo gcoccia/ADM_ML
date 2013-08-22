@@ -71,27 +71,28 @@ Logo_Images[16] = "icons/smos_logo.png";
 var myVariable;
 
 function imageLoaded()
-	{
+{
 	ImageLoadedBoolean = true;
-	}
+}
 	
 function update_overlay(j) 
 {
 	var k;
 	var cbar_string;	
 	if (typeof static_overlay_obj[j] !="undefined") //hide the overlay
-		{
+	{
 		static_overlay_obj[j].remove();
 		delete static_overlay_obj[j];
-		}
+	}
 	else if(typeof static_overlay_obj[j] == "undefined")
-		{
+	{
 		// grab overlay image select value
 		value = document.getElementById("overlayImageSelect_" + j).value;
 		// add new overlay to map
 		static_overlay_obj[j] = new ImageOverlay(bounds, srcImage[j], map_array[0]);
-		}
 	}
+}
+
 function update_overlay_opacity(flag_dir)
 {
 	var j = variable_image_number;
@@ -99,13 +100,13 @@ function update_overlay_opacity(flag_dir)
 	if (flag_dir == 0){
 		overlay_opacity = overlay_opacity - 0.2;
 		if (overlay_opacity < 0){overlay_opacity = 0;};
-		}
+	}
 	else{
 		overlay_opacity = overlay_opacity + 0.2;
 		if (overlay_opacity > 1){overlay_opacity = 1;};
-		}
-	if (overlay_obj[j] != undefined){overlay_obj[j].ChangeOpacity();}
 	}
+	if (overlay_obj[j] != undefined){overlay_obj[j].ChangeOpacity();}
+}
 	
 function animate_overlay(j,time_flag)
 {
@@ -115,22 +116,22 @@ function animate_overlay(j,time_flag)
 	variable_image_number = j;
 	var k;
 	//Remove all the current overlays
-	    for (k=0; k < ImageStrArray.length; k++)
-		{
-	        if (overlay_obj[k] != undefined) 
-	               {
-	    	        clearTimeout(t);
-	                    overlay_obj[k].remove();
-	                    delete overlay_obj[k];
-	                    update_colorbar(k);
-	                    //Remove time stamp
-	                    ChangeTimeStamp(3);
-	                    }
-		}
+  for (k=0; k < ImageStrArray.length; k++)
+	{
+    if (overlay_obj[k] != undefined) 
+	  {
+	  	clearTimeout(t);
+      overlay_obj[k].remove();
+      delete overlay_obj[k];
+      update_colorbar(k);
+      //Remove time stamp
+      ChangeTimeStamp(3);
+    }
+	}
 
-	    cbar = document.getElementById("Colorbar").style;
-	    cbar.visibility = "hidden";
-	    cbar.height = "";
+  cbar = document.getElementById("Colorbar").style;
+  cbar.visibility = "hidden";
+  cbar.height = "";
 
 	//Fill up the Array of image strings
 	ImageTimeArray[j] = new Array();
@@ -142,8 +143,8 @@ function animate_overlay(j,time_flag)
 	var i = 0;
 	update_colorbar(j);
 	update_overlay_animate(j,0);
-	    update_logo(j);
-	}
+  update_logo(j);
+}
 	
 function update_colorbar(j)
 {
@@ -151,18 +152,18 @@ function update_colorbar(j)
 	var obj
 	obj = document.getElementById("Colorbar").style;
 	if (obj.visibility == "visible")
-		{
+	{
 		obj.visibility = "hidden";
 		obj.height = "";
-		}
+	}
 	else if(obj.visibility == "hidden")
-		{
+	{
 		obj.visibility = "visible";
 		obj.height = "100";
 		contentString = "<img src="+Colorbar_Images[j]+"></img>";
 		document.getElementById('Colorbar').innerHTML = contentString;
-		}
 	}
+}
 	
 function update_overlay_animate(j,i) 
 {
@@ -172,69 +173,68 @@ function update_overlay_animate(j,i)
 	var time_delay = 1000*1/frames_per_second;
 	//var ImageLoadedBoolean;
 	if (i == 0)
-		{
+	{
 		value = document.getElementById("overlayImageSelect_" + j).value;
 		overlay_obj[j] = new ImageOverlay(bounds, ImageStrArray[j][i], map_array[0],ImageIdArray[j]);
 		ChangeTimeStamp(1,i,j)
 		i = i+1;
 		fcnstr = "update_overlay_animate(" + j + "," + i + ")";
 		t = setTimeout(fcnstr,time_delay);
-		}
+	}
 	else
-		{
+	{
 		if (i == maxi) {i = 0};
-	    	//ImageLoadedBoolean = false;
+		  	//ImageLoadedBoolean = false;
 		overlay_obj[j].swap(ImageStrArray[j][i]);
 		//while(ImageLoadedBoolean == false){}
 		ChangeTimeStamp(2,i,j)
 		i = i+1;
 		fcnstr = "update_overlay_animate(" + j + "," + i + ")";
 		t = setTimeout(fcnstr,time_delay);
-		}
 	}
+}
 	
 function ClearAllOverlays()
 {
 	var k;
 	//Clear all variable overlays
 	for (k=0;k<overlay_obj.length;k++)
-		{
+	{
 		if (overlay_obj[k] != undefined)
-			{
+		{
 			clearTimeout(t);
-	                    overlay_obj[k].remove();
-	                    delete overlay_obj[k];
-	                    update_colorbar(k);
-	                    //Remove time stamp
-	                    ChangeTimeStamp(3);
-			} 
-		}
+      overlay_obj[k].remove();
+      delete overlay_obj[k];
+      update_colorbar(k);
+      //Remove time stamp
+      ChangeTimeStamp(3);
+		} 
+	}
 	//Clear all static overlays
-	    for (k=0;k<static_overlay_obj.length;k++)
-	            {
-	            if (static_overlay_obj[k] != undefined)
-	                    {
-	                    clearTimeout(t);
-	                    static_overlay_obj[k].remove();
-	                    delete static_overlay_obj[k];
-	                    }
-	            }
+  for (k=0;k<static_overlay_obj.length;k++)
+  {
+    if (static_overlay_obj[k] != undefined)
+	  {
+	  clearTimeout(t);
+	  static_overlay_obj[k].remove();
+	  delete static_overlay_obj[k];
+	  }
+  }
 
-	    cbar = document.getElementById("Colorbar").style;
-	    cbar.visibility = "hidden";
-	    cbar.height = "";
+  cbar = document.getElementById("Colorbar").style;
+  cbar.visibility = "hidden";
+  cbar.height = "";
 	update_logo(0);
 
 	//Remove all basin layers
 	for (k=0;k<overlay_mask_dropdown.length;k++)
-	            {                
+  {                
 		if (overlay_mask_dropdown[k] != undefined)
-	                    {
+    {
 			overlay_mask_dropdown[k].remove();
-	                    delete overlay_mask_dropdown[k];
-	                    }                
-		}
-
+      delete overlay_mask_dropdown[k];
+    }                
+	}
 
 	//Clear all forms
 	document.getElementById("variables_form").reset();
@@ -242,7 +242,7 @@ function ClearAllOverlays()
 	//Make sure the drought index isn't clicked when clearing the maps
 	document.getElementById("overlayImageSelect_15").checked = false;//.checked = "unchecked";// = "unchecked"; 
 
-	}
+}
 	
 function animate_overlay_submit()
 {
@@ -250,75 +250,75 @@ function animate_overlay_submit()
 	var k;
 	var j = variable_image_number;
 	for (k=0;k<overlay_obj.length;k++)
+	{
+		if (overlay_obj[k] != undefined)
 		{
-		 if (overlay_obj[k] != undefined)
-			 {
-	                      clearTimeout(t);
-	                      overlay_obj[k].remove();
-	                      delete overlay_obj[k];
-	                      update_colorbar(k);
-	                      //Remove time stamp
-	                      ChangeTimeStamp(3);
-	                  //Fill up the Array of image strings
-	    	          ImageTimeArray[j] = new Array();
-	            	  ImageStrArray[j] = new Array();
-	   			  if (j >= 17 & j <= 20)ImageArrayPrep_SPI(ImageStrArray[j],ImageRootArray[j],ImageTimeArray[j]);
-	            	  else ImageArrayPrep(ImageStrArray[j],ImageRootArray[j],ImageTimeArray[j]);
-	            	  //Add the new overlay 
-	            	  update_colorbar(j);
-	            	  update_overlay_animate(j,0);
-			 }
+      clearTimeout(t);
+      overlay_obj[k].remove();
+      delete overlay_obj[k];
+      update_colorbar(k);
+      //Remove time stamp
+      ChangeTimeStamp(3);
+      //Fill up the Array of image strings
+      ImageTimeArray[j] = new Array();
+  	  ImageStrArray[j] = new Array();
+	   	if (j >= 17 & j <= 20) ImageArrayPrep_SPI(ImageStrArray[j],ImageRootArray[j],ImageTimeArray[j]);
+  	  else ImageArrayPrep(ImageStrArray[j],ImageRootArray[j],ImageTimeArray[j]);
+  	  //Add the new overlay 
+  	  update_colorbar(j);
+  	  update_overlay_animate(j,0);
 		}
 	}
+}
 	
 function update_basins(j)
 {
 	var j;
 	var k;
 	if (typeof overlay_mask[j] !="undefined") //hide the overlay
-		{
+	{
 		overlay_mask[j].remove();
 		delete overlay_mask[j];
-		}
-	else if(typeof overlay_mask[j] == "undefined")
-		{
-		overlay_mask[j] = new ImageOverlay(bounds, basinImage[j], map_array[0]);
-		}
 	}
+	else if(typeof overlay_mask[j] == "undefined")
+	{
+		overlay_mask[j] = new ImageOverlay(bounds, basinImage[j], map_array[0]);
+	}
+}
 	
 function ChangeLanguage(language)
 {
 	var locale_val;
 	if(language == 'English') {locale_val = escape('en');}
 	else if (language == 'French') { locale_val = escape('fr');}
-	    else if (language == 'Chinese') { locale_val = escape('cn');}
+  else if (language == 'Chinese') { locale_val = escape('cn');}
 	else if (language == 'Spanish') { locale_val = escape('sp');}
-	    else if (language == 'Arabic') { locale_val = escape('ar');}
+  else if (language == 'Arabic') { locale_val = escape('ar');}
 
 	var uri = window.location.toString().split('?');
 	if (uri.length > 1) {
 		var kvp = uri[1].split('&');
-	var i=kvp.length; var x; while(i--) 
-	{
+		var i=kvp.length; var x; while(i--) 
+		{
 			x = kvp[i].split('=');
 			if (x[0]=='locale')
 			{
-	        		x[1] = locale_val;
-	        		kvp[i] = x.join('=');
-	        		break;
+	  		x[1] = locale_val;
+	  		kvp[i] = x.join('=');
+	  		break;
 			}
-	}
-	if(i<0) {
+		}
+		if(i<0) {
 			kvp[kvp.length] = ['locale',locale_val].join('=');
 		}
-	window.location.replace(uri[0]+'?'+kvp.join('&'));
+		window.location.replace(uri[0]+'?'+kvp.join('&'));
 	}
 	else {
 		window.location.replace(uri[0]+'?locale='+locale_val);
 	}
 
 
-	}
+}
 	
 function ChangeBasin(basin_name)
 {
@@ -330,30 +330,30 @@ function ChangeBasin(basin_name)
 	var basins_id = ["Congo","Nile","Niger","Senegal","Volta"];
 	//Delete any existing basins
 	for (i=0;i<basins_lat.length;i++)
-		{
+	{
 		if (typeof overlay_mask_dropdown[basins_number[i]] !="undefined") //hide the overlay
-			{
+		{
 			overlay_mask_dropdown[basins_number[i]].remove();
 			delete overlay_mask_dropdown[basins_number[i]];
-			}
 		}
+	}
 
 	for (i=0;i<basins_lat.length;i++)
-		{
+	{
 		if (basins_id[i] == basin_name)
-			{
+		{
 			map_array[0].setZoom(basins_zoom[i]);
 			var latlng = new google.maps.LatLng(basins_lat[i], basins_lon[i]);
 			map_array[0].setCenter(latlng);
 			if(typeof overlay_mask_dropdown[basins_number[i]] == "undefined")
-				{
+			{
 				overlay_mask_dropdown[basins_number[i]] = new ImageOverlay(bounds, basinImage[basins_number[i]],map_array[0],9999,1);
-				}
 			}
 		}
+	}
 	//flag_basin = 0;
 	//overlay_opacity = overlay_opacity_temp;
-	}
+}
 	
 function Update_TimeStamp_MP(flag_arrow,flag_timestamp)
 {
