@@ -6,7 +6,7 @@ if (file_exists('data_info.xml')) {
 /*  $json = json_encode($ob);
   $array = json_decode($json, true);
   print_r($array);
-*/  exit(1);
+*/
 }
 
 // This data structure, or something like it, could be read in from an XML config file
@@ -76,18 +76,18 @@ $sidebar_default = 15;
   </div>
 </div>
 
-<?php foreach($sidebar_groups as $type => $data) { ?>
-<div id="<?php echo $type?>" >
-  <h1 id="<?php echo $type."_header"?>" onclick=animate_div(<?php echo "\"".$type."_div"."\""?>)>
-    <?php echo $data["title"]?> 
-    <img id="question_mark" src="icons/question_icon.png" onmouseover="<?php echo "Info_Box_Call(".$data["infobox_number"].")"?>" onmouseout="<?php echo "Info_Box_Call(".$data["infobox_number"].")"?>">
+<?php foreach($xmlobj->variables->group as $group) { ?>
+<div id="<?php echo $group['divtitle']?>" >
+  <h1 id="<?php echo $group['divtitle']."_header"?>" onclick=animate_div(<?php echo "\"".$group['divtitle']."_div"."\""?>)>
+    <?php echo $group["name"]?> 
+    <img id="question_mark" src="icons/question_icon.png" onmouseover="<?php echo "Info_Box_Call(".$group->infobox.")"?>" onmouseout="<?php echo "Info_Box_Call(".$group->infobox.")"?>">
   </h1>
-  <div id="<?php echo $type."_div"?>" style="visibility:visible;">
-    <?php foreach($data["products"] as $productID => $productAttr) { ?>
-      <input id="<?php echo "overlayImageSelect_".$productID?>" 
-             type="radio" name="group1" value="<?php echo $productAttr["value"]?>"
-             onclick=animate_overlay(<?php echo $productID?>)
-             <?php if($sidebar_default == $productID) echo "checked=true"?>> <?php echo $productAttr["title"]?> <br/>
+  <div id="<?php echo $group['divtitle']."_div"?>" style="visibility:visible;">
+    <?php foreach($group->variable as $var) { ?>
+      <input id="<?php echo "overlayImageSelect_".$var['num']?>" 
+             type="radio" name="group1" value="<?php echo $var["name"]?>"
+             onclick=animate_overlay(<?php echo $var['num']?>)
+             <?php if($xmlobj->variables->default['num'] == $var['num']) echo "checked=true"?>> <?php echo $var["title"]?> <br/>
     <?php } ?>
   </div>
 </div>
