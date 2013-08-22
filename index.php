@@ -131,68 +131,6 @@ $info_box_strings = array(1 => $_("Weather data used to drive the hydrologic mod
     animate_overlay(15) //Load the drought index map from the start
   }
 
-  function update_markers()
-  {
-    if (markersArray[0] == undefined)
-    {
-      //Remove all the current overlays
-      for (k=0; k < ImageStrArray.length; k++)
-      {
-        if (overlay_obj[k] != undefined)
-        {
-          clearTimeout(t);
-          overlay_obj[k].remove();
-          delete overlay_obj[k];
-          update_colorbar(k);
-          //Remove time stamp
-          ChangeTimeStamp(3);
-        }
-      }
-
-      var contentString = [];
-      var icon_image;
-
-      cbar = document.getElementById("Colorbar").style;
-      cbar.visibility = "visible";
-      cbar.height = "100";
-      cbarcontentString = "<img src=Data/Colorbar/PercentilesClasses.png></img>";
-      document.getElementById('Colorbar').innerHTML = cbarcontentString;
-      
-      for (m=0; m < <?php echo $ngauges ?>; m++)
-      {
-        var myLatLng = new google.maps.LatLng(gauge_lat[m], gauge_lon[m]);
-
-        // NOTE: This next line ... should probably be revisited soon :)
-        // I can't unravel it all right now. What are best practices for filling element content using javascript?
-        contentString[m] = <?php echo "\"<div id='PopUpControl' onclick=popup('popUpDiv')><B>{$_("CLOSE WINDOW")}</B></div><table><tr><td><div><table><tr><td><div id='CatchmentInfo'><table><tr><td><B> {$_("Gauge number")}: </B>\""?> + gauge_number[m] + <?php echo "\"<br><B>{$_("Latitude")}: </B>\""?> + gauge_lat[m] + <?php echo "\" <B>{$_("Longitude")}: </B>\""?> + gauge_lon[m]  + <?php echo "\"<br><B>{$_("Catchment area")}: </B>\""?> + sprintf('%.2f',gauge_area[m]*1.609344*1.609344) + <?php echo "\" km2</td></tr></table></div></td></tr></div></td></tr><tr><td><div id='routed_image'><img src=''></div></td><td><div id='BasinForms'><div id='gaugevariableform'><B>  {$_("Variable Selection")}: </B><br><br><form name='gaugevariableform'><input id='Discharge' type='radio' name='gaugevariableform' value='Discharge' onclick='SwapGaugeImage(1)' checked='checked'> {$_("Discharge at gauge")}<br><input id='WaterBalance' type='radio' name='gaugevariableform' value='WaterBalance' onclick='SwapGaugeImage(2)'> {$_("Basin water balance")}<br><input id='SoilMoisture' type='radio' name='gaugevariableform' value='SoilMoisture' onclick='SwapGaugeImage(3)'> {$_("Soil Moisture")}<br></form><div id='timestepform'><B> {$_("Time Step")}: </B><br><br><form name='timestepform'><input id='daily' type='radio' name='timestep' value='daily' onclick='UpdatePopUpTimestep(0)' checked='checked'> {$_("Daily")}<br><input id='monthly' type='radio' name='timestep' value='monthly' onclick='UpdatePopUpTimestep(1)'> {$_("Monthly")}<br></form></div><div id='GaugeTimeInterval'><B> {$_("Time Interval")} <i id='time_interval_text'> ({$_("dd/mm/yyyy")})</i>: </B><br><br><form name='GaugeTimeInterval'><div id='gauge_initial_time'></div><BR><div id='gauge_final_time'></div><BR><input type='button' name='GaugeProcessButton' value='{$_("Process new time interval")}' onclick='GaugeProcess()'></form><BR><p id='PLflag'>{$_("Note: To update the plot to your selected language press the button above")}.</p></div></div></td></tr><tr><td><div id='GaugeDownloadLinks'></div></td></tr></table>\"" ?>;
-        
-        if (gauge_percentile[m] < 1) icon_image = "icons/gauges_percentiles/dot0.svg";
-        else if (gauge_percentile[m] < 10) icon_image = "icons/gauges_percentiles/dot1.png";
-        else if (gauge_percentile[m] < 25) icon_image = "icons/gauges_percentiles/dot2.png";
-        else if (gauge_percentile[m] < 75) icon_image = "icons/gauges_percentiles/dot3.png";
-        else if (gauge_percentile[m] < 90) icon_image = "icons/gauges_percentiles/dot4.png";
-        else if (gauge_percentile[m] < 99) icon_image = "icons/gauges_percentiles/dot5.png";
-        else icon_image = "icons/gauges_percentiles/dot6.png";
-        
-        if (gauge_percentile [m] >= 0 && gauge_flag[m] != -9999)
-        {
-          markersArray[m] = new google.maps.Marker({position: myLatLng,map: map_array[0],icon: icon_image,zindex:100000});
-          google.maps.event.addListener(markersArray[m], 'mouseover', (function(m) {return function() {update_basins(m);};})(m)); 
-          google.maps.event.addListener(markersArray[m], 'mouseout', (function(m) {return function() {update_basins(m);};})(m));    
-          google.maps.event.addListener(markersArray[m], 'mouseup',(function(m) {return function() {popup("popUpDiv",m,contentString[m],gauge_number[m],gauge_lat[m],gauge_lon[m],gauge_area[m]);};})(m));
-        }
-      }
-    }
-    else
-    {
-      clearMarkers();
-      markersArray = [];
-      cbar = document.getElementById("Colorbar").style;
-      cbar.visibility = "hidden";
-      cbar.height = "";
-    }
-  }
-
   $(document).ready(function() {
 
     initialize();
