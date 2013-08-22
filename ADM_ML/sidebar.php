@@ -61,4 +61,4 @@ if (file_exists('settings.xml')) {
 </div>
 <?php } ?>
 
-<div id="Info_Box" style="display: none;"></div>
+<div id="Info_Box" style="display: inline;"></div>
