@@ -24,6 +24,8 @@
     <variable name="Sm_1" dataset="???" units="???" ts="???" num="10" title="Soil Moisture(%) - Layer 1"></variable>
     <variable name="Sm_2" dataset="???" units="???" ts="???" num="11" title="Soil Moisture(%) - Layer 2"></variable>
     <variable name="runoff" dataset="???" units="???" ts="???" num="14" title="Surface Runoff (mm/day)"></variable>
+    <variable name="baseflow" dataset="???" units="???" ts="???" num="14" title="Baseflow (mm/day)"></variable>
+    <variable name="streamflow" dataset="???" units="???" ts="???" num="14" title="Streamflow (mm/day)"></variable>
     <infobox>2</infobox>
   </group>
 
