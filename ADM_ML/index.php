@@ -66,12 +66,12 @@ $info_box_strings = array(1 => $_("Weather data used to drive the hydrologic mod
                           5 => $_("This is the SMOS CATDS L4 Root zone soil moisture index. The product is obtained from the integration of SMOS surface soil moisture L3 products into a double bucket hydrological model. It represents the soil moisture in the first meters of the soil in percentage."),
                           6 => $_("The SPI is an index based on the probability of recording a given amount of precipitation after standardizing the probabilities so that an index of zero indicates the median precipitation amount for the entire precipitation record. The SPI can be calculated at any time step. The index is negative for drought, and positive for wet conditions."));
 
-$gauge_info_arrays = array("gauge_number" => $gauge_number_2,
+/*$gauge_info_arrays = array("gauge_number" => $gauge_number_2,
                             "gauge_lat" => $gauge_lat,
                             "gauge_lon" => $gauge_lon,
                             "gauge_area" => $gauge_area,
                             "gauge_percentile" => $gauge_percentile,
-                            "gauge_flag" => $gauge_flag);
+                            "gauge_flag" => $gauge_flag);*/
 
 ?>
 
