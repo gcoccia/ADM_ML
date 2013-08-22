@@ -6,7 +6,7 @@ if (file_exists('settings.xml')) {
 
 <div id="Display_Control"> 
   <h1 id="DC_header" class="data-group-header"><?php echo $_("User Interface")?></h1> 
-  <div id="DC_div" style="visibility:visible;">
+  <div id="DC_div" class="data-form-block">
     <form name="AnimationForm">
       <?php echo $_("Time Interval")."(".$_("dd/mm/yyyy")."):"?><br/>
       <?php echo $_("Initial")?>: 
@@ -39,7 +39,7 @@ if (file_exists('settings.xml')) {
 
 <div id="Basins">
   <h1 id="Basins_header" class="data-group-header"><?php echo $_("Catchment Data")?> <img id="question_mark" src="icons/question_icon.png" onmouseover="Info_Box_Call(4)" onmouseout="Info_Box_Call(4)"></h1>
-  <div id="Basins_div" style="visibility:visible;">
+  <div id="Basins_div" class="data-form-block">
     <input id="overlayImageSelect_1" type="radio" name="group1" value="Basins" onclick=update_markers()> <?php echo $_("Stream Gauges")." : ".$gauge_day_final."/".$gauge_month_final."/".$gauge_year_final ?><br />
   </div>
 </div>
@@ -50,7 +50,7 @@ if (file_exists('settings.xml')) {
     <?php echo $group["name"]?> 
     <img id="question_mark" src="icons/question_icon.png" onmouseover="<?php echo "Info_Box_Call(".$group->infobox.")"?>" onmouseout="<?php echo "Info_Box_Call(".$group->infobox.")"?>">
   </h1>
-  <div id="<?php echo $group['divtitle']."_div"?>" class="data-radio-block">
+  <div id="<?php echo $group['divtitle']."_div"?>" class="data-form-block">
     <?php foreach($group->variable as $var) { ?>
       <input id="<?php echo "overlayImageSelect_".$var['num']?>" 
              type="radio" name="group1" value="<?php echo $var["name"]?>"
