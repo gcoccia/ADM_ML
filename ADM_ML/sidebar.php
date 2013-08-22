@@ -61,5 +61,4 @@ if (file_exists('settings.xml')) {
 </div>
 <?php } ?>
 
-<h1 id="sidebar_header" onclick=animate_sidebar()><img src="icons/Arrow_up.png"/></h1>
 <div id="Info_Box" style="visibility:hidden;"></div>
