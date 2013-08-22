@@ -89,7 +89,7 @@ $info_box_strings = array(1 => $_("Weather data used to drive the hydrologic mod
 <script type="text/javascript" src="jsscripts/MiscFunctions.js"></script>
 <script type="text/javascript" src="jsscripts/VarDeclaration.js"></script>
 <script type="text/javascript" src="jsscripts/AnimationPrep.js"></script>
-<script type="text/javascript" src="jsscripts/Gmapsimageoverlay.js"></script>
+<script type="text/javascript" src="jsscripts/ImageOverlay.js"></script>
 <script type="text/javascript" src="jsscripts/MainFunctions.js"></script>
 
 <script type="text/javascript">
