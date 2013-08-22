@@ -115,9 +115,16 @@ $gauge_info_arrays = array("gauge_number" => $gauge_number_2,
 
   function initialize() 
   {
-    var mapCenter = new google.maps.LatLng(-10, 30);
-    var swBound = new google.maps.LatLng(-35.000, -19.000);
-    var neBound = new google.maps.LatLng(38.000, 55.000);
+    // Echo user settings from PHP
+    var minlat = <?php echo $xmlobj->dimensions->minlat ?>;
+    var minlon = <?php echo $xmlobj->dimensions->minlon ?>;
+    var nlat = <?php echo $xmlobj->dimensions->nlat ?>;
+    var nlon = <?php echo $xmlobj->dimensions->nlon ?>;
+    var res = <?php echo $xmlobj->dimensions->res ?>;
+
+    var swBound = new google.maps.LatLng(minlat, minlon);
+    var neBound = new google.maps.LatLng(minlat + nlat*res, minlon + nlon*res);
+    var mapCenter = new google.maps.LatLng(minlat + nlat*res/2, minlon + nlon*res/2);
     
     var styleArray = [{featureType: 'administrative.country',stylers: [{ visibility: 'simplified' }]}];
 
@@ -128,7 +135,6 @@ $gauge_info_arrays = array("gauge_number" => $gauge_number_2,
 
     //Insert the map canvas into html
     map_array[0] = new google.maps.Map(document.getElementById("map_canvas_1"), myOptions);
-    
     bounds = new google.maps.LatLngBounds(swBound, neBound);
     animate_overlay(15) //Load the drought index map from the start
   }
