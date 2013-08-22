@@ -1,4 +1,9 @@
 <?php
+
+if (file_exists('settings.xml')) {
+  $xmlobj = simplexml_load_file("settings.xml");
+} else { exit("Error: settings.xml file not found."); }
+
 require_once('php-gettext-1.0.11/gettext.inc');
 include 'scripts/Read_Gauges.php';
 include 'scripts/Read_DM_log.php';#Script to read in the drought monitor parameters to set as limits

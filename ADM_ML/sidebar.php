@@ -1,9 +1,3 @@
-<?php
-if (file_exists('settings.xml')) {
-  $xmlobj = simplexml_load_file("settings.xml");
-} else { exit("Error: settings.xml file not found."); }
-?>
-
 <div id="Display_Control"> 
   <h1 id="DC_header" class="data-group-header"><?php echo $_("User Interface")?></h1> 
   <div id="DC_div" class="data-form-block">
