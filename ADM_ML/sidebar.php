@@ -1,10 +1,8 @@
 <?php
-
 if (file_exists('data_info.xml')) {
   $xmlfile = file_get_contents("data_info.xml");
   $xmlobj = simplexml_load_string($xmlfile);
 } else { exit("Error: XML data file not found."); }
-
 ?>
 
 <div id="Display_Control"> 
