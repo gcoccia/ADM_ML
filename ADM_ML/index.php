@@ -124,7 +124,7 @@ $gauge_info_arrays = array("gauge_number" => $gauge_number_2,
 
     var swBound = new google.maps.LatLng(minlat, minlon);
     var neBound = new google.maps.LatLng(minlat + nlat*res, minlon + nlon*res);
-    var mapCenter = new google.maps.LatLng(minlat + nlat*res/2, minlon + nlon*res/1.8);
+    var mapCenter = new google.maps.LatLng(minlat + nlat*res/2.2, minlon + nlon*res/2);
     
     var styleArray = [{featureType: 'administrative.country',stylers: [{ visibility: 'simplified' }]}];
 
