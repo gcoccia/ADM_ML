@@ -184,6 +184,12 @@ $gauge_info_arrays = array("gauge_number" => $gauge_number_2,
     $(".data-group-header").click(function() {
       $(this).parent().find(".data-form-block").toggle();
     });
+    $("#collapse-arrow").hover(function() {
+      $(this).css('cursor','pointer');
+    }).click(function() {
+      $("#sidebar").toggle();
+      $(this).src = "icons/Arrow_down.png";
+    });
   });
 
 </script>
@@ -254,7 +260,7 @@ $gauge_info_arrays = array("gauge_number" => $gauge_number_2,
 <div id="DBandMC"></div>
 
 <div id="sidebar" style="visibility:visible"> 
-<img src="icons/Arrow_up.png"/>
+<img id="collapse-arrow" src="icons/Arrow_up.png"/>
 <?php include('sidebar.php'); ?>
 </div>
 
