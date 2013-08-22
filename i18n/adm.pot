@@ -1,0 +1,210 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-03-29 22:50-0400\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: GMinterface2.php:174
+msgid "Gauge number"
+msgstr ""
+
+#: GMinterface2.php:174
+msgid "Latitude"
+msgstr ""
+
+#: GMinterface2.php:174
+msgid "Longitude"
+msgstr ""
+
+#: GMinterface2.php:174
+msgid "Catchment area"
+msgstr ""
+
+#: GMinterface2.php:174
+msgid "Variable Selection"
+msgstr ""
+
+#: GMinterface2.php:174
+msgid "Discharge at gauge"
+msgstr ""
+
+#: GMinterface2.php:174
+msgid "Basin water balance"
+msgstr ""
+
+#: GMinterface2.php:174
+msgid "Soil Moisture"
+msgstr ""
+
+#: GMinterface2.php:174
+msgid "Time Step"
+msgstr ""
+
+#: GMinterface2.php:174
+msgid "Daily"
+msgstr ""
+
+#: GMinterface2.php:174
+msgid "Monthly"
+msgstr ""
+
+#: GMinterface2.php:174 GMinterface2.php:607
+msgid "Time Interval"
+msgstr ""
+
+#: GMinterface2.php:174 GMinterface2.php:534
+msgid "dd/mm/yyyy"
+msgstr ""
+
+#: GMinterface2.php:174
+msgid "Process new time interval"
+msgstr ""
+
+#: GMinterface2.php:463
+msgid "Weather data used to drive the hydrologic model. Precipitation comes from either satellite precipitation (TMPA) or the global forecasting system (GFS). The temperature and wind data come from GFS. All variables are bias-corrected against the data set that is used in the historical simulations to ensure consistency."
+msgstr ""
+
+#: GMinterface2.php:465
+msgid "Hydrologic variables obtained through simulations of the Variable Infiltration Capacity model. The soil moisture is expressed as relative soil moisture (0 - 100%)."
+msgstr ""
+
+#: GMinterface2.php:467
+msgid "The drought index is obtained by comparing the current relative soil moisture of layers 1 and 2 to empirical cumulative distribution functions derived from the historical record (1948 - 2008). There is a different empirical cumulative distribution function per day per grid cell which samples each year using a 21 day window around the day in question."
+msgstr ""
+
+#: GMinterface2.php:469
+msgid "Each point represents a location at which different variables are calculated that are specific to the basin that drains into that point. The variables include simulated discharge and basin averaged variables including precipitation, evaporation, runoff, soil moisture and the drought index. The colors on the map represents the percentile of the current simulated discharge with respect to the historical record (1948 - 2008)."
+msgstr ""
+
+#: GMinterface2.php:535 GMinterface2.php:543
+msgid "Initial Time"
+msgstr ""
+
+#: GMinterface2.php:536 GMinterface2.php:544
+msgid "Final Time"
+msgstr ""
+
+#: GMinterface2.php:542
+msgid "mm/yyyy"
+msgstr ""
+
+#: GMinterface2.php:559
+msgid "African Drought Monitor"
+msgstr ""
+
+#: GMinterface2.php:566
+msgid "Basic Interface"
+msgstr ""
+
+#: GMinterface2.php:566
+msgid "Google Maps Interface"
+msgstr ""
+
+#: GMinterface2.php:566
+msgid "Background"
+msgstr ""
+
+#: GMinterface2.php:566
+msgid "Glossary"
+msgstr ""
+
+#: GMinterface2.php:566
+msgid "Tutorial"
+msgstr ""
+
+#: GMinterface2.php:604
+msgid "User Interface"
+msgstr ""
+
+#: GMinterface2.php:608
+msgid "Initial"
+msgstr ""
+
+#: GMinterface2.php:609
+msgid "Final"
+msgstr ""
+
+#: GMinterface2.php:610
+msgid "Days per second"
+msgstr ""
+
+#: GMinterface2.php:612
+msgid "Update time interval"
+msgstr ""
+
+#: GMinterface2.php:613
+msgid "Clear all overlays"
+msgstr ""
+
+#: GMinterface2.php:616
+msgid "Image Opacity"
+msgstr ""
+
+#: GMinterface2.php:621
+msgid "Meteorology"
+msgstr ""
+
+#: GMinterface2.php:624
+msgid "Precipitation (mm/day)"
+msgstr ""
+
+#: GMinterface2.php:625
+msgid "Maximum Temperature (C)"
+msgstr ""
+
+#: GMinterface2.php:626
+msgid "Minimum Temperature (C)"
+msgstr ""
+
+#: GMinterface2.php:627
+msgid "Wind (m/s)"
+msgstr ""
+
+#: GMinterface2.php:631
+msgid "Hydrologic Variables"
+msgstr ""
+
+#: GMinterface2.php:633
+msgid "Evaporation (mm/day)"
+msgstr ""
+
+#: GMinterface2.php:634
+msgid "Soil Moisture(%) - Layer 1"
+msgstr ""
+
+#: GMinterface2.php:635
+msgid "Soil Moisture(%) - Layer 2"
+msgstr ""
+
+#: GMinterface2.php:636
+msgid "Surface Runoff (mm/day)"
+msgstr ""
+
+#: GMinterface2.php:640
+msgid "Drought Products"
+msgstr ""
+
+#: GMinterface2.php:642
+msgid "Drought Index"
+msgstr ""
+
+#: GMinterface2.php:646
+msgid "Catchment Data"
+msgstr ""
+
+#: GMinterface2.php:648
+msgid "Stream Gauges"
+msgstr ""

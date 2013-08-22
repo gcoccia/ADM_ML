@@ -1,0 +1,396 @@
+
+body 
+    {
+    font:15px sans-serif;  
+    min-width: 1000px;
+    }
+
+#sidebar div.SPIdiv{
+  width: 180px;
+  float: left;
+  border-radius:0px;
+  height: 25px;
+  margin-left:5px;
+  }
+
+#sidebar div{
+  left:0;
+  width:300px;
+  background:#fff;
+  /*background-color:transparent;*/
+  border-radius:5px;
+  /*-webkit-box-shadow:0 1px 3px rgba(0,0,0,.3);
+  box-shadow:0 1px 3px rgba(0,0,0,.3);*/
+  overflow:hidden;
+}
+
+#sidebar_header{
+  position: absolute;
+  top:0px;
+  width:30px;
+  right:270px;
+}
+
+#sidebar div div{
+  margin-left: 10px;
+  -webkit-transition:height .4s ease-out, padding .4s ease-out;
+  -moz-transition:height .4s ease-out, padding .4s ease-out;
+  -o-transition:height .4s ease-out, padding .4s ease-out;
+  -ms-transition:height .4s ease-out, padding .4s ease-out;
+  transition:height .4s ease-out, padding .4s ease-out;
+}
+
+#PLflag{
+  width: 200px;
+}
+
+h1 {
+  display:block;
+  height:23px;
+  line-height:23px;
+  background:-webkit-gradient(
+    linear, 0 0, 0 100%,
+    from(#eee), to(#ccc)
+  );
+  background:-moz-linear-gradient(#eee, #ccc);
+  background:-o-linear-gradient(#eee, #ccc);
+  background:-ms-linear-gradient(#eee, #ccc);
+  background:linear-gradient(#eee, #ccc);
+  color:#333;
+  text-decoration:none;
+  text-align:center;
+  margin:0px;
+  text-shadow:0 1px 0 rgba(255,255,255,.5);
+  border-bottom:1px solid #aaa;
+  font-size:1em;
+}
+
+#Region_Placement {
+  position: absolute;
+  top: 70px;
+  left: 0;
+  margin: auto;
+  width: 100px;
+  background-color: transparent;
+  z-index: 1;
+}
+
+#Language_Selection {
+  position: absolute;
+  top: 92px;
+  left: 0px;
+  margin: auto;
+  width: 100px;
+  background-color: transparent;
+  z-index: 1;
+}
+
+#LanguageSelect{
+  position: absolute;
+  left: 100px;
+  top: 4px;
+  z-index: 1;
+}
+
+#Language_Flags{
+ position: absolute;
+ left: 5px;
+ top: 300px;
+ z-index: 1;
+ /*height: 100px;*/
+ background-color: transparent;
+}
+
+#Language_Flags:hover {
+cursor: pointer;
+}
+
+#Flag_Image{
+display: block;
+padding: 1px;
+background: white;
+position: relative;
+/*margin-right: auto;
+margin-left: auto;*/
+}
+#BasinSelect{
+  position: absolute;
+  left: 100px;
+  top: 4px;
+  z-index: 1;
+}
+
+div.inline{
+  /*position:relative;*/
+  /*float:center;*/
+  /*padding:10px;*/
+  /*text-align:center;*/
+  margin:auto;
+  height:540px;
+}
+
+div.image_superposition{
+  position:relative;
+  top:-544px;
+  height:40px;
+  background-color:transparent;
+}
+
+h3.text_superposition{
+  padding-top:10px;
+  padding-bottom:7px;
+  font-size:1.5em;
+  font-weight:normal;
+  background-color:#95B9C7;
+}
+
+img.inline{
+  /*position:relative;
+  float:left;*/
+  padding:10px;
+}
+
+
+
+#sidebar {
+  position: absolute;
+  right: 0;
+  top: 73px;
+  margin: 0;
+  margin-right: 0px;
+  width: 300px;
+  /*background-color: white;*/
+  z-index: 1;
+}
+#sidebar_call {
+  position: absolute;
+  top: 73px;
+  right:270px;
+  background-color: transparent;
+  z-index: 1;
+}
+#sidebar img {
+  position: absolute;
+  left: 5px;
+  }
+#header {
+  position: absolute;
+  top: 0;
+  margin: auto;
+  right: 300px;
+  left: 300px;
+  height: 50px;
+  background-color: white;
+  z-index: 1;
+}
+img {
+    image-rendering: -moz-crisp-edges;
+    -ms-interpolation-mode: nearest-neighbor;
+    image-rendering: -webkit-crisp-edges;
+    }
+#blanket {
+background-color:#111;
+opacity: 0.65;
+filter:alpha(opacity=65);
+position:absolute;
+z-index: 9001;
+top:0px;
+left:0px;
+right:0px;
+min-width:1150px;
+/*width:100%;*/
+}
+#popUpDivparent{
+width:100%;
+align:center;
+margin:auto;
+}
+#popUpDiv {
+position:absolute;
+background-color:#eeeeee;
+margin:auto;
+width:1150px;
+height:600px;
+z-index: 9002;
+-moz-box-shadow: 0px 0px 15px #000;
+-webkit-box-shadow: 0px 0px 15px #000;
+ box-shadow: 0px 0px 15px #000;
+}
+#PopUpControl {
+top: 15px;
+position:relative;
+left:900px;
+width: 200px;
+height:20px;
+text-align: center;
+}
+
+#PopUpControl:hover {
+cursor: pointer;
+background:#AFC7C7
+}
+
+.ImageBorder
+{
+border-width: 1px;
+border-color: Black;
+}
+#routed_image{
+position:relative;
+bottom: -30px;
+left: 20px;
+
+}
+#BasinForms{
+position:relative;
+left:30px;
+top: -100px;
+}
+#timestepform{
+position:relative;
+top:20px;
+}
+#gaugevariableform{
+position:relative;
+top:60px;
+}
+#GaugeTimeInterval{
+position:relative;
+top:40px;
+}
+#CatchmentInfo{
+position:relative;
+left:20px;
+top:20px;
+}
+#Colorbar {
+  position: absolute;
+  bottom: 25px; 
+  left: 0px;
+  right: 0px;
+  min-width: 900px;
+  background-color: transparent;
+  z-index: 1;
+}
+#Colorbar img {
+  display: block;
+  margin:0 auto;
+  opacity:1;
+}
+#TimeStamp {
+  position: absolute;
+  bottom: 75px; 
+  color:#000000;
+  left: 0px;
+  right: 0px;
+  min-width: 900px;
+  width: auto;
+  margin: auto;*/
+  background-color: transparent;
+  z-index: 1;
+}
+#TimeStamp h2 {
+  /*margin: auto;*/
+  text-align: center;
+  /*width: 200px;*/
+  padding-bottom: 5px;
+}
+
+h2.PlotTitle {
+  position: relative;
+  background-color: white;
+  top: -440px;
+  width: 210px;
+  font-weight: normal;
+  padding-left:240px;
+}
+
+h2.SurplusDischarge{
+  position:relative;
+  background-color: white;
+  font-weight: normal;
+  font-size: 1.25em;
+  width:130px;
+  top: -205px;
+  left: -53px;
+  -webkit-transform: rotate(270deg);
+  -moz-transform: rotate(270deg);   
+  -o-transform: rotate(270deg);
+  transform: rotate(270deg);
+}
+
+div.GaugeImage{
+  height:429px;
+}
+
+#DBandMC { 
+  height:100%;
+  /*min-height: 1500px;*/
+}
+#sidebar img#question_mark {
+  margin:4.3px;
+  border-bottom:1px;
+  font-size:1em;
+  position: absolute;
+  left: 80%;
+  }
+#Info_Box {
+  /*position: relative;
+  top: 520px;*/
+  right: 0;
+  margin: auto;
+  width: 297px;
+  z-index: 1;
+  border-style:solid;
+  border-width:1px;
+  }
+
+#Info_Box p {
+  align: justify;
+  margin: 5px;
+  }
+
+#map_canvas_1 {
+  height:100%;
+ /*min-height: 400px;*/
+ }
+
+#Logo {
+  position: absolute;
+  bottom: 10px;
+  left: 0px;
+  right: 0px;
+  min-width: 900px;
+  background-color: transparent;
+  z-index: 1;
+}
+#Logo img {
+  display: block;
+  margin-left:60px;
+  opacity:1;
+}
+#nav td.flag {
+        background: #186194;
+	padding-top:1px;
+	padding-bottom:1px;
+	padding-left:2px;
+	padding-right:2px;
+	height:14px;
+}
+
+#nav td.flag:hover {
+        cursor: pointer;
+        background: #51A5E0;
+}
+
+#nav td.version {
+	background: #186194;
+	position: absolute;
+	right: 0px;
+}
+
+
+
+
+
+

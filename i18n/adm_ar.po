@@ -1,0 +1,295 @@
+# French translations for Phase package.
+# Copyright (C) 2012 THE Phase'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the Phase package.
+# Faaez Ul Haq <>, 2012.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Phase 5_Server\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-03-22 00:22-0400\n"
+"PO-Revision-Date: 2012-06-11 06:20-0500\n"
+"Last-Translator: \n"
+"Language-Team: Arabic\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Poedit-Bookmarks: -1,-1,-1,-1,-1,-1,17,-1,-1,-1\n"
+
+#: index.php:44
+msgid "Timestamp"
+msgstr "الطابع الزمني"
+
+#: index.php:46
+msgid "Update Images"
+msgstr "تحديث الصور"
+
+#: index.php:49
+msgid "Drought Conditions on"
+msgstr "ظروف الجفاف في"
+
+#: GMinterface2.php:173
+msgid "Gauge number"
+msgstr "ألة ألقياس عدد "
+
+#: GMinterface2.php:173
+msgid "Latitude"
+msgstr "خط العرض"
+
+#: GMinterface2.php:173
+msgid "Longitude"
+msgstr "خط الطول"
+
+#: GMinterface2.php:173
+msgid "Catchment area"
+msgstr " منطقة استجماع"
+
+#: GMinterface2.php:173
+msgid "Variable Selection"
+msgstr "اختيار المتغيرات"
+
+#: GMinterface2.php:173
+msgid "Discharge at gauge"
+msgstr "التفريغ على المقياس"
+
+#: GMinterface2.php:173
+msgid "Basin water balance"
+msgstr "توازن  مياه الحوض"
+
+#: GMinterface2.php:173
+msgid "Soil Moisture"
+msgstr "رطوبة التربة"
+
+#: GMinterface2.php:173
+msgid "Time Step"
+msgstr "خطوة الوقت"
+
+#: GMinterface2.php:173
+msgid "Daily"
+msgstr "يوميا"
+
+#: GMinterface2.php:173
+msgid "Monthly"
+msgstr "شهريا"
+
+#: GMinterface2.php:173
+#: GMinterface2.php:606
+msgid "Time Interval"
+msgstr "ألمدة الزمنية"
+
+#: GMinterface2.php:173
+#: GMinterface2.php:533
+msgid "dd/mm/yyyy"
+msgstr "dd/mm/yyyy"
+
+#: GMinterface2.php:173
+msgid "Process new time interval"
+msgstr "عالج ألمدة الزمنية الجديدة "
+
+#: GMinterface2.php:462
+msgid "Weather data used to drive the hydrologic model. Precipitation comes from either satellite precipitation (TMPA) or the global forecasting system (GFS). The temperature and wind data come from GFS. All variables are bias-corrected against the data set that is used in the historical simulations to ensure consistency."
+msgstr ""
+
+#: GMinterface2.php:464
+msgid "Hydrologic variables obtained through simulations of the Variable Infiltration Capacity model. The soil moisture is expressed as relative soil moisture (0 - 100%)."
+msgstr ""
+
+#: GMinterface2.php:466
+msgid "The drought index is obtained by comparing the current relative soil moisture of layers 1 and 2 to empirical cumulative distribution functions derived from the historical record (1948 - 2008). There is a different empirical cumulative distribution function per day per grid cell which samples each year using a 21 day window around the day in question."
+msgstr ""
+
+#: GMinterface2.php:468
+msgid "Each point represents a location at which different variables are calculated that are specific to the basin that drains into that point. The variables include simulated discharge and basin averaged variables including precipitation, evaporation, runoff, soil moisture and the drought index. The colors on the map represents the percentile of the current simulated discharge with respect to the historical record (1948 - 2008)."
+msgstr ""
+
+#: GMinterface2.php:534
+#: GMinterface2.php:542
+msgid "Initial Time"
+msgstr "وقت البدء"
+
+#: GMinterface2.php:535
+#: GMinterface2.php:543
+msgid "Final Time"
+msgstr "وقت الإنتهاء"
+
+#: GMinterface2.php:541
+msgid "mm/yyyy"
+msgstr "س س س س / ش ش"
+
+#: GMinterface2.php:558
+msgid "Experimental African Drought Monitor"
+msgstr "مراقب الجفاف الإفريقي  التجريبي"
+
+#: GMinterface2.php:565
+msgid "Basic Interface"
+msgstr " واجهة الإستخدام الأساسية"
+
+#: GMinterface2.php:565
+msgid "Google Maps Interface"
+msgstr " واجهة الإستخدام لخرائط  Google "
+
+#: GMinterface2.php:565
+msgid "Background"
+msgstr "خلفية"
+
+#: GMinterface2.php:565
+msgid "Glossary"
+msgstr "مسرد"
+
+#: GMinterface2.php:565
+msgid "Tutorial"
+msgstr "البرنامج التعليمي"
+
+#: GMinterface2.php:603
+msgid "User Interface"
+msgstr "واجهة الإستخدام"
+
+#: GMinterface2.php:607
+msgid "Initial"
+msgstr "أولي"
+
+#: GMinterface2.php:608
+msgid "Final"
+msgstr "نهائي"
+
+#: GMinterface2.php:609
+msgid "Days per second"
+msgstr "أيام في الثانية"
+
+#: GMinterface2.php:611
+msgid "Update time interval"
+msgstr "تحديث ألمدة الزمنية"
+
+#: GMinterface2.php:612
+msgid "Clear all overlays"
+msgstr "مسح كافة التراكبات"
+
+#: GMinterface2.php:615
+msgid "Image Opacity"
+msgstr "كمد الصورة"
+
+#: GMinterface2.php:620
+msgid "Meteorology"
+msgstr "الأرصاد الجوية"
+
+#: GMinterface2.php:623
+msgid "Precipitation (mm/day)"
+msgstr "(المتساقطات (مم \\ يوم"
+
+#: GMinterface2.php:624
+msgid "Maximum Temperature (C)"
+msgstr "(ألحرارة القسوى(°م"
+
+#: GMinterface2.php:625
+msgid "Minimum Temperature (C)"
+msgstr "(ألحرارة الدنيى(°م"
+
+#: GMinterface2.php:626
+msgid "Wind (m/s)"
+msgstr "(الرياح (م \\ ث"
+
+#: GMinterface2.php:630
+msgid "Hydrologic Variables"
+msgstr " ألمتغيرات الهيدرولوجية "
+
+#: GMinterface2.php:632
+msgid "Evaporation (mm/day)"
+msgstr "(التبخر (مم \\ يوم"
+
+#: GMinterface2.php:633
+msgid "Soil Moisture(%) - Layer 1"
+msgstr "رطوبة التربة (٪) - طبقة ١ "
+
+#: GMinterface2.php:634
+msgid "Soil Moisture(%) - Layer 2"
+msgstr "رطوبة التربة (٪) - طبقة  ٢"
+
+#: GMinterface2.php:635
+msgid "Surface Runoff (mm/day)"
+msgstr "(الجريان السطحي (مم \\ يوم"
+
+#: GMinterface2.php:639
+msgid "Drought Products"
+msgstr "منتجات الجفاف"
+
+#: GMinterface2.php:641
+msgid "Drought Index"
+msgstr "مؤشر الجفاف"
+
+#: GMinterface2.php:645
+msgid "Catchment Data"
+msgstr "  معطيات مستجمعات المياه"
+
+#: GMinterface2.php:647
+msgid "Stream Gauges"
+msgstr "مقلييس المجاري"
+
+#: GMinterface2.php
+msgid "Select Region..."
+msgstr "اختر المنطقة ..."
+
+#: index.php
+msgid "Select Language..."
+msgstr "اختر اللغة ..."
+
+#: index.php
+msgid "CLOSE WINDOW"
+msgstr "اغلاق النافذة"
+
+#: index.php
+msgid "Link to Image"
+msgstr "ربط إلى صورة"
+
+#: index.php
+msgid "Link to Data"
+msgstr "ربط إلى بيانات"
+
+#: index.php
+msgid "Simulated Discharge"
+msgstr "ألتدفق المحاكى"
+
+#: index.php
+msgid "Water Balance"
+msgstr "توازن المياه"
+
+#: index.php
+msgid "Soil Moisture Products"
+msgstr "منتجات رطوبة التربة "
+
+#: index.php
+msgid "Surplus [mm]"
+msgstr "فائض [مم]"
+
+#: index.php
+msgid "Q [mm/day]"
+msgstr "ألتدفق [مم \\ يوم]"
+
+#: index.php
+msgid "Basin Average [mm]"
+msgstr " المتوسط ​لل​حوض [مم]"
+
+#: index.php
+msgid "Time_[day]"
+msgstr "الوقت [أيام]"
+
+#: index.php
+msgid "Time [month]"
+msgstr "الوقت [أشهر]"
+
+#: index.php
+msgid "Processing request, please wait"
+msgstr "يتم معالجة الطلب  ، الرجاء الانتظار"
+
+#: index.php
+msgid "Note: To update the plot to your selected language press the button above"
+msgstr ""
+
+#: index.php
+msgid "This is the SMOS CATDS L4 Root zone soil moisture index. The product is obtained from the integration of SMOS surface soil moisture L3 products into a double bucket hydrological model. It represents the soil moisture in the first meters of the soil in percentage."
+msgstr ""
+
+msgid "The SPI is an index based on the probability of recording a given amount of precipitation after standardizing the probabilities so that an index of zero indicates the median precipitation amount for the entire precipitation record. The SPI can be calculated at any time step. The index is negative for drought, and positive for wet conditions."
+msgstr ""
+
