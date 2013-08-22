@@ -50,7 +50,7 @@ if (file_exists('settings.xml')) {
     <?php echo $group["name"]?> 
     <img id="question_mark" src="icons/question_icon.png" onmouseover="<?php echo "Info_Box_Call(".$group->infobox.")"?>" onmouseout="<?php echo "Info_Box_Call(".$group->infobox.")"?>">
   </h1>
-  <div id="<?php echo $group['divtitle']."_div"?>" style="visibility:visible;">
+  <div id="<?php echo $group['divtitle']."_div"?>" class="data-radio-block">
     <?php foreach($group->variable as $var) { ?>
       <input id="<?php echo "overlayImageSelect_".$var['num']?>" 
              type="radio" name="group1" value="<?php echo $var["name"]?>"
