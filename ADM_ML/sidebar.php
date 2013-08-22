@@ -48,7 +48,7 @@ if (file_exists('settings.xml')) {
 <div id="<?php echo $group['divtitle']?>" >
   <h1 id="<?php echo $group['divtitle']."_header"?>" class="data-group-header">
     <?php echo $group["name"]?> 
-    <img id="question_mark" src="icons/question_icon.png" onmouseover="<?php echo "Info_Box_Call(".$group->infobox.")"?>" onmouseout="<?php echo "Info_Box_Call(".$group->infobox.")"?>">
+    <img class="question_mark" id="<?php echo $group->infobox ?>" src="icons/question_icon.png" >
   </h1>
   <div id="<?php echo $group['divtitle']."_div"?>" class="data-form-block">
     <?php foreach($group->variable as $var) { ?>

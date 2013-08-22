@@ -107,17 +107,6 @@ $gauge_info_arrays = array("gauge_number" => $gauge_number_2,
     }
   ?>
 
-  function Info_Box_Call(data_type)
-  {
-    obj = document.getElementById("Info_Box");
-    if (obj.style.visibility == "visible") {
-      obj.style.visibility = "hidden";
-    } else {
-      obj.style.visibility = "visible";
-    }
-    obj.innerHTML = info_box_strings[data_type];
-  }
-
   function update_markers()
   {
     if (markersArray[0] == undefined)
@@ -183,6 +172,10 @@ $gauge_info_arrays = array("gauge_number" => $gauge_number_2,
   $(document).ready(function() {
     $(".data-group-header").click(function() {
       $(this).parent().find(".data-form-block").toggle();
+    });
+    $(".question_mark").hover(function() {
+      $("#Info_Box").toggle();
+      $("#Info_Box").html(info_box_strings[$(this).attr('id')]);
     });
   });
 

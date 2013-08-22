@@ -327,7 +327,7 @@ div.GaugeImage{
   height:100%;
   /*min-height: 1500px;*/
 }
-#sidebar img#question_mark {
+#sidebar img.question_mark {
   margin:4.3px;
   border-bottom:1px;
   font-size:1em;
