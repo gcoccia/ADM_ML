@@ -78,6 +78,7 @@ $gauge_info_arrays = array("gauge_number" => $gauge_number_2,
 <meta http-equiv="content-type" content="text/html; charset=UTF-8"/> 
 <link href="css/s.css" rel=stylesheet> 
 <link rel="stylesheet" type="text/css" media="screen,projection" href="css/Moz.css" title="Moz" />
+<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
 <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
 <script type="text/javascript" src="jsscripts/popupcss.js"></script>
 <script type="text/javascript" src="jsscripts/MiscFunctions.js"></script>
