@@ -113,6 +113,26 @@ $gauge_info_arrays = array("gauge_number" => $gauge_number_2,
     }
   ?>
 
+  function initialize() 
+  {
+    var mapCenter = new google.maps.LatLng(-10, 30);
+    var swBound = new google.maps.LatLng(-35.000, -19.000);
+    var neBound = new google.maps.LatLng(38.000, 55.000);
+
+    var styleArray = [{featureType: 'administrative.country',stylers: [{ visibility: 'simplified' }]}];
+
+    var myOptions = {styles: styleArray,zoom: 3,panControl: false,zoomControl: true,zoomControlOptions:{style:      
+    google.maps.ZoomControlStyle.DEFAULT,position: google.maps.ControlPosition.LEFT_TOP},scaleControl: false,streetViewControl: false,mapTypeControl: 
+    true,mapTypeControlOptions:{style: google.maps.MapTypeControlStyle.DROPDOWN_MENU,position: google.maps.ControlPosition.TOP_LEFT},mapTypeId: 
+    google.maps.MapTypeId.TERRAIN};
+
+    //Insert the map canvas into html
+    map_array[0] = new google.maps.Map(document.getElementById("map_canvas_1"), myOptions);
+    
+    bounds = new google.maps.LatLngBounds(swBound, neBound);
+    animate_overlay(15) //Load the drought index map from the start
+  }
+
   function update_markers()
   {
     if (markersArray[0] == undefined)
