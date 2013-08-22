@@ -55,7 +55,7 @@ if (file_exists('settings.xml')) {
       <input id="<?php echo "overlayImageSelect_".$var['num']?>" 
              type="radio" name="group1" value="<?php echo $var["name"]?>"
              onclick=animate_overlay(<?php echo $var['num']?>)
-             <?php if($xmlobj->variables->default['num'] == $var['num']) echo "checked=true"?>> <?php echo $_($var["title"])?> <br/>
+             <?php if($xmlobj->variables->default['num'] == $var['num']) echo "checked=true"?>> <?php echo $_("".$var["title"])?> <br/>
     <?php } ?>
   </div>
 </div>
