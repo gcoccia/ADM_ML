@@ -47,7 +47,7 @@ if (file_exists('settings.xml')) {
 <?php foreach($xmlobj->variables->group as $group) { ?>
 <div id="<?php echo $group['divtitle']?>" >
   <h1 id="<?php echo $group['divtitle']."_header"?>" class="data-group-header">
-    <?php echo $_($group["name"])?> 
+    <?php echo $_("$group["name"]")?> 
     <img class="question_mark" id="<?php echo $group->infobox ?>" src="icons/question_icon.png" >
   </h1>
   <div id="<?php echo $group['divtitle']."_div"?>" class="data-form-block">
