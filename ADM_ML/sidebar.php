@@ -1,5 +1,5 @@
 <?php
-if (file_exists('data_info.xml')) {
+if (file_exists('settings.xml')) {
   $xmlobj = simplexml_load_file("settings.xml");
 } else { exit("Error: settings.xml file not found."); }
 ?>
