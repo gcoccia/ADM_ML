@@ -69,14 +69,6 @@ var t;
 var Logo_Images = [];
 Logo_Images[16] = "icons/smos_logo.png";
 var myVariable;
-	
-function clearMarkers() {
-  if (markersArray) {
-    for (i in markersArray) {
-      markersArray[i].setMap(null);
-    }
-  }
-}
 
 function imageLoaded()
 	{
@@ -150,9 +142,7 @@ function animate_overlay(j,time_flag)
 	                    ChangeTimeStamp(3);
 	                    }
 		}
-	//Remove markers
-	clearMarkers();
-	    markersArray = [];
+
 	    cbar = document.getElementById("Colorbar").style;
 	    cbar.visibility = "hidden";
 	    cbar.height = "";
@@ -244,9 +234,7 @@ function ClearAllOverlays()
 	                    delete static_overlay_obj[k];
 	                    }
 	            }
-	//Clear all markers
-	    clearMarkers();
-	markersArray = [];
+
 	    cbar = document.getElementById("Colorbar").style;
 	    cbar.visibility = "hidden";
 	    cbar.height = "";
