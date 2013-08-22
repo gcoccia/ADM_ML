@@ -74,21 +74,6 @@ function imageLoaded()
 	{
 	ImageLoadedBoolean = true;
 	}
-
-function update_basins(j)
-{
-	var j;
-	var k;
-	if (typeof overlay_mask[j] !="undefined") //hide the overlay
-		{
-		overlay_mask[j].remove();
-		delete overlay_mask[j];
-		}
-	else if(typeof overlay_mask[j] == "undefined")
-		{
-		overlay_mask[j] = new ImageOverlay(bounds, basinImage[j], map_array[0]);
-		}
-	}
 	
 function update_overlay(j) 
 {
@@ -406,25 +391,25 @@ function Update_TimeStamp_MP(flag_arrow,flag_timestamp)
 }
 
 function UpdatePopUpTimestep(j)
-	{
+{
 	var j;
 	if(j == 0)//Daily time step
-		{
+	{
 		document.getElementById('time_interval_text').innerHTML = '({$_("dd/mm/yyyy")})';
 		document.getElementById('gauge_initial_time').innerHTML = '{$_("Initial Time")}:  <input type="text" size=1 name="gauge_day_initial" value=' + gauge_day_initial + '><input type="text" size=1 name="gauge_month_initial" value=' + gauge_month_initial + '><input type="text" size=3 name="gauge_year_initial" value=' + gauge_year_initial + '>';
 		document.getElementById('gauge_final_time').innerHTML = '{$_("Final Time")}:  <input type="text" size=1 name="gauge_day_final" value=' + gauge_day_final + '><input type="text" size=1 name="gauge_month_final" value=' + gauge_month_final + '><input type="text" size=3 name="gauge_year_final" value=' + gauge_year_final + '>';
-	            timestep_flag = 1;
+	  timestep_flag = 1;
 		SwapGaugeImage(image_type);
-		}
+	}
 	if(j == 1) //Monthly time step
-		{
-	            document.getElementById('time_interval_text').innerHTML = '({$_("mm/yyyy")})';
+	{
+	  document.getElementById('time_interval_text').innerHTML = '({$_("mm/yyyy")})';
 		document.getElementById('gauge_initial_time').innerHTML = '{$_("Initial Time")}:  <input type="text" size=1 name="gauge_month_initial" value=' + gauge_month_initial_monthly + '><input type="text" size=3 name="gauge_year_initial" value=' + gauge_year_initial_monthly + '>';
 		document.getElementById('gauge_final_time').innerHTML = '{$_("Final Time")}:  <input type="text" size=1 name="gauge_month_final" value=' + gauge_month_final_monthly + '><input type="text" size=3 name="gauge_year_final" value=' + gauge_year_final_monthly + '>';
 		timestep_flag = 2;
 		SwapGaugeImage(image_type);
-		}
 	}
+}
 	
 /*function SPIselect(flag)
 	{
@@ -438,28 +423,28 @@ function UpdatePopUpTimestep(j)
 	}*/
 
 function update_logo(j)
-	    {
-	    var obj;
-	    obj = document.getElementById("Logo").style;
-	    if (obj.visibility == "visible")
-	            {
-	            obj.visibility = "hidden";
-	            obj.height = "";
-	            }
-	    if (j == 16){
-	        if(obj.visibility == "hidden")
-	            {
-	            obj.visibility = "visible";
-	            obj.height = "100";
-	            contentString = "<img src="+Logo_Images[j]+"></img>";
-	            document.getElementById('Logo').innerHTML = contentString;
-	            }
-	         else if (obj.visibility == "visible")
-	            {
-	            obj.visibility = "hidden";
-	            obj.height = "";
-	            }
-	   }
+{
+	var obj;
+	obj = document.getElementById("Logo").style;
+	if (obj.visibility == "visible")
+	{
+		obj.visibility = "hidden";
+		obj.height = "";
+	}
+	if (j == 16){
+		if(obj.visibility == "hidden")
+		{
+			obj.visibility = "visible";
+			obj.height = "100";
+			contentString = "<img src="+Logo_Images[j]+"></img>";
+			document.getElementById('Logo').innerHTML = contentString;
+		}
+		else if (obj.visibility == "visible")
+		{
+			obj.visibility = "hidden";
+			obj.height = "";
+		}
+	}
 
 }
 	
