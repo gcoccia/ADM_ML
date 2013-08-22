@@ -83,7 +83,7 @@ function initialize()
 	var myMapCenter = new google.maps.LatLng(-10, 30);
 	var styleArray = [{featureType: 'administrative.country',stylers: [{ visibility: 'simplified' }]}];
 
-	var myOptions = {styles: styleArray,zoom: 3,center: myMapCenter,panControl: false,zoomControl: true,zoomControlOptions:{style:    	
+	var myOptions = {styles: styleArray,zoom: 3,center: aaa,panControl: false,zoomControl: true,zoomControlOptions:{style:    	
 	google.maps.ZoomControlStyle.DEFAULT,position: google.maps.ControlPosition.LEFT_TOP},scaleControl: false,streetViewControl: false,mapTypeControl: 
 	true,mapTypeControlOptions:{style: google.maps.MapTypeControlStyle.DROPDOWN_MENU,position: google.maps.ControlPosition.TOP_LEFT},mapTypeId: 
 	google.maps.MapTypeId.TERRAIN};
