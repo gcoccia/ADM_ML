@@ -371,60 +371,39 @@ function ChangeBasin(basin_name)
 	}
 	
 function Update_TimeStamp_MP(flag_arrow,flag_timestamp)
-	{
-	var flag_arrow; //Increase or decrease timestamp
-	var flag_timestamp; //Change initial time or final time
-	var newtimestamp = new Array(3);
-	//Read the current timestamps
-	var initial_year = parseInt(document.getElementById("year_initial").value);
-	    var initial_month = parseInt(document.getElementById("month_initial").value);
-	    var initial_day = parseInt(document.getElementById("day_initial").value);
-	var final_year = parseInt(document.getElementById("year_final").value);
-	    var final_month = parseInt(document.getElementById("month_final").value);
-	    var final_day = parseInt(document.getElementById("day_final").value);
-	var initial_date = new Date(initial_year,initial_month-1,initial_day);
-	var final_date = new Date(final_year,final_month-1,final_day);
+{
 	if (flag_timestamp == 0)
-		{
-		date_temp = initial_date;
-		}
+		var i_or_f = "initial";
 	else 
-		{
-		date_temp = final_date;
-		}
+		var i_or_f = "final";
+
+	var newtimestamp = new Array(3);
+
+	var date_temp = new Date(parseInt($("#year_" + i_or_f).val()),
+													 parseInt($("#month_" + i_or_f).val())-1,
+													 parseInt($("#day_" + i_or_f).val()));
+
 	//Find the next or previous timestamp
 	if (flag_arrow == 1)
-		{
+	{
 		date_temp.setDate(date_temp.getDate() + 1);
-		if (flag_timestamp == 0 && date_temp.valueOf() > final_date.valueOf())
-			{
-			return;
-			}
-		newtimestamp = [date_temp.getFullYear(),date_temp.getMonth() + 1,date_temp.getDate()];
-		}
-	else 
-		{
-	            date_temp.setDate(date_temp.getDate() - 1);
-		if (flag_timestamp == 1 && date_temp.valueOf() < initial_date.valueOf())
-			{
-			return;
-			}
-	            newtimestamp = [date_temp.getFullYear(),date_temp.getMonth() + 1,date_temp.getDate()];
-		}
-	//Update the time string
-	if (flag_timestamp == 0)
-		{
-		document.getElementById("year_initial").value = newtimestamp[0];
-		document.getElementById("month_initial").value = newtimestamp[1];
-		document.getElementById("day_initial").value = newtimestamp[2];
-		}
-	else
-		{
-		document.getElementById("year_final").value = newtimestamp[0];
-		document.getElementById("month_final").value = newtimestamp[1];
-		document.getElementById("day_final").value = newtimestamp[2];
-		}
+		if (flag_timestamp == 0 && date_temp.valueOf() > final_date.valueOf()) return;
+
+		newtimestamp = [date_temp.getFullYear(), date_temp.getMonth() + 1, date_temp.getDate()];
 	}
+	else 
+	{
+    date_temp.setDate(date_temp.getDate() - 1);
+		if (flag_timestamp == 1 && date_temp.valueOf() < initial_date.valueOf()) return;
+
+    newtimestamp = [date_temp.getFullYear(), date_temp.getMonth() + 1, date_temp.getDate()];
+	}
+
+	// Update the time string
+	$("#year_" + i_or_f).val(newtimestamp[0]);
+	$("#month_" + i_or_f).val(newtimestamp[1]);
+	$("#day_" + i_or_f).val(newtimestamp[2]);
+}
 
 function UpdatePopUpTimestep(j)
 	{
