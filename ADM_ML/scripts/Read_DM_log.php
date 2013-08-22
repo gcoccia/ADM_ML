@@ -1,5 +1,5 @@
 <?php
-$Log_File = "Data/ADM_Data/Realtime/LastUpd.log";
+$Log_File = "scripts/LastUpd.log";
 $Log_Info;
 $data = file($Log_File);
 $count = 0;
