@@ -280,6 +280,8 @@ function GaugeProcess()
 
 	}
 
+/* The update_markers function won't work unless it's run through PHP first
+It's included here in case it helps future efforts with the popup window.
 function update_markers()
   {
     if (markersArray[0] == undefined)
@@ -340,7 +342,7 @@ function update_markers()
       cbar.visibility = "hidden";
       cbar.height = "";
     }
-  }
+  }*/
 
 
 
