@@ -38,7 +38,7 @@ if (file_exists('settings.xml')) {
 </div> 
 
 <div id="Basins">
-  <h1 id="Basins_header" class="data-group-header"><?php echo $_("Catchment Data")?> <img id="question_mark" src="icons/question_icon.png" onmouseover="Info_Box_Call(4)" onmouseout="Info_Box_Call(4)"></h1>
+  <h1 id="Basins_header" class="data-group-header"><?php echo $_("Catchment Data")?> <img class="question_mark" id="4" src="icons/question_icon.png""></h1>
   <div id="Basins_div" class="data-form-block">
     <input id="overlayImageSelect_1" type="radio" name="group1" value="Basins" onclick=update_markers()> <?php echo $_("Stream Gauges")." : ".$gauge_day_final."/".$gauge_month_final."/".$gauge_year_final ?><br />
   </div>
