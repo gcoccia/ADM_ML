@@ -175,6 +175,7 @@ $gauge_info_arrays = array("gauge_number" => $gauge_number_2,
     });
     $(".question_mark").hover(function() {
         $("#Info_Box").toggle();
+        $("#Info_Box").css("display: inline");
         $("#Info_Box").html(info_box_strings[$(this).attr('id')])},
       function() {
         $("#Info_Box").toggle();
