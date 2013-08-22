@@ -259,7 +259,7 @@ $gauge_info_arrays = array("gauge_number" => $gauge_number_2,
 <div id="Logo" style="visibility:hidden;"></div>
 <div id="DBandMC"></div>
 
-<div id="sidebar_call">
+<div id="sidebar_call" style="visibility:hidden;">
   <h1><img id="collapse-arrow" src="icons/Arrow_up.png"/></h1>
 </div>
 
