@@ -116,16 +116,10 @@ $gauge_info_arrays = array("gauge_number" => $gauge_number_2,
   function initialize() 
   {
     // Echo user settings from PHP
-    var dimensions = <?php echo json_encode($xmlobj->dimensions) ?>;
-    console.log(dimensions);
-    var minlon = <?php echo $xmlobj->dimensions->minlon ?>;
-    var nlat = <?php echo $xmlobj->dimensions->nlat ?>;
-    var nlon = <?php echo $xmlobj->dimensions->nlon ?>;
-    var res = <?php echo $xmlobj->dimensions->res ?>;
-
-    var swBound = new google.maps.LatLng(minlat, minlon);
-    var neBound = new google.maps.LatLng(minlat + nlat*res, minlon + nlon*res);
-    var mapCenter = new google.maps.LatLng(minlat + nlat*res/2.5, minlon + nlon*res/2);
+    var dim = <?php echo json_encode($xmlobj->dimensions) ?>;
+    var swBound = new google.maps.LatLng(dim.minlat, dim.minlon);
+    var neBound = new google.maps.LatLng(dim.minlat + dim.nlat*dim.res, dim.minlon + dim.nlon*dim.res);
+    var mapCenter = new google.maps.LatLng(dim.minlat + dim.nlat*dim.res/2.5, dim.minlon + dim.nlon*dim.res/2);
     
     var styleArray = [{featureType: 'administrative.country',stylers: [{ visibility: 'simplified' }]}];
 
