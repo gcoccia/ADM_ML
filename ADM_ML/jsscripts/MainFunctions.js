@@ -79,30 +79,23 @@ function clearMarkers() {
 }
 
 function initialize() 
-	{
-	var i;
-	var map_canvas_st;
-	var myLatLng = new google.maps.LatLng(-10, 30);
-    var styleArray = [{featureType: 'administrative.country',stylers: [{ visibility: 'simplified' }]}];
-    var myOptions = {styles: styleArray,zoom: 3,center: myLatLng,panControl: false,zoomControl: true,zoomControlOptions:{style:    	
-		google.maps.ZoomControlStyle.DEFAULT,position: google.maps.ControlPosition.LEFT_TOP},scaleControl: false,streetViewControl: false,mapTypeControl: 
-		true,mapTypeControlOptions:{style: google.maps.MapTypeControlStyle.DROPDOWN_MENU,position: google.maps.ControlPosition.TOP_LEFT},mapTypeId: 
-		google.maps.MapTypeId.TERRAIN};
+{
+	var myMapCenter = new google.maps.LatLng(-10, 30);
+	var styleArray = [{featureType: 'administrative.country',stylers: [{ visibility: 'simplified' }]}];
+
+	var myOptions = {styles: styleArray,zoom: 3,center: myMapCenter,panControl: false,zoomControl: true,zoomControlOptions:{style:    	
+	google.maps.ZoomControlStyle.DEFAULT,position: google.maps.ControlPosition.LEFT_TOP},scaleControl: false,streetViewControl: false,mapTypeControl: 
+	true,mapTypeControlOptions:{style: google.maps.MapTypeControlStyle.DROPDOWN_MENU,position: google.maps.ControlPosition.TOP_LEFT},mapTypeId: 
+	google.maps.MapTypeId.TERRAIN};
 
 	//Insert the map canvas into html
-	var form_string = "";
-	var Dropdown_temp;
-	var MapCanvas_temp;
-	MapCanvas_temp = '<div id="map_canvas_1' + '" style="width:' + wpercent + '%; height:' + hpercent + '%;"></div>';
-	form_string = form_string + MapCanvas_temp;
-	document.getElementById("DBandMC").innerHTML = form_string;
-	map_canvas_st = "map_canvas_1";
-	map_array[0] = new google.maps.Map(document.getElementById(map_canvas_st), myOptions);
+	$("#DBandMC").html('<div id="map_canvas_1' + '" style="width:' + wpercent + '%; height:' + hpercent + '%;"></div>');
+	map_array[0] = new google.maps.Map($("map_canvas_1", myOptions);
 	var swBound = new google.maps.LatLng(-35.000, -19.000);
-    var neBound = new google.maps.LatLng(38.000, 55.000);
-    bounds = new google.maps.LatLngBounds(swBound, neBound);
+	var neBound = new google.maps.LatLng(38.000, 55.000);
+	bounds = new google.maps.LatLngBounds(swBound, neBound);
 	animate_overlay(15) //Load the drought index map from the start
-	}
+}
 
 function imageLoaded()
 	{
