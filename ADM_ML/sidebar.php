@@ -47,7 +47,7 @@ if (file_exists('settings.xml')) {
 <?php foreach($xmlobj->variables->group as $group) { ?>
 <div id="<?php echo $group['divtitle']?>" >
   <h1 id="<?php echo $group['divtitle']."_header"?>" class="data-group-header">
-    <?php echo $group["name"]?> 
+    <?php echo $_($group["name"])?> 
     <img class="question_mark" id="<?php echo $group->infobox ?>" src="icons/question_icon.png" >
   </h1>
   <div id="<?php echo $group['divtitle']."_div"?>" class="data-form-block">
@@ -55,7 +55,7 @@ if (file_exists('settings.xml')) {
       <input id="<?php echo "overlayImageSelect_".$var['num']?>" 
              type="radio" name="group1" value="<?php echo $var["name"]?>"
              onclick=animate_overlay(<?php echo $var['num']?>)
-             <?php if($xmlobj->variables->default['num'] == $var['num']) echo "checked=true"?>> <?php echo $var["title"]?> <br/>
+             <?php if($xmlobj->variables->default['num'] == $var['num']) echo "checked=true"?>> <?php echo $_($var["title"])?> <br/>
     <?php } ?>
   </div>
 </div>
