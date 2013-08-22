@@ -1,5 +1,3 @@
-var hpercent = 100;
-var wpercent = 100;
 //Define the general variables
 var value = [];
 //var year_initial = 2011;

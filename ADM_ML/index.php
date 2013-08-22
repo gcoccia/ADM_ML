@@ -258,7 +258,9 @@ $gauge_info_arrays = array("gauge_number" => $gauge_number_2,
 <div id="Colorbar" style="visibility:hidden;"></div>
 <div id="TimeStamp" style="visibility:hidden;"></div>
 <div id="Logo" style="visibility:hidden;"></div>
-<div id="DBandMC"></div>
+<div id="DBandMC">
+  <div id="map_canvas_1" style="width:100%; height:100%;"></div>
+</div>
 
 <div id="sidebar" style="visibility:visible"> 
 <?php include('sidebar.php'); ?>
