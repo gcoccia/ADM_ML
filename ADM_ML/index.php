@@ -189,6 +189,7 @@ $gauge_info_arrays = array("gauge_number" => $gauge_number_2,
     }).click(function() {
       $("#sidebar").toggle();
       $(this).src = "icons/Arrow_down.png";
+      $(this).toggle();
     });
   });
 
