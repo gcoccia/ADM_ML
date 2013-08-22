@@ -177,6 +177,8 @@ $gauge_info_arrays = array("gauge_number" => $gauge_number_2,
 
   $(document).ready(function() {
 
+    initialize();
+
     //Collapsible sidebar elements
     $(".data-group-header").click(function() {
       $(this).parent().find(".data-form-block").toggle();
@@ -196,7 +198,7 @@ $gauge_info_arrays = array("gauge_number" => $gauge_number_2,
 </script>
 </head> 
 
-<body onload="initialize();" style="height:100%;margin:0">  
+<body style="height:100%;margin:0">  
 
 <div class="top">
   <div class="box">
