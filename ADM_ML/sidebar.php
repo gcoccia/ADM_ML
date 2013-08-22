@@ -46,7 +46,7 @@ if (file_exists('settings.xml')) {
 
 <?php foreach($xmlobj->variables->group as $group) { ?>
 <div id="<?php echo $group['divtitle']?>" >
-  <h1 id="<?php echo $group['divtitle']."_header"?>" onclick=animate_div(<?php echo "\"".$group['divtitle']."_div"."\""?>)>
+  <h1 id="<?php echo $group['divtitle']."_header"?>" class="data-group-header">
     <?php echo $group["name"]?> 
     <img id="question_mark" src="icons/question_icon.png" onmouseover="<?php echo "Info_Box_Call(".$group->infobox.")"?>" onmouseout="<?php echo "Info_Box_Call(".$group->infobox.")"?>">
   </h1>

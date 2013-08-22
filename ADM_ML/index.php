@@ -180,6 +180,12 @@ $gauge_info_arrays = array("gauge_number" => $gauge_number_2,
     }
   }
 
+  $(document).ready(function() {
+    $("data-group-header").click(function() {
+      $(this).toggle();
+    });
+  });
+
 </script>
 </head> 
 
