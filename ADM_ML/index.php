@@ -178,8 +178,12 @@ $gauge_info_arrays = array("gauge_number" => $gauge_number_2,
 
     //Info Box events
     $(".question_mark").hover(function() {
-        $("#Info_Box").css("visibility: visible");
-        $("#Info_Box").html(info_box_strings[$(this).attr('id')])});
+        $("#Info_Box").css("visibility", "visible");
+        $("#Info_Box").html(info_box_strings[$(this).attr('id')])},
+      function() {
+        $("#Info_Box").css("visibility", "hidden");
+        $("#Info_Box").html('');
+    });
 
   });
 
