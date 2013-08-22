@@ -89,7 +89,7 @@ function initialize()
 	google.maps.MapTypeId.TERRAIN};
 
 	//Insert the map canvas into html
-	map_array[0] = new google.maps.Map($("#map_canvas_1"), myOptions);
+	map_array[0] = new google.maps.Map(document.getElementById("map_canvas_1"), myOptions);
 	var swBound = new google.maps.LatLng(-35.000, -19.000);
 	var neBound = new google.maps.LatLng(38.000, 55.000);
 	bounds = new google.maps.LatLngBounds(swBound, neBound);
