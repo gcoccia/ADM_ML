@@ -94,7 +94,7 @@ $gauge_info_arrays = array("gauge_number" => $gauge_number_2,
 
 <script type="text/javascript">
   var basinImage  = <?php echo $mask_gauge ?>;
-  var info_box_strings = {};
+  var info_box_strings = <?php echo json_encode($info_box_strings, JSON_NUMERIC_CHECK) ?>;
   
   // Define JS variables from PHP arrays
   <?php 
@@ -105,9 +105,9 @@ $gauge_info_arrays = array("gauge_number" => $gauge_number_2,
     foreach($label_array as $key => $value) {
       echo "var ".$key." = "."\"".$value."\"".";\n";
     }
-    foreach($info_box_strings as $key => $value) {
+/*    foreach($info_box_strings as $key => $value) {
       echo "info_box_strings[".$key."] = "."\"".$value."\"".";\n";
-    }
+    }*/
     foreach($gauge_info_arrays as $key => $value) {
       echo "var ".$key." = ".$value.";\n";
     }
