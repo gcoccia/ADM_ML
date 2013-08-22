@@ -47,22 +47,6 @@ function animate_sidebar()
      //           obj_constants.height = "";
 		}
 	}
-function animate_div(var_type)
-	{
-	var var_type
-	var obj
-	obj = document.getElementById(var_type).style;
-	if (obj.visibility == "visible")
-		{
-		obj.visibility = "hidden";
-		obj.height = "0";
-		}
-	else if(obj.visibility == "hidden")
-		{
-		obj.visibility = "visible";
-		obj.height = "";
-		}
-	}
 function ajaxRequest()
 {
 	try
