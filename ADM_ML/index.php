@@ -117,6 +117,7 @@ $gauge_info_arrays = array("gauge_number" => $gauge_number_2,
   {
     // Echo user settings from PHP
     var dimensions = <?php echo json_encode($xmlobj->dimensions) ?>;
+    console.log(dimensions);
     var minlon = <?php echo $xmlobj->dimensions->minlon ?>;
     var nlat = <?php echo $xmlobj->dimensions->nlat ?>;
     var nlon = <?php echo $xmlobj->dimensions->nlon ?>;
