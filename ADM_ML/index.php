@@ -189,7 +189,6 @@ $gauge_info_arrays = array("gauge_number" => $gauge_number_2,
     }).click(function() {
       $("#sidebar").toggle();
       $(this).src = "icons/Arrow_down.png";
-      $(this).toggle();
     });
   });
 
@@ -260,8 +259,8 @@ $gauge_info_arrays = array("gauge_number" => $gauge_number_2,
 <div id="Logo" style="visibility:hidden;"></div>
 <div id="DBandMC"></div>
 
-<div id="sidebar" style="visibility:visible"> 
 <img id="collapse-arrow" src="icons/Arrow_up.png"/>
+<div id="sidebar" style="visibility:visible"> 
 <?php include('sidebar.php'); ?>
 </div>
 
