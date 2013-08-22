@@ -116,7 +116,7 @@ $gauge_info_arrays = array("gauge_number" => $gauge_number_2,
   function initialize() 
   {
     // Echo user settings from PHP
-    var dim = <?php echo json_encode($xmlobj->dimensions) ?>;
+    dim = <?php echo json_encode($xmlobj->dimensions) ?>;
     var swBound = new google.maps.LatLng(dim.minlat, dim.minlon);
     var neBound = new google.maps.LatLng(dim.minlat + dim.nlat*dim.res, dim.minlon + dim.nlon*dim.res);
     var mapCenter = new google.maps.LatLng(dim.minlat + dim.nlat*dim.res/2.5, dim.minlon + dim.nlon*dim.res/2);
