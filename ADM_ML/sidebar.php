@@ -1,5 +1,14 @@
 <?php
 
+if (file_exists('data_info.xml')) {
+  $xmlfile = file_get_contents("data_info.xml");
+  $xmlobj = simplexml_load_string($xmlfile);
+/*  $json = json_encode($ob);
+  $array = json_decode($json, true);
+  print_r($array);
+*/  exit(1);
+}
+
 // This data structure, or something like it, could be read in from an XML config file
 $sidebar_groups = array("Forcing" =>
                         array("products" => array("5" => array("value" => "Prec", "title" => $_("Precipitation (mm/day)")),

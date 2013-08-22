@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
+<document>
 
 <dimensions>
-  <res>0.25</res> <!-- Resolution, in degrees -->
+  <res>0.25</res>
   <minlat>-34.875</minlat>
   <minlon>-18.875</minlon>
-  <nlat>292></nlat>
+  <nlat>292</nlat>
   <nlon>296</nlon>
 </dimensions>
 
@@ -34,3 +35,5 @@
   <default num="15"></default>
 
 </variables>
+
+</document>
