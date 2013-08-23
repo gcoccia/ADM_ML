@@ -21,9 +21,9 @@ var options = {
 function RequestData() {
  idate = Date.UTC(parseInt($("#iyear").val()),parseInt($("#imonth").val()-1),parseInt($("#iday").val()))/1000;
  fdate = Date.UTC(parseInt($("#fyear").val()),parseInt($("#fmonth").val()-1),parseInt($("#fday").val())+1)/1000;
- lat = -34.6250;
- lon = 19.8750;
- tstep = "DAILY";
+ lat = $("#latitude").val();
+ lon = $("#longitude").val();
+ tstep = $('input:radio[name=tstep]:checked').val();//"DAILY";
  script = 'python ReadStationData.py'
  input = {idate:idate,fdate:fdate,tstep:tstep,lat:lat,lon:lon,};
  input = JSON.stringify(input);
@@ -95,6 +95,9 @@ function UpdateChart(variable){
 };
 
 function Initialize_Controls(){
+ //Remove anything in the controls div
+ $('#controls').empty();
+ //Fill in with the new controls
  for (variable in DATA["VARIABLES"]){
   $('#controls').append('<input type="checkbox" id="' + variable + '" onclick=UpdateChart("' + variable + '")>' + variable + ' ')
  };
@@ -126,6 +129,11 @@ function PrepareData(){
   <body>
     <div id="container"></div>
     <div id="controls"></div>
+    Time Step:
+    <input type="radio" name="tstep" value="DAILY" checked=checked>Daily
+    <input type="radio" name="tstep" value="MONTHLY" >Monthly
+    <input type="radio" name="tstep" value="YEARLY" >Yearly
+    <br>
     <!-- Date info -->
     Initial Time: 
     <input type="text" id="iyear" value=2001>
@@ -136,6 +144,11 @@ function PrepareData(){
     <input type="text" id="fyear" value=2001>
     <input type="text" id="fmonth" value=1>
     <input type="text" id="fday" value=10>
+    <br>
+    Latitude:
+    <input type="text" id="latitude" value=-34.6250>
+    Longitude:
+    <input type="text" id="longitude" value=19.8750>
     <br>
     <button onclick="Request_and_Display()">Request Data</button>
   </body>

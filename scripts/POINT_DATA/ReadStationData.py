@@ -10,9 +10,9 @@ fdate = int(metadata["fdate"])
 lat = float(metadata["lat"])
 lon = float(metadata["lon"])
 tstep = metadata["tstep"]
+info = metadata["variables"]
 idate_datetime = datetime.datetime.utcfromtimestamp(idate)
 fdate_datetime = datetime.datetime.utcfromtimestamp(fdate)
-info = {"SPI":["spi1","spi3","spi6","spi12"]}#["spi1","spi3","spi6","spi12","vcpct"]
 
 #Define the time step for highcharts
 if tstep == "DAILY":
