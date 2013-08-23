@@ -87,13 +87,12 @@ function update_animation()
 	ImageArrayPrep(ImageStrArray[dataset],ImageRootArray[dataset],ImageTimeArray[dataset]);
 
 	display_colorbar(dataset);
-	update_overlay_animate(j,0);
   update_logo(dataset);
 
 	var time_delay = 1000*1/frames_per_second;
 
 	overlay_obj[dataset] = new ImageOverlay(bounds, ImageStrArray[dataset][0], map_array[0],ImageIdArray[dataset]);
-	ChangeTimeStamp(1,i,j)
+	ChangeTimeStamp(1, ImageCounter, dataset);
 	ImageCounter = 1;
 
 	t = setInterval(next_image(dataset), time_delay);
@@ -103,7 +102,7 @@ function next_image(dataset)
 {
 	if (ImageCounter == daycount) ImageCounter = 0;
 	overlay_obj[dataset].swap(ImageStrArray[dataset][ImageCounter]);
-	ChangeTimeStamp(2,i,j)
+	ChangeTimeStamp(2, ImageCounter, dataset);
 	ImageCounter += 1;
 }
 
