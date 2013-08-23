@@ -97,16 +97,22 @@ function update_timestep()
 		$("input[id='daily']:radio").prop({disabled: true, checked: false});
 		if(""+current_timestep == "daily")
 			$("input[id='monthly']:radio").prop({checked: true});
+	} else {
+		$("input[id='daily']:radio").prop({disabled: false});
 	}
 	if(data_timesteps[dataset].indexOf("M") == -1) {
 		$("input[id='monthly']:radio").prop({disabled: true, checked: false});
 		if(""+current_timestep == "monthly")
 			$("input[id='yearly']:radio").prop({checked: true});
-	} 
+	} else {
+		$("input[id='monthly']:radio").prop({disabled: false});
+	}
 	if(data_timesteps[dataset].indexOf("Y") == -1) {
 		$("input[id='yearly']:radio").prop({disabled: true, checked: false});
 		if(""+current_timestep == "yearly")
 			$("input[id='daily']:radio").prop({checked: true});
+	}else {
+		$("input[id='monthly']:radio").prop({disabled: false});
 	}
 
 	current_timestep = $("input[name='ts-radio']:checked").attr('id');
