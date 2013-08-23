@@ -391,8 +391,8 @@ div.GaugeImage{
 
 input[type="text"]:disabled
 {
-  background-color: #ccc;
-  color: #ccc;
+  /*background-color: #ccc;*/
+  color: #EBEBE4;
 }
 
 
