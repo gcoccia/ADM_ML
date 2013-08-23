@@ -1,7 +1,7 @@
 <div id="Display_Control"> 
   <h1 id="DC_header" class="data-group-header"><?php echo $_("User Interface")?></h1> 
   <div id="DC_div" class="data-form-block">
-    <form name="AnimationForm">
+    <form id="AnimationForm" name="AnimationForm">
       <?php echo $_("Time Interval")."(".$_("dd/mm/yyyy")."):"?><br/>
       <?php echo $_("Initial")?>: 
       <input id="day_initial" type="text" size=1 name="day_initial" value=<?php echo $day_initial ?>>
