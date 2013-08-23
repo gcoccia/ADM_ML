@@ -100,7 +100,7 @@ $info_box_strings = array(1 => $_("Weather data used to drive the hydrologic mod
     foreach($group->variable as $var) {
       echo "data_timesteps[\"".$var['dataset']."_".$var['name']."\"] = ".$var['ts'].";\n";
     }
-  }
+  } ?>
 
   // Define JS variables from PHP arrays
   <?php 
