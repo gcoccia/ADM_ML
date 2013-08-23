@@ -37,6 +37,7 @@ function update_timestep()
   }
   current_timestep = $("input[name='ts-radio']:checked").attr('id');
 
+  // Disable the timestamp input boxes depending on which timestep is selected
   if(""+current_timestep == "daily") {
     $("input[id='day_initial'], input[id='month_initial'], input[id='year_initial']").prop({disabled: false});
     $("input[id='day_final'], input[id='month_final'], input[id='year_final']").prop({disabled: false});
