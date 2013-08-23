@@ -89,28 +89,31 @@ function update_timestep()
 {
 	var dataset = $("input[name='group1']:checked").attr('id');
 	var current_timestep = $("input[name='ts-radio']:checked").attr('id');
+	var all_unchecked = true;
 
 	// Check in the XML settings which of these actually exist for this dataset.
 	// If they don't exist, disable the button. Also if it was checked before, check something else instead.
 	if(data_timesteps[dataset].indexOf("D") == -1) {
 		$("input[id='daily']:radio").attr('disabled', true);
-		if(current_timestep == "daily") {
-			$("input[id='daily']:radio").attr('checked', false);
-			$("input[id='monthly']:radio").attr('checked', true);
-		}
+	} else {
+		$("input[id='daily']:radio").attr('enabled', true, 'checked', true);
+		all_unchecked = false;
 	}
 	if(data_timesteps[dataset].indexOf("M") == -1) {
 		$("input[id='monthly']:radio").attr('disabled', true);
-		if(current_timestep == "daily") {
-			$("input[id='monthly']:radio").attr('checked', false);
-			$("input[id='yearly']:radio").attr('checked', true);
+	} else {
+		$("input[id='monthly']:radio").attr('enabled', true);
+		if(all_unchecked) {
+			$("input[id='monthly']:radio").attr('checked', true);
+			all_unchecked = false;
 		}
 	}
 	if(data_timesteps[dataset].indexOf("Y") == -1) {
 		$("input[id='yearly']:radio").attr('disabled', true);
-		if(current_timestep == "daily") {
-			$("input[id='yearly']:radio").attr('checked', false);
-			$("input[id='daily']:radio").attr('checked', true);
+	} else {
+		$("input[id='yearly']:radio").attr('enabled', true);
+		if(all_unchecked) {
+			$("input[id='yearly']:radio").attr('checked', true);
 		}
 	}
 }
