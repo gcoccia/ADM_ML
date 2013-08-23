@@ -94,26 +94,26 @@ function update_timestep()
 	// Check in the XML settings which of these actually exist for this dataset.
 	// If they don't exist, disable the button. Also if it was checked before, check something else instead.
 	if(data_timesteps[dataset].indexOf("D") == -1) {
-		$("input[id='daily']:radio").attr('disabled', true, 'checked', false);
+		$("input[id='daily']:radio").prop({disabled: true, checked: false});
 	} else {
-		$("input[id='daily']:radio").attr('disabled', false, 'checked', true);
+		$("input[id='daily']:radio").prop({disabled: false, checked: true});
 		all_unchecked = false;
 	}
 	if(data_timesteps[dataset].indexOf("M") == -1) {
-		$("input[id='monthly']:radio").attr('disabled', true, 'checked', false);
+		$("input[id='monthly']:radio").prop({disabled: true, checked: false});
 	} else {
-		$("input[id='monthly']:radio").attr('disabled', false);
+		$("input[id='monthly']:radio")..prop({disabled: false});
 		if(all_unchecked) {
-			$("input[id='monthly']:radio").attr('checked', true);
+			$("input[id='monthly']:radio").prop({checked: true})
 			all_unchecked = false;
 		}
 	}
 	if(data_timesteps[dataset].indexOf("Y") == -1) {
-		$("input[id='yearly']:radio").attr('disabled', true, 'checked', false);
+		$("input[id='yearly']:radio").prop({disabled: true, checked: false});
 	} else {
-		$("input[id='yearly']:radio").attr('disabled', false);
+		$("input[id='yearly']:radio").prop({disabled: false});
 		if(all_unchecked) {
-			$("input[id='yearly']:radio").attr('checked', true);
+			$("input[id='yearly']:radio").prop({checked: true});
 		}
 	}
 }
