@@ -126,12 +126,13 @@ function update_timestep()
 
 	if(""+current_timestep == "daily")
 		$("input[id='day_initial'], input[id='month_initial'], input[id='year_initial']").prop({disabled: false});
+		$("input[id='day_final'], input[id='month_final'], input[id='year_final']").prop({disabled: false});
 	else if(""+current_timestep == "monthly") {
-		$("input[id='month_initial'], input[id='year_initial']").prop({disabled: false});
-		$("input[id='day_initial']").prop({disabled: true});
+		$("input[id='month_initial'], input[id='year_initial'], input[id='month_final'], input[id='year_final']").prop({disabled: false});
+		$("input[id='day_initial'], input[id='day_final']").prop({disabled: true});
 	} else {
-		$("input[id='year_initial']").prop({disabled: false});
-		$("input[id='day_initial'], input[id='month_initial']").prop({disabled: true});
+		$("input[id='year_initial'], input[id='year_final']").prop({disabled: false});
+		$("input[id='day_initial'], input[id='month_initial'], input[id='day_final'], input[id='month_final']").prop({disabled: true});
 	}
 
 }
