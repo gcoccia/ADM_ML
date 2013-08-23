@@ -3,7 +3,7 @@
   <div id="DC_div" class="data-form-block" style="padding-top: 5px">
     <form id="AnimationForm" name="AnimationForm">
       <?php echo $_("Timestep").":" ?><br/>
-      <input id="daily" type="radio" class="ts-radio" name="ts-radio">Daily 
+      <input id="daily" type="radio" class="ts-radio" name="ts-radio" checked="true">Daily 
       <input id="monthly" type="radio" class="ts-radio" name="ts-radio">Monthly 
       <input id="yearly" type="radio" class="ts-radio" name="ts-radio">Yearly<br/><br/>
 
@@ -22,7 +22,7 @@
       <input type="button" value="-" onclick="Update_TimeStamp_MP(0,1)">
       <input type="button" value="+" onclick="Update_TimeStamp_MP(1,1)"><br/>
 
-      <?php echo $_("Days per second")?>:  <input type="text" size=1 name="frames_per_second" value=1><br/>
+      <?php echo $_("Frames per second")?>:  <input type="text" size=1 name="frames_per_second" value=1><br/>
       <table><tr>
       <td><input id="update_interval" type="button" value=<?php echo $_("Update time interval")?> ></td>
       <td><input id="clear_all" type="button" value=<?php echo $_("Clear all overlays")?> ></td>

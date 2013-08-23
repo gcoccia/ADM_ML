@@ -62,6 +62,24 @@ function update_animation()
 	t = setInterval(next_image(dataset), time_delay);
 }
 
+function update_timestep()
+{
+	var dataset = $("input[name='group1']:checked").attr('id');
+	var current_timestep = $("input[name='ts-radio']:checked").attr('id');
+
+	// Check in the XML settings which of these actually exist for this dataset
+	// If they don't exist, disable the button. Also if it was checked before, check something else instead.
+	if(data_timesteps[dataset].indexOf("D") == -1) {
+
+	}
+	if(data_timesteps[dataset].indexOf("M") == -1) {
+
+	}
+	if(data_timesteps[dataset].indexOf("Y") == -1) {
+
+	}
+}
+
 function next_image(dataset)
 {
 	if (ImageCounter == daycount) ImageCounter = 0;

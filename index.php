@@ -95,6 +95,7 @@ $info_box_strings = array(1 => $_("Weather data used to drive the hydrologic mod
 <script type="text/javascript">
   var basinImage  = <?php echo $mask_gauge ?>;
   var info_box_strings = <?php echo json_encode($info_box_strings, JSON_NUMERIC_CHECK) ?>;
+  var datasets = <?php echo json_encode($xmlobj->variables->group->variable, JSON_NUMERIC_CHECK) ?>;
   
   // Define JS variables from PHP arrays
   <?php 
