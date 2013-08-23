@@ -85,7 +85,7 @@ function clear_image_overlays()
 	$("#Colorbar").css({visibility: "hidden", height: ""});
 }
 
-function update_timestep()
+function update_timestep_on_data_change()
 {
 	var dataset = $("input[name='group1']:checked").attr('id');
 	var all_unchecked = true;
@@ -115,7 +115,9 @@ function update_timestep()
 			$("input[id='yearly']:radio").prop({checked: true});
 		}
 	}
+}
 
+function update_timestep_on_ts_change() {
 	var current_timestep = $("input[name='ts-radio']:checked").attr('id');
 
 	if(""+current_timestep == "daily")
