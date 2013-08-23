@@ -13,7 +13,7 @@ function Request_Data(variables) {
  lat = $("#latitude").val();
  lon = $("#longitude").val();
  tstep = $('input:radio[name=tstep]:checked').val();//"DAILY";
- script = 'python ReadStationData.py'
+ script = 'python Extract_Point_Data.py'
  input = {idate:idate,fdate:fdate,tstep:tstep,lat:lat,lon:lon,variables:variables};
  input = JSON.stringify(input);
  request = {script:script,input:input};
@@ -112,6 +112,8 @@ function Plot_Data(variables,subtitle) {
   <body>
     <div id="container"></div>
     <div id="controls"></div>
+    <button onclick="Request_and_Display()">Update Plot</button>
+    <br>
     Plots:
     <br>
     <input type="radio" name="plot" value="Drought_Indices" checked=checked>Drought Indices
@@ -145,6 +147,5 @@ function Plot_Data(variables,subtitle) {
     <br>
     <input type="text" id="longitude" value=19.8750>
     <br>
-    <button onclick="Request_and_Display()">Update Plot</button>
   </body>
 </html>
