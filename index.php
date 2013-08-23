@@ -139,7 +139,6 @@ $info_box_strings = array(1 => $_("Weather data used to drive the hydrologic mod
   $(document).ready(function() {
 
     initialize();
-    update_timestep();
     update_animation(); // Start animation with default settings
 
     //Collapsible sidebar elements
