@@ -46,10 +46,9 @@
   </h1>
   <div id="<?php echo $group['divtitle']."_div"?>" class="data-form-block">
     <?php foreach($group->variable as $var) { ?>
-      <input id="<?php echo "overlayImageSelect_".$var['num']?>" 
-             type="radio" name="group1" value="<?php echo $var["name"]?>"
-             onclick=animate_overlay(<?php echo $var['num']?>)
-             <?php if($xmlobj->variables->default['num'] == $var['num']) echo "checked=true"?>> <?php echo $_("".$var["title"])?> <br/>
+      <input id="<?php echo $var['dataset']."_".$var['name'] ?>" 
+             type="radio" class="data-radio" name="group1" value="<?php echo $var["name"]?>"
+             <?php if($xmlobj->variables->default['tag'] == $var['name']) echo "checked=true"?>> <?php echo $_("".$var["title"])?> <br/>
     <?php } ?>
   </div>
 </div>
