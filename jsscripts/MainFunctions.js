@@ -1,8 +1,10 @@
 var ImageTimeArray = [];	
 var ImageStrArray = [];
-
+var ImageCounter = 0;
 var overlay_opacity = 0.8;
 var overlay_mask_dropdown = new Array();
+
+// JH: Which of these variables are actually being used??
 var ImageLoadedBoolean;
 var day;
 var daycount;
@@ -24,8 +26,14 @@ var t;
 var Logo_Images = [];
 Logo_Images[16] = "icons/smos_logo.png";
 var myVariable;
-var ImageCounter = 0;
 
+// function update_animation()
+// (1) Clears all existing animations
+// (2) Loads new animations based on (a) which radio button is checked, and (b) the timestamp form
+// Called on the following events:
+// (1) Initial page load (whichever dataset is checked by default)
+// (2) When the selected radio button changes
+// (3) When the timestamp form "update" button is clicked
 function update_animation()
 {
 	clear_image_overlays();
