@@ -159,7 +159,7 @@ function clear_all_overlays()
 
 	// Clear all forms
 	document.getElementById("AnimationForm").reset();
-	$(".data-radio").checked = false;
+	$(".data-radio").prop('checked', false);
 }
 
 /*function animate_overlay(j,time_flag)
