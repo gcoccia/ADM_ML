@@ -51,10 +51,9 @@ function update_timestep()
 
 }
 
-function Update_TimeStamp_MP(flag_arrow,flag_timestamp)
+function Update_TimeStamp_MP(increment, flag_timestamp)
 {
-
-  var newtimestamp = new Array(3);
+  var current_timestep = $("input[name='ts-radio']:checked").attr('id');
   var date_temp, i_or_f;
 
   var initial_date = new Date(parseInt($("#year_initial").val()),
@@ -74,25 +73,20 @@ function Update_TimeStamp_MP(flag_arrow,flag_timestamp)
   }
 
   //Find the next or previous timestamp
-  if (flag_arrow == 1)
-  {
-    date_temp.setDate(date_temp.getDate() + 1);
-    if (flag_timestamp == 0 && date_temp.valueOf() > final_date.valueOf()) return;
-
-    newtimestamp = [date_temp.getFullYear(), date_temp.getMonth() + 1, date_temp.getDate()];
-  }
-  else 
-  {
-    date_temp.setDate(date_temp.getDate() - 1);
-    if (flag_timestamp == 1 && date_temp.valueOf() < initial_date.valueOf()) return;
-
-    newtimestamp = [date_temp.getFullYear(), date_temp.getMonth() + 1, date_temp.getDate()];
-  }
+  if(""+current_timestep == "daily")
+    date_temp.setDate(date_temp.getDate() + increment);
+  else if(""+current_timestep == "monthly")
+    date_temp.setMonth(date_temp.getMonth() + increment); // will loop around 12 automatically
+   else 
+    date_temp.setFullYear(date_temp.getFullYear() + increment);
+  
+  if (flag_timestamp == 0 && date_temp.valueOf() > final_date.valueOf()) return;
+  else if (flag_timestamp == 1 && date_temp.valueOf() < initial_date.valueOf()) return;
 
   // Update the time string
-  $("#year_" + i_or_f).val(newtimestamp[0]);
-  $("#month_" + i_or_f).val(newtimestamp[1]);
-  $("#day_" + i_or_f).val(newtimestamp[2]);
+  $("#year_" + i_or_f).val(date_temp.getFullYear());
+  $("#month_" + i_or_f).val(date_temp.getMonth() + 1);
+  $("#day_" + i_or_f).val(date_temp.getDate());
 }
 
 function UpdatePopUpTimestep(j)
