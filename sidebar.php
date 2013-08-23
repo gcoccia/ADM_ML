@@ -2,6 +2,11 @@
   <h1 id="DC_header" class="data-group-header"><?php echo $_("User Interface")?></h1> 
   <div id="DC_div" class="data-form-block">
     <form id="AnimationForm" name="AnimationForm">
+      <?php echo $_("Timestep").":" ?><br/>
+      <input id="daily" type="radio" class="ts-radio">Daily<br/>
+      <input id="monthly" type="radio" class="ts-radio">Monthly<br/>
+      <input id="yearly" type="radio" class="ts-radio">Yearly<br/>
+
       <?php echo $_("Time Interval")."(".$_("dd/mm/yyyy")."):"?><br/>
       <?php echo $_("Initial")?>: 
       <input id="day_initial" type="text" size=1 name="day_initial" value=<?php echo $day_initial ?>>
