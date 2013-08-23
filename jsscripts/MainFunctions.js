@@ -158,7 +158,7 @@ function clear_all_overlays()
 	}
 
 	// Clear all forms
-	document.getElementById("variables_form").reset();
+	document.getElementById("AnimationForm").reset();
 	$(".data-radio").checked = false;
 }
 
