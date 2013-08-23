@@ -1,51 +1,6 @@
 var ImageTimeArray = [];	
 var ImageStrArray = [];
-var ImageRootArray = [];
-var ImageIdArray = [];
-ImageIdArray[5] = "PrecImage";
-ImageIdArray[6] = "TmaxImage";
-ImageIdArray[7] = "TminImage";
-ImageIdArray[8] = "WindImage";
-ImageIdArray[9] = "EvapImage";
-ImageIdArray[10] = "SM1Image";
-ImageIdArray[11] = "SM2Image";
-ImageIdArray[12] = "SM3Image";
-ImageIdArray[13] = "BaseImage";
-ImageIdArray[14] = "RunoffImage";
-ImageIdArray[15] = "smqallImage";
-ImageRootArray[5] = "/prec_GMaps/prec_";
-ImageRootArray[6] = "/tmax_GMaps/tmax_";
-ImageRootArray[7] = "/tmin_GMaps/tmin_";
-ImageRootArray[8] = "/wind_GMaps/wind_";
-ImageRootArray[9] = "/evap_GMaps/evap_";
-ImageRootArray[10] = "/smwet1_GMaps/smwet1_";
-ImageRootArray[11] = "/smwet2_GMaps/smwet2_";
-ImageRootArray[12] = "/smwet3_GMaps/smwet3_";
-ImageRootArray[13] = "/baseflow_GMaps/baseflow_";
-ImageRootArray[14] = "/runoff_GMaps/runoff_";
-ImageRootArray[15] = "/smqall_GMaps/smqall_";
-ImageRootArray[16] = "/SMOS_SW2F_GMaps/SMOS_SW2F_";
-ImageRootArray[17] = "/SPI_1month_GMaps/SPI_1month_";
-ImageRootArray[18] = "/SPI_3month_GMaps/SPI_3month_";
-ImageRootArray[19] = "/SPI_6month_GMaps/SPI_6month_";
-ImageRootArray[20] = "/SPI_12month_GMaps/SPI_12month_";
-var Colorbar_Images = [];
-Colorbar_Images[5] = "Data/Colorbar/colorbar_prec.png";
-Colorbar_Images[6] = "Data/Colorbar/colorbar_tmax.png";
-Colorbar_Images[7] = "Data/Colorbar/colorbar_tmin.png";
-Colorbar_Images[8] = "Data/Colorbar/colorbar_wind.png";
-Colorbar_Images[9] = "Data/Colorbar/colorbar_evap.png";
-Colorbar_Images[10] = "Data/Colorbar/colorbar_smwet1.png";
-Colorbar_Images[11] = "Data/Colorbar/colorbar_smwet2.png";
-Colorbar_Images[12] = "Data/Colorbar/colorbar_smwet3.png";
-Colorbar_Images[13] = "Data/Colorbar/colorbar_baseflow.png";
-Colorbar_Images[14] = "Data/Colorbar/colorbar_runoff.png";
-Colorbar_Images[15] = "Data/Colorbar/colorbar_smqall.png";
-Colorbar_Images[16] = "Data/Colorbar/colorbar_SMOS_SW2F.png";
-Colorbar_Images[17] = "Data/Colorbar/colorbar_SPI.png";
-Colorbar_Images[18] = "Data/Colorbar/colorbar_SPI.png";
-Colorbar_Images[19] = "Data/Colorbar/colorbar_SPI.png";
-Colorbar_Images[20] = "Data/Colorbar/colorbar_SPI.png";
+
 var overlay_opacity = 0.8;
 var overlay_mask_dropdown = new Array();
 var ImageLoadedBoolean;
@@ -84,14 +39,15 @@ function update_animation()
 /*	if (time_flag == "SPI")ImageArrayPrep_SPI(ImageStrArray[j],ImageRootArray[j],ImageTimeArray[j]);
 	else ImageArrayPrep(ImageStrArray[j],ImageRootArray[j],ImageTimeArray[j]);*/
 
-	ImageArrayPrep(ImageStrArray[dataset],ImageRootArray[dataset],ImageTimeArray[dataset]);
+	var ImageRootDir = "/some/path/to/" + dataset;
+	ImageArrayPrep(ImageStrArray[dataset], ImageRootDir, ImageTimeArray[dataset]);
 
 	display_colorbar(dataset);
   update_logo(dataset);
 
 	var time_delay = 1000*1/frames_per_second;
 
-	overlay_obj[dataset] = new ImageOverlay(bounds, ImageStrArray[dataset][0], map_array[0],ImageIdArray[dataset]);
+	overlay_obj[dataset] = new ImageOverlay(bounds, ImageStrArray[dataset][0], map_array[0], dataset);
 	ChangeTimeStamp(1, ImageCounter, dataset);
 	ImageCounter = 1;
 
