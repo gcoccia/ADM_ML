@@ -360,16 +360,25 @@ function ChangeBasin(basin_name)
 	
 function Update_TimeStamp_MP(flag_arrow,flag_timestamp)
 {
-	if (flag_timestamp == 0)
-		var i_or_f = "initial";
-	else 
-		var i_or_f = "final";
 
 	var newtimestamp = new Array(3);
+	var date_temp, i_or_f;
 
-	var date_temp = new Date(parseInt($("#year_" + i_or_f).val()),
-													 parseInt($("#month_" + i_or_f).val())-1,
-													 parseInt($("#day_" + i_or_f).val()));
+	var initial_date = new Date(parseInt($("#year_initial").val()),
+													 parseInt($("#month_initial").val())-1,
+													 parseInt($("#day_initial").val()));
+	var final_date = new Date(parseInt($("#year_final").val()),
+													 parseInt($("#month_final").val())-1,
+													 parseInt($("#day_final").val()));
+
+	if (flag_timestamp == 0) {
+		date_temp = initial_date;
+		i_or_f = "initial";
+	}
+	else {
+		date_temp = final_date;
+		i_or_f = "final";
+	}
 
 	//Find the next or previous timestamp
 	if (flag_arrow == 1)
