@@ -88,7 +88,6 @@ function clear_image_overlays()
 function update_timestep()
 {
 	var dataset = $("input[name='group1']:checked").attr('id');
-	var current_timestep = $("input[name='ts-radio']:checked").attr('id');
 	var all_unchecked = true;
 
 	// Check in the XML settings which of these actually exist for this dataset.
@@ -115,6 +114,18 @@ function update_timestep()
 		if(all_unchecked) {
 			$("input[id='yearly']:radio").prop({checked: true});
 		}
+	}
+
+	var current_timestep = $("input[name='ts-radio']:checked").attr('id');
+
+	if(current_timestep == "daily")
+		$("input[id='day_initial']:radio, input[id='month_initial']:radio, input[id='year_initial']:radio").prop({disabled: false});
+	else if(current_timestep == "monthly") {
+		$("input[id='month_initial']:radio, input[id='year_initial']:radio").prop({disabled: false});
+		$("input[id='day_initial']:radio").prop({disabled: true});
+	} else {
+		$("input[id='year_initial']:radio").prop({disabled: false});
+		$("input[id='day_initial']:radio, input[id='month_initial']:radio").prop({disabled: true});
 	}
 }
 
