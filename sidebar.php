@@ -48,7 +48,7 @@
     <?php foreach($group->variable as $var) { ?>
       <input id="<?php echo $var['dataset']."_".$var['name'] ?>" 
              type="radio" class="data-radio" name="group1" value="<?php echo $var["name"]?>"
-             <?php if($xmlobj->variables->default["tag"] == $var["name"]) echo "checked=true"?>> <?php echo $_("".$var["title"])?> <br/>
+             <?php echo ($xmlobj->variables->default["tag"]); echo ($var["name"]); echo "checked=true"?>> <?php echo $_("".$var["title"])?> <br/>
     <?php } ?>
   </div>
 </div>
