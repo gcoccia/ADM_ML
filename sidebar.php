@@ -1,6 +1,6 @@
 <div id="Display_Control"> 
   <h1 id="DC_header" class="data-group-header"><?php echo $_("User Interface")?></h1> 
-  <div id="DC_div" class="data-form-block">
+  <div id="DC_div" class="data-form-block" style="padding-top: 5px">
     <form id="AnimationForm" name="AnimationForm">
       <?php echo $_("Timestep").":" ?><br/>
       <input id="daily" type="radio" class="ts-radio" name="ts-radio">Daily 
