@@ -102,7 +102,7 @@ function update_timestep()
 	if(data_timesteps[dataset].indexOf("M") == -1) {
 		$("input[id='monthly']:radio").prop({disabled: true, checked: false});
 	} else {
-		$("input[id='monthly']:radio")..prop({disabled: false});
+		$("input[id='monthly']:radio").prop({disabled: false});
 		if(all_unchecked) {
 			$("input[id='monthly']:radio").prop({checked: true})
 			all_unchecked = false;
