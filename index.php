@@ -139,7 +139,6 @@ $info_box_strings = array(1 => $_("Weather data used to drive the hydrologic mod
   $(document).ready(function() {
 
     initialize();
-    update_timestep_on_data_change();
     update_animation(); // Start animation with default settings
 
     //Collapsible sidebar elements
@@ -163,11 +162,11 @@ $info_box_strings = array(1 => $_("Weather data used to drive the hydrologic mod
       clear_all_overlays();
     });
     $("input[name=group1]:radio").change(function() {
-      update_timestep_on_data_change();
+      update_timestep();
       update_animation();
     });
     $("input[name=ts-radio]:radio").change(function() {
-      update_timestep_on_ts_change();
+      update_timestep();
     });
 
   });
