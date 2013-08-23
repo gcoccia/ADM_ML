@@ -5,15 +5,12 @@ body {
     font-family:arial,lucida sans unicode, verdana, sans, helvetica, sans-serif;
     font-size:14px;
     min-width: 1100px;
-/*	max-width: 150ex; */
 }
 
 div.body{
-    /*margin: 0;*/
-    background: #AFC7C7;
+	background: #AFC7C7;
     min-width: 1100px;
     padding: 10px;
-	/*width: 985px;*/
     min-height:40em;
 }
 
@@ -39,15 +36,9 @@ div.menu {
 
 div.main{
     text-align:center;
-    /*line-height: 1.2em;*/
     background:#95B9C7;
-    /*width: 720px;*/
-/*    min-width:100ex;
-    max-width:150ex; */
-    /*margin: 0 0 0 0;*/
     padding-bottom:1em;
     border:#E0E9E9 4px solid;
-    /*width: 1300px;*/
     min-width:850px;
     margin: auto;
 
@@ -73,22 +64,17 @@ div.clickmap{
 
 
 div.top {
-/*  background: transparent url("../images/forecast_title.png") no-repeat top left; */
     height: 55px;
     font-weight: bold;
     margin: 0;
     padding: 0;
     width: auto;
-    /*min-width:600px;*/
 }
 
 div.top div.box {
     position: relative;
     background: transparent;
-    /*text-align: center;*/
-    /*float: center;*/
     color: #2d880d;
-    /*padding-top:5px;*/
     border: none;
     font-size: 250%;
     min-width: 1100px;
@@ -125,9 +111,6 @@ div.hbar{
     background: #186194;/*#41627E;*/
     height: 18px;
     min-width: 1100px;
-    
-    /*width: 100%;*/
-/*    position:absolute; */
 }
 
 div.main a:hover {
@@ -232,10 +215,6 @@ abbr, acronym {
 #nav td.link:hover {
 	background: #51A5E0;
 	cursor: pointer;
-}
-
-#Test {
-
 }
 
 
