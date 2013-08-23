@@ -117,10 +117,10 @@ function update_timestep()
 	}
 
 	var current_timestep = $("input[name='ts-radio']:checked").attr('id');
-
-	if(strcmp(current_timestep,"daily") == 0)
+	console.log(current_timestep);
+	if(current_timestep == "daily")
 		$("input[id='day_initial']:radio, input[id='month_initial']:radio, input[id='year_initial']:radio").prop({disabled: false});
-	else if(strcmp(current_timestep,"monthly") = 0) {
+	else if(current_timestep == "monthly") {
 		$("input[id='month_initial']:radio, input[id='year_initial']:radio").prop({disabled: false});
 		$("input[id='day_initial']:radio").prop({disabled: true});
 	} else {
