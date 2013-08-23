@@ -85,40 +85,31 @@ function clear_image_overlays()
 	$("#Colorbar").css({visibility: "hidden", height: ""});
 }
 
-function update_timestep_on_data_change()
+function update_timestep()
 {
 	var dataset = $("input[name='group1']:checked").attr('id');
+	var current_timestep = $("input[name='ts-radio']:checked").attr('id');
 	var all_unchecked = true;
 
 	// Check in the XML settings which of these actually exist for this dataset.
 	// If they don't exist, disable the button. Also if it was checked before, check something else instead.
 	if(data_timesteps[dataset].indexOf("D") == -1) {
 		$("input[id='daily']:radio").prop({disabled: true, checked: false});
-	} else {
-		$("input[id='daily']:radio").prop({disabled: false, checked: true});
-		all_unchecked = false;
+		if(""+current_timestep == "daily")
+			$("input[id='monthly']:radio").prop({checked: true});
 	}
 	if(data_timesteps[dataset].indexOf("M") == -1) {
 		$("input[id='monthly']:radio").prop({disabled: true, checked: false});
-	} else {
-		$("input[id='monthly']:radio").prop({disabled: false});
-		if(all_unchecked) {
-			$("input[id='monthly']:radio").prop({checked: true})
-			all_unchecked = false;
-		}
-	}
+		if(""+current_timestep == "monthly")
+			$("input[id='yearly']:radio").prop({checked: true});
+	} 
 	if(data_timesteps[dataset].indexOf("Y") == -1) {
 		$("input[id='yearly']:radio").prop({disabled: true, checked: false});
-	} else {
-		$("input[id='yearly']:radio").prop({disabled: false});
-		if(all_unchecked) {
-			$("input[id='yearly']:radio").prop({checked: true});
-		}
+		if(""+current_timestep == "yearly")
+			$("input[id='daily']:radio").prop({checked: true});
 	}
-}
 
-function update_timestep_on_ts_change() {
-	var current_timestep = $("input[name='ts-radio']:checked").attr('id');
+	current_timestep = $("input[name='ts-radio']:checked").attr('id');
 
 	if(""+current_timestep == "daily")
 		$("input[id='day_initial'], input[id='month_initial'], input[id='year_initial']").prop({disabled: false});
@@ -129,6 +120,7 @@ function update_timestep_on_ts_change() {
 		$("input[id='year_initial']").prop({disabled: false});
 		$("input[id='day_initial'], input[id='month_initial']").prop({disabled: true});
 	}
+
 }
 
 function display_colorbar(dataset)
