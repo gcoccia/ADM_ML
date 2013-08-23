@@ -3,9 +3,9 @@
   <div id="DC_div" class="data-form-block">
     <form id="AnimationForm" name="AnimationForm">
       <?php echo $_("Timestep").":" ?><br/>
-      <input id="daily" type="radio" class="ts-radio">Daily<br/>
-      <input id="monthly" type="radio" class="ts-radio">Monthly<br/>
-      <input id="yearly" type="radio" class="ts-radio">Yearly<br/>
+      <input id="daily" type="radio" class="ts-radio" name="ts-radio">Daily<br/>
+      <input id="monthly" type="radio" class="ts-radio" name="ts-radio">Monthly<br/>
+      <input id="yearly" type="radio" class="ts-radio" name="ts-radio">Yearly<br/>
 
       <?php echo $_("Time Interval")."(".$_("dd/mm/yyyy")."):"?><br/>
       <?php echo $_("Initial")?>: 
