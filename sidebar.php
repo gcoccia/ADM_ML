@@ -5,10 +5,9 @@
       <?php echo $_("Timestep").":" ?><br/>
       <input id="daily" type="radio" class="ts-radio" name="ts-radio">Daily 
       <input id="monthly" type="radio" class="ts-radio" name="ts-radio">Monthly 
-      <input id="yearly" type="radio" class="ts-radio" name="ts-radio">Yearly
-      <br/><br/>
+      <input id="yearly" type="radio" class="ts-radio" name="ts-radio">Yearly<br/>
 
-      <?php echo $_("Time Interval")."(".$_("dd/mm/yyyy")."):"?><br/>
+      <?php echo $_("Time Interval")." (".$_("dd/mm/yyyy")."):"?><br/>
       <?php echo $_("Initial")?>: 
       <input id="day_initial" type="text" size=1 name="day_initial" value=<?php echo $day_initial ?>>
       <input id="month_initial" type="text" size=1 name="month_initial" value=<?php echo $month_initial ?>>
