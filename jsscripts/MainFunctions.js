@@ -96,13 +96,13 @@ function update_timestep()
 	if(data_timesteps[dataset].indexOf("D") == -1) {
 		$("input[id='daily']:radio").attr('disabled', true);
 	} else {
-		$("input[id='daily']:radio").attr('enabled', true, 'checked', true);
+		$("input[id='daily']:radio").attr('disabled', false, 'checked', true);
 		all_unchecked = false;
 	}
 	if(data_timesteps[dataset].indexOf("M") == -1) {
 		$("input[id='monthly']:radio").attr('disabled', true);
 	} else {
-		$("input[id='monthly']:radio").attr('enabled', true);
+		$("input[id='monthly']:radio").attr('disabled', false);
 		if(all_unchecked) {
 			$("input[id='monthly']:radio").attr('checked', true);
 			all_unchecked = false;
@@ -111,7 +111,7 @@ function update_timestep()
 	if(data_timesteps[dataset].indexOf("Y") == -1) {
 		$("input[id='yearly']:radio").attr('disabled', true);
 	} else {
-		$("input[id='yearly']:radio").attr('enabled', true);
+		$("input[id='yearly']:radio").attr('disabled', false);
 		if(all_unchecked) {
 			$("input[id='yearly']:radio").attr('checked', true);
 		}
