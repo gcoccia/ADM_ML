@@ -62,24 +62,6 @@ function update_animation()
 	t = setInterval(next_image(dataset), time_delay);
 }
 
-function update_timestep()
-{
-	var dataset = $("input[name='group1']:checked").attr('id');
-	var current_timestep = $("input[name='ts-radio']:checked").attr('id');
-
-	// Check in the XML settings which of these actually exist for this dataset
-	// If they don't exist, disable the button. Also if it was checked before, check something else instead.
-	if(data_timesteps[dataset].indexOf("D") == -1) {
-
-	}
-	if(data_timesteps[dataset].indexOf("M") == -1) {
-
-	}
-	if(data_timesteps[dataset].indexOf("Y") == -1) {
-
-	}
-}
-
 function next_image(dataset)
 {
 	if (ImageCounter == daycount) ImageCounter = 0;
@@ -101,6 +83,36 @@ function clear_image_overlays()
     }
 	}
 	$("#Colorbar").css({visibility: "hidden", height: ""});
+}
+
+function update_timestep()
+{
+	var dataset = $("input[name='group1']:checked").attr('id');
+	var current_timestep = $("input[name='ts-radio']:checked").attr('id');
+
+	// Check in the XML settings which of these actually exist for this dataset.
+	// If they don't exist, disable the button. Also if it was checked before, check something else instead.
+	if(data_timesteps[dataset].indexOf("D") == -1) {
+		$("input[id='daily']:radio").attr('disabled', true);
+		if(current_timestep == "daily") {
+			$("input[id='daily']:radio").attr('checked', false);
+			$("input[id='monthly']:radio").attr('checked', true);
+		}
+	}
+	if(data_timesteps[dataset].indexOf("M") == -1) {
+		$("input[id='monthly']:radio").attr('disabled', true);
+		if(current_timestep == "daily") {
+			$("input[id='monthly']:radio").attr('checked', false);
+			$("input[id='yearly']:radio").attr('checked', true);
+		}
+	}
+	if(data_timesteps[dataset].indexOf("Y") == -1) {
+		$("input[id='yearly']:radio").attr('disabled', true);
+		if(current_timestep == "daily") {
+			$("input[id='yearly']:radio").attr('checked', false);
+			$("input[id='daily']:radio").attr('checked', true);
+		}
+	}
 }
 
 function display_colorbar(dataset)
