@@ -112,7 +112,7 @@ function update_timestep()
 		if(""+current_timestep == "yearly")
 			$("input[id='daily']:radio").prop({checked: true});
 	}else {
-		$("input[id='monthly']:radio").prop({disabled: false});
+		$("input[id='yearly']:radio").prop({disabled: false});
 	}
 
 	current_timestep = $("input[name='ts-radio']:checked").attr('id');
