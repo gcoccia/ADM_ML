@@ -19,8 +19,8 @@
 
       <?php echo $_("Days per second")?>:  <input type="text" size=1 name="frames_per_second" value=1><br/>
       <table><tr>
-      <td><input type="button" value=<?php echo $_("Update time interval")?> onclick="animate_overlay_submit()"></td>
-      <td><input type="button" value=<?php echo $_("Clear all overlays")?> onclick="ClearAllOverlays()"></td>
+      <td><input id="update_interval" type="button" value=<?php echo $_("Update time interval")?> ></td>
+      <td><input id="clear_all" type="button" value=<?php echo $_("Clear all overlays")?> ></td>
       </tr>
       </table>
 

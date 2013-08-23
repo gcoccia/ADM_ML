@@ -69,6 +69,65 @@ var t;
 var Logo_Images = [];
 Logo_Images[16] = "icons/smos_logo.png";
 var myVariable;
+var ImageCounter = 0;
+
+function update_animation()
+{
+	clear_image_overlays();
+	ReadTimeInterval();
+	var dataset = $("input[name='group1']:checked").attr('id');
+
+	//Fill up the Array of image strings
+	ImageTimeArray[dataset] = new Array();
+	ImageStrArray[dataset] = new Array();
+
+/*	if (time_flag == "SPI")ImageArrayPrep_SPI(ImageStrArray[j],ImageRootArray[j],ImageTimeArray[j]);
+	else ImageArrayPrep(ImageStrArray[j],ImageRootArray[j],ImageTimeArray[j]);*/
+
+	ImageArrayPrep(ImageStrArray[dataset],ImageRootArray[dataset],ImageTimeArray[dataset]);
+
+	display_colorbar(dataset);
+	update_overlay_animate(j,0);
+  update_logo(dataset);
+
+	var time_delay = 1000*1/frames_per_second;
+
+	overlay_obj[dataset] = new ImageOverlay(bounds, ImageStrArray[dataset][0], map_array[0],ImageIdArray[dataset]);
+	ChangeTimeStamp(1,i,j)
+	ImageCounter = 1;
+
+	t = setInterval(next_image(dataset), time_delay);
+}
+
+function next_image(dataset)
+{
+	if (ImageCounter == daycount) ImageCounter = 0;
+	overlay_obj[dataset].swap(ImageStrArray[dataset][ImageCounter]);
+	ChangeTimeStamp(2,i,j)
+	ImageCounter += 1;
+}
+
+function clear_image_overlays()
+{
+	clearInterval(t);
+
+  for (k=0; k < overlay_obj.length; k++){
+    if (overlay_obj[k] != undefined){
+      overlay_obj[k].remove();
+      delete overlay_obj[k];
+      //Remove time stamp
+      ChangeTimeStamp(3);
+    }
+	}
+	$("#Colorbar").css({visibility: "hidden", height: ""});
+}
+
+function display_colorbar(dataset)
+{
+	var cbar_img = "Data/Colorbar/colorbar_" + dataset + ".png";
+  $("#Colorbar").css({visibility: "visible", height: "100"});
+  $("#Colorbar").html("<img src=" + cbar_img + "></img>");
+}
 
 function imageLoaded()
 {
@@ -108,7 +167,39 @@ function update_overlay_opacity(flag_dir)
 	if (overlay_obj[j] != undefined){overlay_obj[j].ChangeOpacity();}
 }
 	
-function animate_overlay(j,time_flag)
+function clear_all_overlays()
+{
+	clear_image_overlays();
+
+	//Clear all static overlays
+  for (var k=0;k<static_overlay_obj.length;k++)
+  {
+    if (static_overlay_obj[k] != undefined)
+	  {
+	  clearTimeout(t);
+	  static_overlay_obj[k].remove();
+	  delete static_overlay_obj[k];
+	  }
+  }
+
+	update_logo(0);
+
+	//Remove all basin layers
+	for (var k=0;k<overlay_mask_dropdown.length;k++)
+  {                
+		if (overlay_mask_dropdown[k] != undefined)
+    {
+			overlay_mask_dropdown[k].remove();
+      delete overlay_mask_dropdown[k];
+    }                
+	}
+
+	// Clear all forms
+	$("#variables_form").reset();
+	$(".data-radio").checked = false;
+}
+
+/*function animate_overlay(j,time_flag)
 {
 	var j;
 	var time_flag;
@@ -144,9 +235,9 @@ function animate_overlay(j,time_flag)
 	update_colorbar(j);
 	update_overlay_animate(j,0);
   update_logo(j);
-}
+}*/
 	
-function update_colorbar(j)
+/*function update_colorbar(j)
 {
 	var flag_m;
 	var obj
@@ -163,9 +254,9 @@ function update_colorbar(j)
 		contentString = "<img src="+Colorbar_Images[j]+"></img>";
 		document.getElementById('Colorbar').innerHTML = contentString;
 	}
-}
+}*/
 	
-function update_overlay_animate(j,i) 
+/*function update_overlay_animate(j,i) 
 {
 	var j;
 	var k;
@@ -192,61 +283,10 @@ function update_overlay_animate(j,i)
 		fcnstr = "update_overlay_animate(" + j + "," + i + ")";
 		t = setTimeout(fcnstr,time_delay);
 	}
-}
+}*/
 	
-function ClearAllOverlays()
+/*function animate_overlay_submit()
 {
-	var k;
-	//Clear all variable overlays
-	for (k=0;k<overlay_obj.length;k++)
-	{
-		if (overlay_obj[k] != undefined)
-		{
-			clearTimeout(t);
-      overlay_obj[k].remove();
-      delete overlay_obj[k];
-      update_colorbar(k);
-      //Remove time stamp
-      ChangeTimeStamp(3);
-		} 
-	}
-	//Clear all static overlays
-  for (k=0;k<static_overlay_obj.length;k++)
-  {
-    if (static_overlay_obj[k] != undefined)
-	  {
-	  clearTimeout(t);
-	  static_overlay_obj[k].remove();
-	  delete static_overlay_obj[k];
-	  }
-  }
-
-  cbar = document.getElementById("Colorbar").style;
-  cbar.visibility = "hidden";
-  cbar.height = "";
-	update_logo(0);
-
-	//Remove all basin layers
-	for (k=0;k<overlay_mask_dropdown.length;k++)
-  {                
-		if (overlay_mask_dropdown[k] != undefined)
-    {
-			overlay_mask_dropdown[k].remove();
-      delete overlay_mask_dropdown[k];
-    }                
-	}
-
-	//Clear all forms
-	document.getElementById("variables_form").reset();
-	//document.getElementById("constants_form").reset();
-	//Make sure the drought index isn't clicked when clearing the maps
-	document.getElementById("overlayImageSelect_15").checked = false;//.checked = "unchecked";// = "unchecked"; 
-
-}
-	
-function animate_overlay_submit()
-{
-	ReadTimeInterval();
 	var k;
 	var j = variable_image_number;
 	for (k=0;k<overlay_obj.length;k++)
@@ -269,9 +309,9 @@ function animate_overlay_submit()
   	  update_overlay_animate(j,0);
 		}
 	}
-}
+}*/
 	
-function update_basins(j)
+/*function update_basins(j)
 {
 	var j;
 	var k;
@@ -284,7 +324,7 @@ function update_basins(j)
 	{
 		overlay_mask[j] = new ImageOverlay(bounds, basinImage[j], map_array[0]);
 	}
-}
+}*/
 	
 function ChangeLanguage(language)
 {

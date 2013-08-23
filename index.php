@@ -128,12 +128,12 @@ $info_box_strings = array(1 => $_("Weather data used to drive the hydrologic mod
     //Insert the map canvas into html
     map_array[0] = new google.maps.Map(document.getElementById("map_canvas_1"), myOptions);
     bounds = new google.maps.LatLngBounds(swBound, neBound);
-    animate_overlay(15) //Load the drought index map from the start
   }
 
   $(document).ready(function() {
 
     initialize();
+    update_animation(); // Start animation with default settings
 
     //Collapsible sidebar elements
     $(".data-group-header").click(function() {
@@ -147,6 +147,16 @@ $info_box_strings = array(1 => $_("Weather data used to drive the hydrologic mod
       function() {
         $("#Info_Box").css("visibility", "hidden");
         $("#Info_Box").html('');
+    });
+
+    $("#update_interval").click(function() {
+      update_animation();
+    });
+    $("#clear_all").click(function() {
+      clear_all_overlays();
+    });
+    $("input[name=group1]:radio").change(function() {
+      update_animation();
     });
 
   });
