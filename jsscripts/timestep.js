@@ -82,7 +82,7 @@ function Update_TimeStamp_MP(increment, flag_timestamp)
   
   if (flag_timestamp == 0 && date_temp.valueOf() > final_date.valueOf()) return;
   else if (flag_timestamp == 1 && date_temp.valueOf() < initial_date.valueOf()) return;
-  else if (flag_timestamp == 1 && date.temp.valueOf() > (new Date()).valueOf()) return;
+  else if (flag_timestamp == 1 && date_temp.valueOf() > (new Date()).valueOf()) return;
 
   // Update the time string
   $("#year_" + i_or_f).val(date_temp.getFullYear());
