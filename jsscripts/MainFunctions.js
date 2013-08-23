@@ -113,8 +113,12 @@ function update_timestep()
 
 	if(data_timesteps[dataset].indexOf("Y") == -1) {
 		$("input[id='yearly']:radio").prop({disabled: true, checked: false});
-		if(""+current_timestep == "yearly")
-			$("input[id='daily']:radio").prop({checked: true});
+		if(""+current_timestep == "yearly") {
+			if(data_timesteps[dataset].indexOf("D") == -1)
+				$("input[id='daily']:radio").prop({checked: true});
+			else if(data_timesteps[dataset].indexOf("M") == -1)
+				$("input[id='monthly']:radio").prop({checked: true});
+		}
 	}else {
 		$("input[id='yearly']:radio").prop({disabled: false});
 	}
