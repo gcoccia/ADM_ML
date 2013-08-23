@@ -165,6 +165,9 @@ $info_box_strings = array(1 => $_("Weather data used to drive the hydrologic mod
       update_timestep();
       update_animation();
     });
+    $("input[name=ts-radio]:radio").change(function() {
+      update_timestep();
+    });
 
   });
 
