@@ -160,11 +160,10 @@ $info_box_strings = array(1 => $_("Weather data used to drive the hydrologic mod
     <div><table><tbody><tr>
       <td align="center"><img id="UNESCO_logo" src="icons/Unesco_logo.gif"></td>
       <td align="center"><img id="ICPAC_logo" src="icons/ICPAC_logo.gif"></td>
-                  <td align="center"><img id="AGRHYMET_logo" src="icons/agrhymet_logo.gif"></td>
+      <td align="center"><img id="AGRHYMET_logo" src="icons/agrhymet_logo.gif"></td>
       <td align="center" width="65%"> Experimental African Drought Monitor </td>
       <td align="center"><img id="PU_logo" src="icons/PU_logo.gif"></td>
       <td align="center"><img id="UW_logo" src="icons/UW_logo.png"></td>
-      <td align="center"><img id="CB_logo" src="icons/cesbio_logo.png"></td>
     </tr></tbody></table></div>
   </div>
 </div>
