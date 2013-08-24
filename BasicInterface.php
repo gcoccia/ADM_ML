@@ -51,6 +51,7 @@ $text = <<< EOF
 <script type="text/javascript" src="js/slimbox.js"></script>
 <script type="text/javascript" src="jsscripts/Static_Images.js"></script>
 <script type="text/javascript" src="jsscripts/MiscFunctions.js"></script>
+<script type="text/javascript" src="jsscripts/MainFunctions.js"></script>
 
 <link rel="Shortcut Icon" href="vic.ico" type="image/x-icon" >
 <link href="css/s.css" rel=stylesheet> 
@@ -74,8 +75,21 @@ $text = <<< EOF
         </div>
 <div class='body'>
 	<div class='hbar'>
-	<table id="nav"><tr><td>{$_("Basic Interface")}</td><td  class="link" onClick="document.location.href='index.php'+window.location.search">{$_("Google Maps Interface")}</td><td class="link" onClick="document.location.href='Resources/ADM_Background.pdf'">{$_("Background")}</td><td class="link" onClick="document.location.href='Resources/ADM_Glossary.pdf'">{$_("Glossary")}</td><td class="link" onClick="document.location.href='Resources/Tutorial_HornAfrica.pdf'">{$_("Tutorial")}</td></tr></table>
-</div>
+	<table id="nav">
+		<tr>
+		<td>{$_("Basic Interface")}</td>
+		<td class="link" onClick="document.location.href='index.php'+window.location.search">{$_("Google Maps Interface")}</td>
+		<td class="link" onClick="document.location.href='Resources/ADM_Background.pdf'">{$_("Background")}</td>
+		<td class="link" onClick="document.location.href='Resources/ADM_Glossary.pdf'">{$_("Glossary")}</td>
+		<td class="link" onClick="document.location.href='Resources/Tutorial_HornAfrica.pdf'">{$_("Tutorial")}</td>
+		<td class="flag"><img id="Flag_Image" src="icons/flags/english_flag.gif" onclick=ChangeLanguage("English")></td>
+    		<td class="flag"><img id="Flag_Image" src="icons/flags/french_flag.gif" onclick=ChangeLanguage("French")></td>
+    		<td class="flag"><img id="Flag_Image" src="icons/flags/chinese_flag.gif" onclick=ChangeLanguage("Chinese")></td>
+    		<td class="flag"><img id="Flag_Image" src="icons/flags/spanish_flag.gif" onclick=ChangeLanguage("Spanish")></td>
+    		<td class="flag"><img id="Flag_Image" src="icons/flags/arabic_flag.gif" onclick=ChangeLanguage("Arabic")></td>
+		</tr>
+	</table>
+	</div>
 <div class='main'>
 <div class='Static_Controls'>
 <form name="TimeForm">
