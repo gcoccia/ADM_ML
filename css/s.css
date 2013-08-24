@@ -1,26 +1,15 @@
-
 body 
     {
     font:15px sans-serif;  
     min-width: 1000px;
     }
 
-#sidebar div.SPIdiv{
-  width: 180px;
-  float: left;
-  border-radius:0px;
-  height: 25px;
-  margin-left:5px;
-  }
-
 #sidebar div{
   left:0;
   width:300px;
   background:#fff;
-  /*background-color:transparent;*/
   border-radius:5px;
-  /*-webkit-box-shadow:0 1px 3px rgba(0,0,0,.3);
-  box-shadow:0 1px 3px rgba(0,0,0,.3);*/
+  -webkit-box-shadow:0 1px 3px rgba(0,0,0,.3);
   overflow:hidden;
 }
 
