@@ -12,29 +12,29 @@
 <variables>
 
   <group name="Meteorology" divtitle="Forcing">
-    <variable name="prec" dataset="PGF" units="mm/day" ts="ALL" num="5" title="Precipitation (mm/day)"></variable>
-    <variable name="tmax" dataset="PGF" units="K" ts="ALL" num="6" title="Maximum Temperature (C)"></variable>
-    <variable name="tmin" dataset="PGF" units="K" ts="ALL" num="7" title="Minimum Temperature (C)"></variable>
-    <variable name="wind" dataset="PGF" units="m/s" ts="ALL" num="8" title="Wind (m/s)"></variable>
+    <variable name="prec" dataset="PGF" units="mm/day" ts="DMY" title="Precipitation (mm/day)"></variable>
+    <variable name="tmax" dataset="PGF" units="K" ts="D" title="Maximum Temperature (C)"></variable>
+    <variable name="tmin" dataset="PGF" units="K" ts="M" title="Minimum Temperature (C)"></variable>
+    <variable name="wind" dataset="PGF" units="m/s" ts="Y" title="Wind (m/s)"></variable>
     <infobox>1</infobox>
   </group>
 
   <group name="Hydrologic Variables" divtitle="Model">
-    <variable name="evap" dataset="VIC_PGF" units="mm/day" ts="ALL" num="9" title="Evaporation (mm/day)"></variable>
-    <variable name="Sm_1" dataset="???" units="???" ts="???" num="10" title="Soil Moisture(%) - Layer 1"></variable>
-    <variable name="Sm_2" dataset="???" units="???" ts="???" num="11" title="Soil Moisture(%) - Layer 2"></variable>
-    <variable name="runoff" dataset="???" units="???" ts="???" num="14" title="Surface Runoff (mm/day)"></variable>
-    <variable name="baseflow" dataset="???" units="???" ts="???" num="14" title="Baseflow (mm/day)"></variable>
-    <variable name="streamflow" dataset="???" units="???" ts="???" num="14" title="Streamflow (mm/day)"></variable>
+    <variable name="evap" dataset="VIC_PGF" units="mm/day" ts="DMY" title="Evaporation (mm/day)"></variable>
+    <variable name="Sm_1" dataset="???" units="???" ts="DMY" title="Soil Moisture(%) - Layer 1"></variable>
+    <variable name="Sm_2" dataset="???" units="???" ts="DMY" title="Soil Moisture(%) - Layer 2"></variable>
+    <variable name="runoff" dataset="???" units="???" ts="DMY" title="Surface Runoff (mm/day)"></variable>
+    <variable name="baseflow" dataset="???" units="???" ts="DMY" title="Baseflow (mm/day)"></variable>
+    <variable name="streamflow" dataset="???" units="???" ts="DMY" title="Streamflow (mm/day)"></variable>
     <infobox>2</infobox>
   </group>
 
   <group name="Drought Products" divtitle="Drought">
-    <variable name="smqall" dataset="???" units="???" ts="???" num="15" title="Drought Index"></variable>
+    <variable name="smqall" dataset="???" units="???" ts="DMY" title="Drought Index"></variable>
     <infobox>3</infobox>
   </group>
 
-  <default num="15"></default>
+  <default tag="smqall"></default>
 
 </variables>
 

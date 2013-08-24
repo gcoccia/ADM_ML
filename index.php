@@ -90,11 +90,18 @@ $info_box_strings = array(1 => $_("Weather data used to drive the hydrologic mod
 <script type="text/javascript" src="jsscripts/AnimationPrep.js"></script>
 <script type="text/javascript" src="jsscripts/ImageOverlay.js"></script>
 <script type="text/javascript" src="jsscripts/MainFunctions.js"></script>
+<script type="text/javascript" src="jsscripts/timestep.js"></script>
 
 <script type="text/javascript">
   var basinImage  = <?php echo $mask_gauge ?>;
   var info_box_strings = <?php echo json_encode($info_box_strings, JSON_NUMERIC_CHECK) ?>;
-  
+  var data_timesteps = [];
+  <?php foreach($xmlobj->variables->group as $group) {
+    foreach($group->variable as $var) {
+      echo "data_timesteps[\"".$var['dataset']."_".$var['name']."\"] = \"".$var['ts']."\";\n";
+    }
+  } ?>
+
   // Define JS variables from PHP arrays
   <?php 
     foreach($date_array as $key => $value) {
@@ -127,12 +134,13 @@ $info_box_strings = array(1 => $_("Weather data used to drive the hydrologic mod
     //Insert the map canvas into html
     map_array[0] = new google.maps.Map(document.getElementById("map_canvas_1"), myOptions);
     bounds = new google.maps.LatLngBounds(swBound, neBound);
-    animate_overlay(15) //Load the drought index map from the start
   }
 
   $(document).ready(function() {
 
     initialize();
+    update_timestep();
+    update_animation(); // Start animation with default settings
 
     //Collapsible sidebar elements
     $(".data-group-header").click(function() {
@@ -146,6 +154,20 @@ $info_box_strings = array(1 => $_("Weather data used to drive the hydrologic mod
       function() {
         $("#Info_Box").css("visibility", "hidden");
         $("#Info_Box").html('');
+    });
+
+    $("#update_interval").click(function() {
+      update_animation();
+    });
+    $("#clear_all").click(function() {
+      clear_all_overlays();
+    });
+    $("input[name=group1]:radio").change(function() {
+      update_timestep();
+      update_animation();
+    });
+    $("input[name=ts-radio]:radio").change(function() {
+      update_timestep();
     });
 
   });

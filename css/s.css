@@ -389,6 +389,12 @@ div.GaugeImage{
 	right: 0px;
 }
 
+input[type="text"]:disabled
+{
+  /*background-color: #ccc;*/
+  color: #EBEBE4;
+}
+
 
 
 

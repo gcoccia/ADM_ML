@@ -1,26 +1,31 @@
 <div id="Display_Control"> 
   <h1 id="DC_header" class="data-group-header"><?php echo $_("User Interface")?></h1> 
-  <div id="DC_div" class="data-form-block">
-    <form name="AnimationForm">
-      <?php echo $_("Time Interval")."(".$_("dd/mm/yyyy")."):"?><br/>
+  <div id="DC_div" class="data-form-block" style="padding-top: 5px">
+    <form id="AnimationForm" name="AnimationForm">
+      <?php echo $_("Timestep").":" ?><br/>
+      <input id="daily" type="radio" class="ts-radio" name="ts-radio" checked="true">Daily 
+      <input id="monthly" type="radio" class="ts-radio" name="ts-radio">Monthly 
+      <input id="yearly" type="radio" class="ts-radio" name="ts-radio">Yearly<br/><br/>
+
+      <?php echo $_("Time Interval")." (".$_("dd/mm/yyyy")."):"?><br/>
       <?php echo $_("Initial")?>: 
       <input id="day_initial" type="text" size=1 name="day_initial" value=<?php echo $day_initial ?>>
       <input id="month_initial" type="text" size=1 name="month_initial" value=<?php echo $month_initial ?>>
       <input id="year_initial" type="text" size=3 name="year_initial" value=<?php echo $year_initial ?>>
-      <input type="button" value="-" onclick="Update_TimeStamp_MP(0,0)">
+      <input type="button" value="-" onclick="Update_TimeStamp_MP(-1,0)">
       <input type="button" value="+" onclick="Update_TimeStamp_MP(1,0)"><br/>
       
       <?php echo $_("Final") ?>:  
       <input id="day_final" type="text" size=1 name="day_final" value=<?php echo $day_final ?>>
       <input id="month_final" type="text" size=1 name="month_final" value=<?php echo $month_final ?>>
       <input id="year_final" type="text" size=3 name="year_final" value=<?php echo $year_final ?>>
-      <input type="button" value="-" onclick="Update_TimeStamp_MP(0,1)">
+      <input type="button" value="-" onclick="Update_TimeStamp_MP(-1,1)">
       <input type="button" value="+" onclick="Update_TimeStamp_MP(1,1)"><br/>
 
-      <?php echo $_("Days per second")?>:  <input type="text" size=1 name="frames_per_second" value=1><br/>
+      <?php echo $_("Frames per second")?>:  <input type="text" size=1 name="frames_per_second" value=1><br/>
       <table><tr>
-      <td><input type="button" value=<?php echo $_("Update time interval")?> onclick="animate_overlay_submit()"></td>
-      <td><input type="button" value=<?php echo $_("Clear all overlays")?> onclick="ClearAllOverlays()"></td>
+      <td><input id="update_interval" type="button" value=<?php echo $_("Update time interval")?> ></td>
+      <td><input id="clear_all" type="button" value=<?php echo $_("Clear all overlays")?> ></td>
       </tr>
       </table>
 
@@ -46,10 +51,9 @@
   </h1>
   <div id="<?php echo $group['divtitle']."_div"?>" class="data-form-block">
     <?php foreach($group->variable as $var) { ?>
-      <input id="<?php echo "overlayImageSelect_".$var['num']?>" 
-             type="radio" name="group1" value="<?php echo $var["name"]?>"
-             onclick=animate_overlay(<?php echo $var['num']?>)
-             <?php if($xmlobj->variables->default['num'] == $var['num']) echo "checked=true"?>> <?php echo $_("".$var["title"])?> <br/>
+      <input id="<?php echo $var['dataset']."_".$var['name'] ?>" 
+             type="radio" class="data-radio" name="group1" value="<?php echo $var["name"]?>"
+             <?php if(strcmp($xmlobj->variables->default["tag"],$var["name"]) == 0) echo "checked=true"?>> <?php echo $_("".$var["title"])?> <br/>
     <?php } ?>
   </div>
 </div>
