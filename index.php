@@ -114,7 +114,7 @@ $info_box_strings = array(1 => $_("Weather data used to drive the hydrologic mod
     // Echo user settings from PHP
     var dim = <?php echo json_encode($xmlobj->dimensions, JSON_NUMERIC_CHECK) ?>;
     var swBound = new google.maps.LatLng(dim.minlat, dim.minlon);
-    var neBound = new google.maps.LatLng(dim.minlat + dim.nlat*dim.res, dim.minlon + dim.nlon*dim.res);
+    var neBound = new google.maps.LatLng(dim.minlat + (dim.nlat-1)*dim.res, dim.minlon + (dim.nlon-1)*dim.res);
     var mapCenter = new google.maps.LatLng(dim.minlat + dim.nlat*dim.res/2.5, dim.minlon + dim.nlon*dim.res/2);
     
     var styleArray = [{featureType: 'administrative.country',stylers: [{ visibility: 'simplified' }]}];
