@@ -10,9 +10,9 @@ fdate = int(metadata["fdate"])
 lat = float(metadata["lat"])
 lon = float(metadata["lon"])
 tstep = metadata["tstep"]
+info = metadata["variables"]
 idate_datetime = datetime.datetime.utcfromtimestamp(idate)
 fdate_datetime = datetime.datetime.utcfromtimestamp(fdate)
-info = {"SPI":["spi1","spi3","spi6","spi12"]}#["spi1","spi3","spi6","spi12","vcpct"]
 
 #Define the time step for highcharts
 if tstep == "DAILY":
@@ -23,7 +23,7 @@ elif tstep == "YEARLY":
  pointInterval = 365.25*24*3600*1000
 
 #Read in the desired data
-file = '../../../../DATA/CELL/cell_%0.3f_%0.3f.nc' % (lat,lon)
+file = '../../../DATA/CELL/cell_%0.3f_%0.3f.nc' % (lat,lon)
 fp = netcdf.Dataset(file,'r',format='NETCDF4')
 variables = []
 date = {'pointInterval':pointInterval,'iyear':idate_datetime.year,'imonth':idate_datetime.month,'iday':idate_datetime.day}

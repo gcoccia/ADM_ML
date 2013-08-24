@@ -7,7 +7,6 @@ if (file_exists('settings.xml')) {
 require_once('php-gettext-1.0.11/gettext.inc');
 include 'scripts/Read_Gauges.php';
 include 'scripts/Read_DM_log.php';#Script to read in the drought monitor parameters to set as limits
-include 'scripts/Read_GaugePercentiles.php';
 $locale = BP_LANG;
 $textdomain="adm";
 if (empty($locale))
