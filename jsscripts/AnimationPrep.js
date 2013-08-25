@@ -69,6 +69,7 @@ function ImageArrayPrep(ImageStrArray,ImageTimeArray)
 
     ImageStrArray[framect] = "../images/" + current_timestep + "/" + tstring + "/" + dataset + "_" + tstring + "_" + current_timestep + ".svg";
     ImageTimeArray[framect] = tstamp;
+    console.log(ImageStrArray[framect]);
     framect += 1;
   }
 
