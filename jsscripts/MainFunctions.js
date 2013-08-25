@@ -47,8 +47,7 @@ function update_animation()
 /*  if (time_flag == "SPI")ImageArrayPrep_SPI(ImageStrArray[j],ImageRootArray[j],ImageTimeArray[j]);
   else ImageArrayPrep(ImageStrArray[j],ImageRootArray[j],ImageTimeArray[j]);*/
 
-  var ImageRootDir = "/some/path/to/" + dataset;
-  ImageArrayPrep(ImageStrArray[dataset], ImageRootDir, ImageTimeArray[dataset]);
+  ImageArrayPrep(ImageStrArray[dataset], ImageTimeArray[dataset]);
 
   display_colorbar(dataset);
   update_logo(dataset);

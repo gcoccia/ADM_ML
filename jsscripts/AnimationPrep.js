@@ -10,18 +10,11 @@ function ReadTimeInterval()
   frames_per_second = parseInt(document.forms["AnimationForm"]["frames_per_second"].value);
 }
 
-function ImageArrayPrep(ImageStrArray,ImageStrRoot,ImageTimeArray)
+function ImageArrayPrep(ImageStrArray,ImageTimeArray)
 {
-  var day;
-  var month;
-  var mi;
-  var mf; 
-  var di;
-  var df;
-  var Data_Dir = "Data/ADM_Data";
-  var Time_Period;
+
   //Because we are lacking SMOS data, we will set the latest date to equate to 5/26/2012
-  if (variable_image_number == 16){
+/*  if (variable_image_number == 16){
     //Make the dates
     SMOS_date_final = new Date(year_final,month_final-1,day_final);
     SMOS_date_initial = new Date(year_initial,month_initial-1,day_initial);
@@ -37,34 +30,48 @@ function ImageArrayPrep(ImageStrArray,ImageStrRoot,ImageTimeArray)
                         month_initial = 5;
                         day_initial = 26;
                         }
-    }
-  var ndays = [31,28,31,30,31,30,31,31,30,31,30,31];
-  daycount = 0;
-  var t;
-  for (year = year_initial; year < year_final + 1; year++)
+    }*/
+
+  var current_timestep = $("input[name='ts-radio']:checked").attr('id');
+  var dataset = $("input[name='group1']:checked").attr('id');
+  var initial_date = new Date(year_initial, month_initial-1, day_initial);
+  var final_date = new Date(year_final, month_final-1, day_final);
+  var date_temp = initial_date;
+  var framect = 0;
+  var Dstring, Mstring, Ystring, tstring, tstamp;
+
+  // Example image urls:
+  //../IMAGES/DAILY/19480101/PGF_prec_19480101_daily.svg
+  //../IMAGES/MONTHLY/200212/...
+  //../IMAGES/YEARLY/1948/...etc.
+
+  while(date_temp.valueOf() < final_date.valueOf())
   {
-    if (year == year_initial){mi = month_initial;}
-    else {mi = 1;}
-    if (year == year_final){mf = month_final;}
-    else {mf = 12;}
-    for (month = mi; month < mf + 1; month++)
-    {
-      if (year == year_initial && month == month_initial){di = day_initial}
-      else {di = 1}
-      if (year == year_final && month == month_final){df = day_final}
-      else {df = ndays[month-1]}
-      for (day = di; day < df + 1; day++)
-      {
-              if (year <= 2008){Time_Period = "/Historical";}
-              else if (year < 2011){Time_Period = "/Catch_up";}
-              else if (year == 2011 && month <= 9){Time_Period = "/Catch_up";}
-              else {Time_Period = "/Realtime";}
-        ImageStrArray[daycount] = Data_Dir + Time_Period + ImageStrRoot + sprintf("%02d",parseInt(year)) + sprintf("%02d",parseInt(month)) + sprintf("%02d",parseInt(day)) + ".gif";
-        ImageTimeArray[daycount] = sprintf("%02d",parseInt(day)) + "/" + sprintf("%02d",parseInt(month)) + "/" + sprintf("%02d",parseInt(year));
-        daycount = daycount + 1
-      }
+    Dstring = sprintf("%02d",parseInt(date_temp.getDate()));
+    Mstring = sprintf("%02d",parseInt(date_temp.getMonth()+1));
+    Ystring = sprintf("%02d", parseInt(date_temp.getFullYear()));
+
+    if(""+current_timestep == "daily") {
+      tstring = Dstring + Mstring + Ystring;
+      tstamp = Dstring + "/" + Mstring + "/" + Ystring;
+      date_temp.setDate(date_temp.getDate() + 1);
     }
+    else if(""+current_timestep == "monthly") {
+      tstring = Mstring + Ystring;
+      tstamp = Mstring + "/" + Ystring;
+      date_temp.setMonth(date_temp.getMonth() + 1);
+    }
+    else {
+      tstring = Ystring;
+      tstamp = Ystring;
+      date_temp.setFullYear(date_temp.getFullYear() + 1);
+    }
+
+    ImageStrArray[framect] = "../images/" + current_timestep + "/" + tstring + "/" + dataset + "_" + tstring + "_" + current_timestep + ".svg";
+    ImageTimeArray[framect] = tstamp;
+    framect += 1;
   }
+
 }
 
 /*function ImageArrayPrep_SPI(ImageStrArray,ImageStrRoot,ImageTimeArray)

@@ -58,7 +58,7 @@ function Update_TimeStamp_MP(increment, flag_timestamp)
     date_temp.setDate(date_temp.getDate() + increment);
   else if(""+current_timestep == "monthly")
     date_temp.setMonth(date_temp.getMonth() + increment); // will loop around 12 automatically
-   else 
+  else 
     date_temp.setFullYear(date_temp.getFullYear() + increment);
   
   if (flag_timestamp == 0 && date_temp.valueOf() > final_date.valueOf()) return;
