@@ -39,13 +39,13 @@ function ImageArrayPrep(ImageStrArray,ImageTimeArray)
   var date_temp = initial_date;
   var framect = 0;
   var Dstring, Mstring, Ystring, tstring, tstamp;
-  console.log("RUNNING PREP FUNCTION");
+
   // Example image urls:
   //../IMAGES/DAILY/19480101/PGF_prec_19480101_daily.svg
   //../IMAGES/MONTHLY/200212/...
   //../IMAGES/YEARLY/1948/...etc.
 
-  while(date_temp.valueOf() < final_date.valueOf())
+  while(date_temp.valueOf() <= final_date.valueOf())
   {
     Dstring = sprintf("%02d",parseInt(date_temp.getDate()));
     Mstring = sprintf("%02d",parseInt(date_temp.getMonth()+1));
@@ -69,7 +69,6 @@ function ImageArrayPrep(ImageStrArray,ImageTimeArray)
 
     ImageStrArray[framect] = "../images/" + current_timestep + "/" + tstring + "/" + dataset + "_" + tstring + "_" + current_timestep + ".svg";
     ImageTimeArray[framect] = tstamp;
-    console.log(tstring);
     framect += 1;
   }
 
