@@ -52,13 +52,13 @@ function ImageArrayPrep(ImageStrArray,ImageTimeArray)
     Ystring = sprintf("%02d", parseInt(date_temp.getFullYear()));
 
     if(""+current_timestep == "daily") {
-      tstring = Dstring + Mstring + Ystring;
-      tstamp = Dstring + "/" + Mstring + "/" + Ystring;
+      tstring = Ystring + Mstring + Dstring;
+      tstamp = Ystring + "/" + Mstring + "/" + Dstring;
       date_temp.setDate(date_temp.getDate() + 1);
     }
     else if(""+current_timestep == "monthly") {
-      tstring = Mstring + Ystring;
-      tstamp = Mstring + "/" + Ystring;
+      tstring = Ystring + Mstring;
+      tstamp = Ystring + "/" + Mstring;
       date_temp.setMonth(date_temp.getMonth() + 1);
     }
     else {
