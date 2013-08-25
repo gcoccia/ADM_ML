@@ -1,5 +1,5 @@
 function ReadTimeInterval()
-  {
+{
   year_initial = parseInt(document.forms["AnimationForm"]["year_initial"].value);
   year_final = parseInt(document.forms["AnimationForm"]["year_final"].value);
   month_initial = parseInt(document.forms["AnimationForm"]["month_initial"].value);
@@ -8,10 +8,10 @@ function ReadTimeInterval()
   day_final = parseInt(document.forms["AnimationForm"]["day_final"].value);
   //Set Time delay between images
   frames_per_second = parseInt(document.forms["AnimationForm"]["frames_per_second"].value);
-  }
+}
 
 function ImageArrayPrep(ImageStrArray,ImageStrRoot,ImageTimeArray)
-  {
+{
   var day;
   var month;
   var mi;
@@ -42,19 +42,19 @@ function ImageArrayPrep(ImageStrArray,ImageStrRoot,ImageTimeArray)
   daycount = 0;
   var t;
   for (year = year_initial; year < year_final + 1; year++)
-    {
+  {
     if (year == year_initial){mi = month_initial;}
     else {mi = 1;}
     if (year == year_final){mf = month_final;}
     else {mf = 12;}
     for (month = mi; month < mf + 1; month++)
-      {
+    {
       if (year == year_initial && month == month_initial){di = day_initial}
       else {di = 1}
       if (year == year_final && month == month_final){df = day_final}
       else {df = ndays[month-1]}
       for (day = di; day < df + 1; day++)
-        {
+      {
               if (year <= 2008){Time_Period = "/Historical";}
               else if (year < 2011){Time_Period = "/Catch_up";}
               else if (year == 2011 && month <= 9){Time_Period = "/Catch_up";}
@@ -62,12 +62,12 @@ function ImageArrayPrep(ImageStrArray,ImageStrRoot,ImageTimeArray)
         ImageStrArray[daycount] = Data_Dir + Time_Period + ImageStrRoot + sprintf("%02d",parseInt(year)) + sprintf("%02d",parseInt(month)) + sprintf("%02d",parseInt(day)) + ".gif";
         ImageTimeArray[daycount] = sprintf("%02d",parseInt(day)) + "/" + sprintf("%02d",parseInt(month)) + "/" + sprintf("%02d",parseInt(year));
         daycount = daycount + 1
-        }
       }
     }
   }
+}
 
-function ImageArrayPrep_SPI(ImageStrArray,ImageStrRoot,ImageTimeArray)
+/*function ImageArrayPrep_SPI(ImageStrArray,ImageStrRoot,ImageTimeArray)
         {
         var day;
         var month;
@@ -127,34 +127,34 @@ function ImageArrayPrep_SPI(ImageStrArray,ImageStrRoot,ImageTimeArray)
         }
       }
     }
-  }
+  }*/
 
 function ChangeTimeStamp(flag_time,i,j)
-  {
+{
   var flag_time;
   var j;
   var i;
   obj = document.getElementById("TimeStamp").style;
   //Option 1: Add time stamp to map
   if (flag_time == 1)
-    {
+  {
     obj.visibility = "visible";
     obj.height = "100";
     contentString = "<h2>" + ImageTimeArray[j][i] + "</h2>";
     //contentString = "<div>" + ImageTimeArray[j][i] + "</div>";
     document.getElementById('TimeStamp').innerHTML = contentString;
-    }
+  }
   //Option 2: Update time stamp on map
   if (flag_time == 2)
-    {
+  {
     contentString = "<h2>" + ImageTimeArray[j][i] + "</h2>";;
     //contentString = "<div>" + ImageTimeArray[j][i] + "</div>";
     document.getElementById('TimeStamp').innerHTML = contentString;
-    }
+  }
   //Option 3: Remove time stamp form map
   if (flag_time == 3)
-    {
+  {
     obj.visibility = "hidden";
     obj.height = "";
-    }
   }
+}
