@@ -162,14 +162,10 @@ $info_box_strings = array(1 => $_("Weather data used to drive the hydrologic mod
     $("#clear_all").click(function() {
       clear_all_overlays();
     });
-    $("input[name=group1]:radio").change(function() {
+    $("input[name=group1]:radio, input[name=ts-radio]:radio").change(function() {
       update_timestep();
       update_animation();
     });
-    $("input[name=ts-radio]:radio").change(function() {
-      update_timestep();
-    });
-
   });
 
 </script>
