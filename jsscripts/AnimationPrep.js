@@ -138,23 +138,20 @@ function ImageArrayPrep(ImageStrArray,ImageTimeArray)
 
 function ChangeTimeStamp(flag_time,i,j)
 {
-  var flag_time;
-  var j;
-  var i;
   obj = document.getElementById("TimeStamp").style;
   //Option 1: Add time stamp to map
   if (flag_time == 1)
   {
     obj.visibility = "visible";
     obj.height = "100";
-    contentString = "<h2>" + ImageTimeArray[j][i] + "</h2>";
+    contentString = "<h2>" + ImageTimeArray[j][""+i] + "</h2>";
     //contentString = "<div>" + ImageTimeArray[j][i] + "</div>";
     document.getElementById('TimeStamp').innerHTML = contentString;
   }
   //Option 2: Update time stamp on map
   if (flag_time == 2)
   {
-    contentString = "<h2>" + ImageTimeArray[j][i] + "</h2>";;
+    contentString = "<h2>" + ImageTimeArray[j][""+i] + "</h2>";;
     //contentString = "<div>" + ImageTimeArray[j][i] + "</div>";
     document.getElementById('TimeStamp').innerHTML = contentString;
   }

@@ -63,7 +63,7 @@ function update_animation()
 
 function next_image(dataset)
 {
-  if (ImageCounter == daycount) ImageCounter = 0;
+  if (ImageCounter == ImageTimeArray[dataset].length) ImageCounter = 0;
   overlay_obj[dataset].swap(ImageStrArray[dataset][ImageCounter]);
   ChangeTimeStamp(2, ImageCounter, dataset);
   ImageCounter += 1;
