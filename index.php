@@ -82,7 +82,7 @@ $info_box_strings = array(1 => $_("Weather data used to drive the hydrologic mod
 <meta http-equiv="content-type" content="text/html; charset=UTF-8"/> 
 <link rel="stylesheet" href="css/s.css" /> 
 <link rel="stylesheet" type="text/css" media="screen,projection" href="css/Moz.css" title="Moz" />
-<link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Raleway:400,200,300' rel='stylesheet' type='text/css'>
 <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
 <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
 <script type="text/javascript" src="jsscripts/popupcss.js"></script>
@@ -215,7 +215,7 @@ $info_box_strings = array(1 => $_("Weather data used to drive the hydrologic mod
       <td align="center"><img id="UNESCO_logo" src="icons/Unesco_logo.gif"></td>
       <td align="center"><img id="ICPAC_logo" src="icons/ICPAC_logo.gif"></td>
       <td align="center"><img id="AGRHYMET_logo" src="icons/agrhymet_logo.gif"></td>
-      <td id="pageTitle" align="center" width="65%"> Experimental African Drought Monitor </td>
+      <td id="pageTitle" align="center" width="65%"> AFRICAN DROUGHT MONITOR </td>
       <td align="center"><img id="PU_logo" src="icons/PU_logo.gif"></td>
       <td align="center"><img id="UW_logo" src="icons/UW_logo.png"></td>
     </tr></tbody></table></div>
