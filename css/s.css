@@ -400,9 +400,10 @@ div.data-form-block
 }
 #pageTitle
 {
-  font-family: 'PT Sans', 'sans-serif';
+  font-family: 'Raleway', 'sans-serif';
+  text-transform: 'smallcaps';
   color: #333;
-  vertical-align: middle;
+  vertical-align: top;
 }
 
 
