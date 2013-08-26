@@ -141,10 +141,10 @@ nmb = 4*nlat*nlon*nvars*nt/1024/1024
 
 #Define dimensions
 dims = {}
-dims['minlat'] = minlat #-89.8750
-dims['minlon'] = minlon #0.1250
-dims['maxlat'] = maxlat
-dims['maxlon'] = maxlon
+dims['minlat'] = llclat#minlat #-89.8750
+dims['minlon'] = llclon#minlon #0.1250
+dims['maxlat'] = urclat#maxlat
+dims['maxlon'] = urclon#maxlon
 dims['res'] = res
 dims['nlat'] = np.int(np.ceil((dims['maxlat'] - dims['minlat'])/ dims['res'] + 1))
 dims['nlon'] = np.int(np.ceil((dims['maxlon'] - dims['minlon'])/ dims['res'] + 1))

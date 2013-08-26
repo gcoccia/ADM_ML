@@ -19,7 +19,7 @@ function Update_Listeners(type){
   //Remove present listeners
   Update_Listeners('none')
   //Add the listeners
-  google.maps.event.addListener(map_array[0], 'click', function(mEvent) {Point_Data(mEvent.latLng)});//function(mEvent) {alert(mEvent.latLng)});
+  google.maps.event.addListener(map_array[0], 'click', function(mEvent) {Point_Data(mEvent.latLng)});
  }
  else if (type == 'spatial'){
   //Remove present listeners
@@ -223,7 +223,6 @@ function Request_Data(variables) {
   url: 'scripts/Jquery_Python_JSON_Glue.php',
   data: request,
   success: function(response){
-   alert(response);
    Output = JSON.parse(response);
   },
   async: false,
@@ -257,6 +256,18 @@ function Request_and_Display() {
 /* Spatial Data functions */
 
 function Prepare_Spatial_Data_Display() {
+  //Compute the bounding box
+  lats = []
+  lons = []
+  for (var i in window.markers){
+   lats.push(window.markers[i].position.lat());
+   lons.push(window.markers[i].position.lng());
+  }
+  var minlat = Math.min.apply(Math, lats); 
+  var minlon = Math.min.apply(Math, lons);   
+  var maxlat = Math.max.apply(Math, lats);  
+  var maxlon = Math.max.apply(Math, lons);  
+
   //Empty the box
   $('#popUpDiv').empty();
   //Add the close window box
@@ -279,11 +290,11 @@ function Prepare_Spatial_Data_Display() {
    'Month: <input type="text" name="fmonth_spatial_data" value="1">',
    'Day: <input type="text" name="fday_spatial_data" value="1"><br>',
    '<br>',
-   'Choose the spatial box dimensions [Lat = (-35.0 - 38.0); Lon = (-19.0 - 55.0)]:<br>',
-   'Lower Left Corner Latitude: <input type="text" name="llclat_spatial_data" value="-35.0"><br>',
-   'Lower Left Corner Longitude: <input type="text" name="llclon_spatial_data" value="-19.0"><br>',
-   'Upper Right Corner Latitude: <input type="text" name="urclat_spatial_data" value="38.0"><br>',
-   'Upper Right Corner Longitude: <input type="text" name="urclon_spatial_data" value="55.0"><br>',
+   'Choose the spatial box dimensions:<br>',
+   'Lower Left Corner Latitude: <input type="text" name="llclat_spatial_data" value="' + minlat + '"><br>',
+   'Lower Left Corner Longitude: <input type="text" name="llclon_spatial_data" value="' + minlon + '"><br>',
+   'Upper Right Corner Latitude: <input type="text" name="urclat_spatial_data" value="' + maxlat + '"><br>',
+   'Upper Right Corner Longitude: <input type="text" name="urclon_spatial_data" value="' + maxlon + '"><br>',
    '<br>',
    'Define the spatial resolution (degrees):<br>',
    '<input type="radio" name="sres_spatial_data" value="0.1">0.1 degree',
@@ -358,7 +369,6 @@ function Submit_Spatial_Data() {
   url: 'scripts/Jquery_Python_JSON_Glue.php',//'Spatial_Data_Request.php ',
   data: request,
   success: function(response){
-   alert(response);
    Output = JSON.parse(response);
   },
   async: false,
