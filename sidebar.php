@@ -36,10 +36,12 @@
 </div> 
 
 <div id="Data Extraction">
-  <h1 id="de_header" class="data-group-header"><?php echo $_("Data Extraction").":" ?>
-  <input id="none" type="radio" class="de-radio" name="de-radio" checked="true" onclick='Update_Listeners("none")'> None
-  <input id="point" type="radio" class="de-radio" name="de-radio" onclick='Update_Listeners("point")'>Point
-  <input id="spatial" type="radio" class="de-radio" name="de-radio" onclick='Update_Listeners("spatial")'>Spatial
+  <h1 id="de_header" class="data-group-header"><?php echo $_("Data Extraction").":" ?></h1>
+  <div id="de_div" class="data-form-block">
+    <input id="none" type="radio" class="de-radio" name="de-radio" checked="true" onclick='Update_Listeners("none")'> None
+    <input id="point" type="radio" class="de-radio" name="de-radio" onclick='Update_Listeners("point")'>Point
+    <input id="spatial" type="radio" class="de-radio" name="de-radio" onclick='Update_Listeners("spatial")'>Spatial
+  </div>
 </div>
 
 <!-- <div id="Basins">
