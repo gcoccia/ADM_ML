@@ -395,6 +395,8 @@ div.sidebar-shadow
 div.data-form-block
 {
   -webkit-box-shadow:none;
+  padding-top: 5px;
+  padding-bottom: 5px;
 }
 
 
