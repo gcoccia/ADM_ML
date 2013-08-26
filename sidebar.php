@@ -60,7 +60,7 @@
              <input id="<?php echo $var['dataset']."_".$var['name'] ?>" 
              type="radio" class="data-radio" name="group1" value="<?php echo $var["name"]?>"
              <?php if(strcmp($xmlobj->variables->default["tag"],$var["name"]) == 0) echo "checked=true"?>> <?php echo $_("".$var["title"])?> 
-      </label><br/>
+      </label>
     <?php } ?>
   </div>
 </div>
