@@ -9,7 +9,6 @@ body
   width:300px;
   background:#fff;
   border-radius:5px;
-  -webkit-box-shadow:0 1px 3px rgba(0,0,0,.3);
   overflow:hidden;
 }
 
@@ -389,6 +388,10 @@ label.dataset
   display:block;
 }
 
+div.sidebar-shadow
+{
+  -webkit-box-shadow:0 1px 3px rgba(0,0,0,.3);
+}
 div.data-form-block
 {
   -webkit-box-shadow:none;
