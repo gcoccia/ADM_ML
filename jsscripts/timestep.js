@@ -1,25 +1,22 @@
 function update_timestep()
 {
-  var dataset = $("input[name='group1']:checked").attr('id');
-  var current_timestep = $("input[name='ts-radio']:checked");
-  var all_unchecked = true;
+  var current_timestep = $("input[name='ts-radio']:checked").attr('id');
+  var abbrevs = {"daily": "D", "monthly": "M", "yearly": "Y"};
 
-  // Check which timesteps are disabled in the dataset
-  var DMYdisabled = {"daily": (data_timesteps[dataset].indexOf("D") == -1),
-                     "monthly": (data_timesteps[dataset].indexOf("M") == -1),
-                     "yearly": (data_timesteps[dataset].indexOf("Y") == -1)};
-
-  // Disable their respective buttons accordingly
-  for(var dmy in DMYdisabled) {
-    $("input[id='" + dmy + "']:radio").prop('disabled', DMYdisabled[dmy]);
+  for(dataset in data_timesteps) {
+    if(data_timesteps[dataset].indexOf(abbrevs[current_timestep]) == -1)
+      $("input[id='" + dataset + "']:radio").parent().hide();
+    else
+      $("input[id='" + dataset + "']:radio").parent().show();
   }
 
   // If the currently-checked button is now disabled, pick a different one
-  if(current_timestep.prop('disabled')) {
-    current_timestep.prop('checked', false);
+  var current_dataset = $("input[name='group1']:checked");
+  if(!current_dataset.is(':visible')) {
+    current_dataset.prop('checked', false);
 
-    for(var dmy in DMYdisabled) {
-      if(!DMYdisabled[dmy]) {
+    for(var dataset in data_timesteps) {
+      if($("input[id='" + dataset + "']:radio").is(':visible')) {
         $("input[id='" + dmy + "']:radio").prop('checked', true);
         break;
       }
@@ -27,9 +24,15 @@ function update_timestep()
   }
 
   // Disable/Enable the relevant timestamp input boxes depending which radio button is selected
-  current_timestep = $("input[name='ts-radio']:checked").attr('id');
-  $("input[id='day_initial'], input[id='day_final']").prop('disabled', !(""+current_timestep == "daily"));
-  $("input[id='month_initial'], input[id='month_final']").prop('disabled', (""+current_timestep == "yearly"));
+  if(""+current_timestep == "daily")
+    $("input[id='day_initial'], input[id='day_final']").parent().show();
+  else
+    $("input[id='day_initial'], input[id='day_final']").parent().hide();
+
+  if(""+current_timestep == "yearly")
+    $("input[id='month_initial'], input[id='month_final']").parent().hide();
+  else
+    $("input[id='month_initial'], input[id='month_final']").parent().show();
 }
 
 function Update_TimeStamp_MP(increment, flag_timestamp)
