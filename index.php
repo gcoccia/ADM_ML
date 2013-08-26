@@ -196,7 +196,10 @@ $info_box_strings = array(1 => $_("Weather data used to drive the hydrologic mod
 
     // Change cursor to crosshair when doing data selection
     $( "input[id='none']:radio.de-radio" ).change(function() {
-      console.log("AAA");
+      $("#map_canvas_1").css('cursor', 'default');
+    });
+    $( "input[id='point']:radio.de-radio, input[id='spatial']:radio.de-radio" ).change(function() {
+      $("#map_canvas_1").css('cursor', 'crosshair');
     });
   });
 
