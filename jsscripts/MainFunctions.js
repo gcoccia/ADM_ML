@@ -1,4 +1,4 @@
-var ImageTimeArray = [];	
+var ImageTimeArray = [];  
 var ImageStrArray = [];
 var ImageCounter = 0;
 var overlay_opacity = 0.8;
@@ -34,42 +34,40 @@ var myVariable;
 // (3) When the timestamp form "update" button is clicked
 function update_animation()
 {
-	clear_image_overlays();
-	ReadTimeInterval();
-	var dataset = $("input[name='group1']:checked").attr('id');
+  clear_image_overlays();
+  ReadTimeInterval();
+  var dataset = $("input[name='group1']:checked").attr('id');
 
-	//Fill up the Array of image strings
-	ImageTimeArray[dataset] = new Array();
-	ImageStrArray[dataset] = new Array();
+  //Fill up the Array of image strings
+  ImageTimeArray[dataset] = new Array();
+  ImageStrArray[dataset] = new Array();
 
-/*	if (time_flag == "SPI")ImageArrayPrep_SPI(ImageStrArray[j],ImageRootArray[j],ImageTimeArray[j]);
-	else ImageArrayPrep(ImageStrArray[j],ImageRootArray[j],ImageTimeArray[j]);*/
+/*  if (time_flag == "SPI")ImageArrayPrep_SPI(ImageStrArray[j],ImageRootArray[j],ImageTimeArray[j]);
+  else ImageArrayPrep(ImageStrArray[j],ImageRootArray[j],ImageTimeArray[j]);*/
 
-	var ImageRootDir = "/some/path/to/" + dataset;
-	ImageArrayPrep(ImageStrArray[dataset], ImageRootDir, ImageTimeArray[dataset]);
+  ImageArrayPrep(ImageStrArray[dataset], ImageTimeArray[dataset]);
+  display_colorbar(dataset);
 
-	display_colorbar(dataset);
+  var time_delay = 1000*1/frames_per_second;
 
-	var time_delay = 1000*1/frames_per_second;
+  overlay_obj[dataset] = new ImageOverlay(bounds, ImageStrArray[dataset][0], map_array[0], dataset);
+  ChangeTimeStamp(1, ImageCounter, dataset);
+  ImageCounter = 1;
 
-	overlay_obj[dataset] = new ImageOverlay(bounds, ImageStrArray[dataset][0], map_array[0], dataset);
-	ChangeTimeStamp(1, ImageCounter, dataset);
-	ImageCounter = 1;
-
-	t = setInterval(next_image(dataset), time_delay);
+  t = setInterval(next_image(dataset), time_delay);
 }
 
 function next_image(dataset)
 {
-	if (ImageCounter == daycount) ImageCounter = 0;
-	overlay_obj[dataset].swap(ImageStrArray[dataset][ImageCounter]);
-	ChangeTimeStamp(2, ImageCounter, dataset);
-	ImageCounter += 1;
+  if (ImageCounter == ImageTimeArray[dataset].length) ImageCounter = 0;
+  overlay_obj[dataset].swap(ImageStrArray[dataset][ImageCounter]);
+  ChangeTimeStamp(2, ImageCounter, dataset);
+  ImageCounter += 1;
 }
 
 function clear_image_overlays()
 {
-	clearInterval(t);
+  clearInterval(t);
 
   for (k=0; k < overlay_obj.length; k++){
     if (overlay_obj[k] != undefined){
@@ -78,178 +76,169 @@ function clear_image_overlays()
       //Remove time stamp
       ChangeTimeStamp(3);
     }
-	}
-	$("#Colorbar").css({visibility: "hidden", height: ""});
+  }
+  $("#Colorbar").css({visibility: "hidden", height: ""});
 }
 
 function display_colorbar(dataset)
 {
-	var cbar_img = "Data/Colorbar/colorbar_" + dataset + ".png";
+  var cbar_img = "Data/Colorbar/colorbar_" + dataset + ".png";
   $("#Colorbar").css({visibility: "visible", height: "100"});
   $("#Colorbar").html("<img src=" + cbar_img + "></img>");
 }
 
 function imageLoaded()
 {
-	ImageLoadedBoolean = true;
+  ImageLoadedBoolean = true;
 }
-	
+  
 function update_overlay(j) 
 {
-	var k;
-	var cbar_string;	
-	if (typeof static_overlay_obj[j] !="undefined") //hide the overlay
-	{
-		static_overlay_obj[j].remove();
-		delete static_overlay_obj[j];
-	}
-	else if(typeof static_overlay_obj[j] == "undefined")
-	{
-		// grab overlay image select value
-		value = document.getElementById("overlayImageSelect_" + j).value;
-		// add new overlay to map
-		static_overlay_obj[j] = new ImageOverlay(bounds, srcImage[j], map_array[0]);
-	}
+  var k;
+  var cbar_string;  
+  if (typeof static_overlay_obj[j] !="undefined") //hide the overlay
+  {
+    static_overlay_obj[j].remove();
+    delete static_overlay_obj[j];
+  }
+  else if(typeof static_overlay_obj[j] == "undefined")
+  {
+    // grab overlay image select value
+    value = document.getElementById("overlayImageSelect_" + j).value;
+    // add new overlay to map
+    static_overlay_obj[j] = new ImageOverlay(bounds, srcImage[j], map_array[0]);
+  }
 }
 
 function update_overlay_opacity(flag_dir)
 {
-	var j = variable_image_number;
-	var flag_dir
-	if (flag_dir == 0){
-		overlay_opacity = overlay_opacity - 0.2;
-		if (overlay_opacity < 0){overlay_opacity = 0;};
-	}
-	else{
-		overlay_opacity = overlay_opacity + 0.2;
-		if (overlay_opacity > 1){overlay_opacity = 1;};
-	}
-	if (overlay_obj[j] != undefined){overlay_obj[j].ChangeOpacity();}
+  var j = variable_image_number;
+  var flag_dir
+  if (flag_dir == 0){
+    overlay_opacity = overlay_opacity - 0.2;
+    if (overlay_opacity < 0){overlay_opacity = 0;};
+  }
+  else{
+    overlay_opacity = overlay_opacity + 0.2;
+    if (overlay_opacity > 1){overlay_opacity = 1;};
+  }
+  if (overlay_obj[j] != undefined){overlay_obj[j].ChangeOpacity();}
 }
-	
+  
 function clear_all_overlays()
 {
-	clear_image_overlays();
+  clear_image_overlays();
 
-	//Clear all static overlays
+  //Clear all static overlays
   for (var k=0;k<static_overlay_obj.length;k++)
   {
     if (static_overlay_obj[k] != undefined)
-	  {
-	  clearTimeout(t);
-	  static_overlay_obj[k].remove();
-	  delete static_overlay_obj[k];
-	  }
+    {
+    clearTimeout(t);
+    static_overlay_obj[k].remove();
+    delete static_overlay_obj[k];
+    }
   }
 
-	//Remove all basin layers
-	for (var k=0;k<overlay_mask_dropdown.length;k++)
-  {                
-		if (overlay_mask_dropdown[k] != undefined)
-    {
-			overlay_mask_dropdown[k].remove();
-      delete overlay_mask_dropdown[k];
-    }                
-	}
-
-	// Clear all forms
-	document.getElementById("AnimationForm").reset();
-	$(".data-radio").prop('checked', false);
+  // Clear all forms
+  document.getElementById("AnimationForm").reset();
+  $(".data-radio").prop('checked', false);
 }
 
 /*function animate_overlay(j,time_flag)
 {
-	var j;
-	var time_flag;
-	if (j < 17 | j > 20);
-	variable_image_number = j;
-	var k;
-	//Remove all the current overlays
+  var j;
+  var time_flag;
+  if (j < 17 | j > 20);
+  variable_image_number = j;
+  var k;
+  //Remove all the current overlays
   for (k=0; k < ImageStrArray.length; k++)
-	{
+  {
     if (overlay_obj[k] != undefined) 
-	  {
-	  	clearTimeout(t);
+    {
+      clearTimeout(t);
       overlay_obj[k].remove();
       delete overlay_obj[k];
       update_colorbar(k);
       //Remove time stamp
       ChangeTimeStamp(3);
     }
-	}
+  }
 
   cbar = document.getElementById("Colorbar").style;
   cbar.visibility = "hidden";
   cbar.height = "";
 
-	//Fill up the Array of image strings
-	ImageTimeArray[j] = new Array();
-	ImageStrArray[j] = new Array();
-	if (time_flag == "SPI")ImageArrayPrep_SPI(ImageStrArray[j],ImageRootArray[j],ImageTimeArray[j]);
-	else ImageArrayPrep(ImageStrArray[j],ImageRootArray[j],ImageTimeArray[j]);
-	//Add the new overlay 
-	var fcnstr;
-	var i = 0;
-	update_colorbar(j);
-	update_overlay_animate(j,0);
+  //Fill up the Array of image strings
+  ImageTimeArray[j] = new Array();
+  ImageStrArray[j] = new Array();
+  if (time_flag == "SPI")ImageArrayPrep_SPI(ImageStrArray[j],ImageRootArray[j],ImageTimeArray[j]);
+  else ImageArrayPrep(ImageStrArray[j],ImageRootArray[j],ImageTimeArray[j]);
+  //Add the new overlay 
+  var fcnstr;
+  var i = 0;
+  update_colorbar(j);
+  update_overlay_animate(j,0);
+
 }*/
-	
+  
 /*function update_colorbar(j)
 {
-	var flag_m;
-	var obj
-	obj = document.getElementById("Colorbar").style;
-	if (obj.visibility == "visible")
-	{
-		obj.visibility = "hidden";
-		obj.height = "";
-	}
-	else if(obj.visibility == "hidden")
-	{
-		obj.visibility = "visible";
-		obj.height = "100";
-		contentString = "<img src="+Colorbar_Images[j]+"></img>";
-		document.getElementById('Colorbar').innerHTML = contentString;
-	}
+  var flag_m;
+  var obj
+  obj = document.getElementById("Colorbar").style;
+  if (obj.visibility == "visible")
+  {
+    obj.visibility = "hidden";
+    obj.height = "";
+  }
+  else if(obj.visibility == "hidden")
+  {
+    obj.visibility = "visible";
+    obj.height = "100";
+    contentString = "<img src="+Colorbar_Images[j]+"></img>";
+    document.getElementById('Colorbar').innerHTML = contentString;
+  }
 }*/
-	
+  
 /*function update_overlay_animate(j,i) 
 {
-	var j;
-	var k;
-	var maxi = daycount;
-	var time_delay = 1000*1/frames_per_second;
-	//var ImageLoadedBoolean;
-	if (i == 0)
-	{
-		value = document.getElementById("overlayImageSelect_" + j).value;
-		overlay_obj[j] = new ImageOverlay(bounds, ImageStrArray[j][i], map_array[0],ImageIdArray[j]);
-		ChangeTimeStamp(1,i,j)
-		i = i+1;
-		fcnstr = "update_overlay_animate(" + j + "," + i + ")";
-		t = setTimeout(fcnstr,time_delay);
-	}
-	else
-	{
-		if (i == maxi) {i = 0};
-		  	//ImageLoadedBoolean = false;
-		overlay_obj[j].swap(ImageStrArray[j][i]);
-		//while(ImageLoadedBoolean == false){}
-		ChangeTimeStamp(2,i,j)
-		i = i+1;
-		fcnstr = "update_overlay_animate(" + j + "," + i + ")";
-		t = setTimeout(fcnstr,time_delay);
-	}
+  var j;
+  var k;
+  var maxi = daycount;
+  var time_delay = 1000*1/frames_per_second;
+  //var ImageLoadedBoolean;
+  if (i == 0)
+  {
+    value = document.getElementById("overlayImageSelect_" + j).value;
+    overlay_obj[j] = new ImageOverlay(bounds, ImageStrArray[j][i], map_array[0],ImageIdArray[j]);
+    ChangeTimeStamp(1,i,j)
+    i = i+1;
+    fcnstr = "update_overlay_animate(" + j + "," + i + ")";
+    t = setTimeout(fcnstr,time_delay);
+  }
+  else
+  {
+    if (i == maxi) {i = 0};
+        //ImageLoadedBoolean = false;
+    overlay_obj[j].swap(ImageStrArray[j][i]);
+    //while(ImageLoadedBoolean == false){}
+    ChangeTimeStamp(2,i,j)
+    i = i+1;
+    fcnstr = "update_overlay_animate(" + j + "," + i + ")";
+    t = setTimeout(fcnstr,time_delay);
+  }
 }*/
-	
+  
 /*function animate_overlay_submit()
 {
-	var k;
-	var j = variable_image_number;
-	for (k=0;k<overlay_obj.length;k++)
-	{
-		if (overlay_obj[k] != undefined)
-		{
+  var k;
+  var j = variable_image_number;
+  for (k=0;k<overlay_obj.length;k++)
+  {
+    if (overlay_obj[k] != undefined)
+    {
       clearTimeout(t);
       overlay_obj[k].remove();
       delete overlay_obj[k];
@@ -258,61 +247,59 @@ function clear_all_overlays()
       ChangeTimeStamp(3);
       //Fill up the Array of image strings
       ImageTimeArray[j] = new Array();
-  	  ImageStrArray[j] = new Array();
-	   	if (j >= 17 & j <= 20) ImageArrayPrep_SPI(ImageStrArray[j],ImageRootArray[j],ImageTimeArray[j]);
-  	  else ImageArrayPrep(ImageStrArray[j],ImageRootArray[j],ImageTimeArray[j]);
-  	  //Add the new overlay 
-  	  update_colorbar(j);
-  	  update_overlay_animate(j,0);
-		}
-	}
+      ImageStrArray[j] = new Array();
+      if (j >= 17 & j <= 20) ImageArrayPrep_SPI(ImageStrArray[j],ImageRootArray[j],ImageTimeArray[j]);
+      else ImageArrayPrep(ImageStrArray[j],ImageRootArray[j],ImageTimeArray[j]);
+      //Add the new overlay 
+      update_colorbar(j);
+      update_overlay_animate(j,0);
+    }
+  }
 }*/
-	
+  
 /*function update_basins(j)
 {
-	var j;
-	var k;
-	if (typeof overlay_mask[j] !="undefined") //hide the overlay
-	{
-		overlay_mask[j].remove();
-		delete overlay_mask[j];
-	}
-	else if(typeof overlay_mask[j] == "undefined")
-	{
-		overlay_mask[j] = new ImageOverlay(bounds, basinImage[j], map_array[0]);
-	}
+  var j;
+  var k;
+  if (typeof overlay_mask[j] !="undefined") //hide the overlay
+  {
+    overlay_mask[j].remove();
+    delete overlay_mask[j];
+  }
+  else if(typeof overlay_mask[j] == "undefined")
+  {
+    overlay_mask[j] = new ImageOverlay(bounds, basinImage[j], map_array[0]);
+  }
 }*/
-	
+  
 function ChangeLanguage(language)
 {
-	var locale_val;
-	if(language == 'English') {locale_val = escape('en');}
-	else if (language == 'French') { locale_val = escape('fr');}
+  var locale_val;
+  if(language == 'English') {locale_val = escape('en');}
+  else if (language == 'French') { locale_val = escape('fr');}
   else if (language == 'Chinese') { locale_val = escape('cn');}
-	else if (language == 'Spanish') { locale_val = escape('sp');}
+  else if (language == 'Spanish') { locale_val = escape('sp');}
   else if (language == 'Arabic') { locale_val = escape('ar');}
 
-	var uri = window.location.toString().split('?');
-	if (uri.length > 1) {
-		var kvp = uri[1].split('&');
-		var i=kvp.length; var x; while(i--) 
-		{
-			x = kvp[i].split('=');
-			if (x[0]=='locale')
-			{
-	  		x[1] = locale_val;
-	  		kvp[i] = x.join('=');
-	  		break;
-			}
-		}
-		if(i<0) {
-			kvp[kvp.length] = ['locale',locale_val].join('=');
-		}
-		window.location.replace(uri[0]+'?'+kvp.join('&'));
-	}
-	else {
-		window.location.replace(uri[0]+'?locale='+locale_val);
-	}
-
-
+  var uri = window.location.toString().split('?');
+  if (uri.length > 1) {
+    var kvp = uri[1].split('&');
+    var i=kvp.length; var x; while(i--) 
+    {
+      x = kvp[i].split('=');
+      if (x[0]=='locale')
+      {
+        x[1] = locale_val;
+        kvp[i] = x.join('=');
+        break;
+      }
+    }
+    if(i<0) {
+      kvp[kvp.length] = ['locale',locale_val].join('=');
+    }
+    window.location.replace(uri[0]+'?'+kvp.join('&'));
+  }
+  else {
+    window.location.replace(uri[0]+'?locale='+locale_val);
+  }
 }
