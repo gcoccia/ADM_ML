@@ -59,7 +59,7 @@
   </h1>
   <div id="<?php echo $group['divtitle']."_div"?>" class="data-form-block">
     <?php foreach($group->variable as $var) { ?>
-      <label for="<?php echo $var['dataset']."_".$var['name'] ?>">
+      <label class="dataset" for="<?php echo $var['dataset']."_".$var['name'] ?>">
              <input id="<?php echo $var['dataset']."_".$var['name'] ?>" 
              type="radio" class="data-radio" name="group1" value="<?php echo $var["name"]?>"
              <?php if(strcmp($xmlobj->variables->default["tag"],$var["name"]) == 0) echo "checked=true"?>> <?php echo $_("".$var["title"])?> 

@@ -384,7 +384,7 @@ input[type="text"]:disabled
   color: #EBEBE4;
 }
 
-label
+label.dataset
 {
   display:block;
 }
