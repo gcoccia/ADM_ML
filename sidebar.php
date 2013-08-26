@@ -10,7 +10,7 @@
       </div>
 
       <?php echo $_("Time Interval")." (".$_("dd/mm/yyyy")."):"?><br/>
-      <?php echo $_("Initial")?>: 
+      <label style="width: 100px"><?php echo $_("Initial")?>:</label>
       <input id="day_initial" type="text" size=1 name="day_initial" value=<?php echo $day_initial ?>>
       <input id="month_initial" type="text" size=1 name="month_initial" value=<?php echo $month_initial ?>>
       <input id="year_initial" type="text" size=3 name="year_initial" value=<?php echo $year_initial ?>>
