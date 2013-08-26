@@ -1,8 +1,8 @@
-/*#Mainbody 
+body 
     {
     font:15px sans-serif;  
     min-width: 1000px;
-    }*/
+    }
 
 #sidebar div{
   left:0;
@@ -27,6 +27,10 @@
   -o-transition:height .4s ease-out, padding .4s ease-out;
   -ms-transition:height .4s ease-out, padding .4s ease-out;
   transition:height .4s ease-out, padding .4s ease-out;
+}
+
+#PLflag{
+  width: 200px;
 }
 
 h1 {
@@ -379,6 +383,7 @@ input[type="text"]:disabled
   /*background-color: #ccc;*/
   color: #EBEBE4;
 }
+
 
 
 

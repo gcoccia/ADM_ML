@@ -6,8 +6,8 @@ function Update_Listeners(type){
 
  if (type == 'none'){
   //Remove the listeners
-  google.maps.event.clearListeners(window.map,'click');
-  google.maps.event.clearListeners(window.map,'dragend');
+  google.maps.event.clearListeners(map_array[0],'click');
+  google.maps.event.clearListeners(map_array[0],'dragend');
   //Remove all markers
   for (marker in window.markers){
    window.markers[marker].setMap(null);
@@ -19,14 +19,14 @@ function Update_Listeners(type){
   //Remove present listeners
   Update_Listeners('none')
   //Add the listeners
-  google.maps.event.addListener(window.map, 'click', function(mEvent) {alert(mEvent.latLng)});
+  google.maps.event.addListener(map_array[0], 'click', function(mEvent) {alert(mEvent.latLng)});
  }
  else if (type == 'spatial'){
   //Remove present listeners
   Update_Listeners('none')
   //Add the listeners
-  google.maps.event.addListener(window.map, 'click', addPoint);
-  window.poly.setMap(window.map);
+  google.maps.event.addListener(map_array[0], 'click', addPoint);
+  window.poly.setMap(map_array[0]);
   window.poly.setPaths(new google.maps.MVCArray([window.path]));
   window.markers = [];
   google.maps.event.addListener(window.poly, 'click',function() {Spatial_Data_Extraction()});  
@@ -56,7 +56,7 @@ function addPoint(event) {
 
     var marker = new google.maps.Marker({
       position: event.latLng,
-      map: window.map,
+      map: map_array[0],
       draggable: true
     });
     window.markers.push(marker);

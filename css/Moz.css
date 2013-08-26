@@ -68,30 +68,21 @@ div.top {
     font-weight: bold;
     margin: 0;
     padding: 0;
-    position: absolute;
-    top: 0px;
-    background: #FFFFFF;
-    width: 100%;
+    width: auto;
 }
 
 div.top div.box {
     position: relative;
+    background: transparent;
     color: #2d880d;
     border: none;
     font-size: 250%;
     min-width: 1100px;
-    width: 100%;
     margin: auto;
-    position: absolute;
-    top: 0px;
-    background: #FFFFFF;
 }
 
 div.top div.box table {
     width: 100%;
-    position: absolute;
-    top: 0px;
-    background: #FFFFFF;
 }
 
 div.footer{
@@ -119,9 +110,7 @@ div.footer a{
 div.hbar{
     background: #186194;/*#41627E;*/
     height: 18px;
-    width: 100%;
-    position: absolute;
-    top: 55px;
+    min-width: 1100px;
 }
 
 div.main a:hover {
