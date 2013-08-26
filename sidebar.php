@@ -5,7 +5,7 @@
       <?php echo $_("Timestep").":" ?><br/>
       <input id="daily" type="radio" class="ts-radio" name="ts-radio" checked="true">Daily 
       <input id="monthly" type="radio" class="ts-radio" name="ts-radio">Monthly 
-      <input id="yearly" type="radio" class="ts-radio" name="ts-radio">Yearly<br/><br/>
+      <input id="yearly" type="radio" class="ts-radio" name="ts-radio">Yearly<br/>
 
       <?php echo $_("Time Interval")." (".$_("dd/mm/yyyy")."):"?><br/>
       <?php echo $_("Initial")?>: 
@@ -32,6 +32,11 @@
       <?php echo $_("Image Opacity")?>:
       <input type="button" value="-" onclick="update_overlay_opacity(0)">
       <input type="button" value="+" onclick="update_overlay_opacity(1)"><br/>
+
+      <?php echo $_("Data Extraction").":" ?><br/>
+      <input id="none" type="radio" class="de-radio" name="de-radio" checked="true" onclick='Update_Listeners("none")'> None
+      <input id="point" type="radio" class="de-radio" name="de-radio" onclick='Update_Listeners("point")'>Point
+      <input id="spatial" type="radio" class="de-radio" name="de-radio" onclick='Update_Listeners("spatial")'>Spatial<br/>
     </form>
   </div>
 </div> 

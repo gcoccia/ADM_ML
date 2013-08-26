@@ -81,7 +81,8 @@ $info_box_strings = array(1 => $_("Weather data used to drive the hydrologic mod
 <meta name="viewport" content="initial-scale=1.0, user-scalable=no" /> 
 <meta http-equiv="content-type" content="text/html; charset=UTF-8"/> 
 <link rel="stylesheet" href="css/s.css" /> 
-<link rel="stylesheet" type="text/css" media="screen,projection" href="css/Moz.css" title="Moz" />
+<link rel="stylesheet" href="css/Moz.css" />
+<link rel="stylesheet" href="css/main.css" />
 <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
 <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
 <script type="text/javascript" src="jsscripts/popupcss.js"></script>
@@ -91,6 +92,7 @@ $info_box_strings = array(1 => $_("Weather data used to drive the hydrologic mod
 <script type="text/javascript" src="jsscripts/ImageOverlay.js"></script>
 <script type="text/javascript" src="jsscripts/MainFunctions.js"></script>
 <script type="text/javascript" src="jsscripts/timestep.js"></script>
+<script type="text/javascript" src="jsscripts/data_extraction.js"></script>
 
 <script type="text/javascript">
   var basinImage  = <?php echo $mask_gauge ?>;
@@ -127,13 +129,20 @@ $info_box_strings = array(1 => $_("Weather data used to drive the hydrologic mod
     var styleArray = [{featureType: 'administrative.country',stylers: [{ visibility: 'simplified' }]}];
 
     var myOptions = {styles: styleArray,zoom: 3,center: mapCenter,panControl: false,zoomControl: true,zoomControlOptions:{style:      
-    google.maps.ZoomControlStyle.DEFAULT,position: google.maps.ControlPosition.LEFT_TOP},scaleControl: false,streetViewControl: false,mapTypeControl: 
-    true,mapTypeControlOptions:{style: google.maps.MapTypeControlStyle.DROPDOWN_MENU,position: google.maps.ControlPosition.TOP_LEFT},mapTypeId: 
+    google.maps.ZoomControlStyle.LARGE,position: google.maps.ControlPosition.LEFT_CENTER},scaleControl: false,streetViewControl: false,mapTypeControl: false,mapTypeControlOptions:{style: google.maps.MapTypeControlStyle.DROPDOWN_MENU,position: google.maps.ControlPosition.TOP_LEFT},mapTypeId: 
     google.maps.MapTypeId.TERRAIN};
 
     //Insert the map canvas into html
-    map_array[0] = new google.maps.Map(document.getElementById("map_canvas_1"), myOptions);
-    bounds = new google.maps.LatLngBounds(swBound, neBound);
+    window.map = new google.maps.Map(document.getElementById("map_canvas_1"), myOptions);
+    var bounds = new google.maps.LatLngBounds(swBound, neBound);
+
+    // Determine the lat/lon
+    //google.maps.event.addListener(map, 'click', function(mEvent) {alert("Requested lat/lon " + mEvent.latLng)});
+    //google.maps.event.addListener(map, 'dblclick', function(mEvent) {alert("Requested lat/lon " + mEvent.latLng)});
+
+    // Remove the listener
+    //google.maps.event.clearListeners(map,'click');
+    return
   }
 
   $(document).ready(function() {
@@ -175,7 +184,9 @@ $info_box_strings = array(1 => $_("Weather data used to drive the hydrologic mod
 </script>
 </head> 
 
-<body style="height:100%;margin:0">  
+<body id='MainBody' style="height:100%;width:100%">  
+
+<div id="map_canvas_1"></div>
 
 <div class="top">
   <div class="box">
@@ -215,30 +226,15 @@ $info_box_strings = array(1 => $_("Weather data used to drive the hydrologic mod
     <td class="version">Version 1.1</td></tr></table>
 </div>
 
-<div id="blanket" style="display:none;"></div>
+<div id="blanket" style="display:block;"></div>
 <div id="popUpDivparent">
   <div id="popUpDiv" style="display:none;">
     <a href="#" onclick="popup('popUpDiv')"></a>
   </div>
 </div>
 
-<div id="Region_Placement">
-  <select id="BasinSelect" onchange=ChangeBasin(value)>
-    <option value="Title"><?php echo $_("Select Region...")?></option>
-    <option value="Congo">Congo</option>
-    <option value="Nile">Nile</option>
-    <option value="Niger">Niger</option>
-    <option value="Senegal">Senegal</option>
-    <option value="Volta">Volta</option>
-  </select>
-</div>  
-
 <div id="Colorbar" style="visibility:hidden;"></div>
 <div id="TimeStamp" style="visibility:hidden;"></div>
-<div id="Logo" style="visibility:hidden;"></div>
-<div id="DBandMC">
-  <div id="map_canvas_1" style="width:100%; height:100%;"></div>
-</div>
 
 <div id="sidebar" style="visibility:visible"> 
 <?php include('sidebar.php'); ?>

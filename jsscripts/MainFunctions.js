@@ -23,8 +23,6 @@ var timestep_flag = 1; //flag to indicate whether we are working with daily or m
 timecount = 0;
 var variable_image_number = 999; //Number that tells which overlay to animate
 var t;
-var Logo_Images = [];
-Logo_Images[16] = "icons/smos_logo.png";
 var myVariable;
 
 // function update_animation()
@@ -51,7 +49,6 @@ function update_animation()
 	ImageArrayPrep(ImageStrArray[dataset], ImageRootDir, ImageTimeArray[dataset]);
 
 	display_colorbar(dataset);
-  update_logo(dataset);
 
 	var time_delay = 1000*1/frames_per_second;
 
@@ -145,8 +142,6 @@ function clear_all_overlays()
 	  }
   }
 
-	update_logo(0);
-
 	//Remove all basin layers
 	for (var k=0;k<overlay_mask_dropdown.length;k++)
   {                
@@ -197,7 +192,6 @@ function clear_all_overlays()
 	var i = 0;
 	update_colorbar(j);
 	update_overlay_animate(j,0);
-  update_logo(j);
 }*/
 	
 /*function update_colorbar(j)
@@ -322,76 +316,3 @@ function ChangeLanguage(language)
 
 
 }
-	
-function ChangeBasin(basin_name)
-{
-	var basin_name;
-	var basins_lat = [-2.0,14,13,13,9.7];
-	var basins_lon = [23.0,32,6,-10,0.125];
-	var basins_number = [0,34,68,238,259];
-	var basins_zoom = [5,4,5,5,5];
-	var basins_id = ["Congo","Nile","Niger","Senegal","Volta"];
-	//Delete any existing basins
-	for (i=0;i<basins_lat.length;i++)
-	{
-		if (typeof overlay_mask_dropdown[basins_number[i]] !="undefined") //hide the overlay
-		{
-			overlay_mask_dropdown[basins_number[i]].remove();
-			delete overlay_mask_dropdown[basins_number[i]];
-		}
-	}
-
-	for (i=0;i<basins_lat.length;i++)
-	{
-		if (basins_id[i] == basin_name)
-		{
-			map_array[0].setZoom(basins_zoom[i]);
-			var latlng = new google.maps.LatLng(basins_lat[i], basins_lon[i]);
-			map_array[0].setCenter(latlng);
-			if(typeof overlay_mask_dropdown[basins_number[i]] == "undefined")
-			{
-				overlay_mask_dropdown[basins_number[i]] = new ImageOverlay(bounds, basinImage[basins_number[i]],map_array[0],9999,1);
-			}
-		}
-	}
-	//flag_basin = 0;
-	//overlay_opacity = overlay_opacity_temp;
-}
-	
-/*function SPIselect(flag)
-	{
-	if (flag == 1){
-	animate_overlay(17,"SPI");
-	document.getElementById('SPIdiv').innerHTML = 'SPI <select id="SPI_form" onchange=animate_overlay(value,"SPI")><option id="overlayImageSelect_17" value="17">1 month</option><option id="overlayImageSelect_18" value="18">3 months</option><option id="overlayImageSelect_19" value="19">6 months</option><option id="overlayImageSelect_20" value="20">12 months</option></select><img id="question_mark" src="icons/question_icon.png" onmouseover="Info_Box_Call(6)" onmouseout="Info_Box_Call(6)">';
-	}
-	else{
-	    document.getElementById('SPIdiv').innerHTML = 'SPI <img id="question_mark" src="icons/question_icon.png" onmouseover="Info_Box_Call(6)" onmouseout="Info_Box_Call(6)">';
-	}
-	}*/
-
-function update_logo(j)
-{
-	var obj;
-	obj = document.getElementById("Logo").style;
-	if (obj.visibility == "visible")
-	{
-		obj.visibility = "hidden";
-		obj.height = "";
-	}
-	if (j == 16){
-		if(obj.visibility == "hidden")
-		{
-			obj.visibility = "visible";
-			obj.height = "100";
-			contentString = "<img src="+Logo_Images[j]+"></img>";
-			document.getElementById('Logo').innerHTML = contentString;
-		}
-		else if (obj.visibility == "visible")
-		{
-			obj.visibility = "hidden";
-			obj.height = "";
-		}
-	}
-
-}
-	
