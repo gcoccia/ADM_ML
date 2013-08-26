@@ -401,7 +401,7 @@ div.data-form-block
 #pageTitle
 {
   font-family: 'Raleway', 'sans-serif';
-  text-transform: 'smallcaps';
+  font-variant: small-caps;
   color: #333;
   vertical-align: top;
 }
