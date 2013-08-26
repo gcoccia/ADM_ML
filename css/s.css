@@ -389,6 +389,11 @@ label.dataset
   display:block;
 }
 
+div.data-form-block
+{
+  -webkit-box-shadow:none;
+}
+
 
 
 
