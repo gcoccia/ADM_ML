@@ -167,6 +167,14 @@ $info_box_strings = array(1 => $_("Weather data used to drive the hydrologic mod
       update_timestep();
       update_animation();
     });
+    $( "input[id='day_initial'], input[id='day_final']" ).change(function() {
+      if($(this).val() < 1 || $(this).val() > 31)
+        $(this).val(1);
+    });
+    $( "input[id='month_initial'], input[id='month_final']" ).change(function() {
+      if($(this).val() < 1 || $(this).val() > 12)
+        $(this).val(1);
+    });
   });
 
 </script>
