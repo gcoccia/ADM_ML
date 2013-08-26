@@ -28,9 +28,10 @@
       </tr>
       </table>
 
-      <?php echo $_("Image Opacity")?>:
+
+<!--       Consider floating the opacity options over the map <?php echo $_("Image Opacity")?>:
       <input type="button" value="-" onclick="update_overlay_opacity(0)">
-      <input type="button" value="+" onclick="update_overlay_opacity(1)"><br/>
+      <input type="button" value="+" onclick="update_overlay_opacity(1)"><br/> -->
     </form>
   </div>
 </div> 
