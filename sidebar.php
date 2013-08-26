@@ -11,16 +11,16 @@
 
       <?php echo $_("Time Interval")." (".$_("dd/mm/yyyy")."):"?><br/>
       <label><?php echo $_("Initial")?>:</label>
-      <input id="day_initial" type="text" size=1 name="day_initial" value=<?php echo $day_initial ?>>
-      <input id="month_initial" type="text" size=1 name="month_initial" value=<?php echo $month_initial ?>>
-      <input id="year_initial" type="text" size=3 name="year_initial" value=<?php echo $year_initial ?>>
+      <input id="day_initial" type="text" size="1" maxlength="2" name="day_initial" value=<?php echo $day_initial ?>>
+      <input id="month_initial" type="text" size="1" maxlength="2" name="month_initial" value=<?php echo $month_initial ?>>
+      <input id="year_initial" type="text" size="3" maxlength="4" name="year_initial" value=<?php echo $year_initial ?>>
       <input type="button" value="-" onclick="Update_TimeStamp_MP(-1,0)">
       <input type="button" value="+" onclick="Update_TimeStamp_MP(1,0)"><br/>
       
       <label style="margin-right: 1px"><?php echo $_("Final") ?>:</label>
-      <input id="day_final" type="text" size="2" maxlength="2" name="day_final" value=<?php echo $day_final ?>>
-      <input id="month_final" type="text" size="2" maxlength="2" name="month_final" value=<?php echo $month_final ?>>
-      <input id="year_final" type="text" size="4" maxlength="4" name="year_final" value=<?php echo $year_final ?>>
+      <input id="day_final" type="text" size="1" maxlength="2" name="day_final" value=<?php echo $day_final ?>>
+      <input id="month_final" type="text" size="1" maxlength="2" name="month_final" value=<?php echo $month_final ?>>
+      <input id="year_final" type="text" size="3" maxlength="4" name="year_final" value=<?php echo $year_final ?>>
       <input type="button" value="-" onclick="Update_TimeStamp_MP(-1,1)">
       <input type="button" value="+" onclick="Update_TimeStamp_MP(1,1)"><br/>
 
