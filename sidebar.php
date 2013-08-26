@@ -1,5 +1,5 @@
 <div id="Display_Control"> 
-  <h1 id="DC_header" class="data-group-header"><?php echo $_("User Interface")?></h1> 
+  <h1 id="DC_header" class="data-group-header"><?php echo $_("Animation Interface")?></h1> 
   <div id="DC_div" class="data-form-block" style="padding-top: 5px">
     <form id="AnimationForm" name="AnimationForm">
       <?php echo $_("Timestep").":" ?><br/>
@@ -31,14 +31,16 @@
       <?php echo $_("Image Opacity")?>:
       <input type="button" value="-" onclick="update_overlay_opacity(0)">
       <input type="button" value="+" onclick="update_overlay_opacity(1)"><br/>
-
-      <?php echo $_("Data Extraction").":" ?><br/>
-      <input id="none" type="radio" class="de-radio" name="de-radio" checked="true" onclick='Update_Listeners("none")'> None
-      <input id="point" type="radio" class="de-radio" name="de-radio" onclick='Update_Listeners("point")'>Point
-      <input id="spatial" type="radio" class="de-radio" name="de-radio" onclick='Update_Listeners("spatial")'>Spatial<br/>
     </form>
   </div>
 </div> 
+
+<div id="Data Extraction">
+  <h1 id="de_header" class="data-group-header"><?php echo $_("Data Extraction").":" ?>
+  <input id="none" type="radio" class="de-radio" name="de-radio" checked="true" onclick='Update_Listeners("none")'> None
+  <input id="point" type="radio" class="de-radio" name="de-radio" onclick='Update_Listeners("point")'>Point
+  <input id="spatial" type="radio" class="de-radio" name="de-radio" onclick='Update_Listeners("spatial")'>Spatial
+</div>
 
 <!-- <div id="Basins">
   <h1 id="Basins_header" class="data-group-header"><?php echo $_("Catchment Data")?> <img class="question_mark" id="4" src="icons/question_icon.png"/></h1>
