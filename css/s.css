@@ -398,6 +398,12 @@ div.data-form-block
   padding-top: 5px;
   padding-bottom: 5px;
 }
+div.top div.box
+{
+  font-family: 'PT Sans', 'sans-serif';
+  font-size: 250%;
+  color: #333;
+}
 
 
 
