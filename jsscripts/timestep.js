@@ -17,7 +17,7 @@ function update_timestep()
 
     for(var dataset in data_timesteps) {
       if($("input[id='" + dataset + "']:radio").is(':visible')) {
-        $("input[id='" + dmy + "']:radio").prop('checked', true);
+        $(this).prop('checked', true);
         break;
       }
     }
