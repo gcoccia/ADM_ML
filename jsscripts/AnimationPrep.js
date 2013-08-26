@@ -67,7 +67,7 @@ function ImageArrayPrep(ImageStrArray,ImageTimeArray)
       date_temp.setFullYear(date_temp.getFullYear() + 1);
     }
 
-    ImageStrArray[framect] = "../IMAGES/" + current_timestep.toUpperCase() + "/" + tstring + "/" + dataset + "_" + tstring + ".svg";
+    ImageStrArray[framect] = "../IMAGES/" + current_timestep.toUpperCase() + "/" + tstring + "/" + dataset + "_" + tstring + ".png";
     ImageTimeArray[framect] = tstamp;
     framect += 1;
   }
