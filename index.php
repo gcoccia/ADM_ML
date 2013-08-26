@@ -82,7 +82,6 @@ $info_box_strings = array(1 => $_("Weather data used to drive the hydrologic mod
 <meta http-equiv="content-type" content="text/html; charset=UTF-8"/> 
 <link rel="stylesheet" href="css/s.css" /> 
 <link rel="stylesheet" href="css/Moz.css" />
-<link rel="stylesheet" href="css/main.css" />
 <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
 <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
 <script type="text/javascript" src="jsscripts/popupcss.js"></script>
@@ -136,12 +135,6 @@ $info_box_strings = array(1 => $_("Weather data used to drive the hydrologic mod
     window.map = new google.maps.Map(document.getElementById("map_canvas_1"), myOptions);
     var bounds = new google.maps.LatLngBounds(swBound, neBound);
 
-    // Determine the lat/lon
-    //google.maps.event.addListener(map, 'click', function(mEvent) {alert("Requested lat/lon " + mEvent.latLng)});
-    //google.maps.event.addListener(map, 'dblclick', function(mEvent) {alert("Requested lat/lon " + mEvent.latLng)});
-
-    // Remove the listener
-    //google.maps.event.clearListeners(map,'click');
     return
   }
 
