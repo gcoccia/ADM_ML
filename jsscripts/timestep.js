@@ -5,9 +5,9 @@ function update_timestep()
 
   for(dataset in data_timesteps) {
     if(data_timesteps[dataset].indexOf(abbrevs[current_timestep]) == -1)
-      $("input[id='" + dataset + "']:radio").parent().hide();
+      $("input[id='" + dataset + "']:radio").parent().hide('fast', function() {});
     else
-      $("input[id='" + dataset + "']:radio").parent().show();
+      $("input[id='" + dataset + "']:radio").parent().show('fast', function() {});
   }
 
   // If the currently-checked button is now disabled, pick a different one
@@ -25,14 +25,14 @@ function update_timestep()
 
   // Disable/Enable the relevant timestamp input boxes depending which radio button is selected
   if(""+current_timestep == "daily")
-    $("input[id='day_initial'], input[id='day_final']").show();
+    $("input[id='day_initial'], input[id='day_final']").show('fast', function() {});
   else
-    $("input[id='day_initial'], input[id='day_final']").hide();
+    $("input[id='day_initial'], input[id='day_final']").hide('fast', function() {});
 
   if(""+current_timestep == "yearly")
-    $("input[id='month_initial'], input[id='month_final']").hide();
+    $("input[id='month_initial'], input[id='month_final']").hide('fast', function() {});
   else
-    $("input[id='month_initial'], input[id='month_final']").show();
+    $("input[id='month_initial'], input[id='month_final']").show('fast', function() {});
 }
 
 function Update_TimeStamp_MP(increment, flag_timestamp)
