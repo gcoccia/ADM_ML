@@ -7,7 +7,7 @@ function ReadTimeInterval()
   day_initial = parseInt(document.forms["AnimationForm"]["day_initial"].value);
   day_final = parseInt(document.forms["AnimationForm"]["day_final"].value);
   //Set Time delay between images
-  frames_per_second = parseInt(document.forms["AnimationForm"]["frames_per_second"].value);
+  //frames_per_second = parseInt(document.forms["AnimationForm"]["frames_per_second"].value);
 }
 
 function ImageArrayPrep(ImageStrArray,ImageTimeArray)

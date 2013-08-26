@@ -82,6 +82,7 @@ $info_box_strings = array(1 => $_("Weather data used to drive the hydrologic mod
 <meta http-equiv="content-type" content="text/html; charset=UTF-8"/> 
 <link rel="stylesheet" href="css/s.css" /> 
 <link rel="stylesheet" type="text/css" media="screen,projection" href="css/Moz.css" title="Moz" />
+<link href='http://fonts.googleapis.com/css?family=Raleway:200' rel='stylesheet' type='text/css'>
 <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
 <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
 <script type="text/javascript" src="jsscripts/popupcss.js"></script>
@@ -168,6 +169,40 @@ $info_box_strings = array(1 => $_("Weather data used to drive the hydrologic mod
       update_timestep();
       update_animation();
     });
+
+    // Validation for date entry
+    $( "input[id='day_initial']" ).change(function() {
+      if($(this).val() < 1 || $(this).val() > 31)
+        $(this).val(day_initial);
+    });
+    $( "input[id='day_final']" ).change(function() {
+      if($(this).val() < 1 || $(this).val() > 31)
+        $(this).val(day_final);
+    });
+    $( "input[id='month_initial']" ).change(function() {
+      if($(this).val() < 1 || $(this).val() > 12)
+        $(this).val(month_initial);
+    });
+    $( "input[id='month_final']" ).change(function() {
+      if($(this).val() < 1 || $(this).val() > 12)
+        $(this).val(month_final);
+    });
+    $( "input[id='year_initial']" ).change(function() {
+      if($(this).val() < 1948 || $(this).val() > 2013)
+        $(this).val(year_initial);
+    });
+    $( "input[id='year_final']" ).change(function() {
+      if($(this).val() < 1948 || $(this).val() > 2013)
+        $(this).val(year_final);
+    });
+
+    // Change cursor to crosshair when doing data selection
+    $( "input[id='none']:radio.de-radio" ).change(function() {
+      map_array[0].setOptions({draggableCursor:null});
+    });
+    $( "input[id='point']:radio.de-radio, input[id='spatial']:radio.de-radio" ).change(function() {
+      map_array[0].setOptions({draggableCursor:'crosshair'});
+    });
   });
 
 </script>
@@ -181,7 +216,7 @@ $info_box_strings = array(1 => $_("Weather data used to drive the hydrologic mod
       <td align="center"><img id="UNESCO_logo" src="icons/Unesco_logo.gif"></td>
       <td align="center"><img id="ICPAC_logo" src="icons/ICPAC_logo.gif"></td>
       <td align="center"><img id="AGRHYMET_logo" src="icons/agrhymet_logo.gif"></td>
-      <td align="center" width="65%"> Experimental African Drought Monitor </td>
+      <td id="pageTitle" align="center" width="65%"> AFRICAN DROUGHT MONITOR </td>
       <td align="center"><img id="PU_logo" src="icons/PU_logo.gif"></td>
       <td align="center"><img id="UW_logo" src="icons/UW_logo.png"></td>
     </tr></tbody></table></div>

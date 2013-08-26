@@ -9,7 +9,6 @@ body
   width:300px;
   background:#fff;
   border-radius:5px;
-  -webkit-box-shadow:0 1px 3px rgba(0,0,0,.3);
   overflow:hidden;
 }
 
@@ -378,6 +377,31 @@ input[type="text"]:disabled
 {
   /*background-color: #ccc;*/
   color: #EBEBE4;
+}
+
+label.dataset
+{
+  display:block;
+}
+
+div.sidebar-block
+{
+  -webkit-box-shadow:0 1px 3px rgba(0,0,0,.3);
+}
+div.data-form-block
+{
+  -webkit-box-shadow:none;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+#pageTitle
+{
+  font-family: 'Raleway', 'sans-serif';
+  font-weight: 200;
+  color: #333;
+  vertical-align: top;
+  line-height: 150%;
+  font-variant: small-caps;
 }
 
 
