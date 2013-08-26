@@ -219,17 +219,6 @@ $info_box_strings = array(1 => $_("Weather data used to drive the hydrologic mod
   </div>
 </div>
 
-<div id="Region_Placement">
-  <select id="BasinSelect" onchange=ChangeBasin(value)>
-    <option value="Title"><?php echo $_("Select Region...")?></option>
-    <option value="Congo">Congo</option>
-    <option value="Nile">Nile</option>
-    <option value="Niger">Niger</option>
-    <option value="Senegal">Senegal</option>
-    <option value="Volta">Volta</option>
-  </select>
-</div>  
-
 <div id="Colorbar" style="visibility:hidden;"></div>
 <div id="TimeStamp" style="visibility:hidden;"></div>
 <div id="Logo" style="visibility:hidden;"></div>

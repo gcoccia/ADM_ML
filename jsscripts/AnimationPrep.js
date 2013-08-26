@@ -13,25 +13,6 @@ function ReadTimeInterval()
 function ImageArrayPrep(ImageStrArray,ImageTimeArray)
 {
 
-  //Because we are lacking SMOS data, we will set the latest date to equate to 5/26/2012
-/*  if (variable_image_number == 16){
-    //Make the dates
-    SMOS_date_final = new Date(year_final,month_final-1,day_final);
-    SMOS_date_initial = new Date(year_initial,month_initial-1,day_initial);
-    SMOS_date_final_available = new Date(2012,5-1,26);
-    if (SMOS_date_final.getTime() > SMOS_date_final_available.getTime()){
-      year_final = 2012;
-      month_final = 5;
-      day_final = 26;
-      alert("SMOS data is available up to May 26th,2012");
-      }
-                if (SMOS_date_initial.getTime() > SMOS_date_final_available.getTime()){
-                        year_initial = 2012;
-                        month_initial = 5;
-                        day_initial = 26;
-                        }
-    }*/
-
   var current_timestep = $("input[name='ts-radio']:checked").attr('id');
   var dataset = $("input[name='group1']:checked").attr('id');
   var initial_date = new Date(year_initial, month_initial-1, day_initial);
@@ -73,68 +54,6 @@ function ImageArrayPrep(ImageStrArray,ImageTimeArray)
   }
 
 }
-
-/*function ImageArrayPrep_SPI(ImageStrArray,ImageStrRoot,ImageTimeArray)
-        {
-        var day;
-        var month;
-        var mi;
-        var mf;
-        var di;
-        var df;
-        var Data_Dir = "Data/ADM_Data";
-        var Time_Period;
-        var ndays = [31,28,31,30,31,30,31,31,30,31,30,31];
-        var temp;
-  var min;
-  var min_pos;
-        daycount = 0;
-        var t;
-  var nweeks;
-  var date_temp;
-  var date_initial;
-  //Assume every year is a leap year (2008)
-        for (year = year_initial; year < year_final + 1; year++)
-                {
-    date_initial = new Date(2012,0,1);
-                if (year == year_initial){mi = month_initial;}
-                else {mi = 1;}
-                if (year == year_final){mf = month_final;}
-                else {mf = 12;}
-                for (month = mi; month < mf + 1; month++)
-                        {
-                        if (year == year_initial && month == month_initial){di = day_initial}
-                        else {di = 1}
-                        if (year == year_final && month == month_final){df = day_final}
-                        else {df = ndays[month-1]}
-                        for (day = di; day < df + 1; day++)
-                                {
-                                Time_Period = "/Realtime";
-        if (year >= 2012){
-          //Update every week
-          //Find the julian time stamp
-          date_temp = new Date(year,month-1,day);
-          //Calculate the number of days between the time stamp and Jan. 1st
-          temp = Math.floor((date_temp.getTime() - date_initial.getTime())/1000/60/60/24);
-          //Calculate the number of weeks that have been completed
-          nweeks = Math.floor(temp/7);
-          //Calculate the last day for which a week has completed
-          temp = 7*nweeks;
-          //Add these days to Jan 1st to obtain the date
-          date_temp = date_initial;
-          date_temp.setDate(date_temp.getDate() + temp);
-                                  ImageStrArray[daycount] = Data_Dir + Time_Period + ImageStrRoot + sprintf("%02d",parseInt(year)) + sprintf("%02d",parseInt(date_temp.getMonth()+1)) + sprintf("%02d",parseInt(date_temp.getDate())) + ".gif"; 
-        }
-        else {
-          //Set to Jan. 1st
-                                  ImageStrArray[daycount] = Data_Dir + Time_Period + ImageStrRoot + sprintf("%02d",parseInt(year)) + sprintf("%02d",parseInt(month)) + sprintf("%02d",parseInt(1)) + ".gif";  
-        }         
-                                ImageTimeArray[daycount] = sprintf("%02d",parseInt(day)) + "/" + sprintf("%02d",parseInt(month)) + "/" + sprintf("%02d",parseInt(year));
-                                daycount = daycount + 1
-        }
-      }
-    }
-  }*/
 
 function ChangeTimeStamp(flag_time,i,j)
 {
