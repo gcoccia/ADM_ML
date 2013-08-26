@@ -25,14 +25,14 @@ function update_timestep()
 
   // Disable/Enable the relevant timestamp input boxes depending which radio button is selected
   if(""+current_timestep == "daily")
-    $("input[id='day_initial'], input[id='day_final']").show('fast', function() {});
+    $("input[id='day_initial'], input[id='day_final']").show(150, function() {});
   else
-    $("input[id='day_initial'], input[id='day_final']").hide('fast', function() {});
+    $("input[id='day_initial'], input[id='day_final']").hide(150, function() {});
 
   if(""+current_timestep == "yearly")
-    $("input[id='month_initial'], input[id='month_final']").hide('fast', function() {});
+    $("input[id='month_initial'], input[id='month_final']").hide(150, function() {});
   else
-    $("input[id='month_initial'], input[id='month_final']").show('fast', function() {});
+    $("input[id='month_initial'], input[id='month_final']").show(150, function() {});
 }
 
 function Update_TimeStamp_MP(increment, flag_timestamp)
