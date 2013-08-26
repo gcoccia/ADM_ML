@@ -2,7 +2,7 @@
   <h1 id="DC_header" class="data-group-header"><?php echo $_("Animation Interface")?></h1> 
   <div id="DC_div" class="data-form-block" style="padding-top: 5px">
     <form id="AnimationForm" name="AnimationForm">
-      <div style="margin-bottom: 10px">
+      <div style="margin-bottom: 10px; margin-left: 0px">
         <?php echo $_("Timestep").":" ?><br/>
         <input id="daily" type="radio" class="ts-radio" name="ts-radio" checked="true">Daily 
         <input id="monthly" type="radio" class="ts-radio" name="ts-radio">Monthly 
