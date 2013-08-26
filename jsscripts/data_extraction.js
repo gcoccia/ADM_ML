@@ -45,6 +45,10 @@ function Point_Data(latLng){
 
 function Spatial_Data(){
 
+ //Create the popup
+ Data_Extraction_Popup('popUpDiv')
+ //Add controls
+ Prepare_Spatial_Data_Display()
  //Print all the markers lat/lon
  info = []
  info = ''
@@ -53,7 +57,6 @@ function Spatial_Data(){
  }
 
  //Create the popup background
- Data_Extraction_Popup('popUpDiv')
  
  //Upon closing remove the markers and polygon
  for (marker in window.markers){
@@ -211,15 +214,16 @@ function Request_Data(variables) {
  lat = $("#latitude").val();
  lon = $("#longitude").val();
  tstep = $('input:radio[name=tstep]:checked').val();//"DAILY";
- script = 'python Extract_Point_Data.py'
+ script = 'python POINT_DATA/Extract_Point_Data.py'
  input = {idate:idate,fdate:fdate,tstep:tstep,lat:lat,lon:lon,variables:variables};
  input = JSON.stringify(input);
  request = {script:script,input:input};
  $.ajax({
   type:"post",
-  url: 'scripts/POINT_DATA/Jquery_Python_JSON_Glue.php',
+  url: 'scripts/Jquery_Python_JSON_Glue.php',
   data: request,
   success: function(response){
+   alert(response);
    Output = JSON.parse(response);
   },
   async: false,
@@ -252,3 +256,113 @@ function Request_and_Display() {
 
 /* Spatial Data functions */
 
+function Prepare_Spatial_Data_Display() {
+  //Empty the box
+  $('#popUpDiv').empty();
+  //Add the close window box
+  $('#popUpDiv').append('<a onclick="Data_Extraction_Popup()" style="width:80px; height:10px">Close Window</a>');
+  //Add the contorols
+  $('#popUpDiv').append('<div id="popup_controls"></div>');
+  html_input = [
+   'Choose the Time Step:<br>',
+   '<input type="radio" name="tstep_spatial_data" value="DAILY" checked>daily',
+   '<input type="radio" name="tstep_spatial_data" value="MONTHLY">monthly',
+   '<input type="radio" name="tstep_spatial_data" value="YEARLY">yearly<br>',
+   '<br>',
+   'Choose the Initial Time Stamp (after 1/1/1950):<br>',
+   'Year: <input type="text" name="iyear_spatial_data" value="1950">',
+   'Month: <input type="text" name="imonth_spatial_data" value="1">',
+   'Day: <input type="text" name="iday_spatial_data" value="1"><br>',
+   '<br>',
+   'Choose the Final Time Stamp (3 days before realtime):<br>',
+   'Year: <input type="text" name="fyear_spatial_data" value="1950">',
+   'Month: <input type="text" name="fmonth_spatial_data" value="1">',
+   'Day: <input type="text" name="fday_spatial_data" value="1"><br>',
+   '<br>',
+   'Choose the spatial box dimensions [Lat = (-35.0 - 38.0); Lon = (-19.0 - 55.0)]:<br>',
+   'Lower Left Corner Latitude: <input type="text" name="llclat_spatial_data" value="-35.0"><br>',
+   'Lower Left Corner Longitude: <input type="text" name="llclon_spatial_data" value="-19.0"><br>',
+   'Upper Right Corner Latitude: <input type="text" name="urclat_spatial_data" value="38.0"><br>',
+   'Upper Right Corner Longitude: <input type="text" name="urclon_spatial_data" value="55.0"><br>',
+   '<br>',
+   'Define the spatial resolution (degrees):<br>',
+   '<input type="radio" name="sres_spatial_data" value="0.1">0.1 degree',
+   '<input type="radio" name="sres_spatial_data" value="0.25" checked>0.25 degree',
+   '<input type="radio" name="sres_spatial_data" value="1.0">1.0 degree<br>',
+   '<br>',
+   'Choose the variables: <br>',
+   '<input type="checkbox" name="variables_spatial_data[]" value="prec_PGF">prec_pgf<br>',
+   '<input type="checkbox" name="variables_spatial_data[]" value="tmax_PGF">tmax_pgf<br>',
+   '<input type="checkbox" name="variables_spatial_data[]" value="tmin_PGF">tmin_pgf<br>',
+   '<input type="checkbox" name="variables_spatial_data[]" value="wind_PGF">wind_pgf<br>',
+   '<br>',
+   'Choose the file format: <br>',
+   '<input type="radio" name="format_spatial_data" value="arc_ascii">arc ascii',
+   '<input type="radio" name="format_spatial_data" value="netcdf" checked>netcdf<br>',
+   '<br>',
+   'Provide an email to notify when the data is ready<br>',
+   'Email: <input type="text" name="email_spatial_data"></br>',
+   '<br>',
+   '<button type="button" onclick="Submit_Spatial_Data()">Submit</button>',
+  ];
+  $('#popup_controls').append(html_input);
+}
+
+function Submit_Spatial_Data() {
+ var Output;
+ //Get info to send to the server to request the data
+ //Timestep
+ tstep = $('input:radio[name=tstep_spatial_data]:checked').val();
+ //Initial Timestamp
+ iyear = $('input:text[name=iyear_spatial_data]').val();
+ imonth = $('input:text[name=imonth_spatial_data]').val();
+ iday = $('input:text[name=iday_spatial_data]').val();
+ idate = Date.UTC(parseInt(iyear),parseInt(imonth)-1,parseInt(iday))/1000;
+ //Final Timestamp
+ fyear = $('input:text[name=fyear_spatial_data]').val();
+ fmonth = $('input:text[name=fmonth_spatial_data]').val();
+ fday = $('input:text[name=fday_spatial_data]').val();
+ fdate = Date.UTC(parseInt(fyear),parseInt(fmonth)-1,parseInt(fday))/1000;
+ //Spatial Bounding Box
+ llclat = $('input:text[name=llclat_spatial_data]').val();
+ llclon = $('input:text[name=llclon_spatial_data]').val();
+ urclat = $('input:text[name=urclat_spatial_data]').val();
+ urclon = $('input:text[name=urclon_spatial_data]').val();
+ //Spatial resolution
+ sres = $('input:radio[name=sres_spatial_data]:checked').val();
+ //Variables
+ var variables = []
+ $("input[name='variables_spatial_data[]']:checked").each(function (){variables.push($(this).val());});
+ //File format
+ format = $('input:radio[name=format_spatial_data]:checked').val();
+ //Email
+ email = $('input:text[name=email_spatial_data]').val();
+ //Define the python script for data extraction
+ script = 'python SPATIAL_DATA/Spatial_Data_Request.py';//Extract_Point_Data.py'
+ input = {idate:idate,
+          fdate:fdate,
+          tstep:tstep,
+          llclat:llclat,
+          llclon:llclon,
+          urclat:urclat,
+          urclon:urclon,
+          sres:sres,
+          variables:variables,
+          format:format,
+          email:email,
+          };
+ input = JSON.stringify(input);
+ request = {script:script,input:input};
+ $.ajax({
+  type:"post",
+  url: 'scripts/Jquery_Python_JSON_Glue.php',//'Spatial_Data_Request.php ',
+  data: request,
+  success: function(response){
+   alert(response);
+   Output = JSON.parse(response);
+  },
+  async: false,
+  cache: false
+ });
+ return Output;
+}
