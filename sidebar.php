@@ -22,7 +22,6 @@
       <input type="button" value="-" onclick="Update_TimeStamp_MP(-1,1)">
       <input type="button" value="+" onclick="Update_TimeStamp_MP(1,1)"><br/>
 
-      <?php echo $_("Frames per second")?>:  <input type="text" size=1 name="frames_per_second" value=1><br/>
       <table><tr>
       <td><input id="update_interval" type="button" value=<?php echo $_("Update time interval")?> ></td>
       <td><input id="clear_all" type="button" value=<?php echo $_("Clear all overlays")?> ></td>
