@@ -18,9 +18,9 @@
       <input type="button" value="+" onclick="Update_TimeStamp_MP(1,0)"><br/>
       
       <label style="margin-right: 1px"><?php echo $_("Final") ?>:</label>
-      <input id="day_final" type="text" size=1 name="day_final" value=<?php echo $day_final ?>>
-      <input id="month_final" type="text" size=1 name="month_final" value=<?php echo $month_final ?>>
-      <input id="year_final" type="text" size=3 name="year_final" value=<?php echo $year_final ?>>
+      <input id="day_final" type="text" size="2" maxlength="2" name="day_final" value=<?php echo $day_final ?>>
+      <input id="month_final" type="text" size="2" maxlength="2" name="month_final" value=<?php echo $month_final ?>>
+      <input id="year_final" type="text" size="4" maxlength="4" name="year_final" value=<?php echo $year_final ?>>
       <input type="button" value="-" onclick="Update_TimeStamp_MP(-1,1)">
       <input type="button" value="+" onclick="Update_TimeStamp_MP(1,1)"><br/>
 
