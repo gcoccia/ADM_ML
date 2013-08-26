@@ -167,13 +167,31 @@ $info_box_strings = array(1 => $_("Weather data used to drive the hydrologic mod
       update_timestep();
       update_animation();
     });
-    $( "input[id='day_initial'], input[id='day_final']" ).change(function() {
+
+    // Validation for date entry
+    $( "input[id='day_initial']" ).change(function() {
       if($(this).val() < 1 || $(this).val() > 31)
-        $(this).val(1);
+        $(this).val(day_initial);
     });
-    $( "input[id='month_initial'], input[id='month_final']" ).change(function() {
+    $( "input[id='day_final']" ).change(function() {
+      if($(this).val() < 1 || $(this).val() > 31)
+        $(this).val(day_final);
+    });
+    $( "input[id='month_initial']" ).change(function() {
       if($(this).val() < 1 || $(this).val() > 12)
-        $(this).val(1);
+        $(this).val(month_initial);
+    });
+    $( "input[id='month_final']" ).change(function() {
+      if($(this).val() < 1 || $(this).val() > 12)
+        $(this).val(month_final);
+    });
+    $( "input[id='year_initial']" ).change(function() {
+      if($(this).val() < 1948 || $(this).val() > 2013)
+        $(this).val(year_initial);
+    });
+    $( "input[id='year_final']" ).change(function() {
+      if($(this).val() < 1948 || $(this).val() > 2013)
+        $(this).val(year_final);
     });
   });
 
