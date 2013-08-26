@@ -5,9 +5,9 @@ function update_timestep()
 
   for(dataset in data_timesteps) {
     if(data_timesteps[dataset].indexOf(abbrevs[current_timestep]) == -1)
-      $("input[id='" + dataset + "']:radio").parent().hide('fast', function() {});
+      $("input[id='" + dataset + "']:radio").parent().hide(150, function() {});
     else
-      $("input[id='" + dataset + "']:radio").parent().show('fast', function() {});
+      $("input[id='" + dataset + "']:radio").parent().show(150, function() {});
   }
 
   // If the currently-checked button is now disabled, pick a different one
