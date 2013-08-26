@@ -1,4 +1,4 @@
-<div id="Display_Control" class="sidebar-shadow"> 
+<div id="Display_Control" class="sidebar-block"> 
   <h1 id="DC_header" class="data-group-header"><?php echo $_("Animation Interface")?></h1> 
   <div id="DC_div" class="data-form-block" style="padding-top: 5px">
     <form id="AnimationForm" name="AnimationForm">
@@ -38,7 +38,7 @@
   </div>
 </div> 
 
-<div id="Data Extraction" class="sidebar-shadow">
+<div id="Data Extraction" class="sidebar-block">
   <h1 id="de_header" class="data-group-header"><?php echo $_("Data Extraction") ?></h1>
   <div id="de_div" class="data-form-block">
     <input id="none" type="radio" class="de-radio" name="de-radio" checked="true" onclick='Update_Listeners("none")'> None
@@ -55,7 +55,7 @@
 </div> -->
 
 <?php foreach($xmlobj->variables->group as $group) { ?>
-<div id="<?php echo $group['divtitle']?>" class="sidebar-shadow">
+<div id="<?php echo $group['divtitle']?>" class="sidebar-block">
   <h1 id="<?php echo $group['divtitle']."_header"?>" class="data-group-header">
     <?php echo $_("".$group["name"])?> 
     <img class="question_mark" id="<?php echo $group->infobox ?>" src="icons/question_icon.png" >
