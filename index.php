@@ -215,42 +215,35 @@ $info_box_strings = array(1 => $_("Weather data used to drive the hydrologic mod
       	<img style="float:right" id="ICPAC_logo" src="icons/ICPAC_logo.gif">
       	<img style="float:right" id="AGRHYMET_logo" src="icons/agrhymet_logo.gif">
 	<img style="float:right" id="PU_logo" src="icons/PU_logo.gif">
-      	</h2> 	
+      	</h2>
+ 
+<div class="navbar">
+  <div class="navbar-inner">
+    <div class="container">
+      <ul class="nav">
+	<li class="active"><a href="#"><?php echo $_("Google Maps Interface"); ?></a></li>
+        <li><a href='BasicInterface.php'><?php echo $_("Basic Interface"); ?></a></li>
+        <li><a href='Resources/ADM_Background.pdf'><?php echo $_("Background"); ?></a></li>
+        <li><a href='Resources/ADM_Glossary.pdf'><?php echo $_("Glossary"); ?></a></li>
+        <li><a href='Resources/Tutorial_HornAfrica.pdf'><?php echo $_("Tutorial"); ?></a></li>
+        </ul>
+	<img id="Flag_Image" style="float:right" src="icons/flags/arabic_flag.gif" onclick=ChangeLanguage("Arabic")>
+	<img id="Flag_Image" style="float:right" src="icons/flags/spanish_flag.gif" onclick=ChangeLanguage("Spanish")>
+	<img id="Flag_Image" style="float:right" src="icons/flags/chinese_flag.gif" onclick=ChangeLanguage("Chinese")>
+	<img id="Flag_Image" style="float:right" src="icons/flags/french_flag.gif" onclick=ChangeLanguage("French")>
+	<img id="Flag_Image" style="float:right" src="icons/flags/english_flag.gif" onclick=ChangeLanguage("English")>
+    </div>
+  </div>
+</div>
+	
 </div>
 </head> 
 
 <body style="height:100%;margin:0">  
 
-<!--<div class="top">
-  <div class="box">
- </div>
-</div> -->
-
-<div class='hbar'>
-  <table id="nav"><tr>
-    <td class="link" onClick="document.location.href='BasicInterface.php'+window.location.search">
-      <?php echo $_("Basic Interface"); ?></td>
-    <td>
-      <?php echo $_("Google Maps Interface"); ?></td>
-    <td class="link" onClick="document.location.href='Resources/ADM_Background.pdf'">
-      <?php echo $_("Background"); ?></td>
-    <td class="link" onClick="document.location.href='Resources/ADM_Glossary.pdf'">
-      <?php echo $_("Glossary"); ?></td>
-    <td class="link" onClick="document.location.href='Resources/Tutorial_HornAfrica.pdf'">
-      <?php echo $_("Tutorial"); ?></td>
-    <td class="flag">
-      <img id="Flag_Image" src="icons/flags/english_flag.gif" onclick=ChangeLanguage("English")></td>
-    <td class="flag">
-      <img id="Flag_Image" src="icons/flags/french_flag.gif" onclick=ChangeLanguage("French")></td>
-    <td class="flag">
-      <img id="Flag_Image" src="icons/flags/chinese_flag.gif" onclick=ChangeLanguage("Chinese")></td>
-    <td class="flag">
-      <img id="Flag_Image" src="icons/flags/spanish_flag.gif" onclick=ChangeLanguage("Spanish")></td>
-    <td class="flag">
-      <img id="Flag_Image" src="icons/flags/arabic_flag.gif" onclick=ChangeLanguage("Arabic")></td>
-    <td class="version">Version 1.1</td></tr></table>
-</div>
-
+<!--
+  </div>
+-->
 <div id="blanket" style="display:none;"></div>
 <div id="popUpDiv" style="display:none;"></div>
 
@@ -260,10 +253,10 @@ $info_box_strings = array(1 => $_("Weather data used to drive the hydrologic mod
 <div id="DBandMC">
   <div id="map_canvas_1" style="width:100%; height:100%;"></div>
 </div>
-
+<!--
 <div id="sidebar" style="visibility:visible"> 
 <?php include('sidebar.php'); ?>
 </div>
-
+-->
 </body> 
 </html> 
