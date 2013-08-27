@@ -124,8 +124,8 @@ if tstep == "MONTHLY":
  dt = relativedelta.relativedelta(month=1)
  nt = (fdate-idate).days/30
 if tstep == "YEARLY":
- dt = relativedelta.relativedelta(year=1)
- nt = (fdate-idate).days/30
+ dt = relativedelta.relativedelta(years=1)
+ nt = (fdate-idate).days/365
 
 #Define the monitor's boundaries
 minlat = -35.0
@@ -181,11 +181,11 @@ for var in variables:
  #Create directory for variable
  var_dir = dir + "/" + var
  os.system("mkdir %s" % var_dir)
- dataset = var.split("_")[1]
- ctl_file = "DATA/DAILY/%s_%s.ctl" % (dataset,tstep)
+ dataset = var.split("-")[1]
+ ctl_file = "DATA/%s/%s_%s.ctl" % (tstep,dataset,tstep)
  ga("xdfopen %s" % ctl_file)
  date = idate
- var = var.split("_")[0]
+ var = var.split("-")[0]
  qh = ga.query("file")
  var_info = qh.var_titles[qh.vars.index(var)]
 

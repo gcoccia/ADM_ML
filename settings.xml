@@ -30,11 +30,11 @@
   </group>
 
   <group name="Drought Products" divtitle="Drought">
-    <variable name="smqall" dataset="???" units="???" ts="DMY" title="Drought Index"></variable>
+    <variable name="vcpct" dataset="VIC_DERIVED_PGF" units="%" ts="Y" title="Drought Index"></variable>
     <infobox>3</infobox>
   </group>
 
-  <default tag="smqall"></default>
+  <default tag="vcpct"></default>
 
 </variables>
 
