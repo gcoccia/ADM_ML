@@ -80,10 +80,10 @@ $info_box_strings = array(1 => $_("Weather data used to drive the hydrologic mod
 <title><?php echo $_("Africa Drought Monitor") ?></title>
 <meta name="viewport" content="initial-scale=1.0, user-scalable=no" /> 
 <meta http-equiv="content-type" content="text/html; charset=UTF-8"/> 
+<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 <link rel="stylesheet" href="css/s.css"> 
 <link rel="stylesheet" type="text/css" href="css/Moz.css" title="Moz">
 <link href='http://fonts.googleapis.com/css?family=Raleway:200' rel='stylesheet' type='text/css'>
-<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
 <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
 <script type="text/javascript" src="jsscripts/popupcss.js"></script>
@@ -235,28 +235,18 @@ $info_box_strings = array(1 => $_("Weather data used to drive the hydrologic mod
     </div>
   </div>
 </div>
-	
 </div>
 </head> 
 
-<body style="height:100%;margin:0">  
-
-<!--
-  </div>
--->
-<div id="blanket" style="display:none;"></div>
+<body style="height:100%;margin-top:auto;">
+<!--<div id="blanket" style="display:none;"></div>
 <div id="popUpDiv" style="display:none;"></div>
-
 <div id="Colorbar" style="visibility:hidden;"></div>
 <div id="TimeStamp" style="visibility:hidden;"></div>
 <div id="Logo" style="visibility:hidden;"></div>
-<div id="DBandMC">
-  <div id="map_canvas_1" style="width:100%; height:100%;"></div>
-</div>
-<!--
-<div id="sidebar" style="visibility:visible"> 
-<?php include('sidebar.php'); ?>
-</div>
 -->
-</body> 
+<div id="DBandMC">
+ <div id="map_canvas_1" style="width:100%; height:100%;"></div>
+</div>
+</body>
 </html> 

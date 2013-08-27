@@ -176,6 +176,8 @@ img {
     image-rendering: -moz-crisp-edges;
     -ms-interpolation-mode: nearest-neighbor;
     image-rendering: -webkit-crisp-edges;
+    max-width: none;
+    
     }
 #blanket {
 background-color:#111;
