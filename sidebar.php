@@ -1,13 +1,22 @@
-<div id="Display_Control" class="sidebar-block"> 
-  <h1 id="DC_header" class="data-group-header"><?php echo $_("Animation Interface")?></h1> 
-  <div id="DC_div" class="data-form-block" style="padding-top: 5px">
-    <form id="AnimationForm" name="AnimationForm">
-      <div style="margin-bottom: 10px; margin-left: 0px">
-        <?php echo $_("Timestep").":" ?><br/>
-        <input id="daily" type="radio" class="ts-radio" name="ts-radio" checked="true">Daily 
-        <input id="monthly" type="radio" class="ts-radio" name="ts-radio">Monthly 
-        <input id="yearly" type="radio" class="ts-radio" name="ts-radio">Yearly<br/>
-      </div>
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span3">
+      <ul class="nav nav-list" data-spy="affix" data-offset-top="900">
+        <li class="nav-header"><?php echo $_("Animation Interface")?></li> 
+         <div id="DC_div" class="data-form-block" style="padding-top: 5px">
+         <form id="AnimationForm" name="AnimationForm">
+         <div class="btn-group form-inline">
+	   <label class="control-label"><?php echo $_("Timestep").":" ?></label>
+	      <div class="input-prepend">
+                 <input id="daily" type="radio" name="ts-radio" checked="true"> Daily 
+              </div>
+	      <div class="input-prepend">
+                 <input id="monthly" type="radio" name="ts-radio"> Monthly 
+              </div>
+              <div class="input-prepend">
+                 <input id="yearly" type="radio" name="ts-radio"> Yearly
+              </div>
+         </div>
 
       <?php echo $_("Time Interval")." (".$_("dd/mm/yyyy")."):"?><br/>
       <label><?php echo $_("Initial")?>:</label>
@@ -30,14 +39,15 @@
       </tr>
       </table>
 
-
 <!--       Consider floating the opacity options over the map <?php echo $_("Image Opacity")?>:
       <input type="button" value="-" onclick="update_overlay_opacity(0)">
       <input type="button" value="+" onclick="update_overlay_opacity(1)"><br/> -->
     </form>
+</ul>
+</div>
   </div>
 </div> 
-
+<!--
 <div id="Data Extraction" class="sidebar-block">
   <h1 id="de_header" class="data-group-header"><?php echo $_("Data Extraction") ?></h1>
   <div id="de_div" class="data-form-block">
@@ -46,14 +56,14 @@
     <input id="spatial" type="radio" class="de-radio" name="de-radio" onclick='Update_Listeners("spatial")'>Spatial
   </div>
 </div>
-
+-->
 <!-- <div id="Basins">
   <h1 id="Basins_header" class="data-group-header"><?php echo $_("Catchment Data")?> <img class="question_mark" id="4" src="icons/question_icon.png"/></h1>
   <div id="Basins_div" class="data-form-block">
     <input id="overlayImageSelect_1" type="radio" name="group1" value="Basins" onclick=update_markers()> <?php echo $_("Stream Gauges")." : ".$gauge_day_final."/".$gauge_month_final."/".$gauge_year_final ?><br />
   </div>
 </div> -->
-
+<!--
 <?php foreach($xmlobj->variables->group as $group) { ?>
 <div id="<?php echo $group['divtitle']?>" class="sidebar-block">
   <h1 id="<?php echo $group['divtitle']."_header"?>" class="data-group-header">
@@ -73,3 +83,4 @@
 <?php } ?>
 
 <div id="Info_Box" style="visibility: hidden;"></div>
+-->

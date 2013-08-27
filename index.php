@@ -248,5 +248,8 @@ $info_box_strings = array(1 => $_("Weather data used to drive the hydrologic mod
 <div id="DBandMC">
  <div id="map_canvas_1" style="width:100%; height:100%;"></div>
 </div>
+<div id="sidebar" style="visibility:visible">
+<?php include('sidebar.php'); ?>
+</div>
 </body>
 </html> 

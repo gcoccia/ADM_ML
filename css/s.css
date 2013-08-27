@@ -21,7 +21,7 @@ body
 }
 
 #sidebar div div{
-  margin-left: 10px;
+ /* margin-left: 10px;*/
   -webkit-transition:height .4s ease-out, padding .4s ease-out;
   -moz-transition:height .4s ease-out, padding .4s ease-out;
   -o-transition:height .4s ease-out, padding .4s ease-out;
