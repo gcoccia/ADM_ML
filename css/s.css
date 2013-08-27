@@ -7,10 +7,9 @@ body
 #sidebar div{
   font: 15px sans-serif;
   left:0;
-  width:300px;
   background:#fff;
   border-radius:5px;
-  overflow:hidden;
+ /* overflow:hidden;*/
 }
 
 #sidebar_header{
@@ -145,9 +144,9 @@ img.inline{
   position: absolute;
   right: 0;
   top: 73px;
-  margin: 0;
+  /*margin: 0;
   margin-right: 0px;
-  width: 300px;
+  width: 300px;*/
   /*background-color: white;*/
   z-index: 1;
 }

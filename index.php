@@ -208,7 +208,10 @@ $info_box_strings = array(1 => $_("Weather data used to drive the hydrologic mod
   });
 
 </script>
-<div class=""container"">
+</head> 
+
+<body>
+<div class="container-fluid">
 	<h2>African Drought Monitor
       	<img style="float:right" id="UW_logo" src="icons/UW_logo.png">
 	<img style="float:right" id="UNESCO_logo" src="icons/Unesco_logo.gif">
@@ -235,21 +238,24 @@ $info_box_strings = array(1 => $_("Weather data used to drive the hydrologic mod
     </div>
   </div>
 </div>
-</div>
-</head> 
 
-<body style="height:100%;margin-top:auto;">
 <!--<div id="blanket" style="display:none;"></div>
 <div id="popUpDiv" style="display:none;"></div>
 <div id="Colorbar" style="visibility:hidden;"></div>
 <div id="TimeStamp" style="visibility:hidden;"></div>
 <div id="Logo" style="visibility:hidden;"></div>
 -->
-<div id="DBandMC">
- <div id="map_canvas_1" style="width:100%; height:100%;"></div>
+
+<div class="row-fluid">
+  <div id="DBandMC" class="span12">
+     <div id="map_canvas_1" style="width:100%; height:100%;"></div>
+  </div>
+  <div class="row-fluid">
+  <div style="visibility:visible" class="span3 offset9">
+     <?php include('sidebar.php'); ?>
+  </div>
+  </div>
 </div>
-<div id="sidebar" style="visibility:visible">
-<?php include('sidebar.php'); ?>
 </div>
 </body>
 </html> 

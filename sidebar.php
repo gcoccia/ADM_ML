@@ -1,52 +1,46 @@
-<div class="container-fluid">
-  <div class="row-fluid">
-    <div class="span3">
       <ul class="nav nav-list" data-spy="affix" data-offset-top="900">
-        <li class="nav-header"><?php echo $_("Animation Interface")?></li> 
-         <div id="DC_div" class="data-form-block" style="padding-top: 5px">
-         <form id="AnimationForm" name="AnimationForm">
+        <li class="nav-header" style="background: linear-gradient(rgb(238, 238, 238), rgb(204, 204, 204))"><?php echo $_("Animation Interface")?></li> 
+      <form id="AnimationForm" name="AnimationForm">
          <div class="btn-group form-inline">
 	   <label class="control-label"><?php echo $_("Timestep").":" ?></label>
-	      <div class="input-prepend">
+	      <label class="radio inline">
                  <input id="daily" type="radio" name="ts-radio" checked="true"> Daily 
-              </div>
-	      <div class="input-prepend">
+              </label>
+	      <label class="radio inline">
                  <input id="monthly" type="radio" name="ts-radio"> Monthly 
-              </div>
-              <div class="input-prepend">
+              </label>
+              <label class="radio inline">
                  <input id="yearly" type="radio" name="ts-radio"> Yearly
-              </div>
+              </label>
+         </div>
+         <label class="control-label"><?php echo $_("Time Interval")." (".$_("dd/mm/yyyy")."):"?></label>
+        <div class="control-group form-inline">
+          <label><?php echo $_("Initial")?>:</label>
+      	    <input id="day_initial" type="text" class="span2" maxlength="2" name="day_initial" value=<?php echo $day_initial ?>>
+            <input id="month_initial" type="text" class="span2" maxlength="2" name="month_initial" value=<?php echo $month_initial ?>>
+            <input id="year_initial" type="text" class="span2" maxlength="4" name="year_initial" value=<?php echo $year_initial ?>>
+      	    <input type="button" value="-" class="btn btn-small" onclick="Update_TimeStamp_MP(-1,0)">
+            <input type="button" value="+" class="btn btn-small" onclick="Update_TimeStamp_MP(1,0)">
+         </div>
+         <div class="control-group form-inline">
+            <label><?php echo $_("Final") ?>:</label>
+            <input id="day_final" type="text" class="span2" maxlength="2" name="day_final" value=<?php echo $day_final ?>>
+            <input id="month_final" type="text" class="span2" maxlength="2" name="month_final" value=<?php echo $month_final ?>>
+            <input id="year_final" type="text" class="span2" maxlength="4" name="year_final" value=<?php echo $year_final ?>>
+            <input type="button" value="-" class="btn btn-small" onclick="Update_TimeStamp_MP(-1,1)">
+            <input type="button" value="+" class="btn btn-small" onclick="Update_TimeStamp_MP(1,1)"><br/>
          </div>
 
-      <?php echo $_("Time Interval")." (".$_("dd/mm/yyyy")."):"?><br/>
-      <label><?php echo $_("Initial")?>:</label>
-      <input id="day_initial" type="text" size="1" maxlength="2" name="day_initial" value=<?php echo $day_initial ?>>
-      <input id="month_initial" type="text" size="1" maxlength="2" name="month_initial" value=<?php echo $month_initial ?>>
-      <input id="year_initial" type="text" size="3" maxlength="4" name="year_initial" value=<?php echo $year_initial ?>>
-      <input type="button" value="-" onclick="Update_TimeStamp_MP(-1,0)">
-      <input type="button" value="+" onclick="Update_TimeStamp_MP(1,0)"><br/>
-      
-      <label style="margin-right: 1px"><?php echo $_("Final") ?>:</label>
-      <input id="day_final" type="text" size="1" maxlength="2" name="day_final" value=<?php echo $day_final ?>>
-      <input id="month_final" type="text" size="1" maxlength="2" name="month_final" value=<?php echo $month_final ?>>
-      <input id="year_final" type="text" size="3" maxlength="4" name="year_final" value=<?php echo $year_final ?>>
-      <input type="button" value="-" onclick="Update_TimeStamp_MP(-1,1)">
-      <input type="button" value="+" onclick="Update_TimeStamp_MP(1,1)"><br/>
-
       <table><tr>
-      <td><input id="update_interval" type="button" value=<?php echo $_("Update time interval")?> ></td>
-      <td><input id="clear_all" type="button" value=<?php echo $_("Clear all overlays")?> ></td>
+      <td><input id="update_interval" type="button" class="btn" value=<?php echo $_("Update time interval")?> ></td>
+      <td><input id="clear_all" type="button" class="btn" value=<?php echo $_("Clear all overlays")?> ></td>
       </tr>
       </table>
-
+     </form>
+     </ul>
 <!--       Consider floating the opacity options over the map <?php echo $_("Image Opacity")?>:
       <input type="button" value="-" onclick="update_overlay_opacity(0)">
       <input type="button" value="+" onclick="update_overlay_opacity(1)"><br/> -->
-    </form>
-</ul>
-</div>
-  </div>
-</div> 
 <!--
 <div id="Data Extraction" class="sidebar-block">
   <h1 id="de_header" class="data-group-header"><?php echo $_("Data Extraction") ?></h1>
