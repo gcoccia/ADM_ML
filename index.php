@@ -208,22 +208,23 @@ $info_box_strings = array(1 => $_("Weather data used to drive the hydrologic mod
   });
 
 </script>
+<div class=""container"">
+	<h2>African Drought Monitor
+      	<img style="float:right" id="UW_logo" src="icons/UW_logo.png">
+	<img style="float:right" id="UNESCO_logo" src="icons/Unesco_logo.gif">
+      	<img style="float:right" id="ICPAC_logo" src="icons/ICPAC_logo.gif">
+      	<img style="float:right" id="AGRHYMET_logo" src="icons/agrhymet_logo.gif">
+	<img style="float:right" id="PU_logo" src="icons/PU_logo.gif">
+      	</h2> 	
+</div>
 </head> 
 
 <body style="height:100%;margin:0">  
 
-<div class="top">
+<!--<div class="top">
   <div class="box">
-    <div><table><tbody><tr>
-      <td align="center"><img id="UNESCO_logo" src="icons/Unesco_logo.gif"></td>
-      <td align="center"><img id="ICPAC_logo" src="icons/ICPAC_logo.gif"></td>
-      <td align="center"><img id="AGRHYMET_logo" src="icons/agrhymet_logo.gif"></td>
-      <td id="pageTitle" align="center" width="65%"> AFRICAN DROUGHT MONITOR </td>
-      <td align="center"><img id="PU_logo" src="icons/PU_logo.gif"></td>
-      <td align="center"><img id="UW_logo" src="icons/UW_logo.png"></td>
-    </tr></tbody></table></div>
-  </div>
-</div>
+ </div>
+</div> -->
 
 <div class='hbar'>
   <table id="nav"><tr>
