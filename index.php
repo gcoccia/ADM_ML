@@ -80,9 +80,10 @@ $info_box_strings = array(1 => $_("Weather data used to drive the hydrologic mod
 <title><?php echo $_("Africa Drought Monitor") ?></title>
 <meta name="viewport" content="initial-scale=1.0, user-scalable=no" /> 
 <meta http-equiv="content-type" content="text/html; charset=UTF-8"/> 
-<link rel="stylesheet" href="css/s.css" /> 
-<link rel="stylesheet" type="text/css" media="screen,projection" href="css/Moz.css" title="Moz" />
+<link rel="stylesheet" href="css/s.css"> 
+<link rel="stylesheet" type="text/css" href="css/Moz.css" title="Moz">
 <link href='http://fonts.googleapis.com/css?family=Raleway:200' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
 <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
 <script type="text/javascript" src="jsscripts/popupcss.js"></script>
@@ -95,6 +96,7 @@ $info_box_strings = array(1 => $_("Weather data used to drive the hydrologic mod
 <script type="text/javascript" src="jsscripts/data_extraction.js"></script>
 <script src="http://code.highcharts.com/highcharts.js" type="text/javascript"></script>
 <script src="http://code.highcharts.com/modules/exporting.js" type="text/javascript"></script>
+<script type="text/javasdcript" src="jsscripts/bootstrap.min.js"></script>
 <script type="text/javascript">
   var basinImage  = <?php echo $mask_gauge ?>;
   var info_box_strings = <?php echo json_encode($info_box_strings, JSON_NUMERIC_CHECK) ?>;
