@@ -113,48 +113,19 @@ function toggle(div_id) {
 function Prepare_Point_Data_Display(latLng) {
   //Empty the box
   $('#popUpDiv').empty();
-  //Add the close window box
-  $('#popUpDiv').append('<a onclick="Data_Extraction_Popup()" style="width:80px; height:10px">Close Window</a>');
-  //Add the chart container
-  $('#popUpDiv').append('<div id="popup_container"></div>');
-  //Add the contorols
-  $('#popUpDiv').append('<div id="popup_controls"></div>');
-  html_input = [
-   '<button onclick="Request_and_Display()">Update Plot</button>',
-   '<br>',
-   'Plots:',
-   '<input type="radio" name="plot" value="Drought_Indices" checked=checked>Drought Indices',
-   '<input type="radio" name="plot" value="Water_Balance" >Water Balance',
-   '<input type="radio" name="plot" value="Surface_Fluxes" >Surface Fluxes',
-   '<br>',
-   'Time Step: (Only Daily works for now...)',
-   '<input type="radio" name="tstep" value="DAILY" checked=checked>Daily',
-   '<input type="radio" name="tstep" value="MONTHLY" >Monthly',
-   '<input type="radio" name="tstep" value="YEARLY" >Yearly',
-   '<br>',
-   'Initial Time: (1 jan 2001 - 31 dec 2001)',
-   '<br>',
-   '<input type="text" id="iyear" value=2001>',
-   '<input type="text" id="imonth" value=1>',
-   '<input type="text" id="iday" value=1>',
-   '<br>',
-   'Final Time:',
-   '<br>',
-   '<input type="text" id="fyear" value=2001>',
-   '<input type="text" id="fmonth" value=1>',
-   '<input type="text" id="fday" value=10>',
-   '<br>',
-   'Latitude: (Other coordinates wont work for now)',
-   '<br>',
-   '<input type="text" id="latitude" value=-34.6250>',
-   '<br>',
-   'Longitude:',
-   '<br>',
-   '<input type="text" id="longitude" value=19.8750>',
-   '<br>',
-   'Actual Coordinates ' + latLng.lat() + ' ' + latLng.lng(),
-  ];
-  $('#popup_controls').append(html_input);
+  request = {'latitude': latLng.lat(), 'longitude': LatLng.lon()};
+  $.ajax({
+    type:"post",
+    url: 'point-popup-controls.php',
+    data: request,
+    success: function(response){
+      $('#popUpDiv').html(response);
+    },
+    async: false,
+    cache: false
+  });    
+
+  
 }
 
 function Plot_Data(variables,subtitle) {
