@@ -37,20 +37,24 @@
       </tr>
       </table>
      </form>
-     </ul>
-<!--       Consider floating the opacity options over the map <?php echo $_("Image Opacity")?>:
+
+     <!--       Consider floating the opacity options over the map <?php echo $_("Image Opacity")?>:
       <input type="button" value="-" onclick="update_overlay_opacity(0)">
       <input type="button" value="+" onclick="update_overlay_opacity(1)"><br/> -->
-<!--
-<div id="Data Extraction" class="sidebar-block">
-  <h1 id="de_header" class="data-group-header"><?php echo $_("Data Extraction") ?></h1>
-  <div id="de_div" class="data-form-block">
-    <input id="none" type="radio" class="de-radio" name="de-radio" checked="true" onclick='Update_Listeners("none")'> None
-    <input id="point" type="radio" class="de-radio" name="de-radio" onclick='Update_Listeners("point")'>Point
-    <input id="spatial" type="radio" class="de-radio" name="de-radio" onclick='Update_Listeners("spatial")'>Spatial
-  </div>
-</div>
--->
+
+    <li class="nav-header" style="background: linear-gradient(rgb(238, 238, 238), rgb(204, 204, 204))"><?php echo $_("Data Extraction") ?></li>
+      <div class="btn-group form-inline">
+	      <label class="radio inline">
+                 <input id="none" type="radio" class="de-radio" name="de-radio" checked="true" onclick='Update_Listeners("none")'> None
+              </label>
+              <label class="radio inline">                 
+                 <input id="point" type="radio" class="de-radio" name="de-radio" onclick='Update_Listeners("point")'>Point
+              </label>
+              <label class="radio inline">
+                 <input id="spatial" type="radio" class="de-radio" name="de-radio" onclick='Update_Listeners("spatial")'>Spatial
+	      </label>
+         </div>
+     </ul>
 <!-- <div id="Basins">
   <h1 id="Basins_header" class="data-group-header"><?php echo $_("Catchment Data")?> <img class="question_mark" id="4" src="icons/question_icon.png"/></h1>
   <div id="Basins_div" class="data-form-block">
