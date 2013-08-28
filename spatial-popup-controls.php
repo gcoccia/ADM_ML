@@ -8,6 +8,8 @@ if (empty($locale))
   $locale = 'en';
 if (isset($_GET['locale']) && !empty($_GET['locale']))
   $locale = $_GET['locale'];
+else if (isset($_POST['locale']) && !empty($_POST['locale']))
+  $locale = $_POST['locale'];
 putenv('LANGUAGE='.$locale);
 putenv('LANG='.$locale);
 putenv('LC_ALL='.$locale);

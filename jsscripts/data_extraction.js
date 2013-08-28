@@ -114,6 +114,12 @@ function Prepare_Point_Data_Display(latLng) {
   //Empty the box
   $('#popUpDiv').empty();
   var request = {'latitude': latLng.lat(), 'longitude': LatLng.lon()};
+
+  //Get the current language and append it to the request
+  var lang = getURLParameter('locale');
+  if(lang != null)
+    request.locale = lang;
+
   $.ajax({
     type:"post",
     url: 'point-popup-controls.php',
@@ -241,6 +247,11 @@ function Prepare_Spatial_Data_Display() {
   $('#popUpDiv').empty();
 
   var request = {'minlat': minlat, 'minlon': minlon, 'maxlat': maxlat, 'maxlon': maxlon};
+  //Get the current language and append it to the request
+  var lang = getURLParameter('locale');
+  if(lang != null)
+    request.locale = lang;
+
   $.ajax({
     type:"post",
     url: 'spatial-popup-controls.php',
