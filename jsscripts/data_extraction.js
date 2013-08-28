@@ -113,7 +113,7 @@ function toggle(div_id) {
 function Prepare_Point_Data_Display(latLng) {
   //Empty the box
   $('#popUpDiv').empty();
-  var request = {'latitude': latLng.lat(), 'longitude': latLng.lon()};
+  var request = {'latitude': latLng.lat(), 'longitude': latLng.lng()};
   //Get the current language and append it to the request
   var lang = getURLParameter('locale');
   if(lang != null)
