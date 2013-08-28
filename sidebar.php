@@ -54,21 +54,19 @@
                  <input id="spatial" type="radio" class="de-radio" name="de-radio" onclick='Update_Listeners("spatial")'>Spatial
 	      </label>
          </div>
-     </ul>
-<!-- <div id="Basins">
-  <h1 id="Basins_header" class="data-group-header"><?php echo $_("Catchment Data")?> <img class="question_mark" id="4" src="icons/question_icon.png"/></h1>
-  <div id="Basins_div" class="data-form-block">
-    <input id="overlayImageSelect_1" type="radio" name="group1" value="Basins" onclick=update_markers()> <?php echo $_("Stream Gauges")." : ".$gauge_day_final."/".$gauge_month_final."/".$gauge_year_final ?><br />
-  </div>
-</div> -->
-<!--
+
 <?php foreach($xmlobj->variables->group as $group) { ?>
-<div id="<?php echo $group['divtitle']?>" class="sidebar-block">
+<!--<div id="<?php echo $group['divtitle']?>" class="sidebar-block">
   <h1 id="<?php echo $group['divtitle']."_header"?>" class="data-group-header">
     <?php echo $_("".$group["name"])?> 
     <img class="question_mark" id="<?php echo $group->infobox ?>" src="icons/question_icon.png" >
-  </h1>
-  <div id="<?php echo $group['divtitle']."_div"?>" class="data-form-block">
+  </h1> -->
+  <li class="nav-header" style="background: linear-gradient(rgb(238, 238, 238), rgb(204, 204, 204))">
+      <?php echo $_("".$group["name"])?>
+      <img class="question_mark" id="<?php echo $group->infobox ?>" src="icons/question_icon.png" >
+  </li>
+ <!-- <div id="<?php echo $group['divtitle']."_div"?>" class="data-form-block"> -->
+  <div class="radio inline">
     <?php foreach($group->variable as $var) { ?>
       <label class="dataset" for="<?php echo $var['dataset']."_".$var['name'] ?>">
              <input id="<?php echo $var['dataset']."_".$var['name'] ?>" 
@@ -77,8 +75,6 @@
       </label>
     <?php } ?>
   </div>
-</div>
 <?php } ?>
-
+</ul>
 <div id="Info_Box" style="visibility: hidden;"></div>
--->
