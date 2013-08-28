@@ -72,6 +72,11 @@ function sprintf() {
 	return o.join('');
 }
 
+// Get a URL parameter from the current window location
+// Used to see what the current value of 'locale' is
+function getURLParameter(name) {
+  return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search)||[,""])[1].replace(/\+/g, '%20'))||null
+}
 
 
 
