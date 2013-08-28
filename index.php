@@ -211,7 +211,7 @@ $info_box_strings = array(1 => $_("Weather data used to drive the hydrologic mod
 </head> 
 
 <body style="width:100%; height:100%">
-<div class="container-fluid" style="width:100%; height:100%">
+<div class="container-fluid" style="width:100%; height:100%; padding-right:0px; padding-left:0px;">
 	<h2>African Drought Monitor
       	<img style="float:right" id="UW_logo" src="icons/UW_logo.png">
 	<img style="float:right" id="UNESCO_logo" src="icons/Unesco_logo.gif">
