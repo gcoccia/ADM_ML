@@ -24,12 +24,12 @@ $_ = 'T_';
 
 // If post variables are not set, error.
 // (don't let anyone access this directly)
-if (!isset($_POST["latitude"]) || !isset($_POST["longitude"]))
+/*if (!isset($_POST["latitude"]) || !isset($_POST["longitude"]))
 {
   header('HTTP/1.1 500 Internal Server Error: Parameters not defined in request');
   header('Content-Type: application/json');
   die('ERROR');
-}
+}*/
 
 ?>
 
