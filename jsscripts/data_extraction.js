@@ -114,7 +114,7 @@ function Prepare_Point_Data_Display(latLng) {
   //Empty the box
   $('#popUpDiv').empty();
   var request = {'latitude': latLng.lat(), 'longitude': LatLng.lon()};
-
+  console.log(latLng);
   //Get the current language and append it to the request
   var lang = getURLParameter('locale');
   if(lang != null)
