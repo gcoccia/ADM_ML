@@ -57,10 +57,10 @@ if (!isset($_POST["minlat"]) || !isset($_POST["maxlat"]) || !isset($_POST["minlo
   <?php echo $_('Day') ?>: <input type="text" name="fday_spatial_data" value="1"><br>
   <br>
   <?php echo $_('Choose the spatial box dimensions')?>:<br>
-  <?php echo $_('Lower Left Corner Latitude')?>: <input type="text" name="llclat_spatial_data" value="' + minlat + '"><br>
-  <?php echo $_('Lower Left Corner Longitude')?>: <input type="text" name="llclon_spatial_data" value="' + minlon + '"><br>
-  <?php echo $_('Upper Right Corner Latitude')?>: <input type="text" name="urclat_spatial_data" value="' + maxlat + '"><br>
-  <?php echo $_('Upper Right Corner Longitude')?>: <input type="text" name="urclon_spatial_data" value="' + maxlon + '"><br>
+  <?php echo $_('Lower Left Corner Latitude')?>: <input type="text" name="llclat_spatial_data" value="<?php echo $_POST['minlat'] ?>"><br>
+  <?php echo $_('Lower Left Corner Longitude')?>: <input type="text" name="llclon_spatial_data" value="<?php echo $_POST['minlon'] ?>"><br>
+  <?php echo $_('Upper Right Corner Latitude')?>: <input type="text" name="urclat_spatial_data" value="<?php echo $_POST['maxlat'] ?>"><br>
+  <?php echo $_('Upper Right Corner Longitude')?>: <input type="text" name="urclon_spatial_data" value="<?php echo $_POST['maxlon'] ?>"><br>
   <br>
   <?php echo $_('Define the spatial resolution (degrees)')?>:<br>
   <input type="radio" name="sres_spatial_data" value="0.1"><?php echo $_('0.1 degree')?>
