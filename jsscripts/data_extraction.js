@@ -113,7 +113,7 @@ function toggle(div_id) {
 function Prepare_Point_Data_Display(latLng) {
   //Empty the box
   $('#popUpDiv').empty();
-  request = {'latitude': latLng.lat(), 'longitude': LatLng.lon()};
+  var request = {'latitude': latLng.lat(), 'longitude': LatLng.lon()};
   $.ajax({
     type:"post",
     url: 'point-popup-controls.php',
@@ -123,9 +123,7 @@ function Prepare_Point_Data_Display(latLng) {
     },
     async: false,
     cache: false
-  });    
-
-  
+  });
 }
 
 function Plot_Data(variables,subtitle) {
@@ -241,54 +239,18 @@ function Prepare_Spatial_Data_Display() {
 
   //Empty the box
   $('#popUpDiv').empty();
-  //Add the close window box
-  $('#popUpDiv').append('<a onclick="Data_Extraction_Popup()" style="width:80px; height:10px">Close Window</a>');
-  //Add the contorols
-  $('#popUpDiv').append('<div id="popup_controls"></div>');
-  html_input = [
-   'Choose the Time Step:<br>',
-   '<input type="radio" name="tstep_spatial_data" value="DAILY" checked>daily',
-   '<input type="radio" name="tstep_spatial_data" value="MONTHLY">monthly',
-   '<input type="radio" name="tstep_spatial_data" value="YEARLY">yearly<br>',
-   '<br>',
-   'Choose the Initial Time Stamp (after 1/1/1950):<br>',
-   'Year: <input type="text" name="iyear_spatial_data" value="1950">',
-   'Month: <input type="text" name="imonth_spatial_data" value="1">',
-   'Day: <input type="text" name="iday_spatial_data" value="1"><br>',
-   '<br>',
-   'Choose the Final Time Stamp (3 days before realtime):<br>',
-   'Year: <input type="text" name="fyear_spatial_data" value="1950">',
-   'Month: <input type="text" name="fmonth_spatial_data" value="1">',
-   'Day: <input type="text" name="fday_spatial_data" value="1"><br>',
-   '<br>',
-   'Choose the spatial box dimensions:<br>',
-   'Lower Left Corner Latitude: <input type="text" name="llclat_spatial_data" value="' + minlat + '"><br>',
-   'Lower Left Corner Longitude: <input type="text" name="llclon_spatial_data" value="' + minlon + '"><br>',
-   'Upper Right Corner Latitude: <input type="text" name="urclat_spatial_data" value="' + maxlat + '"><br>',
-   'Upper Right Corner Longitude: <input type="text" name="urclon_spatial_data" value="' + maxlon + '"><br>',
-   '<br>',
-   'Define the spatial resolution (degrees):<br>',
-   '<input type="radio" name="sres_spatial_data" value="0.1">0.1 degree',
-   '<input type="radio" name="sres_spatial_data" value="0.25" checked>0.25 degree',
-   '<input type="radio" name="sres_spatial_data" value="1.0">1.0 degree<br>',
-   '<br>',
-   'Choose the variables: <br>',
-   '<input type="checkbox" name="variables_spatial_data[]" value="prec-PGF">prec_pgf<br>',
-   '<input type="checkbox" name="variables_spatial_data[]" value="tmax-PGF">tmax_pgf<br>',
-   '<input type="checkbox" name="variables_spatial_data[]" value="tmin-PGF">tmin_pgf<br>',
-   '<input type="checkbox" name="variables_spatial_data[]" value="wind-PGF">wind_pgf<br>',
-   '<input type="checkbox" name="variables_spatial_data[]" value="vcpct-VIC_DERIVED_PGF">vcpct_vic_derived_pgf<br>',
-   '<br>',
-   'Choose the file format: <br>',
-   '<input type="radio" name="format_spatial_data" value="arc_ascii">arc ascii',
-   '<input type="radio" name="format_spatial_data" value="netcdf" checked>netcdf<br>',
-   '<br>',
-   'Provide an email to notify when the data is ready<br>',
-   'Email: <input type="text" name="email_spatial_data"></br>',
-   '<br>',
-   '<button type="button" onclick="Submit_Spatial_Data()">Submit</button>',
-  ];
-  $('#popup_controls').append(html_input);
+
+  var request = {'minlat': minlat, 'minlon': minlon, 'maxlat': maxlat, 'maxlon': maxlon};
+  $.ajax({
+    type:"post",
+    url: 'spatial-popup-controls.php',
+    data: request,
+    success: function(response){
+      $('#popUpDiv').html(response);
+    },
+    async: false,
+    cache: false
+  });
 }
 
 function Submit_Spatial_Data() {
