@@ -112,15 +112,22 @@
   </li>
   <i>Click points on the map to draw a polygon and select spatial data.</i>
 
-  <?php echo $_('Lower Left Corner Latitude')?>: <input type="text" name="llclat_spatial_data" value=0><br>
+ <!--  <?php echo $_('Lower Left Corner Latitude')?>: <input type="text" name="llclat_spatial_data" value=0><br>
   <?php echo $_('Lower Left Corner Longitude')?>: <input type="text" name="llclon_spatial_data" value=0><br>
   <?php echo $_('Upper Right Corner Latitude')?>: <input type="text" name="urclat_spatial_data" value=0><br>
   <?php echo $_('Upper Right Corner Longitude')?>: <input type="text" name="urclon_spatial_data" value=0><br>
-  <br>
+   --><br>
   <?php echo $_('Define the spatial resolution (degrees)')?>:<br>
-  <input type="radio" name="sres_spatial_data" value="0.1"><?php echo $_('0.1 degree')?>
-  <input type="radio" name="sres_spatial_data" value="0.25" checked><?php echo $_('0.25 degree')?>
-  <input type="radio" name="sres_spatial_data" value="1.0"><?php echo $_('1.0 degree')?><br>
+  <label class="radio inline">
+    <input type="radio" name="sres_spatial_data" value="0.1"><?php echo $_('0.1 degree')?>
+  </label>
+  <label class="radio inline">
+    <input type="radio" name="sres_spatial_data" value="0.25" checked><?php echo $_('0.25 degree')?>
+  </label>
+  <label class="radio inline">
+    <input type="radio" name="sres_spatial_data" value="1.0"><?php echo $_('1.0 degree')?>
+  <label>
+  <br>
   <br>
   <?php echo $_('Choose the variables')?>: <br>
   <input type="checkbox" name="variables_spatial_data[]" value="prec-PGF"><?php echo $_('prec_pgf')?><br>
