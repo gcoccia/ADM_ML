@@ -25,6 +25,7 @@ function Update_Listeners(type){
   //Remove present listeners
   Update_Listeners('none')
   //Add the listeners
+  mapPolygon.setMap(map_array[0]);
   mapPolygon.runEdit(true); // turn on the polygon editor with "ghost points" enabled
   google.maps.event.addListener(mapPolygon, 'click',function() {Spatial_Data()});  
  }
