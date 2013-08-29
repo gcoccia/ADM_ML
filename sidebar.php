@@ -85,8 +85,7 @@
     <?php echo $_("Point Data Selection") ?>
   </li>
     
-  <br>
-  <i>Click a point on the map to view time series data.</i>
+  <i style="padding-top: 5px">Click a point on the map to view time series data.</i>
   <br>
   <div class="radio inline">
     <label><input type="radio" name="plot" value="Drought_Indices" checked=checked><?php echo $_('Drought Indices') ?></label>
