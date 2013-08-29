@@ -80,5 +80,12 @@
 <?php } ?>
 </div>
 
+<div id="Point-Sidebar" style="display: none">
+    <li class="nav-header" style="background: linear-gradient(rgb(238, 238, 238), rgb(204, 204, 204)); border-radius: 5px 5px 0px 0px;">
+      <?php echo $_("Point Data Selection") ?>
+    </li>
+    <p>Click a point on the map to view time series data</p>
+</div>  
+
 </ul>
 <div id="Info_Box" style="visibility: hidden;"></div>

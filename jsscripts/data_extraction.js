@@ -5,6 +5,11 @@ var mapPolygon = null,
 function Update_Listeners(type){
 
  if (type == 'none'){
+  // Revert to the animation sidebar, and hide the others
+  $("Animation-Sidebar").show();
+  $("Point-Sidebar").hide();
+  $("Spatial-Sidebar").hide();
+
   //Remove the listeners and lines/polygons from the map
   if(mapPolygon) {
     mapPolygon.stopEdit();
@@ -19,12 +24,23 @@ function Update_Listeners(type){
   map_array[0].setOptions({draggableCursor:null});
  }
  else if (type == 'point'){
+  // Switch to the point sidebar
+  $("Animation-Sidebar").hide();
+  $("Point-Sidebar").show();
+  $("Spatial-Sidebar").hide();
+
   //Remove present listeners
   Update_Listeners('none')
   //Add the listeners
   google.maps.event.addListener(map_array[0], 'click', function(mEvent) {Point_Data(mEvent.latLng)});
  }
  else if (type == 'spatial'){
+  // Switch to the spatial sidebar
+  // Revert to the animation sidebar, and hide the others
+  $("Animation-Sidebar").hide();
+  $("Point-Sidebar").hide();
+  $("Spatial-Sidebar").show();
+
   //Remove present listeners
   Update_Listeners('none');
   map_array[0].setOptions({draggableCursor:'crosshair'});
