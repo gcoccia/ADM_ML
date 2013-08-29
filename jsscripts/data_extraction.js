@@ -1,19 +1,6 @@
 var mapPolygon = null,
     followLine1 = null,
     followLine2 = null;
-var polyOptions = { map : map_array[0],
-                    strokeColor   : '#ff0000',
-                    strokeOpacity : 0.6,
-                    strokeWeight  : 4,
-                    path:[]
-                  };
-var lineOptions = { clickable: false,
-                    map : map_array[0],
-                    path: [],
-                    strokeColor: "#787878",
-                    strokeOpacity: 1,
-                    strokeWeight: 2
-                  };
 
 function Update_Listeners(type){
 
@@ -42,6 +29,19 @@ function Update_Listeners(type){
   Update_Listeners('none');
   map_array[0].setOptions({draggableCursor:'crosshair'});
   // Add polygon and lines to map
+  var polyOptions = { map : map_array[0],
+                    strokeColor   : '#ff0000',
+                    strokeOpacity : 0.6,
+                    strokeWeight  : 4,
+                    path:[]
+                  };
+  var lineOptions = { clickable: false,
+                    map : map_array[0],
+                    path: [],
+                    strokeColor: "#787878",
+                    strokeOpacity: 1,
+                    strokeWeight: 2
+                  };
   mapPolygon = new google.maps.Polygon(polyOptions);
   followLine1 = new google.maps.Polyline(lineOptions);
   followLine2 = new google.maps.Polyline(lineOptions);
