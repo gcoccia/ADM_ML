@@ -1,19 +1,22 @@
-//What to do when we know the lat/lon
-window.path = new google.maps.MVCArray;
-window.poly = new google.maps.Polygon({strokeWeight: 1,fillColor: '#5555FF'});
+var mapPolygon = null,
+    followLine1 = null,
+    followLine2 = null;
 
 function Update_Listeners(type){
 
  if (type == 'none'){
-  //Remove the listeners
-  google.maps.event.clearListeners(map_array[0],'click');
-  google.maps.event.clearListeners(map_array[0],'dragend');
-  //Remove all markers
-  for (marker in window.markers){
-   window.markers[marker].setMap(null);
+  //Remove the listeners and lines/polygons from the map
+  if(mapPolygon) {
+    mapPolygon.stopEdit();
+    mapPolygon.setMap(null);
+    google.maps.event.clearListeners(mapPolygon, "click");
   }
-  //Clear the paths
-  window.path.clear();
+  if(followLine1) followLine1.setMap(null);
+  if(followLine2) followLine2.setMap(null);
+  google.maps.event.clearListeners(map_array[0], "click");
+  google.maps.event.clearListeners(map_array[0], "mousemove");
+  google.maps.event.clearListeners(map_array[0], "rightclick");
+  map_array[0].setOptions({draggableCursor:null});
  }
  else if (type == 'point'){
   //Remove present listeners
@@ -23,13 +26,58 @@ function Update_Listeners(type){
  }
  else if (type == 'spatial'){
   //Remove present listeners
-  Update_Listeners('none')
-  //Add the listeners
-  google.maps.event.addListener(map_array[0], 'click', addPoint);
-  window.poly.setMap(map_array[0]);
-  window.poly.setPaths(new google.maps.MVCArray([window.path]));
-  window.markers = [];
-  google.maps.event.addListener(window.poly, 'click',function() {Spatial_Data()});  
+  Update_Listeners('none');
+  map_array[0].setOptions({draggableCursor:'crosshair'});
+  // Add polygon and lines to map
+  var polyOptions = { map : map_array[0],
+                    strokeColor   : '#ff0000',
+                    strokeOpacity : 0.6,
+                    strokeWeight  : 4,
+                    path:[]
+                  };
+  var lineOptions = { clickable: false,
+                    map : map_array[0],
+                    path: [],
+                    strokeColor: "#787878",
+                    strokeOpacity: 1,
+                    strokeWeight: 2
+                  };
+  mapPolygon = new google.maps.Polygon(polyOptions);
+  followLine1 = new google.maps.Polyline(lineOptions);
+  followLine2 = new google.maps.Polyline(lineOptions);
+
+  // Add event handlers related to polygon drawing
+  google.maps.event.addListener(map_array[0], 'click', function(point) {
+       mapPolygon.stopEdit();
+       mapPolygon.getPath().push(point.latLng);
+       mapPolygon.runEdit(true);
+  });
+     
+  google.maps.event.addListener(map_array[0], 'rightclick', function () {
+    followLine1.setMap(null);
+    followLine2.setMap(null);
+    google.maps.event.clearListeners(map_array[0], "click");
+    google.maps.event.clearListeners(map_array[0], "mousemove");
+    google.maps.event.clearListeners(map_array[0], "rightclick");
+    map_array[0].setOptions({draggableCursor:null});
+  });
+     
+  google.maps.event.addListener(map_array[0], 'mousemove', function(point) {
+    var pathLength = mapPolygon.getPath().getLength();
+    if (pathLength >= 1) {
+      var startingPoint1 = mapPolygon.getPath().getAt(pathLength - 1);
+      var followCoordinates1 = [startingPoint1, point.latLng];
+      followLine1.setPath(followCoordinates1);
+      var startingPoint2 = mapPolygon.getPath().getAt(0);
+      var followCoordinates2 = [startingPoint2, point.latLng];
+      followLine2.setPath(followCoordinates2);
+    }
+  });
+  
+  google.maps.event.addListener(mapPolygon, 'click', function() {
+    Spatial_Data();
+  });
+
  }
 }
 
@@ -49,50 +97,7 @@ function Spatial_Data(){
  Data_Extraction_Popup('popUpDiv')
  //Add controls
  Prepare_Spatial_Data_Display()
- //Print all the markers lat/lon
- info = []
- info = ''
- for (var i in window.markers){
-  info = info + ' ' + window.markers[i].position
- }
-
- //Create the popup background
- 
- //Upon closing remove the markers and polygon
- for (marker in window.markers){
-  window.markers[marker].setMap(null);
- }
- window.markers = [];
- //Clear the paths
- window.path.clear();
-
 }
-
-function addPoint(event) {
-    window.path.insertAt(window.path.length, event.latLng);
-
-    var marker = new google.maps.Marker({
-      position: event.latLng,
-      map: map_array[0],
-      draggable: true
-    });
-    window.markers.push(marker);
-    marker.setTitle("#" + path.length);
-
-    google.maps.event.addListener(marker, 'click', function() {
-      marker.setMap(null);
-      for (var i = 0, I = window.markers.length; i < I && window.markers[i] != marker; ++i);
-      window.markers.splice(i, 1);
-      window.path.removeAt(i);
-      }
-    );
-
-    google.maps.event.addListener(marker, 'dragend', function() {
-      for (var i = 0, I = window.markers.length; i < I && window.markers[i] != marker; ++i);
-      window.path.setAt(i, marker.getPosition());
-      }
-    );
-  }
 
 function Data_Extraction_Popup() {
   windowname = "popUpDiv";
@@ -113,48 +118,22 @@ function toggle(div_id) {
 function Prepare_Point_Data_Display(latLng) {
   //Empty the box
   $('#popUpDiv').empty();
-  //Add the close window box
-  $('#popUpDiv').append('<a onclick="Data_Extraction_Popup()" style="width:80px; height:10px">Close Window</a>');
-  //Add the chart container
-  $('#popUpDiv').append('<div id="popup_container"></div>');
-  //Add the contorols
-  $('#popUpDiv').append('<div id="popup_controls"></div>');
-  html_input = [
-   '<button onclick="Request_and_Display()">Update Plot</button>',
-   '<br>',
-   'Plots:',
-   '<input type="radio" name="plot" value="Drought_Indices" checked=checked>Drought Indices',
-   '<input type="radio" name="plot" value="Water_Balance" >Water Balance',
-   '<input type="radio" name="plot" value="Surface_Fluxes" >Surface Fluxes',
-   '<br>',
-   'Time Step: (Only Daily works for now...)',
-   '<input type="radio" name="tstep" value="DAILY" checked=checked>Daily',
-   '<input type="radio" name="tstep" value="MONTHLY" >Monthly',
-   '<input type="radio" name="tstep" value="YEARLY" >Yearly',
-   '<br>',
-   'Initial Time: (1 jan 2001 - 31 dec 2001)',
-   '<br>',
-   '<input type="text" id="iyear" value=2001>',
-   '<input type="text" id="imonth" value=1>',
-   '<input type="text" id="iday" value=1>',
-   '<br>',
-   'Final Time:',
-   '<br>',
-   '<input type="text" id="fyear" value=2001>',
-   '<input type="text" id="fmonth" value=1>',
-   '<input type="text" id="fday" value=10>',
-   '<br>',
-   'Latitude: (Other coordinates wont work for now)',
-   '<br>',
-   '<input type="text" id="latitude" value=-34.6250>',
-   '<br>',
-   'Longitude:',
-   '<br>',
-   '<input type="text" id="longitude" value=19.8750>',
-   '<br>',
-   'Actual Coordinates ' + latLng.lat() + ' ' + latLng.lng(),
-  ];
-  $('#popup_controls').append(html_input);
+  var request = {'latitude': latLng.lat(), 'longitude': latLng.lng()};
+  //Get the current language and append it to the request
+  var lang = getURLParameter('locale');
+  if(lang != null)
+    request.locale = lang;
+
+  $.ajax({
+    type:"post",
+    url: 'point-popup-controls.php',
+    data: request,
+    success: function(response){
+      $('#popUpDiv').html(response);
+    },
+    async: false,
+    cache: false
+  });
 }
 
 function Plot_Data(variables,subtitle) {
@@ -259,10 +238,11 @@ function Prepare_Spatial_Data_Display() {
   //Compute the bounding box
   lats = []
   lons = []
-  for (var i in window.markers){
-   lats.push(window.markers[i].position.lat());
-   lons.push(window.markers[i].position.lng());
-  }
+  mapPolygon.getPath().forEach(function(positions) {
+    lats.push(positions.lat());
+    lons.push(positions.lng());
+  });
+
   var minlat = Math.min.apply(Math, lats); 
   var minlon = Math.min.apply(Math, lons);   
   var maxlat = Math.max.apply(Math, lats);  
@@ -270,54 +250,23 @@ function Prepare_Spatial_Data_Display() {
 
   //Empty the box
   $('#popUpDiv').empty();
-  //Add the close window box
-  $('#popUpDiv').append('<a onclick="Data_Extraction_Popup()" style="width:80px; height:10px">Close Window</a>');
-  //Add the contorols
-  $('#popUpDiv').append('<div id="popup_controls"></div>');
-  html_input = [
-   'Choose the Time Step:<br>',
-   '<input type="radio" name="tstep_spatial_data" value="DAILY" checked>daily',
-   '<input type="radio" name="tstep_spatial_data" value="MONTHLY">monthly',
-   '<input type="radio" name="tstep_spatial_data" value="YEARLY">yearly<br>',
-   '<br>',
-   'Choose the Initial Time Stamp (after 1/1/1950):<br>',
-   'Year: <input type="text" name="iyear_spatial_data" value="1950">',
-   'Month: <input type="text" name="imonth_spatial_data" value="1">',
-   'Day: <input type="text" name="iday_spatial_data" value="1"><br>',
-   '<br>',
-   'Choose the Final Time Stamp (3 days before realtime):<br>',
-   'Year: <input type="text" name="fyear_spatial_data" value="1950">',
-   'Month: <input type="text" name="fmonth_spatial_data" value="1">',
-   'Day: <input type="text" name="fday_spatial_data" value="1"><br>',
-   '<br>',
-   'Choose the spatial box dimensions:<br>',
-   'Lower Left Corner Latitude: <input type="text" name="llclat_spatial_data" value="' + minlat + '"><br>',
-   'Lower Left Corner Longitude: <input type="text" name="llclon_spatial_data" value="' + minlon + '"><br>',
-   'Upper Right Corner Latitude: <input type="text" name="urclat_spatial_data" value="' + maxlat + '"><br>',
-   'Upper Right Corner Longitude: <input type="text" name="urclon_spatial_data" value="' + maxlon + '"><br>',
-   '<br>',
-   'Define the spatial resolution (degrees):<br>',
-   '<input type="radio" name="sres_spatial_data" value="0.1">0.1 degree',
-   '<input type="radio" name="sres_spatial_data" value="0.25" checked>0.25 degree',
-   '<input type="radio" name="sres_spatial_data" value="1.0">1.0 degree<br>',
-   '<br>',
-   'Choose the variables: <br>',
-   '<input type="checkbox" name="variables_spatial_data[]" value="prec-PGF">prec_pgf<br>',
-   '<input type="checkbox" name="variables_spatial_data[]" value="tmax-PGF">tmax_pgf<br>',
-   '<input type="checkbox" name="variables_spatial_data[]" value="tmin-PGF">tmin_pgf<br>',
-   '<input type="checkbox" name="variables_spatial_data[]" value="wind-PGF">wind_pgf<br>',
-   '<input type="checkbox" name="variables_spatial_data[]" value="vcpct-VIC_DERIVED_PGF">vcpct_vic_derived_pgf<br>',
-   '<br>',
-   'Choose the file format: <br>',
-   '<input type="radio" name="format_spatial_data" value="arc_ascii">arc ascii',
-   '<input type="radio" name="format_spatial_data" value="netcdf" checked>netcdf<br>',
-   '<br>',
-   'Provide an email to notify when the data is ready<br>',
-   'Email: <input type="text" name="email_spatial_data"></br>',
-   '<br>',
-   '<button type="button" onclick="Submit_Spatial_Data()">Submit</button>',
-  ];
-  $('#popup_controls').append(html_input);
+
+  var request = {'minlat': minlat, 'minlon': minlon, 'maxlat': maxlat, 'maxlon': maxlon};
+  //Get the current language and append it to the request
+  var lang = getURLParameter('locale');
+  if(lang != null)
+    request.locale = lang;
+
+  $.ajax({
+    type:"post",
+    url: 'spatial-popup-controls.php',
+    data: request,
+    success: function(response){
+      $('#popUpDiv').html(response);
+    },
+    async: false,
+    cache: false
+  });
 }
 
 function Submit_Spatial_Data() {
@@ -377,3 +326,4 @@ function Submit_Spatial_Data() {
  });
  return Output;
 }
+ 

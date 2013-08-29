@@ -93,6 +93,7 @@ $info_box_strings = array(1 => $_("Weather data used to drive the hydrologic mod
 <script type="text/javascript" src="jsscripts/ImageOverlay.js"></script>
 <script type="text/javascript" src="jsscripts/MainFunctions.js"></script>
 <script type="text/javascript" src="jsscripts/timestep.js"></script>
+<script type="text/javascript" src="jsscripts/polygonEdit_packed.js"></script>
 <script type="text/javascript" src="jsscripts/data_extraction.js"></script>
 <script src="http://code.highcharts.com/highcharts.js" type="text/javascript"></script>
 <script src="http://code.highcharts.com/modules/exporting.js" type="text/javascript"></script>
@@ -207,14 +208,6 @@ $info_box_strings = array(1 => $_("Weather data used to drive the hydrologic mod
     $( "input[id='year_final']" ).change(function() {
       if($(this).val() < 1948 || $(this).val() > 2013)
         $(this).val(year_final);
-    });
-
-    // Change cursor to crosshair when doing data selection
-    $( "input[id='none']:radio.de-radio" ).change(function() {
-      map_array[0].setOptions({draggableCursor:null});
-    });
-    $( "input[id='point']:radio.de-radio, input[id='spatial']:radio.de-radio" ).change(function() {
-      map_array[0].setOptions({draggableCursor:'crosshair'});
     });
   });
 
