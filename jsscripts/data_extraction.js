@@ -13,6 +13,7 @@ function Update_Listeners(type){
   if(followLine1) followLine1.setMap(null);
   if(followLine2) followLine2.setMap(null);
   google.maps.event.clearListeners(map_array[0], "click");
+  google.maps.event.clearListeners(mapPolygon, "click");
   google.maps.event.clearListeners(map_array[0], "mousemove");
   google.maps.event.clearListeners(map_array[0], "rightclick");
   map_array[0].setOptions({draggableCursor:null});
@@ -59,12 +60,16 @@ function Update_Listeners(type){
   });
      
   google.maps.event.addListener(map_array[0], 'rightclick', function () {
-   followLine1.setMap(null);
-   followLine2.setMap(null);
-   google.maps.event.clearListeners(map_array[0], "click");
-   google.maps.event.clearListeners(map_array[0], "mousemove");
-   google.maps.event.clearListeners(map_array[0], "rightclick");
-   map_array[0].setOptions({draggableCursor:null});
+    followLine1.setMap(null);
+    followLine2.setMap(null);
+    google.maps.event.clearListeners(map_array[0], "click");
+    google.maps.event.clearListeners(map_array[0], "mousemove");
+    google.maps.event.clearListeners(map_array[0], "rightclick");
+    map_array[0].setOptions({draggableCursor:null});
+    // Once the shape is finished, add a click listener to the polygon
+    google.maps.event.addListener(mapPolygon, 'click', function() {
+      Spatial_Data();
+    });
   });
      
   google.maps.event.addListener(map_array[0], 'mousemove', function(point) {
@@ -78,9 +83,7 @@ function Update_Listeners(type){
       followLine2.setPath(followCoordinates2);
     }
   });
-  google.maps.event.addListener(mapPolygon, 'click', function() {
-      Spatial_Data();
-  });
+
  }
 }
 
