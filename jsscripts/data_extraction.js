@@ -6,7 +6,7 @@ function Update_Listeners(type){
 
  if (type == 'none'){
   //Remove the listeners
-  mapPolygon.stopEdit();
+  if(mapPolygon) mapPolygon.stopEdit();
   mapPolygon.setMap(null);
   followLine1.setMap(null);
   followLine2.setMap(null);
