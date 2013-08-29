@@ -1,12 +1,8 @@
-mapPolygon = new google.maps.Polygon({map : map_array[0],
-                                    strokeColor   : '#ff0000',
-                                    strokeOpacity : 0.6,
-                                    strokeWeight  : 4,
-                                    path:[new google.maps.LatLng(10.90065143090167,34.79679146020507),
-                                              new google.maps.LatLng(10.907525507257965,34.809408571411126),
-                                              new google.maps.LatLng(60.90563117807968,34.82176819055175),
-                                              new google.maps.LatLng(70.90936563893282,34.82880630700683)]
-                                   });
+mapPolygon = new google.maps.Polygon({strokeColor   : '#ff0000',
+                                      strokeOpacity : 0.6,
+                                      strokeWeight  : 4,
+                                    });
+window.path = new google.maps.MVCArray;
 
 function Update_Listeners(type){
 
@@ -35,9 +31,7 @@ function Update_Listeners(type){
                                      });*/
   //Add the listeners
   mapPolygon.setMap(map_array[0]);
-  mapPolygon.getPath().forEach(function(point) {
-    point.setMap(null);
-  });
+  mapPolygon.setPaths(new google.maps.MVCArray([window.path]));
   mapPolygon.runEdit(true); // turn on the polygon editor with "ghost points" enabled
   //google.maps.event.addListener(mapPolygon, 'click',function() {Spatial_Data()});  
  }
