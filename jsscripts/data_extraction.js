@@ -66,7 +66,7 @@ function Update_Listeners(type){
    google.maps.event.clearListeners(map, "click");
    google.maps.event.clearListeners(map, "mousemove");
    google.maps.event.clearListeners(map, "rightclick");
-   map.setOptions({ draggableCursor: 'pointer' });
+   map_array[0].setOptions({ draggableCursor: 'pointer' });
   });
      
      
