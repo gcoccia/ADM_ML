@@ -88,9 +88,11 @@
   <br>
   <i>Click a point on the map to view time series data.</i>
   <br>
-  <label for="pointplot_DI"><input id="pointplot_DI" type="radio" name="plot" value="Drought_Indices" checked=checked><?php echo $_('Drought Indices') ?></label>
-  <label for="pointplot_WB"><input id="pointplot_WB" type="radio" name="plot" value="Water_Balance" ><?php echo $_('Water Balance') ?></label>
-  <label for="pointplot_SF"><input id="pointplot_SF" type="radio" name="plot" value="Surface_Fluxes" ><?php echo $_('Surface Fluxes') ?></label>
+  <div class="radio inline">
+    <label><input type="radio" name="plot" value="Drought_Indices" checked=checked><?php echo $_('Drought Indices') ?></label>
+    <label><input type="radio" name="plot" value="Water_Balance" ><?php echo $_('Water Balance') ?></label>
+    <label><input type="radio" name="plot" value="Surface_Fluxes" ><?php echo $_('Surface Fluxes') ?></label>
+  </div>
   <br>
   <?php echo $_('Latitude') ?>
   <br>
