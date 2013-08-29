@@ -70,10 +70,10 @@ function clear_image_overlays()
 {
   clearInterval(t);
 
-  for (k=0; k < overlay_obj.length; k++){
-    if (overlay_obj[k] != undefined){
-      overlay_obj[k].remove();
-      delete overlay_obj[k];
+  for (var key in overlay_obj){
+    if (overlay_obj[key] != undefined){
+      overlay_obj[key].remove();
+      delete overlay_obj[key];
       //Remove time stamp
       ChangeTimeStamp(3);
     }
