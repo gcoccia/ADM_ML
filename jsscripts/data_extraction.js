@@ -9,11 +9,11 @@ function Update_Listeners(type){
   if(mapPolygon) {
     mapPolygon.stopEdit();
     mapPolygon.setMap(null);
+    google.maps.event.clearListeners(mapPolygon, "click");
   }
   if(followLine1) followLine1.setMap(null);
   if(followLine2) followLine2.setMap(null);
   google.maps.event.clearListeners(map_array[0], "click");
-  google.maps.event.clearListeners(mapPolygon, "click");
   google.maps.event.clearListeners(map_array[0], "mousemove");
   google.maps.event.clearListeners(map_array[0], "rightclick");
   map_array[0].setOptions({draggableCursor:null});
