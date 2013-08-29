@@ -1,6 +1,9 @@
-//What to do when we know the lat/lon
-window.path = new google.maps.MVCArray;
-window.poly = new google.maps.Polygon({strokeWeight: 1,fillColor: '#5555FF'});
+mapPolygon = new google.maps.Polygon({map : map_array[0],
+                                      strokeColor   : '#ff0000',
+                                      strokeOpacity : 0.6,
+                                      strokeWeight  : 4,
+                                      path:[]
+                                     });
 
 function Update_Listeners(type){
 
@@ -8,12 +11,9 @@ function Update_Listeners(type){
   //Remove the listeners
   google.maps.event.clearListeners(map_array[0],'click');
   google.maps.event.clearListeners(map_array[0],'dragend');
-  //Remove all markers
-  for (marker in window.markers){
-   window.markers[marker].setMap(null);
-  }
-  //Clear the paths
-  window.path.clear();
+  
+  mapPolygon.setMap(null); //remove the polygon
+  mapPolygon.stopEdit();
  }
  else if (type == 'point'){
   //Remove present listeners
@@ -25,11 +25,8 @@ function Update_Listeners(type){
   //Remove present listeners
   Update_Listeners('none')
   //Add the listeners
-  google.maps.event.addListener(map_array[0], 'click', addPoint);
-  window.poly.setMap(map_array[0]);
-  window.poly.setPaths(new google.maps.MVCArray([window.path]));
-  window.markers = [];
-  google.maps.event.addListener(window.poly, 'click',function() {Spatial_Data()});  
+  mapPolygon.runEdit(true); // turn on the polygon editor with "ghost points" enabled
+  google.maps.event.addListener(mapPolygon, 'click',function() {Spatial_Data()});  
  }
 }
 
@@ -50,25 +47,25 @@ function Spatial_Data(){
  //Add controls
  Prepare_Spatial_Data_Display()
  //Print all the markers lat/lon
- info = []
+/* info = []
  info = ''
  for (var i in window.markers){
   info = info + ' ' + window.markers[i].position
- }
+ }*/
 
  //Create the popup background
  
  //Upon closing remove the markers and polygon
- for (marker in window.markers){
+/* for (marker in window.markers){
   window.markers[marker].setMap(null);
  }
  window.markers = [];
  //Clear the paths
- window.path.clear();
+ window.path.clear();*/
 
 }
 
-function addPoint(event) {
+/*function addPoint(event) {
     window.path.insertAt(window.path.length, event.latLng);
 
     var marker = new google.maps.Marker({
@@ -92,7 +89,7 @@ function addPoint(event) {
       window.path.setAt(i, marker.getPosition());
       }
     );
-  }
+  }*/
 
 function Data_Extraction_Popup() {
   windowname = "popUpDiv";
@@ -233,10 +230,11 @@ function Prepare_Spatial_Data_Display() {
   //Compute the bounding box
   lats = []
   lons = []
-  for (var i in window.markers){
-   lats.push(window.markers[i].position.lat());
-   lons.push(window.markers[i].position.lng());
-  }
+  mapPolygon.getPath().forEach(function(positions) {
+    lats.push(positions.lat());
+    lons.push(positions.lng());
+  });
+
   var minlat = Math.min.apply(Math, lats); 
   var minlon = Math.min.apply(Math, lons);   
   var maxlat = Math.max.apply(Math, lats);  
