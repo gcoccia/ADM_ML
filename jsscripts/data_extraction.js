@@ -97,50 +97,7 @@ function Spatial_Data(){
  Data_Extraction_Popup('popUpDiv')
  //Add controls
  Prepare_Spatial_Data_Display()
- //Print all the markers lat/lon
-/* info = []
- info = ''
- for (var i in window.markers){
-  info = info + ' ' + window.markers[i].position
- }*/
-
- //Create the popup background
- 
- //Upon closing remove the markers and polygon
-/* for (marker in window.markers){
-  window.markers[marker].setMap(null);
- }
- window.markers = [];
- //Clear the paths
- window.path.clear();*/
-
 }
-
-/*function addPoint(event) {
-    window.path.insertAt(window.path.length, event.latLng);
-
-    var marker = new google.maps.Marker({
-      position: event.latLng,
-      map: map_array[0],
-      draggable: true
-    });
-    window.markers.push(marker);
-    marker.setTitle("#" + path.length);
-
-    google.maps.event.addListener(marker, 'click', function() {
-      marker.setMap(null);
-      for (var i = 0, I = window.markers.length; i < I && window.markers[i] != marker; ++i);
-      window.markers.splice(i, 1);
-      window.path.removeAt(i);
-      }
-    );
-
-    google.maps.event.addListener(marker, 'dragend', function() {
-      for (var i = 0, I = window.markers.length; i < I && window.markers[i] != marker; ++i);
-      window.path.setAt(i, marker.getPosition());
-      }
-    );
-  }*/
 
 function Data_Extraction_Popup() {
   windowname = "popUpDiv";
