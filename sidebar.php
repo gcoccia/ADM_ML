@@ -117,16 +117,18 @@
   <?php echo $_('Upper Right Corner Latitude')?>: <input type="text" name="urclat_spatial_data" value=0><br>
   <?php echo $_('Upper Right Corner Longitude')?>: <input type="text" name="urclon_spatial_data" value=0><br>
    --><br>
-  <?php echo $_('Define the spatial resolution (degrees)')?>:<br>
-  <label class="radio inline">
-    <input type="radio" name="sres_spatial_data" value="0.1">0.1&deg;
-  </label>
-  <label class="radio inline">
-    <input type="radio" name="sres_spatial_data" value="0.25" checked>0.25&deg;
-  </label>
-  <label class="radio inline">
-    <input type="radio" name="sres_spatial_data" value="1.0">1.0&deg;
-  </label>
+  <?php echo $_('Define the spatial resolution (degrees)')?>:
+  <div class="btn-group form-inline">
+    <label class="radio inline">
+      <input type="radio" name="sres_spatial_data" value="0.1">0.1&deg;
+    </label>
+    <label class="radio inline">
+      <input type="radio" name="sres_spatial_data" value="0.25" checked>0.25&deg;
+    </label>
+    <label class="radio inline">
+      <input type="radio" name="sres_spatial_data" value="1.0">1.0&deg;
+    </label>
+  </div>
   <br>
   <br>
   <?php echo $_('Choose the variables')?>: <br>
