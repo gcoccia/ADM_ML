@@ -80,8 +80,9 @@ $info_box_strings = array(1 => $_("Weather data used to drive the hydrologic mod
 <title><?php echo $_("Africa Drought Monitor") ?></title>
 <meta name="viewport" content="initial-scale=1.0, user-scalable=no" /> 
 <meta http-equiv="content-type" content="text/html; charset=UTF-8"/> 
-<link rel="stylesheet" href="css/s.css" /> 
-<link rel="stylesheet" type="text/css" media="screen,projection" href="css/Moz.css" title="Moz" />
+<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/s.css"> 
+<link rel="stylesheet" type="text/css" href="css/Moz.css" title="Moz">
 <link href='http://fonts.googleapis.com/css?family=Raleway:200' rel='stylesheet' type='text/css'>
 <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
 <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
@@ -95,6 +96,7 @@ $info_box_strings = array(1 => $_("Weather data used to drive the hydrologic mod
 <script type="text/javascript" src="jsscripts/data_extraction.js"></script>
 <script src="http://code.highcharts.com/highcharts.js" type="text/javascript"></script>
 <script src="http://code.highcharts.com/modules/exporting.js" type="text/javascript"></script>
+<script type="text/javasdcript" src="jsscripts/bootstrap.min.js"></script>
 <script type="text/javascript">
   var basinImage  = <?php echo $mask_gauge ?>;
   var info_box_strings = <?php echo json_encode($info_box_strings, JSON_NUMERIC_CHECK) ?>;
@@ -159,6 +161,17 @@ $info_box_strings = array(1 => $_("Weather data used to drive the hydrologic mod
         $("#Info_Box").html('');
     });
 
+    $('#hideBtn').click(function() {
+      $('#sidebar1').toggle();
+      if ($('#hideBtnImg').attr('class') == 'icon-arrow-right') {
+	  $('#hideBtnImg').removeClass('icon-arrow-right');
+          $('#hideBtnImg').addClass('icon-arrow-left');
+      } else if ($('#hideBtnImg').attr('class') == 'icon-arrow-left') {
+	  $('#hideBtnImg').removeClass('icon-arrow-left');
+          $('#hideBtnImg').addClass('icon-arrow-right');
+      }
+     });
+
     $("#update_interval").click(function() {
       update_animation();
     });
@@ -208,59 +221,52 @@ $info_box_strings = array(1 => $_("Weather data used to drive the hydrologic mod
 </script>
 </head> 
 
-<body style="height:100%;margin:0">  
-
-<div class="top">
-  <div class="box">
-    <div><table><tbody><tr>
-      <td align="center"><img id="UNESCO_logo" src="icons/Unesco_logo.gif"></td>
-      <td align="center"><img id="ICPAC_logo" src="icons/ICPAC_logo.gif"></td>
-      <td align="center"><img id="AGRHYMET_logo" src="icons/agrhymet_logo.gif"></td>
-      <td id="pageTitle" align="center" width="65%"> AFRICAN DROUGHT MONITOR </td>
-      <td align="center"><img id="PU_logo" src="icons/PU_logo.gif"></td>
-      <td align="center"><img id="UW_logo" src="icons/UW_logo.png"></td>
-    </tr></tbody></table></div>
+<body style="width:100%; height:100%">
+<div class="container-fluid" style="width:100%; height:100%; padding-right:0px; padding-left:0px;">
+	<h2>African Drought Monitor
+      	<img style="float:right" id="UW_logo" src="icons/UW_logo.png">
+	<img style="float:right" id="UNESCO_logo" src="icons/Unesco_logo.gif">
+      	<img style="float:right" id="ICPAC_logo" src="icons/ICPAC_logo.gif">
+      	<img style="float:right" id="AGRHYMET_logo" src="icons/agrhymet_logo.gif">
+	<img style="float:right" id="PU_logo" src="icons/PU_logo.gif">
+      	</h2>
+ 
+<div class="navbar">
+  <div class="navbar-inner">
+    <div class="container">
+      <ul class="nav">
+	<li class="active"><a href="#"><?php echo $_("Google Maps Interface"); ?></a></li>
+        <li><a href='BasicInterface.php'><?php echo $_("Basic Interface"); ?></a></li>
+        <li><a href='Resources/ADM_Background.pdf'><?php echo $_("Background"); ?></a></li>
+        <li><a href='Resources/ADM_Glossary.pdf'><?php echo $_("Glossary"); ?></a></li>
+        <li><a href='Resources/Tutorial_HornAfrica.pdf'><?php echo $_("Tutorial"); ?></a></li>
+        </ul>
+	<img id="Flag_Image" style="float:right" src="icons/flags/arabic_flag.gif" onclick=ChangeLanguage("Arabic")>
+	<img id="Flag_Image" style="float:right" src="icons/flags/spanish_flag.gif" onclick=ChangeLanguage("Spanish")>
+	<img id="Flag_Image" style="float:right" src="icons/flags/chinese_flag.gif" onclick=ChangeLanguage("Chinese")>
+	<img id="Flag_Image" style="float:right" src="icons/flags/french_flag.gif" onclick=ChangeLanguage("French")>
+	<img id="Flag_Image" style="float:right" src="icons/flags/english_flag.gif" onclick=ChangeLanguage("English")>
+    </div>
   </div>
 </div>
 
-<div class='hbar'>
-  <table id="nav"><tr>
-    <td class="link" onClick="document.location.href='BasicInterface.php'+window.location.search">
-      <?php echo $_("Basic Interface"); ?></td>
-    <td>
-      <?php echo $_("Google Maps Interface"); ?></td>
-    <td class="link" onClick="document.location.href='Resources/ADM_Background.pdf'">
-      <?php echo $_("Background"); ?></td>
-    <td class="link" onClick="document.location.href='Resources/ADM_Glossary.pdf'">
-      <?php echo $_("Glossary"); ?></td>
-    <td class="link" onClick="document.location.href='Resources/Tutorial_HornAfrica.pdf'">
-      <?php echo $_("Tutorial"); ?></td>
-    <td class="flag">
-      <img id="Flag_Image" src="icons/flags/english_flag.gif" onclick=ChangeLanguage("English")></td>
-    <td class="flag">
-      <img id="Flag_Image" src="icons/flags/french_flag.gif" onclick=ChangeLanguage("French")></td>
-    <td class="flag">
-      <img id="Flag_Image" src="icons/flags/chinese_flag.gif" onclick=ChangeLanguage("Chinese")></td>
-    <td class="flag">
-      <img id="Flag_Image" src="icons/flags/spanish_flag.gif" onclick=ChangeLanguage("Spanish")></td>
-    <td class="flag">
-      <img id="Flag_Image" src="icons/flags/arabic_flag.gif" onclick=ChangeLanguage("Arabic")></td>
-    <td class="version">Version 1.1</td></tr></table>
+<div class="row-fluid" style="height:100%; width:100%">
+    <div class="span12" style="height:100%; width=100%;">
+      <div id="blanket" style="display:none;"></div>
+      <div id="popUpDiv" style="display:none;"></div>
+      <div id="Colorbar" style="visibility:hidden;"></div>
+      <div id="TimeStamp" style="visibility:hidden;"></div>
+      <div id="Logo" style="visibility:hidden;"></div>
+
+    <div id="map_canvas_1" style="max-width: none;"></div>
+    <div class="row-fluid" >
+      <div id="sidebar1" class="span3 offset9" style="visibility:visible; padding-right:0; position: absolute; top: 122px; background-color: #FFFFFF; border-radius: 5px;">
+         <?php include('sidebar.php'); ?>
+        </div>
+      </div>
+     </div>
+   <div id="hideBtn"><i id="hideBtnImg" class="icon-arrow-right" style="position: absolute; top:122px; right:0px; z-index: 100;"></i></div>
 </div>
-
-<div id="blanket" style="display:none;"></div>
-<div id="popUpDiv" style="display:none;"></div>
-
-<div id="Colorbar" style="visibility:hidden;"></div>
-<div id="TimeStamp" style="visibility:hidden;"></div>
-<div id="Logo" style="visibility:hidden;"></div>
-<div id="DBandMC">
-  <div id="map_canvas_1" style="width:100%; height:100%;"></div>
 </div>
-
-<div id="sidebar" style="visibility:visible"> 
-<?php include('sidebar.php'); ?>
-</div>
-
-</body> 
+</body>
 </html> 
