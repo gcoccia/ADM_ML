@@ -126,7 +126,7 @@
   </label>
   <label class="radio inline">
     <input type="radio" name="sres_spatial_data" value="1.0">1.0&deg;
-  <label>
+  </label>
   <br>
   <br>
   <?php echo $_('Choose the variables')?>: <br>
