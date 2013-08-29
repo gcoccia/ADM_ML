@@ -1,7 +1,7 @@
 var ImageTimeArray = [];  
 var ImageStrArray = [];
 var ImageCounter = 0;
-var overlay_opacity = 0.8;
+var overlay_opacity = 0.1;
 var overlay_mask_dropdown = new Array();
 
 // JH: Which of these variables are actually being used??
