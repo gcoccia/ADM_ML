@@ -16,7 +16,7 @@
         <li class="nav-header" style="background: linear-gradient(rgb(238, 238, 238), rgb(204, 204, 204)); border-radius: 5px 5px 0px 0px;"><?php echo $_("Animation Interface")?></li> 
       <form id="AnimationForm" name="AnimationForm">
          <div class="btn-group form-inline">
-	   <label class="control-label"><?php echo $_("Timestep").":" ?></label>
+	   <label class="control-label" style="padding-top:5px"><?php echo $_("Timestep").":" ?></label>
 	      <label class="radio inline">
                  <input id="daily" type="radio" name="ts-radio" checked="true"> Daily 
               </label>
