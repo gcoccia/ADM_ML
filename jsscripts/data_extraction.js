@@ -25,6 +25,8 @@ function Update_Listeners(type){
   //Remove the listeners
   mapPolygon.stopEdit();
   mapPolygon.setMap(null);
+  followLine1.setMap(null);
+  followLine2.setMap(null);
   google.maps.event.clearListeners(map_array[0], "click");
   google.maps.event.clearListeners(map_array[0], "mousemove");
   google.maps.event.clearListeners(map_array[0], "rightclick");
