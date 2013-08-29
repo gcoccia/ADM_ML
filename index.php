@@ -196,14 +196,6 @@ $info_box_strings = array(1 => $_("Weather data used to drive the hydrologic mod
       if($(this).val() < 1948 || $(this).val() > 2013)
         $(this).val(year_final);
     });
-
-    // Change cursor to crosshair when doing data selection
-    $( "input[id='none']:radio.de-radio" ).change(function() {
-      map_array[0].setOptions({draggableCursor:null});
-    });
-    $( "input[id='point']:radio.de-radio, input[id='spatial']:radio.de-radio" ).change(function() {
-      map_array[0].setOptions({draggableCursor:'crosshair'});
-    });
   });
 
 </script>
