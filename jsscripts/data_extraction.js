@@ -1,23 +1,6 @@
-mapPolygon = new google.maps.Polygon({strokeColor   : '#ff0000',
-                                      strokeOpacity : 0.6,
-                                      strokeWeight  : 4,
-                                    });
-followLine1 = new google.maps.Polyline({
-  clickable: false,
-  map : map_array[0],
-  path: [],
-  strokeColor: "#787878",
-  strokeOpacity: 1,
-  strokeWeight: 2
-});
-followLine2 = new google.maps.Polyline({
-  clickable: false,
-  map : map_array[0],
-  path: [],
-  strokeColor: "#787878",
-  strokeOpacity: 1,
-  strokeWeight: 2
-});
+var mapPolygon = null,
+    followLine1 = null,
+    followLine2 = null;
 
 function Update_Listeners(type){
 
