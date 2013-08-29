@@ -34,21 +34,25 @@ function ImageArrayPrep(ImageStrArray,ImageTimeArray)
 
     if(""+current_timestep == "daily") {
       tstring = Ystring + Mstring + Dstring;
+      dir_tstring = Ystring + '/' + Mstring + '/' + Dstring;
       tstamp = Ystring + "/" + Mstring + "/" + Dstring;
       date_temp.setDate(date_temp.getDate() + 1);
     }
     else if(""+current_timestep == "monthly") {
+      dir_tstring = Mstring + '/' + Dstring;
       tstring = Ystring + Mstring;
       tstamp = Ystring + "/" + Mstring;
       date_temp.setMonth(date_temp.getMonth() + 1);
     }
     else {
       tstring = Ystring;
+      dir_tstring = Ystring;
       tstamp = Ystring;
       date_temp.setFullYear(date_temp.getFullYear() + 1);
     }
 
-    ImageStrArray[framect] = "../IMAGES/" + current_timestep.toUpperCase() + "/" + tstring + "/" + dataset + "_" + tstring + ".png";
+    //ImageStrArray[framect] = "../IMAGES/" + current_timestep.toUpperCase() + "/" + tstring + "/" + dataset + "_" + tstring + ".png";
+    ImageStrArray[framect] = "../IMAGES/" + dir_tstring + "/" + dataset + "_" + tstring + ".png";
     ImageTimeArray[framect] = tstamp;
     framect += 1;
   }

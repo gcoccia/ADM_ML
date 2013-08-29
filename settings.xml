@@ -30,7 +30,10 @@
   </group>
 
   <group name="Drought Products" divtitle="Drought">
-    <variable name="vcpct" dataset="VIC_DERIVED_PGF" units="%" ts="Y" title="Drought Index"></variable>
+    <variable name="spi1" dataset="SPI" units="" ts="DMY" title="SPI (1 month)"></variable>
+    <variable name="spi3" dataset="SPI" units="" ts="DMY" title="SPI (3 month)"></variable>
+    <variable name="spi6" dataset="SPI" units="" ts="DMY" title="SPI (6 month)"></variable>
+    <variable name="spi12" dataset="SPI" units="" ts="DMY" title="SPI (12 month)"></variable>
     <infobox>3</infobox>
   </group>
 
