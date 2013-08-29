@@ -119,13 +119,13 @@
    --><br>
   <?php echo $_('Define the spatial resolution (degrees)')?>:<br>
   <label class="radio inline">
-    <input type="radio" name="sres_spatial_data" value="0.1"><?php echo $_('0.1 degree')?>
+    <input type="radio" name="sres_spatial_data" value="0.1">0.1&deg;
   </label>
   <label class="radio inline">
-    <input type="radio" name="sres_spatial_data" value="0.25" checked><?php echo $_('0.25 degree')?>
+    <input type="radio" name="sres_spatial_data" value="0.25" checked>0.25&deg;
   </label>
   <label class="radio inline">
-    <input type="radio" name="sres_spatial_data" value="1.0"><?php echo $_('1.0 degree')?>
+    <input type="radio" name="sres_spatial_data" value="1.0">1.0&deg;
   <label>
   <br>
   <br>
