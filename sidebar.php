@@ -85,14 +85,14 @@
     <?php echo $_("Point Data Selection") ?>
   </li>
     
-  <button onclick="Request_and_Display()"><?php echo $_('Update Plot') ?></button>
   <br>
-  <?php echo $_('Plots') ?>:
-  <input type="radio" name="plot" value="Drought_Indices" checked=checked><?php echo $_('Drought Indices') ?>
-  <input type="radio" name="plot" value="Water_Balance" ><?php echo $_('Water Balance') ?>
-  <input type="radio" name="plot" value="Surface_Fluxes" ><?php echo $_('Surface Fluxes') ?>
+  <i>Click a point on the map to view time series data.</i>
   <br>
-  <?php echo $_('Latitude (other coords broken right now)') ?>
+  <label><input type="radio" name="plot" value="Drought_Indices" checked=checked><?php echo $_('Drought Indices') ?></label>
+  <label><input type="radio" name="plot" value="Water_Balance" ><?php echo $_('Water Balance') ?></label>
+  <label><input type="radio" name="plot" value="Surface_Fluxes" ><?php echo $_('Surface Fluxes') ?></label>
+  <br>
+  <?php echo $_('Latitude') ?>
   <br>
   <input type="text" id="latitude" value=-34.6250>
   <br>
