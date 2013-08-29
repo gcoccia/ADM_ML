@@ -249,11 +249,12 @@ $info_box_strings = array(1 => $_("Weather data used to drive the hydrologic mod
 
     <div id="map_canvas_1" style="max-width: none;"></div>
     <div class="row-fluid" >
-      <div class="span3 offset9" style="visibility:visible; padding-right:0; position: absolute; top: 122px; background-color: #FFFFFF;">
+      <div class="span3 offset9" style="visibility:visible; padding-right:0; position: absolute; top: 122px; background-color: #FFFFFF; z-index: 0;">
          <?php include('sidebar.php'); ?>
+        </div>
       </div>
-    </div>
-   </div>
+     </div>
+   <i id="hideBtn" class="icon-arrow-right" style="position: absolute; top:122px; right:0px; z-index: 100;"></i>
 </div>
 </div>
 </body>
