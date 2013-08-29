@@ -16,17 +16,17 @@
          <label class="control-label"><?php echo $_("Time Interval")." (".$_("dd/mm/yyyy")."):"?></label>
         <div class="control-group form-inline">
           <label><?php echo $_("Initial")?>:</label>
-      	    <input id="day_initial" type="text" class="span1" maxlength="2" name="day_initial" value=<?php echo $day_initial ?>>
-            <input id="month_initial" type="text" class="span1" maxlength="2" name="month_initial" value=<?php echo $month_initial ?>>
-            <input id="year_initial" type="text" class="span2" maxlength="4" name="year_initial" value=<?php echo $year_initial ?>>
+      	    <input id="day_initial" type="text" maxlength="2" name="day_initial" value=<?php echo $day_initial ?> style="width:15px;">
+            <input id="month_initial" type="text" maxlength="2" name="month_initial" value=<?php echo $month_initial ?> style="width:15px;">
+            <input id="year_initial" type="text" maxlength="4" name="year_initial" value=<?php echo $year_initial ?> style="width:35px;">
       	    <input type="button" value="-" class="btn btn-mini" onclick="Update_TimeStamp_MP(-1,0)">
             <input type="button" value="+" class="btn btn-mini" onclick="Update_TimeStamp_MP(1,0)">
          </div>
          <div class="control-group form-inline">
             <label><?php echo $_("Final") ?>:</label>
-            <input id="day_final" type="text" class="span1" maxlength="2" name="day_final" value=<?php echo $day_final ?>>
-            <input id="month_final" type="text" class="span1" maxlength="2" name="month_final" value=<?php echo $month_final ?>>
-            <input id="year_final" type="text" class="span2" maxlength="4" name="year_final" value=<?php echo $year_final ?>>
+            <input id="day_final" type="text" maxlength="2" name="day_final" value=<?php echo $day_final ?> style="width:15px;">
+            <input id="month_final" type="text" maxlength="2" name="month_final" value=<?php echo $month_final ?> style="width:15px;">
+            <input id="year_final" type="text" maxlength="4" name="year_final" value=<?php echo $year_final ?> style="width:35px;">
             <input type="button" value="-" class="btn btn-mini" onclick="Update_TimeStamp_MP(-1,1)">
             <input type="button" value="+" class="btn btn-mini" onclick="Update_TimeStamp_MP(1,1)"><br/>
          </div>
