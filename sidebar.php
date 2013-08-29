@@ -1,5 +1,5 @@
       <ul class="nav nav-list" data-spy="affix" data-offset-top="900">
-        <li class="nav-header" style="background: linear-gradient(rgb(238, 238, 238), rgb(204, 204, 204))"><?php echo $_("Animation Interface")?></li> 
+        <li class="nav-header" style="background: linear-gradient(rgb(238, 238, 238), rgb(204, 204, 204)); border-radius: 5px 5px 0px 0px;"><?php echo $_("Animation Interface")?></li> 
       <form id="AnimationForm" name="AnimationForm">
          <div class="btn-group form-inline">
 	   <label class="control-label"><?php echo $_("Timestep").":" ?></label>
@@ -16,19 +16,19 @@
          <label class="control-label"><?php echo $_("Time Interval")." (".$_("dd/mm/yyyy")."):"?></label>
         <div class="control-group form-inline">
           <label><?php echo $_("Initial")?>:</label>
-      	    <input id="day_initial" type="text" class="span2" maxlength="2" name="day_initial" value=<?php echo $day_initial ?>>
-            <input id="month_initial" type="text" class="span2" maxlength="2" name="month_initial" value=<?php echo $month_initial ?>>
+      	    <input id="day_initial" type="text" class="span1" maxlength="2" name="day_initial" value=<?php echo $day_initial ?>>
+            <input id="month_initial" type="text" class="span1" maxlength="2" name="month_initial" value=<?php echo $month_initial ?>>
             <input id="year_initial" type="text" class="span2" maxlength="4" name="year_initial" value=<?php echo $year_initial ?>>
-      	    <input type="button" value="-" class="btn btn-small" onclick="Update_TimeStamp_MP(-1,0)">
-            <input type="button" value="+" class="btn btn-small" onclick="Update_TimeStamp_MP(1,0)">
+      	    <input type="button" value="-" class="btn btn-mini" onclick="Update_TimeStamp_MP(-1,0)">
+            <input type="button" value="+" class="btn btn-mini" onclick="Update_TimeStamp_MP(1,0)">
          </div>
          <div class="control-group form-inline">
             <label><?php echo $_("Final") ?>:</label>
-            <input id="day_final" type="text" class="span2" maxlength="2" name="day_final" value=<?php echo $day_final ?>>
-            <input id="month_final" type="text" class="span2" maxlength="2" name="month_final" value=<?php echo $month_final ?>>
+            <input id="day_final" type="text" class="span1" maxlength="2" name="day_final" value=<?php echo $day_final ?>>
+            <input id="month_final" type="text" class="span1" maxlength="2" name="month_final" value=<?php echo $month_final ?>>
             <input id="year_final" type="text" class="span2" maxlength="4" name="year_final" value=<?php echo $year_final ?>>
-            <input type="button" value="-" class="btn btn-small" onclick="Update_TimeStamp_MP(-1,1)">
-            <input type="button" value="+" class="btn btn-small" onclick="Update_TimeStamp_MP(1,1)"><br/>
+            <input type="button" value="-" class="btn btn-mini" onclick="Update_TimeStamp_MP(-1,1)">
+            <input type="button" value="+" class="btn btn-mini" onclick="Update_TimeStamp_MP(1,1)"><br/>
          </div>
 
       <table><tr>
@@ -42,7 +42,7 @@
       <input type="button" value="-" onclick="update_overlay_opacity(0)">
       <input type="button" value="+" onclick="update_overlay_opacity(1)"><br/> -->
 
-    <li class="nav-header" style="background: linear-gradient(rgb(238, 238, 238), rgb(204, 204, 204))"><?php echo $_("Data Extraction") ?></li>
+    <li class="nav-header" style="background: linear-gradient(rgb(238, 238, 238), rgb(204, 204, 204)); border-radius: 5px 5px 0px 0px;"><?php echo $_("Data Extraction") ?></li>
       <div class="btn-group form-inline">
 	      <label class="radio inline">
                  <input id="none" type="radio" class="de-radio" name="de-radio" checked="true" onclick='Update_Listeners("none")'> None
@@ -61,7 +61,7 @@
     <?php echo $_("".$group["name"])?> 
     <img class="question_mark" id="<?php echo $group->infobox ?>" src="icons/question_icon.png" >
   </h1> -->
-  <li class="nav-header" style="background: linear-gradient(rgb(238, 238, 238), rgb(204, 204, 204))">
+  <li class="nav-header" style="background: linear-gradient(rgb(238, 238, 238), rgb(204, 204, 204)); border-radius: 5px 5px 0px 0px;">
       <?php echo $_("".$group["name"])?>
       <img class="question_mark" id="<?php echo $group->infobox ?>" src="icons/question_icon.png" >
   </li>
