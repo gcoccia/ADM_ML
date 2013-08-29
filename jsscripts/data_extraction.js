@@ -27,16 +27,16 @@ function Update_Listeners(type){
  else if (type == 'spatial'){
   //Remove present listeners
   Update_Listeners('none')
-  mapPolygon = new google.maps.Polygon({map : map_array[0],
+/*  mapPolygon = new google.maps.Polygon({map : map_array[0],
                                       strokeColor   : '#ff0000',
                                       strokeOpacity : 0.6,
                                       strokeWeight  : 4,
                                       path:[]
-                                     });
+                                     });*/
   //Add the listeners
   mapPolygon.setMap(map_array[0]);
   mapPolygon.runEdit(true); // turn on the polygon editor with "ghost points" enabled
-  google.maps.event.addListener(mapPolygon, 'click',function() {Spatial_Data()});  
+  //google.maps.event.addListener(mapPolygon, 'click',function() {Spatial_Data()});  
  }
 }
 
