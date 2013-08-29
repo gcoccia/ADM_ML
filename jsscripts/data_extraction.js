@@ -25,7 +25,8 @@ function Update_Listeners(type){
  }
  else if (type == 'point'){
   //Remove present listeners
-  Update_Listeners('none')
+  Update_Listeners('none');
+  map_array[0].setOptions({draggableCursor:'crosshair'});
 
   // Switch to the point sidebar
   $("#Animation-Sidebar").hide();

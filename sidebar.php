@@ -81,10 +81,26 @@
 </div>
 
 <div id="Point-Sidebar" style="display: none">
-    <li class="nav-header" style="background: linear-gradient(rgb(238, 238, 238), rgb(204, 204, 204)); border-radius: 5px 5px 0px 0px;">
-      <?php echo $_("Point Data Selection") ?>
-    </li>
-    <p>Click a point on the map to view time series data</p>
+  <li class="nav-header" style="background: linear-gradient(rgb(238, 238, 238), rgb(204, 204, 204)); border-radius: 5px 5px 0px 0px;">
+    <?php echo $_("Point Data Selection") ?>
+  </li>
+    
+  <button onclick="Request_and_Display()"><?php echo $_('Update Plot') ?></button>
+  <br>
+  <?php echo $_('Plots') ?>:
+  <input type="radio" name="plot" value="Drought_Indices" checked=checked><?php echo $_('Drought Indices') ?>
+  <input type="radio" name="plot" value="Water_Balance" ><?php echo $_('Water Balance') ?>
+  <input type="radio" name="plot" value="Surface_Fluxes" ><?php echo $_('Surface Fluxes') ?>
+  <br>
+  <?php echo $_('Latitude (other coords broken right now)') ?>
+  <br>
+  <input type="text" id="latitude" value=-34.6250>
+  <br>
+  <?php echo $_('Longitude') ?>
+  <br>
+  <input type="text" id="longitude" value=19.8750>
+  <br>
+
 </div>
 
 <div id="Spatial-Sidebar" style="display: none">
