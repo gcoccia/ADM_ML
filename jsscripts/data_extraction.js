@@ -8,11 +8,11 @@ function Update_Listeners(type){
 
  if (type == 'none'){
   //Remove the listeners
-  google.maps.event.clearListeners(map_array[0],'click');
+/*  google.maps.event.clearListeners(map_array[0],'click');
   google.maps.event.clearListeners(map_array[0],'dragend');
   
   mapPolygon.setMap(null); //remove the polygon
-  mapPolygon.stopEdit();
+  mapPolygon.stopEdit();*/
  }
  else if (type == 'point'){
   //Remove present listeners
