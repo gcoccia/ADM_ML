@@ -80,6 +80,7 @@
 <?php } ?>
 </div>
 
+<!--Sidebar for point data selection - hidden by default -->
 <div id="Point-Sidebar" style="display: none">
   <li class="nav-header" style="background: linear-gradient(rgb(238, 238, 238), rgb(204, 204, 204)); border-radius: 5px 5px 0px 0px;">
     <?php echo $_("Point Data Selection") ?>
@@ -104,6 +105,7 @@
 
 </div>
 
+<!--Sidebar for spatial data selection - hidden by default -->
 <div id="Spatial-Sidebar" style="display: none">
   <li class="nav-header" style="background: linear-gradient(rgb(238, 238, 238), rgb(204, 204, 204)); border-radius: 5px 5px 0px 0px;">
     <?php echo $_("Spatial Data Selection") ?>
