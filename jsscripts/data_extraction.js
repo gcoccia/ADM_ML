@@ -1,84 +1,24 @@
-var mapPolygon = null,
-    followLine1 = null,
-    followLine2 = null;
-var polyOptions = { map : map_array[0],
-                    strokeColor   : '#ff0000',
-                    strokeOpacity : 0.6,
-                    strokeWeight  : 4,
-                    path:[]
-                  };
-var lineOptions = { clickable: false,
-                    map : map_array[0],
-                    path: [],
-                    strokeColor: "#787878",
-                    strokeOpacity: 1,
-                    strokeWeight: 2
-                  };
-
 function Update_Listeners(type){
 
- if (type == 'none'){
-  //Remove the listeners and lines/polygons from the map
-  if(mapPolygon) {
-    mapPolygon.stopEdit();
-    mapPolygon.setMap(null);
-    google.maps.event.clearListeners(mapPolygon, "click");
+  if (type == 'none'){
+    finalizePolygon();
+    removePolygon();
   }
-  if(followLine1) followLine1.setMap(null);
-  if(followLine2) followLine2.setMap(null);
-  google.maps.event.clearListeners(map_array[0], "click");
-  google.maps.event.clearListeners(map_array[0], "mousemove");
-  google.maps.event.clearListeners(map_array[0], "rightclick");
-  map_array[0].setOptions({draggableCursor:null});
- }
- else if (type == 'point'){
-  //Remove present listeners
-  Update_Listeners('none')
-  //Add the listeners
-  google.maps.event.addListener(map_array[0], 'click', function(mEvent) {Point_Data(mEvent.latLng)});
- }
- else if (type == 'spatial'){
-  //Remove present listeners
-  Update_Listeners('none');
-  map_array[0].setOptions({draggableCursor:'crosshair'});
-  // Add polygon and lines to map
-  mapPolygon = new google.maps.Polygon(polyOptions);
-  followLine1 = new google.maps.Polyline(lineOptions);
-  followLine2 = new google.maps.Polyline(lineOptions);
+  else if (type == 'point'){
+    //Remove present listeners
+    Update_Listeners('none')
+    //Add the listeners
+    google.maps.event.addListener(map_array[0], 'click', function(mEvent) {Point_Data(mEvent.latLng)});
+  }
+  else if (type == 'spatial'){
+    //Remove present listeners
+    Update_Listeners('none');
+    newPolygon();
 
-  // Add event handlers related to polygon drawing
-  google.maps.event.addListener(map_array[0], 'click', function(point) {
-       mapPolygon.stopEdit();
-       mapPolygon.getPath().push(point.latLng);
-       mapPolygon.runEdit(true);
-  });
-     
-  google.maps.event.addListener(map_array[0], 'rightclick', function () {
-    followLine1.setMap(null);
-    followLine2.setMap(null);
-    google.maps.event.clearListeners(map_array[0], "click");
-    google.maps.event.clearListeners(map_array[0], "mousemove");
-    google.maps.event.clearListeners(map_array[0], "rightclick");
-    map_array[0].setOptions({draggableCursor:null});
-  });
-     
-  google.maps.event.addListener(map_array[0], 'mousemove', function(point) {
-    var pathLength = mapPolygon.getPath().getLength();
-    if (pathLength >= 1) {
-      var startingPoint1 = mapPolygon.getPath().getAt(pathLength - 1);
-      var followCoordinates1 = [startingPoint1, point.latLng];
-      followLine1.setPath(followCoordinates1);
-      var startingPoint2 = mapPolygon.getPath().getAt(0);
-      var followCoordinates2 = [startingPoint2, point.latLng];
-      followLine2.setPath(followCoordinates2);
-    }
-  });
-  
-  google.maps.event.addListener(mapPolygon, 'click', function() {
-    Spatial_Data();
-  });
-
- }
+    google.maps.event.addListener(mapPolygon, 'click', function() {
+      Spatial_Data();
+    });
+  }
 }
 
 function Point_Data(latLng){
@@ -97,50 +37,7 @@ function Spatial_Data(){
  Data_Extraction_Popup('popUpDiv')
  //Add controls
  Prepare_Spatial_Data_Display()
- //Print all the markers lat/lon
-/* info = []
- info = ''
- for (var i in window.markers){
-  info = info + ' ' + window.markers[i].position
- }*/
-
- //Create the popup background
- 
- //Upon closing remove the markers and polygon
-/* for (marker in window.markers){
-  window.markers[marker].setMap(null);
- }
- window.markers = [];
- //Clear the paths
- window.path.clear();*/
-
 }
-
-/*function addPoint(event) {
-    window.path.insertAt(window.path.length, event.latLng);
-
-    var marker = new google.maps.Marker({
-      position: event.latLng,
-      map: map_array[0],
-      draggable: true
-    });
-    window.markers.push(marker);
-    marker.setTitle("#" + path.length);
-
-    google.maps.event.addListener(marker, 'click', function() {
-      marker.setMap(null);
-      for (var i = 0, I = window.markers.length; i < I && window.markers[i] != marker; ++i);
-      window.markers.splice(i, 1);
-      window.path.removeAt(i);
-      }
-    );
-
-    google.maps.event.addListener(marker, 'dragend', function() {
-      for (var i = 0, I = window.markers.length; i < I && window.markers[i] != marker; ++i);
-      window.path.setAt(i, marker.getPosition());
-      }
-    );
-  }*/
 
 function Data_Extraction_Popup() {
   windowname = "popUpDiv";
