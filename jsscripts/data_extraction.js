@@ -10,8 +10,8 @@ function Update_Listeners(type){
     mapPolygon.stopEdit();
     mapPolygon.setMap(null);
   }
-  followLine1.setMap(null);
-  followLine2.setMap(null);
+  if(followLine1) followLine1.setMap(null);
+  if(followLine2) followLine2.setMap(null);
   google.maps.event.clearListeners(map_array[0], "click");
   google.maps.event.clearListeners(map_array[0], "mousemove");
   google.maps.event.clearListeners(map_array[0], "rightclick");
