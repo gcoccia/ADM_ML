@@ -211,8 +211,8 @@ $info_box_strings = array(1 => $_("Weather data used to drive the hydrologic mod
         $(this).val(year_final);
     });
     $(".de-box").click(function() {
-      $(".de-box").removeClass("active");
-      $(this).addClass("active");
+      $(".de-box").parent().removeClass("active");
+      $(this).parent().addClass("active");
     });
   });
 
