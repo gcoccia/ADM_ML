@@ -1,4 +1,17 @@
-      <ul class="nav nav-list" data-spy="affix" data-offset-top="900">
+<li class="nav-header" style="background: linear-gradient(rgb(238, 238, 238), rgb(204, 204, 204)); border-radius: 5px 5px 0px 0px;"><?php echo $_("Data Extraction") ?></li>
+<div class="btn-group form-inline">
+  <label class="radio inline">
+           <input id="none" type="radio" class="de-radio" name="de-radio" checked="true" onclick='Update_Listeners("none")'> None
+        </label>
+        <label class="radio inline">                 
+           <input id="point" type="radio" class="de-radio" name="de-radio" onclick='Update_Listeners("point")'>Point
+        </label>
+        <label class="radio inline">
+           <input id="spatial" type="radio" class="de-radio" name="de-radio" onclick='Update_Listeners("spatial")'>Spatial
+  </label>
+</div>
+
+         <ul class="nav nav-list" data-spy="affix" data-offset-top="900">
         <li class="nav-header" style="background: linear-gradient(rgb(238, 238, 238), rgb(204, 204, 204)); border-radius: 5px 5px 0px 0px;"><?php echo $_("Animation Interface")?></li> 
       <form id="AnimationForm" name="AnimationForm">
          <div class="btn-group form-inline">
@@ -41,19 +54,6 @@
      <!--       Consider floating the opacity options over the map <?php echo $_("Image Opacity")?>:
       <input type="button" value="-" onclick="update_overlay_opacity(0)">
       <input type="button" value="+" onclick="update_overlay_opacity(1)"><br/> -->
-
-    <li class="nav-header" style="background: linear-gradient(rgb(238, 238, 238), rgb(204, 204, 204)); border-radius: 5px 5px 0px 0px;"><?php echo $_("Data Extraction") ?></li>
-      <div class="btn-group form-inline">
-	      <label class="radio inline">
-                 <input id="none" type="radio" class="de-radio" name="de-radio" checked="true" onclick='Update_Listeners("none")'> None
-              </label>
-              <label class="radio inline">                 
-                 <input id="point" type="radio" class="de-radio" name="de-radio" onclick='Update_Listeners("point")'>Point
-              </label>
-              <label class="radio inline">
-                 <input id="spatial" type="radio" class="de-radio" name="de-radio" onclick='Update_Listeners("spatial")'>Spatial
-	      </label>
-         </div>
 
 <?php foreach($xmlobj->variables->group as $group) { ?>
 <!--<div id="<?php echo $group['divtitle']?>" class="sidebar-block">
