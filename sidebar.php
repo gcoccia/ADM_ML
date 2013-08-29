@@ -133,11 +133,11 @@
   <br>
   <?php echo $_('Choose the variables')?>: <br>
   <div class="checkbox inline">
-    <label><input type="checkbox" name="variables_spatial_data[]" value="prec-PGF"><?php echo $_('prec_pgf')?></label><br>
-    <label><input type="checkbox" name="variables_spatial_data[]" value="tmax-PGF"><?php echo $_('tmax_pgf')?></label><br>
-    <label><input type="checkbox" name="variables_spatial_data[]" value="tmin-PGF"><?php echo $_('tmin_pgf')?></label><br>
-    <label><input type="checkbox" name="variables_spatial_data[]" value="wind-PGF"><?php echo $_('wind_pgf')?></label><br>
-    <label><input type="checkbox" name="variables_spatial_data[]" value="vcpct-VIC_DERIVED_PGF"><?php echo $_('vcpct_vic_derived_pgf')?></label><br>
+    <label><input type="checkbox" name="variables_spatial_data[]" value="prec-PGF"><?php echo $_('prec_pgf')?></label>
+    <label><input type="checkbox" name="variables_spatial_data[]" value="tmax-PGF"><?php echo $_('tmax_pgf')?></label>
+    <label><input type="checkbox" name="variables_spatial_data[]" value="tmin-PGF"><?php echo $_('tmin_pgf')?></label>
+    <label><input type="checkbox" name="variables_spatial_data[]" value="wind-PGF"><?php echo $_('wind_pgf')?></label>
+    <label><input type="checkbox" name="variables_spatial_data[]" value="vcpct-VIC_DERIVED_PGF"><?php echo $_('vcpct_vic_derived_pgf')?></label>
   </div>
   <br>
   <?php echo $_('Choose the file format')?>: <br>
