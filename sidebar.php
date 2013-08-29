@@ -96,11 +96,11 @@
   <br>
   <?php echo $_('Latitude') ?>
   <br>
-  <input type="text" id="latitude" value=-34.6250>
+  <input type="text" id="point-latitude" value=-34.6250>
   <br>
   <?php echo $_('Longitude') ?>
   <br>
-  <input type="text" id="longitude" value=19.8750>
+  <input type="text" id="point-longitude" value=19.8750>
   <br>
 
 </div>
