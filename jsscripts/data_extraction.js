@@ -1,7 +1,12 @@
 mapPolygon = new google.maps.Polygon({map : map_array[0],
                                     strokeColor   : '#ff0000',
                                     strokeOpacity : 0.6,
-                                    strokeWeight  : 4
+                                    strokeWeight  : 4,
+                                    path:[new google.maps.LatLng(50.90065143090167,34.79679146020507),
+                                              new google.maps.LatLng(50.907525507257965,34.809408571411126),
+                                              new google.maps.LatLng(50.90563117807968,34.82176819055175),
+                                              new google.maps.LatLng(50.90936563893282,34.82880630700683)]
+                                     });
                                    });
 
 function Update_Listeners(type){
