@@ -6,8 +6,10 @@ function Update_Listeners(type){
 
  if (type == 'none'){
   //Remove the listeners
-  if(mapPolygon) mapPolygon.stopEdit();
-  mapPolygon.setMap(null);
+  if(mapPolygon) {
+    mapPolygon.stopEdit();
+    mapPolygon.setMap(null);
+  }
   followLine1.setMap(null);
   followLine2.setMap(null);
   google.maps.event.clearListeners(map_array[0], "click");
