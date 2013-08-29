@@ -250,7 +250,7 @@ $info_box_strings = array(1 => $_("Weather data used to drive the hydrologic mod
   </div>
 </div>
 
-<div class="row-fluid" style="height:100%; width:100%">
+<div class="row-fluid" style="width:100%; position: absolute; bottom: 0px; top:110px;">
     <div class="span12" style="height:100%; width=100%;">
       <div id="blanket" style="display:none;"></div>
       <div id="popUpDiv" style="display:none;"></div>
@@ -259,13 +259,13 @@ $info_box_strings = array(1 => $_("Weather data used to drive the hydrologic mod
       <div id="Logo" style="visibility:hidden;"></div>
 
     <div id="map_canvas_1" style="max-width: none;"></div>
-    <div class="row-fluid" >
-      <div id="sidebar1" class="span3 offset9" style="visibility:visible; padding-right:0; position: absolute; top: 122px; background-color: #FFFFFF; border-radius: 5px;">
+    <div class="row-fluid">
+      <div id="sidebar1" class="span3 offset9" style="visibility:visible; padding-right:0; position: absolute; top: 0px; background-color: #FFFFFF; border-radius: 5px;">
          <?php include('sidebar.php'); ?>
         </div>
       </div>
      </div>
-   <div id="hideBtn"><i id="hideBtnImg" class="icon-arrow-right" style="position: absolute; top:122px; right:0px; z-index: 100;"></i></div>
+   <div id="hideBtn"><i id="hideBtnImg" class="icon-arrow-right" style="position: absolute; top:0px; right:0px; z-index: 100;"></i></div>
 </div>
 </div>
 </body>
