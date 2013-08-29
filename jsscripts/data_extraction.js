@@ -43,9 +43,9 @@ function Update_Listeners(type){
   mapPolygon.stopEdit();
   mapPolygon.setMap(null);
   mapPolygon = null;
-  google.maps.event.clearListeners(map, "click");
-  google.maps.event.clearListeners(map, "mousemove");
-  google.maps.event.clearListeners(map, "rightclick");
+  google.maps.event.clearListeners(map_array[0], "click");
+  google.maps.event.clearListeners(map_array[0], "mousemove");
+  google.maps.event.clearListeners(map_array[0], "rightclick");
   map.setOptions({ draggableCursor: 'crosshair'});
   mapPolygon = new google.maps.Polygon({map : map_array[0],
                                       strokeColor   : '#ff0000',
@@ -54,13 +54,13 @@ function Update_Listeners(type){
                                       path:[]
                                      });
 
-  google.maps.event.addListener(map, 'click', function(point) {
+  google.maps.event.addListener(map_array[0], 'click', function(point) {
        mapPolygon.stopEdit();
        mapPolygon.getPath().push(point.latLng);
        mapPolygon.runEdit(true);
   }); //*/
      
-  google.maps.event.addListener(map, 'rightclick', function () {
+  google.maps.event.addListener(map_array[0], 'rightclick', function () {
    followLine1.setMap(null);
    followLine2.setMap(null);
    google.maps.event.clearListeners(map, "click");
@@ -70,7 +70,7 @@ function Update_Listeners(type){
   });
      
      
-  google.maps.event.addListener(map, 'mousemove', function(point) {
+  google.maps.event.addListener(map_array[0], 'mousemove', function(point) {
     var pathLength = mapPolygon.getPath().getLength();
     if (pathLength >= 1) {
       var startingPoint1 = mapPolygon.getPath().getAt(pathLength - 1);
