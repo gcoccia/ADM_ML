@@ -5,7 +5,7 @@ var mapPolygon = null,
 function Update_Listeners(type){
 
  if (type == 'none'){
-  console.log('WHAT');
+  console.log(type);
   // Revert to the animation sidebar, and hide the others
   $("#Animation-Sidebar").show();
   $("#Point-Sidebar").hide();
