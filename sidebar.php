@@ -132,17 +132,20 @@
   <br>
   <br>
   <?php echo $_('Choose the variables')?>: <br>
-  <input type="checkbox" name="variables_spatial_data[]" value="prec-PGF"><?php echo $_('prec_pgf')?><br>
-  <input type="checkbox" name="variables_spatial_data[]" value="tmax-PGF"><?php echo $_('tmax_pgf')?><br>
-  <input type="checkbox" name="variables_spatial_data[]" value="tmin-PGF"><?php echo $_('tmin_pgf')?><br>
-  <input type="checkbox" name="variables_spatial_data[]" value="wind-PGF"><?php echo $_('wind_pgf')?><br>
-  <input type="checkbox" name="variables_spatial_data[]" value="vcpct-VIC_DERIVED_PGF"><?php echo $_('vcpct_vic_derived_pgf')?><br>
+  <div class="checkbox inline">
+    <label><input type="checkbox" name="variables_spatial_data[]" value="prec-PGF"><?php echo $_('prec_pgf')?></label><br>
+    <label><input type="checkbox" name="variables_spatial_data[]" value="tmax-PGF"><?php echo $_('tmax_pgf')?></label><br>
+    <label><input type="checkbox" name="variables_spatial_data[]" value="tmin-PGF"><?php echo $_('tmin_pgf')?></label><br>
+    <label><input type="checkbox" name="variables_spatial_data[]" value="wind-PGF"><?php echo $_('wind_pgf')?></label><br>
+    <label><input type="checkbox" name="variables_spatial_data[]" value="vcpct-VIC_DERIVED_PGF"><?php echo $_('vcpct_vic_derived_pgf')?></label><br>
+  </div>
   <br>
   <?php echo $_('Choose the file format')?>: <br>
-  <input type="radio" name="format_spatial_data" value="arc_ascii"><?php echo $_('arc ascii')?>
-  <input type="radio" name="format_spatial_data" value="netcdf" checked><?php echo $_('netcdf')?><br>
-  <br>
-  <?php echo $_('Provide an email to notify when the data is ready')?><br>
+  <div class="radio inline">
+    <label><input type="radio" name="format_spatial_data" value="arc_ascii"><?php echo $_('arc ascii')?></label>
+    <label><input type="radio" name="format_spatial_data" value="netcdf" checked><?php echo $_('netcdf')?></label><br>
+  </div><br>
+  <?php echo $_('Email to notify when data is ready')?><br>
   <?php echo $_('Email')?>: <input type="text" name="email_spatial_data"></br>
   <br>
   <button type="button" onclick="Submit_Spatial_Data()"><?php echo $_('Submit')?></button>
