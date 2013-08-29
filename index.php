@@ -92,7 +92,7 @@ $info_box_strings = array(1 => $_("Weather data used to drive the hydrologic mod
 <script type="text/javascript" src="jsscripts/ImageOverlay.js"></script>
 <script type="text/javascript" src="jsscripts/MainFunctions.js"></script>
 <script type="text/javascript" src="jsscripts/timestep.js"></script>
-<script src="polygonEdit/src/polygonEdit.js" type="text/javascript"></script>
+<script src="polygonEdit/src/polygonEdit_packed.js" type="text/javascript"></script>
 <script type="text/javascript" src="jsscripts/data_extraction.js"></script>
 <script src="http://code.highcharts.com/highcharts.js" type="text/javascript"></script>
 <script src="http://code.highcharts.com/modules/exporting.js" type="text/javascript"></script>
