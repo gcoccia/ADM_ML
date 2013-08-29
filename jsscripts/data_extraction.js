@@ -1,8 +1,7 @@
 mapPolygon = new google.maps.Polygon({map : map_array[0],
                                     strokeColor   : '#ff0000',
                                     strokeOpacity : 0.6,
-                                    strokeWeight  : 4,
-                                    path:[]
+                                    strokeWeight  : 4
                                    });
 
 function Update_Listeners(type){
