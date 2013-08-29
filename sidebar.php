@@ -105,10 +105,38 @@
 </div>
 
 <div id="Spatial-Sidebar" style="display: none">
-    <li class="nav-header" style="background: linear-gradient(rgb(238, 238, 238), rgb(204, 204, 204)); border-radius: 5px 5px 0px 0px;">
-      <?php echo $_("Spatial Data Selection") ?>
-    </li>
-    <p>Click points on the map to draw a polygon and select spatial data.</p>
+  <li class="nav-header" style="background: linear-gradient(rgb(238, 238, 238), rgb(204, 204, 204)); border-radius: 5px 5px 0px 0px;">
+    <?php echo $_("Spatial Data Selection") ?>
+  </li>
+  <i>Click points on the map to draw a polygon and select spatial data.</i>
+
+  <?php echo $_('Lower Left Corner Latitude')?>: <input type="text" name="llclat_spatial_data" value=0><br>
+  <?php echo $_('Lower Left Corner Longitude')?>: <input type="text" name="llclon_spatial_data" value=0><br>
+  <?php echo $_('Upper Right Corner Latitude')?>: <input type="text" name="urclat_spatial_data" value=0><br>
+  <?php echo $_('Upper Right Corner Longitude')?>: <input type="text" name="urclon_spatial_data" value=0><br>
+  <br>
+  <?php echo $_('Define the spatial resolution (degrees)')?>:<br>
+  <input type="radio" name="sres_spatial_data" value="0.1"><?php echo $_('0.1 degree')?>
+  <input type="radio" name="sres_spatial_data" value="0.25" checked><?php echo $_('0.25 degree')?>
+  <input type="radio" name="sres_spatial_data" value="1.0"><?php echo $_('1.0 degree')?><br>
+  <br>
+  <?php echo $_('Choose the variables')?>: <br>
+  <input type="checkbox" name="variables_spatial_data[]" value="prec-PGF"><?php echo $_('prec_pgf')?><br>
+  <input type="checkbox" name="variables_spatial_data[]" value="tmax-PGF"><?php echo $_('tmax_pgf')?><br>
+  <input type="checkbox" name="variables_spatial_data[]" value="tmin-PGF"><?php echo $_('tmin_pgf')?><br>
+  <input type="checkbox" name="variables_spatial_data[]" value="wind-PGF"><?php echo $_('wind_pgf')?><br>
+  <input type="checkbox" name="variables_spatial_data[]" value="vcpct-VIC_DERIVED_PGF"><?php echo $_('vcpct_vic_derived_pgf')?><br>
+  <br>
+  <?php echo $_('Choose the file format')?>: <br>
+  <input type="radio" name="format_spatial_data" value="arc_ascii"><?php echo $_('arc ascii')?>
+  <input type="radio" name="format_spatial_data" value="netcdf" checked><?php echo $_('netcdf')?><br>
+  <br>
+  <?php echo $_('Provide an email to notify when the data is ready')?><br>
+  <?php echo $_('Email')?>: <input type="text" name="email_spatial_data"></br>
+  <br>
+  <button type="button" onclick="Submit_Spatial_Data()"><?php echo $_('Submit')?></button>
+
+
 </div>  
 
 </ul>
