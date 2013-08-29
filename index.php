@@ -167,9 +167,11 @@ $info_box_strings = array(1 => $_("Weather data used to drive the hydrologic mod
       if ($('#hideBtnImg').attr('class') == 'icon-arrow-right') {
 	  $('#hideBtnImg').removeClass('icon-arrow-right');
           $('#hideBtnImg').addClass('icon-arrow-left');
+          $('#hideBtnImg').css({"background-color": "#FFFFFF", "border-radius" : "2px"}); 
       } else if ($('#hideBtnImg').attr('class') == 'icon-arrow-left') {
 	  $('#hideBtnImg').removeClass('icon-arrow-left');
           $('#hideBtnImg').addClass('icon-arrow-right');
+          $('#hideBtnImg').css({"background-color": "transparent", "border-radius" : "2px"}); 
       }
      });
 
