@@ -25,7 +25,6 @@ function Update_Listeners(type){
   //Remove the listeners
   mapPolygon.stopEdit();
   mapPolygon.setMap(null);
-  mapPolygon = null;
   google.maps.event.clearListeners(map_array[0], "click");
   google.maps.event.clearListeners(map_array[0], "mousemove");
   google.maps.event.clearListeners(map_array[0], "rightclick");
@@ -38,8 +37,8 @@ function Update_Listeners(type){
  }
  else if (type == 'spatial'){
   //Remove present listeners
-  Update_Listeners('none')
-
+  Update_Listeners('none');
+  mapPolygon = null;
   mapPolygon = new google.maps.Polygon({map : map_array[0],
                                       strokeColor   : '#ff0000',
                                       strokeOpacity : 0.6,
