@@ -61,9 +61,9 @@ function Update_Listeners(type){
   google.maps.event.addListener(map_array[0], 'rightclick', function () {
    followLine1.setMap(null);
    followLine2.setMap(null);
-   google.maps.event.clearListeners(map, "click");
-   google.maps.event.clearListeners(map, "mousemove");
-   google.maps.event.clearListeners(map, "rightclick");
+   google.maps.event.clearListeners(map_array[0], "click");
+   google.maps.event.clearListeners(map_array[0], "mousemove");
+   google.maps.event.clearListeners(map_array[0], "rightclick");
    map_array[0].setOptions({ draggableCursor: 'pointer' });
   });
      
@@ -78,7 +78,7 @@ function Update_Listeners(type){
       var startingPoint2 = mapPolygon.getPath().getAt(0);
       var followCoordinates2 = [startingPoint2, point.latLng];
       followLine2.setPath(followCoordinates2);
-    } //*/
+    }
   });   
  }
 }
