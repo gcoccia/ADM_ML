@@ -46,7 +46,7 @@ function Update_Listeners(type){
   google.maps.event.clearListeners(map_array[0], "click");
   google.maps.event.clearListeners(map_array[0], "mousemove");
   google.maps.event.clearListeners(map_array[0], "rightclick");
-  map.setOptions({ draggableCursor: 'crosshair'});
+  map_array[0].setOptions({ draggableCursor: 'crosshair'});
   mapPolygon = new google.maps.Polygon({map : map_array[0],
                                       strokeColor   : '#ff0000',
                                       strokeOpacity : 0.6,
