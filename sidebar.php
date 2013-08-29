@@ -147,9 +147,8 @@
   </div><br>
   <?php echo $_('Email to notify when data is ready:')?><br>
   <input type="text" name="email_spatial_data"></br>
+  <button type="button" onclick="Submit_Spatial_Data()"><?php echo $_('Submit Data Request')?></button>
   <br>
-  <button type="button" onclick="Submit_Spatial_Data()"><?php echo $_('Submit')?></button>
-
 
 </div>  
 
