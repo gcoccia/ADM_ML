@@ -54,7 +54,7 @@ function update_animation()
   ChangeTimeStamp(1, ImageCounter, dataset);
   ImageCounter = 1;
 
-  t = setInterval(next_image(dataset), time_delay);
+  t = setInterval("next_image(dataset)", time_delay);
 }
 
 function next_image(dataset)
