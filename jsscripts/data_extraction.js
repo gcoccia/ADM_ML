@@ -22,7 +22,7 @@ function Update_Listeners(type){
  }
  else if (type == 'spatial'){
   //Remove present listeners
-  Update_Listeners('none')
+  //Update_Listeners('none')
 /*  mapPolygon = new google.maps.Polygon({map : map_array[0],
                                       strokeColor   : '#ff0000',
                                       strokeOpacity : 0.6,
@@ -31,7 +31,7 @@ function Update_Listeners(type){
                                      });*/
   //Add the listeners
   mapPolygon.setMap(map_array[0]);
-  mapPolygon.setPaths(new google.maps.MVCArray([window.path]));
+  //mapPolygon.setPaths(new google.maps.MVCArray([window.path]));
   mapPolygon.runEdit(true); // turn on the polygon editor with "ghost points" enabled
   //google.maps.event.addListener(mapPolygon, 'click',function() {Spatial_Data()});  
  }
