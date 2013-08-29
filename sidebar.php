@@ -117,7 +117,7 @@
   <?php echo $_('Upper Right Corner Latitude')?>: <input type="text" name="urclat_spatial_data" value=0><br>
   <?php echo $_('Upper Right Corner Longitude')?>: <input type="text" name="urclon_spatial_data" value=0><br>
    --><br>
-  <?php echo $_('Define the spatial resolution (degrees)')?>:
+  <?php echo $_('Spatial resolution (degrees)')?>:
   <div class="btn-group form-inline">
     <label class="radio inline">
       <input type="radio" name="sres_spatial_data" value="0.1">0.1&deg;
