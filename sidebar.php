@@ -56,6 +56,7 @@
       <input type="button" value="-" onclick="update_overlay_opacity(0)">
       <input type="button" value="+" onclick="update_overlay_opacity(1)"><br/> -->
 
+<div id="Animation-Sidebar">
 <?php foreach($xmlobj->variables->group as $group) { ?>
 <!--<div id="<?php echo $group['divtitle']?>" class="sidebar-block">
   <h1 id="<?php echo $group['divtitle']."_header"?>" class="data-group-header">
@@ -77,5 +78,7 @@
     <?php } ?>
   </div>
 <?php } ?>
+</div>
+
 </ul>
 <div id="Info_Box" style="visibility: hidden;"></div>
