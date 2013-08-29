@@ -1,9 +1,8 @@
 <ul class="nav nav-list" data-spy="affix" data-offset-top="900">
-<li class="nav-header" style="background: linear-gradient(rgb(238, 238, 238), rgb(204, 204, 204)); border-radius: 5px 5px 0px 0px;"><?php echo $_("Data Extraction") ?></li>
 <ul class="nav nav-pills">
-<li class="active"><a href="javascript:void(0)" id="none" class="de-radio" onclick='Update_Listeners("none")'>None</a></li>
-<li><a href="javascript:void(0)" id="point" class="de-radio" onclick='Update_Listeners("point")'>Point</a></li>
-<li><a href="javascript:void(0)" id="spatial" class="de-radio" onclick='Update_Listeners("Spatial")'>Spatial</a></li>
+<li class="active"><a href="javascript:void(0)" id="none" class="de-radio" onclick='Update_Listeners("none")'><?php echo $_("Animation")?></a></li>
+<li><a href="javascript:void(0)" id="point" class="de-radio" onclick='Update_Listeners("point")'><?php echo $_("Select Point Data")?></a></li>
+<li><a href="javascript:void(0)" id="spatial" class="de-radio" onclick='Update_Listeners("spatial")'><?php echo $_("Select Spatial Data")?></a></li>
          
         <li class="nav-header" style="background: linear-gradient(rgb(238, 238, 238), rgb(204, 204, 204)); border-radius: 5px 5px 0px 0px;"><?php echo $_("Animation Interface")?></li> 
       <form id="AnimationForm" name="AnimationForm">
