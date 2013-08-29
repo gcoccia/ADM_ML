@@ -6,9 +6,9 @@ function Update_Listeners(type){
 
  if (type == 'none'){
   // Revert to the animation sidebar, and hide the others
-  $("Animation-Sidebar").show();
-  $("Point-Sidebar").hide();
-  $("Spatial-Sidebar").hide();
+  $("#Animation-Sidebar").show();
+  $("#Point-Sidebar").hide();
+  $("#Spatial-Sidebar").hide();
 
   //Remove the listeners and lines/polygons from the map
   if(mapPolygon) {
@@ -25,9 +25,9 @@ function Update_Listeners(type){
  }
  else if (type == 'point'){
   // Switch to the point sidebar
-  $("Animation-Sidebar").hide();
-  $("Point-Sidebar").show();
-  $("Spatial-Sidebar").hide();
+  $("#Animation-Sidebar").hide();
+  $("#Point-Sidebar").show();
+  $("#Spatial-Sidebar").hide();
 
   //Remove present listeners
   Update_Listeners('none')
@@ -37,9 +37,9 @@ function Update_Listeners(type){
  else if (type == 'spatial'){
   // Switch to the spatial sidebar
   // Revert to the animation sidebar, and hide the others
-  $("Animation-Sidebar").hide();
-  $("Point-Sidebar").hide();
-  $("Spatial-Sidebar").show();
+  $("#Animation-Sidebar").hide();
+  $("#Point-Sidebar").hide();
+  $("#Spatial-Sidebar").show();
 
   //Remove present listeners
   Update_Listeners('none');
