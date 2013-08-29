@@ -5,7 +5,7 @@ var mapPolygon = null,
 function Update_Listeners(type){
 
  if (type == 'none'){
-  //Remove the listeners
+  //Remove the listeners and lines/polygons from the map
   if(mapPolygon) {
     mapPolygon.stopEdit();
     mapPolygon.setMap(null);
@@ -27,7 +27,7 @@ function Update_Listeners(type){
   //Remove present listeners
   Update_Listeners('none');
   map_array[0].setOptions({draggableCursor:'crosshair'});
-  mapPolygon = null;
+  // Add polygon and lines to map
   mapPolygon = new google.maps.Polygon({map : map_array[0],
                                       strokeColor   : '#ff0000',
                                       strokeOpacity : 0.6,
@@ -51,6 +51,7 @@ function Update_Listeners(type){
     strokeWeight: 2
   });
 
+  // Add event handlers related to polygon drawing
   google.maps.event.addListener(map_array[0], 'click', function(point) {
        mapPolygon.stopEdit();
        mapPolygon.getPath().push(point.latLng);
