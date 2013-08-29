@@ -54,11 +54,12 @@ function update_animation()
   ChangeTimeStamp(1, ImageCounter, dataset);
   ImageCounter = 1;
 
-  t = setInterval("next_image(dataset)", time_delay);
+  t = setInterval(next_image, time_delay);
 }
 
-function next_image(dataset)
+function next_image()
 {
+  var dataset = $("input[name='group1']:checked").attr('id');
   if (ImageCounter == ImageTimeArray[dataset].length) ImageCounter = 0;
   overlay_obj[dataset].swap(ImageStrArray[dataset][ImageCounter]);
   ChangeTimeStamp(2, ImageCounter, dataset);
