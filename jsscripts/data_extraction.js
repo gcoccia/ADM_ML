@@ -35,6 +35,9 @@ function Update_Listeners(type){
                                      });*/
   //Add the listeners
   mapPolygon.setMap(map_array[0]);
+  mapPolygon.getPath().forEach(function(point) {
+    point.setMap(null);
+  });
   mapPolygon.runEdit(true); // turn on the polygon editor with "ghost points" enabled
   //google.maps.event.addListener(mapPolygon, 'click',function() {Spatial_Data()});  
  }
