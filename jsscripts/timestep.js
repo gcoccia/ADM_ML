@@ -9,7 +9,7 @@ function update_timestep()
 
     if(data_timesteps[dataset].indexOf(abbrevs[current_timestep]) == -1) {
       ddlink.parent().hide(150, function() {});
-      if(ddlink).parent().hasClass("active")) {
+      if(ddlink.parent().hasClass("active")) {
         ddlink.parent().removeClass("active");
         ddlink.parent().parent().parent().removeClass("active");
       }
