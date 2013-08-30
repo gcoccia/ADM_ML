@@ -2,26 +2,20 @@ function update_timestep()
 {
   var current_timestep = $("ul.ts-selection li.active").attr('id');
   var abbrevs = {"daily": "D", "monthly": "M", "yearly": "Y"};
+  var ddlink;
 
   for(dataset in data_timesteps) {
-    if(data_timesteps[dataset].indexOf(abbrevs[current_timestep]) == -1)
-      $("ul.datalist>li>ul.dropdown-menu>li>a#" + dataset).parent().hide(150, function() {});
+    ddlink = $("ul.datalist>li>ul.dropdown-menu>li>a#" + dataset);
+
+    if(data_timesteps[dataset].indexOf(abbrevs[current_timestep]) == -1) {
+      ddlink.parent().hide(150, function() {});
+      if(ddlink).parent().hasClass("active")) {
+        ddlink.parent().removeClass("active");
+        ddlink.parent().parent().parent().removeClass("active");
+      }
+    }
     else
       $("ul.datalist>li>ul.dropdown-menu>li>a#" + dataset).parent().show(150, function() {});
-  }
-
-  // If the currently-checked button is now disabled, pick a different one (using artificial click event)
-  var current_dataset = $("ul.datalist>li>ul.dropdown-menu>li.active");
-  if(!current_dataset.is(':visible')) {
-    current_dataset.removeClass("active");
-    current_dataset.parent().parent().removeClass("active");
-
-/*    for(var dataset in data_timesteps) {
-      if($("ul.datalist>li>ul.dropdown-menu>li>a#" + dataset).parent().is(':visible')) {
-        $("ul.datalist>li>ul.dropdown-menu>li>a#" + dataset).click();
-        break;
-      }
-    }*/
   }
 
   // Disable/Enable the relevant timestamp input boxes depending which radio button is selected
