@@ -32,10 +32,15 @@ function update_timestep()
     $("input[id='month_initial'], input[id='month_final']").show(150, function() {});
 
   // loop through dropdown list and hide anything with no dropdown links
-  /*$("ul.datalist>li").each(function(index) {
-    if($(this).find("ul.dropdown-menu>li:visible").length == 0)
-      $(this).hide(150, function() {});
-  });*/
+  $("ul.datalist>li").each(function(index) {
+    if($(this).find("ul.dropdown-menu>li").filter(function() {
+      return  $(this).css('display') != 'none' && 
+              $(this).css('visibility') != 'hidden';
+    }).length == 0)
+
+    $(this).hide(150, function() {});
+  });
+var hasOptions = !!$('#theSelect option').filter(function() { return !this.disabled; }).length;
 }
 
 function Update_TimeStamp_MP(increment, flag_timestamp)
