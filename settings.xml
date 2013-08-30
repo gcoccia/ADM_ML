@@ -17,13 +17,19 @@
       <dataset="PGF" ts="DM"></dataset>
       <dataset="etc" ts="DY"></dataset>
     </datatype>
-    <variable name="tmax" dataset="PGF" units="K" ts="D" title="Maximum Temperature (C)"></variable>
-    <variable name="tmin" dataset="PGF" units="K" ts="D" title="Minimum Temperature (C)"></variable>
-    <variable name="wind" dataset="PGF" units="m/s" ts="M" title="Wind (m/s)"></variable>
+    <datatype name="tmax" units="K" title="Maximum Temperature (C)">
+      <dataset="PGF"  ts="D" ></dataset>
+    </datatype>
+    <datatype name="tmin" units="K" title="Minimum Temperature (C)">
+      <dataset="PGF"  ts="D"></dataset>
+    </datatype>
+    <datatype name="wind" units="m/s" title="Wind (m/s)">
+      <dataset="PGF"  ts="M" ></dataset>
+    </datatype>
     <infobox>1</infobox>
   </group>
 
-  <group name="Hydrologic Variables" divtitle="Model">
+  <!-- <group name="Hydrologic Variables" divtitle="Model">
     <variable name="evap" dataset="VIC_PGF" units="mm/day" ts="Y" title="Evaporation (mm/day)"></variable>
     <variable name="Sm_1" dataset="???" units="???" ts="DMY" title="Soil Moisture(%) - Layer 1"></variable>
     <variable name="Sm_2" dataset="???" units="???" ts="DMY" title="Soil Moisture(%) - Layer 2"></variable>
@@ -39,7 +45,7 @@
     <variable name="spi6" dataset="SPI" units="" ts="DMY" title="SPI (6 month)"></variable>
     <variable name="spi12" dataset="SPI" units="" ts="DMY" title="SPI (12 month)"></variable>
     <infobox>3</infobox>
-  </group>
+  </group> -->
 
   <default tag="vcpct"></default>
 
