@@ -6,6 +6,7 @@
   </ul>
 
   <li class="divider"></li>
+  <li class="nav-header"><?php echo $_("Time Interval")." (".$_("dd/mm/yyyy")."):"?></li>
 
   <form id="AnimationForm" name="AnimationForm">
     <ul class="nav nav-pills ts-selection">
@@ -13,7 +14,6 @@
       <li id="monthly"><a href="javascript:void(0)" class="ts-pills"><?php echo $_("Monthly")?></a></li>
       <li id="yearly"><a href="javascript:void(0)"class="ts-pills"><?php echo $_("Yearly")?></a></li>
     </ul>
-    <li class="nav-header"><?php echo $_("Time Interval")." (".$_("dd/mm/yyyy")."):"?></li>
     <div class="control-group form-inline">
       <label><?php echo $_("Initial")?>:</label>
 	    <input id="day_initial" type="text" maxlength="2" name="day_initial" value=<?php echo $day_initial ?> style="width:15px;">
