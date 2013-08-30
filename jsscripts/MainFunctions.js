@@ -36,7 +36,7 @@ function update_animation()
 {
   clear_image_overlays();
   ReadTimeInterval();
-  var dataset = "" + $("ul.datalist>li>ul.dropdown-menu>li.active").find("a").attr('id');
+  var dataset = $("ul.datalist>li>ul.dropdown-menu>li.active").find("a").attr('id');
 
   //Fill up the Array of image strings
   ImageTimeArray[dataset] = new Array();
@@ -59,7 +59,7 @@ function update_animation()
 
 function next_image()
 {
-  var dataset = "" + $("ul.datalist>li>ul.dropdown-menu>li.active").find("a").attr('id');
+  var dataset = $("ul.datalist>li>ul.dropdown-menu>li.active").find("a").attr('id');
   if (ImageCounter == ImageTimeArray[dataset].length) ImageCounter = 0;
   overlay_obj[dataset].swap(ImageStrArray[dataset][ImageCounter]);
   ChangeTimeStamp(2, ImageCounter, dataset);
