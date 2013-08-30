@@ -62,16 +62,11 @@
           <b class="caret"></b>
         </a>
         <ul class="dropdown-menu">
-          <li>AAA</li>
-          <li>BBB</li>
+          <?php foreach($datatype->dataset as $dataset) { ?>
+          <li><a id="<?php echo $datatype['name']."_".$dataset['name'] ?>" href="javascript:void(0)"><?php echo $dataset['name']?></a></li>
+          <? } ?>
         </ul>
       </li>
-
-<!--       <label class="dataset" for="<?php echo $var['dataset']."_".$var['name'] ?>">
-             <input id="<?php echo $var['dataset']."_".$var['name'] ?>" 
-             type="radio" class="data-radio" name="group1" value="<?php echo $var["name"]?>"
-             <?php if(strcmp($xmlobj->variables->default["tag"],$var["name"]) == 0) echo "checked=true"?>> <?php echo $_("".$var["title"])?> 
-      </label> -->
     <?php } ?>
   </ul>
 <?php } ?>
