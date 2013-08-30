@@ -36,9 +36,12 @@ function update_timestep()
     if($(this).find("ul.dropdown-menu>li").filter(function() {
       return  $(this).css('display') != 'none' && 
               $(this).css('visibility') != 'hidden';
-    }).length == 0)
-
-    $(this).hide(150, function() {});
+    }).length == 0) {
+      $(this).hide(150, function() {});
+    } else {
+      $(this).show(150, function() {});
+      console.log("ELSE");
+    }
   });
 var hasOptions = !!$('#theSelect option').filter(function() { return !this.disabled; }).length;
 }
