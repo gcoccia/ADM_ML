@@ -238,7 +238,7 @@ $info_box_strings = array(1 => $_("Weather data used to drive the hydrologic mod
         $(this).parent().addClass("active");
         $(this).parent().parent().parent().addClass("active");
         $(this).find('i').addClass("icon-ok");
-        $(this).parent().parent().parent().find("a>i").addClass("icon-ok");
+        $(this).parent().parent().parent().find("a.dropdown-toggle>i").addClass("icon-ok");
       }
     });
   });
