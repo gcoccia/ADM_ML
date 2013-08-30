@@ -29,23 +29,45 @@
     <infobox>1</infobox>
   </group>
 
-  <!-- <group name="Hydrologic Variables" divtitle="Model">
-    <variable name="evap" dataset="VIC_PGF" units="mm/day" ts="Y" title="Evaporation (mm/day)"></variable>
-    <variable name="Sm_1" dataset="???" units="???" ts="DMY" title="Soil Moisture(%) - Layer 1"></variable>
-    <variable name="Sm_2" dataset="???" units="???" ts="DMY" title="Soil Moisture(%) - Layer 2"></variable>
-    <variable name="runoff" dataset="???" units="???" ts="DMY" title="Surface Runoff (mm/day)"></variable>
-    <variable name="baseflow" dataset="???" units="???" ts="DMY" title="Baseflow (mm/day)"></variable>
-    <variable name="streamflow" dataset="???" units="???" ts="DMY" title="Streamflow (mm/day)"></variable>
+  <group name="Hydrologic Variables" divtitle="Model">
+    <datatype name="evap" units="mm/day" title="Evaporation (mm/day)">
+      <dataset name="VIC_PGF" ts="Y" ></dataset>
+    </datatype>
+    <datatype name="Sm_1" units="???" title="Soil Moisture(%) - Layer 1">
+      <dataset name="???" ts="DMY" ></dataset>
+    </datatype>
+    <datatype name="Sm_2" units="???" title="Soil Moisture(%) - Layer 2">
+      <dataset name="Sm_2" dataset="???"  ts="DMY"></dataset>
+    </datatype>
+    <datatype name="runoff" units="???" title="Surface Runoff (mm/day)">
+      <dataset name="???" ts="DMY" ></dataset>
+    </datatype>
+    <datatype name="baseflow" units="???" title="Baseflow (mm/day)">
+      <dataset name="???" ts="DMY" ></dataset>
+    </datatype>
+    <datatype name="streamflow" units="???" title="Streamflow (mm/day)">
+      <dataset name="???" ts="DMY" ></dataset>
+    </datatype>
+
     <infobox>2</infobox>
   </group>
 
   <group name="Drought Products" divtitle="Drought">
-    <variable name="spi1" dataset="SPI" units="" ts="DMY" title="SPI (1 month)"></variable>
-    <variable name="spi3" dataset="SPI" units="" ts="DMY" title="SPI (3 month)"></variable>
-    <variable name="spi6" dataset="SPI" units="" ts="DMY" title="SPI (6 month)"></variable>
-    <variable name="spi12" dataset="SPI" units="" ts="DMY" title="SPI (12 month)"></variable>
+    <datatype name="spi1" units="" title="SPI (1 month)">
+      <dataset name="SPI" ts="DMY" ></dataset>
+    </datatype>
+    <datatype name="spi3" units="" title="SPI (3 month)">
+      <dataset name="SPI" ts="DMY"></dataset>
+    </datatype>
+    <datatype name="spi6" units="" title="SPI (6 month)">
+      <dataset name="SPI" ts="DMY"></dataset>
+    </datatype>
+    <datatype name="spi12" units="" title="SPI (12 month)">
+      <dataset name="SPI" ts="DMY"></dataset>
+    </datatype>
+    
     <infobox>3</infobox>
-  </group> -->
+  </group>
 
   <default tag="vcpct"></default>
 
