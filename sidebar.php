@@ -65,9 +65,9 @@
 
 <?php foreach($xmlobj->variables->group as $group) { ?>
     <div id="data-form-expand">  
-    <li class="nav-header" style="background: linear-gradient(rgb(238, 238, 238), rgb(204, 204, 204)); border-radius: 5px 5px 0px 0px;">
+    <li id=<?php echo $_("".$group["name"])?> class="nav-header" style="background: linear-gradient(rgb(238, 238, 238), rgb(204, 204, 204)); border-radius: 5px 5px 0px 0px;">
       <?php echo $_("".$group["name"])?>
-      <a href="#" data-toggle="popover" data-content="<?php echo $info_box_strings[1] ?>"><img class="question_mark" id="<?php echo $group->infobox ?>" src="icons/question_icon.png"></a>
+<a id=<?php echo $_("".$group["name"])?> href="#" data-toggle="popover"><img class="question_mark" src="icons/question_icon.png"></a>
   </li>
   <div class="data-form-block">
   <div class="radio inline">
