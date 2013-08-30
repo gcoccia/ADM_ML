@@ -210,8 +210,12 @@ $info_box_strings = array(1 => $_("Weather data used to drive the hydrologic mod
       if($(this).val() < 1948 || $(this).val() > 2013)
         $(this).val(year_final);
     });
-    $(".de-box").click(function() {
-      $(".de-box").parent().removeClass("active");
+    $(".de-pills").click(function() {
+      $(".de-pills").parent().removeClass("active");
+      $(this).parent().addClass("active");
+    });
+    $(".ts-pills").click(function() {
+      $(".ts-pills").parent().removeClass("active");
       $(this).parent().addClass("active");
     });
   });
