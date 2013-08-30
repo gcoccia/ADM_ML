@@ -42,13 +42,13 @@
       <input type="button" value="-" onclick="update_overlay_opacity(0)">
       <input type="button" value="+" onclick="update_overlay_opacity(1)"><br/> -->
 
-<div id="Animation-Sidebar">
+<!-- <div id="Animation-Sidebar">
 <?php foreach($xmlobj->variables->group as $group) { ?>
   <li class="nav-header" style="background: linear-gradient(rgb(238, 238, 238), rgb(204, 204, 204)); border-radius: 5px 5px 0px 0px;">
       <?php echo $_("".$group["name"])?>
       <img class="question_mark" id="<?php echo $group->infobox ?>" src="icons/question_icon.png" >
   </li>
-  <!-- <ul class="nav nav-list">
+  <ul class="nav nav-list">
     <?php foreach($group->datatype as $datatype) { ?>
       <li class="dropdown">
         <a class="dropdown-toggle" data-toggle="dropdown" href="javascript:void(0)">
@@ -62,9 +62,9 @@
         </ul>
       </li>
     <?php } ?>
-  </ul> -->
+  </ul>
 <?php } ?>
-</div>
+</div> -->
 
 <!--Sidebar for point data selection - hidden by default -->
 <div id="Point-Sidebar" style="display: none">
