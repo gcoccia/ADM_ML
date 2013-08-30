@@ -9,6 +9,8 @@ function update_timestep()
 
     if(data_timesteps[dataset].indexOf(abbrevs[current_timestep]) == -1) {
       ddlink.parent().hide(150, function() {});
+      ddlink.parent().removeClass("visible-data");
+
       if(ddlink.parent().hasClass("active")) {
         ddlink.parent().removeClass("active");
         ddlink.parent().parent().parent().removeClass("active");
@@ -17,7 +19,8 @@ function update_timestep()
       }
     }
     else
-      $("ul.datalist>li>ul.dropdown-menu>li>a#" + dataset).parent().show(150, function() {});
+      ddlink.parent().show(150, function() {});
+      ddlink.parent().addClass("visible-data");
   }
 
   // Disable/Enable the relevant timestamp input boxes depending which radio button is selected
@@ -33,15 +36,10 @@ function update_timestep()
 
   // loop through dropdown list and hide anything with no dropdown links
   $("ul.datalist>li").each(function(index) {
-    if($(this).find("ul.dropdown-menu>li").filter(function() {
-      return  !$(this).hasClass("nav-header") &&
-              $(this).css('display') != "none" && 
-              $(this).css('visibility') != "hidden";
-    }).length == 0) {
+    if($(this).find("ul.dropdown-menu>li.visible-data").length == 0) {
       $(this).hide(150, function() {});
     } else {
       $(this).show(150, function() {});
-      console.log("ELSE");
     }
   });
 }
