@@ -419,7 +419,7 @@ ul.data-extraction>li>a, ul.ts-selection>li>a
   padding-right: 8px;
 }
 
-div#sidebar1, #AnimationForm {
+div#sidebar1 {
   font-size: 12px;
 }
 
@@ -429,4 +429,8 @@ div#sidebar1, #AnimationForm {
 
 .nav-list .divider {
   margin: 3px 1px;
+}
+
+div#AnimationForm {
+  margin-bottom: 10px;
 }
