@@ -441,3 +441,7 @@ ul.datalist>li>a {
   padding-top: 1px;
   padding-bottom: 1px;
 }
+ul.datalist>li>ul.dropdown-menu>li>a {
+  padding-top: 1px;
+  padding-bottom: 1px;
+}
