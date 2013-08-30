@@ -16,12 +16,12 @@ function update_timestep()
     current_dataset.removeClass("active");
     current_dataset.parent().parent().removeClass("active");
 
-    for(var dataset in data_timesteps) {
+/*    for(var dataset in data_timesteps) {
       if($("ul.datalist>li>ul.dropdown-menu>li>a#" + dataset).parent().is(':visible')) {
         $("ul.datalist>li>ul.dropdown-menu>li>a#" + dataset).click();
         break;
       }
-    }
+    }*/
   }
 
   // Disable/Enable the relevant timestamp input boxes depending which radio button is selected
