@@ -405,13 +405,13 @@ div.data-form-block
   font-variant: small-caps;
 }
 
-ul.data-extraction
+ul.data-extraction, ul.ts-selection
 {
   font-size: 12px;
-  text-transform: uppercase;
+/*  text-transform: uppercase;*/
   margin-bottom: 10px;
 }
-ul.data-extraction>li>a
+ul.data-extraction>li>a, ul.ts-selection>li>a
 {
   margin-right: 0px;
   line-height: 10px;

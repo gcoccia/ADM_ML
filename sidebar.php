@@ -9,7 +9,7 @@
   <li class="nav-header"><?php echo $_("Select Date Range")?></li>
 
   <form id="AnimationForm" name="AnimationForm">
-    <ul class="nav nav-pills data-extraction">
+    <ul class="nav nav-pills ts-selection">
       <li class="active"><a href="javascript:void(0)" id="daily" class="ts-pills"><?php echo $_("Daily")?></a></li>
       <li><a href="javascript:void(0)" id="monthly" class="ts-pills"><?php echo $_("Monthly")?></a></li>
       <li><a href="javascript:void(0)" id="yearly" class="ts-pills"><?php echo $_("Yearly")?></a></li>
