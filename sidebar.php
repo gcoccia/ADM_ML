@@ -127,7 +127,7 @@
                   <?php echo $datatype['title'] ?>
                   <b class="caret"></b>
                 </a>
-                <ul class="dropdown-menu checkbox inline">
+                <ul class="dropdown-menu">
                   <li class="nav-header"><?php echo $_("Dataset")?></li>
                   <?php foreach($datatype->dataset as $dataset) { ?>
                   <li>
