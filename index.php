@@ -181,6 +181,11 @@ $info_box_strings = array(1 => $_("Weather data used to drive the hydrologic mod
     });
     $("#clear_all").click(function() {
       clear_all_overlays();
+      // Turn off the active chosen datasets
+      $("ul.datalist>li").removeClass("active");
+      $("ul.datalist>li>ul.dropdown-menu>li").removeClass("active");
+      $("ul.datalist>li>a>i").removeClass("icon-ok");
+      $("ul.datalist>li>ul.dropdown-menu>li>a>i").removeClass("icon-ok");
     });
     $("input[name=group1]:radio").change(function() {
       update_timestep();
