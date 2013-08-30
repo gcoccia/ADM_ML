@@ -120,20 +120,23 @@
   <?php echo $_('Choose the variables')?>: <br>
 
   <ul class="nav nav-list spatial-datalist">
-    <?php foreach($xmlobj->variables->group->datatype as $datatype) { ?>
-      <li class="dropdown">
-        <a class="dropdown-toggle" data-toggle="dropdown" href="javascript:void(0)"><i></i>
-          <?php echo $datatype['title'] ?>
-          <b class="caret"></b>
-        </a>
-        <!-- <div class="dropdown-menu checkbox inline">
-          <li class="nav-header"><?php echo $_("Dataset")?></li>
-          <?php foreach($datatype->dataset as $dataset) { ?>
-          <label><input type="checkbox" name="variables_spatial_data[]" value="<?php echo $datatype['name']."-".$dataset['name'] ?>" href="javascript:void(0)"><i></i><?php echo $dataset['name']?></label>
-          <?php } ?>
-        </div> -->
-      </li>
-    <?php } ?>
+    <?php foreach($xmlobj->variables->group as $group) { 
+            foreach($group->datatype as $datatype { ?>
+              <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="javascript:void(0)"><i></i>
+                  <?php echo $datatype['title'] ?>
+                  <b class="caret"></b>
+                </a>
+                <!-- <div class="dropdown-menu checkbox inline">
+                  <li class="nav-header"><?php echo $_("Dataset")?></li>
+                  <?php foreach($datatype->dataset as $dataset) { ?>
+                  <label><input type="checkbox" name="variables_spatial_data[]" value="<?php echo $datatype['name']."-".$dataset['name'] ?>" href="javascript:void(0)"><i></i><?php echo $dataset['name']?></label>
+                  <?php } ?>
+                </div> -->
+              </li>
+    <?php   }
+          } 
+    ?>
   </ul>
 
   <br>
