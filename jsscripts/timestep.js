@@ -18,9 +18,10 @@ function update_timestep()
         ddlink.find('i').removeClass("icon-ok");
       }
     }
-    else
+    else {
       ddlink.parent().show(150, function() {});
       ddlink.parent().addClass("visible-data");
+    }
   }
 
   // Disable/Enable the relevant timestamp input boxes depending which radio button is selected
