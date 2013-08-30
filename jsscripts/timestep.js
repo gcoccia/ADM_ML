@@ -33,17 +33,16 @@ function update_timestep()
 
   // loop through dropdown list and hide anything with no dropdown links
   $("ul.datalist>li").each(function(index) {
-    console.log($(this).val());
-    /*if($(this).find("ul.dropdown-menu>li").filter(function() {
+    if($(this).find("ul.dropdown-menu>li").filter(function() {
       return  !$(this).hasClass("nav-header") &&
-              $(this).css('display') != 'none' && 
-              $(this).css('visibility') != 'hidden';
+              $(this).css('display') != "none" && 
+              $(this).css('visibility') != "hidden";
     }).length == 0) {
       $(this).hide(150, function() {});
     } else {
       $(this).show(150, function() {});
       console.log("ELSE");
-    }*/
+    }
   });
 }
 
