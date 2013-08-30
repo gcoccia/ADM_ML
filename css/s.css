@@ -405,7 +405,11 @@ div.data-form-block
   font-variant: small-caps;
 }
 
-
+.scrollDiv {
+    overflow-y: scroll;
+    display: inline-block;
+    float: none; /* Very important */
+}
 
 
 
