@@ -63,14 +63,6 @@ div.clickmap{
 }
 
 
-div.top {
-    height: 55px;
-    font-weight: bold;
-    margin: 0;
-    padding: 0;
-    width: auto;
-}
-
 div.top div.box {
     position: relative;
     background: transparent;

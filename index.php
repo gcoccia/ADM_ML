@@ -84,7 +84,8 @@ $info_box_strings = array(1 => $_("Weather data used to drive the hydrologic mod
 <link rel="stylesheet" href="css/s.css"> 
 <link rel="stylesheet" type="text/css" href="css/Moz.css" title="Moz">
 <link href='http://fonts.googleapis.com/css?family=Raleway:200' rel='stylesheet' type='text/css'>
-<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script type="text/javascript" src="jsscripts/bootstrap.min.js"></script>
 <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
 <script type="text/javascript" src="jsscripts/popupcss.js"></script>
 <script type="text/javascript" src="jsscripts/MiscFunctions.js"></script>
@@ -97,7 +98,6 @@ $info_box_strings = array(1 => $_("Weather data used to drive the hydrologic mod
 <script type="text/javascript" src="jsscripts/data_extraction.js"></script>
 <script src="http://code.highcharts.com/highcharts.js" type="text/javascript"></script>
 <script src="http://code.highcharts.com/modules/exporting.js" type="text/javascript"></script>
-<script type="text/javasdcript" src="jsscripts/bootstrap.min.js"></script>
 <script type="text/javascript">
   var basinImage  = <?php echo $mask_gauge ?>;
   var info_box_strings = <?php echo json_encode($info_box_strings, JSON_NUMERIC_CHECK) ?>;
@@ -148,20 +148,26 @@ $info_box_strings = array(1 => $_("Weather data used to drive the hydrologic mod
     update_timestep();
     update_animation(); // Start animation with default settings
 
-    //Collapsible sidebar elements
+/*    //Collapsible sidebar elements
     $(".nav-header").click(function() {
       $(this).parent().find(".data-form-block").toggle();
     });
-
+*/
     //Info Box events
-    $(".question_mark").hover(function() {
-        $("#Info_Box").css("visibility", "visible");
-        $("#Info_Box").html(info_box_strings[$(this).attr('id')])},
-      function() {
-        $("#Info_Box").css("visibility", "hidden");
-        $("#Info_Box").html('');
-    });
-
+   // $(".question_mark").hover(function() {
+   //     $("#Info_Box").css("visibility", "visible");
+   //     $("#Info_Box").html(info_box_strings[$(this).attr('id')])},
+  //    function() {
+  //      $("#Info_Box").css("visibility", "hidden");
+  //      $("#Info_Box").html('');
+  //  });
+     
+     $('a').popover({
+         container: 'body',
+         html: true,
+         placement: 'top',
+     });
+    
     $('#hideBtn').click(function() {
       $('#sidebar1').toggle();
       if ($('#hideBtnImg').attr('class') == 'icon-arrow-right') {
@@ -264,4 +270,4 @@ $info_box_strings = array(1 => $_("Weather data used to drive the hydrologic mod
 </div>
 </div>
 </body>
-</html> 
+</html>
