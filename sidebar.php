@@ -44,7 +44,8 @@
 
 <div id="Animation-Sidebar">
 <?php foreach($xmlobj->variables->group as $group) { ?>
-  <li class="nav-header" style="background: linear-gradient(rgb(238, 238, 238), rgb(204, 204, 204)); border-radius: 5px 5px 0px 0px;">
+  <li class="divider"></li>
+  <li class="nav-header">
       <?php echo $_("".$group["name"])?>
       <img class="question_mark" id="<?php echo $group->infobox ?>" src="icons/question_icon.png" >
   </li>
