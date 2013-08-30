@@ -121,7 +121,7 @@
 
   <ul class="nav nav-list spatial-datalist">
     <?php foreach($xmlobj->variables->group as $group) { 
-            foreach($group->datatype as $datatype { ?>
+            foreach($group->datatype as $datatype) { ?>
               <li class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="javascript:void(0)"><i></i>
                   <?php echo $datatype['title'] ?>
