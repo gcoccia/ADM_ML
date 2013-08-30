@@ -422,3 +422,11 @@ ul.data-extraction>li>a, ul.ts-selection>li>a
 div#sidebar1, #AnimationForm {
   font-size: 12px;
 }
+
+.nav li+.nav-header {
+  margin-top: 3px;
+}
+
+.nav-list .divider {
+  margin: 3px 1px;
+}
