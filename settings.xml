@@ -18,13 +18,13 @@
       <dataset="etc" ts="DY"></dataset>
     </datatype>
     <datatype name="tmax" units="K" title="Maximum Temperature (C)">
-      <dataset="PGF"  ts="D" ></dataset>
+      <dataset="PGF" ts="D"></dataset>
     </datatype>
     <datatype name="tmin" units="K" title="Minimum Temperature (C)">
-      <dataset="PGF"  ts="D"></dataset>
+      <dataset="PGF" ts="D"></dataset>
     </datatype>
     <datatype name="wind" units="m/s" title="Wind (m/s)">
-      <dataset="PGF"  ts="M" ></dataset>
+      <dataset="PGF" ts="M" ></dataset>
     </datatype>
     <infobox>1</infobox>
   </group>
