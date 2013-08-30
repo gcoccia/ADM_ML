@@ -38,23 +38,25 @@ function update_animation()
   ReadTimeInterval();
   var dataset = $("ul.datalist>li>ul.dropdown-menu>li.active").find("a").attr('id');
 
-  //Fill up the Array of image strings
-  ImageTimeArray[dataset] = new Array();
-  ImageStrArray[dataset] = new Array();
+  if(!(typeof dataset === "undefined")) {
+    //Fill up the Array of image strings
+    ImageTimeArray[dataset] = new Array();
+    ImageStrArray[dataset] = new Array();
 
-/*  if (time_flag == "SPI")ImageArrayPrep_SPI(ImageStrArray[j],ImageRootArray[j],ImageTimeArray[j]);
-  else ImageArrayPrep(ImageStrArray[j],ImageRootArray[j],ImageTimeArray[j]);*/
+  /*  if (time_flag == "SPI")ImageArrayPrep_SPI(ImageStrArray[j],ImageRootArray[j],ImageTimeArray[j]);
+    else ImageArrayPrep(ImageStrArray[j],ImageRootArray[j],ImageTimeArray[j]);*/
 
-  ImageArrayPrep(ImageStrArray[dataset], ImageTimeArray[dataset]);
-  display_colorbar(dataset);
+    ImageArrayPrep(ImageStrArray[dataset], ImageTimeArray[dataset]);
+    display_colorbar(dataset);
 
-  var time_delay = 1000*1/frames_per_second;
+    var time_delay = 1000*1/frames_per_second;
 
-  overlay_obj[dataset] = new ImageOverlay(bounds, ImageStrArray[dataset][0], map_array[0], dataset);
-  ChangeTimeStamp(1, ImageCounter, dataset);
-  ImageCounter = 1;
+    overlay_obj[dataset] = new ImageOverlay(bounds, ImageStrArray[dataset][0], map_array[0], dataset);
+    ChangeTimeStamp(1, ImageCounter, dataset);
+    ImageCounter = 1;
 
-  t = setInterval(next_image, time_delay);
+    t = setInterval(next_image, time_delay);
+  }
 }
 
 function next_image()
