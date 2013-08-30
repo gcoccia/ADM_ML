@@ -103,7 +103,7 @@ $info_box_strings = array(1 => $_("Weather data used to drive the hydrologic mod
   var data_timesteps = [];
   <?php foreach($xmlobj->variables->group as $group) {
     foreach($group->datatype as $dt) {
-      foreach($dt->dataset as $ds)
+      foreach($dt->dataset as $ds) {
         echo "data_timesteps[\"".$ds['name']."_".$dt['name']."\"] = \"".$ds['ts']."\";\n";
       }
     }
