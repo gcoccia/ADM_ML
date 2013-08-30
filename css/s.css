@@ -421,6 +421,7 @@ ul.data-extraction>li>a, ul.ts-selection>li>a
 
 div#sidebar1 {
   font-size: 12px;
+  padding-bottom: 5px;
 }
 
 .nav li+.nav-header {
