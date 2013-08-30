@@ -226,12 +226,19 @@ $info_box_strings = array(1 => $_("Weather data used to drive the hydrologic mod
         update_animation();
       }
     });
-    $("ul.datalist>li>a").click(function() {
+
+    // When you click a dataset from a dropdown menu...
+    $("ul.datalist>li>ul.dropdown-menu>li>a").click(function() {
       if(!$(this).parent().hasClass("active")) {
         $("ul.datalist>li").removeClass("active");
+        $("ul.datalist>li>ul.dropdown-menu>li").removeClass("active");
         $("ul.datalist>li>a>i").removeClass("icon-ok");
+        $("ul.datalist>li>ul.dropdown-menu>li>a>i").removeClass("icon-ok");
+
         $(this).parent().addClass("active");
+        $(this).parent().parent().parent().addClass("active");
         $(this).find('i').addClass("icon-ok");
+        $(this).parent().parent().parent().find("a>i").addClass("active");
       }
     });
   });
