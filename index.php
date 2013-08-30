@@ -102,8 +102,10 @@ $info_box_strings = array(1 => $_("Weather data used to drive the hydrologic mod
   var info_box_strings = <?php echo json_encode($info_box_strings, JSON_NUMERIC_CHECK) ?>;
   var data_timesteps = [];
   <?php foreach($xmlobj->variables->group as $group) {
-    foreach($group->variable as $var) {
-      echo "data_timesteps[\"".$var['dataset']."_".$var['name']."\"] = \"".$var['ts']."\";\n";
+    foreach($group->datatype as $dt) {
+      foreach($dt->dataset as $ds)
+        echo "data_timesteps[\"".$ds['name']."_".$dt['name']."\"] = \"".$ds['ts']."\";\n";
+      }
     }
   } ?>
 
