@@ -118,13 +118,24 @@
   <br>
   <br>
   <?php echo $_('Choose the variables')?>: <br>
-  <div class="checkbox inline">
-    <label><input type="checkbox" name="variables_spatial_data[]" value="prec-PGF"><?php echo $_('prec_pgf')?></label>
-    <label><input type="checkbox" name="variables_spatial_data[]" value="tmax-PGF"><?php echo $_('tmax_pgf')?></label>
-    <label><input type="checkbox" name="variables_spatial_data[]" value="tmin-PGF"><?php echo $_('tmin_pgf')?></label>
-    <label><input type="checkbox" name="variables_spatial_data[]" value="wind-PGF"><?php echo $_('wind_pgf')?></label>
-    <label><input type="checkbox" name="variables_spatial_data[]" value="vcpct-VIC_DERIVED_PGF"><?php echo $_('vcpct_vic_derived_pgf')?></label>
-  </div>
+
+  <ul class="nav nav-list datalist">
+    <?php foreach($group->datatype as $datatype) { ?>
+      <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="javascript:void(0)"><i></i>
+          <?php echo $datatype['title'] ?>
+          <b class="caret"></b>
+        </a>
+        <div class="dropdown-menu checkbox inline">
+          <li class="nav-header"><?php echo $_("Dataset")?></li>
+          <?php foreach($datatype->dataset as $dataset) { ?>
+          <label><input type="checkbox" name="variables_spatial_data[]" value="<?php echo $datatype['name']."-".$dataset['name'] ?>" href="javascript:void(0)"><i></i><?php echo $dataset['name']?></label>
+          <?php } ?>
+        </div>
+      </li>
+    <?php } ?>
+  </ul>
+
   <br>
   <?php echo $_('Choose the file format')?>: <br>
   <div class="radio inline">
