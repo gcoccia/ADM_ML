@@ -12,6 +12,8 @@ function update_timestep()
       if(ddlink.parent().hasClass("active")) {
         ddlink.parent().removeClass("active");
         ddlink.parent().parent().parent().removeClass("active");
+        ddlink.parent().parent().parent().find("a.dropdown-toggle>i").removeClass("icon-ok");
+        ddlink.find('i').removeClass("icon-ok");
       }
     }
     else
