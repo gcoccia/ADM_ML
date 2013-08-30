@@ -93,10 +93,10 @@
 
 <!--Sidebar for spatial data selection - hidden by default -->
 <div id="Spatial-Sidebar" style="display: none">
-  <li class="nav-header" style="background: linear-gradient(rgb(238, 238, 238), rgb(204, 204, 204)); border-radius: 5px 5px 0px 0px;">
-    <?php echo $_("Spatial Data Selection") ?>
-  </li>
-  <i>Click points on the map to draw a polygon and select spatial data.</i>
+  <li class="divider"></li>
+  <li class="nav-header"><?php echo $_("Spatial Data Selection") ?></li>
+
+  <i><?php echo $_("Click points on the map to draw a polygon and select spatial data.") ?></i>
 
  <!--  <?php echo $_('Lower Left Corner Latitude')?>: <input type="text" name="llclat_spatial_data" value=0><br>
   <?php echo $_('Lower Left Corner Longitude')?>: <input type="text" name="llclon_spatial_data" value=0><br>
