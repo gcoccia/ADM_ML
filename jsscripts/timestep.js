@@ -32,15 +32,16 @@ function update_timestep()
     $("input[id='month_initial'], input[id='month_final']").show(150, function() {});
 
   // loop through dropdown list and hide anything with no dropdown links
-  $("ul.datalist>li").each(function(index, elem) {
-    if(elem.find("ul.dropdown-menu>li").filter(function() {
+  $("ul.datalist>li").each(function(index) {
+    if($(this).find("ul.dropdown-menu>li").filter(function() {
       return  !$(this).hasClass("nav-header") &&
               $(this).css('display') != 'none' && 
               $(this).css('visibility') != 'hidden';
     }).length == 0) {
-      elem.hide(150, function() {});
+      $(this).hide(150, function() {});
     } else {
-      elem.show(150, function() {});
+      $(this).show(150, function() {});
+      console.log("ELSE");
     }
   });
 }
