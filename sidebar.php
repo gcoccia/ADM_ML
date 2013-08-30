@@ -119,7 +119,7 @@
   <br>
   <?php echo $_('Choose the variables')?>: <br>
 
-  <ul class="nav nav-list datalist">
+  <ul class="nav nav-list spatial-datalist">
     <?php foreach($group->datatype as $datatype) { ?>
       <li class="dropdown">
         <a class="dropdown-toggle" data-toggle="dropdown" href="javascript:void(0)"><i></i>
