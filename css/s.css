@@ -419,6 +419,6 @@ ul.data-extraction>li>a, ul.ts-selection>li>a
   padding-right: 8px;
 }
 
-div#sidebar1 {
+div#sidebar1, #AnimationForm {
   font-size: 12px;
 }
