@@ -410,7 +410,43 @@ div.data-form-block
     display: inline-block;
     float: none; /* Very important */
 }
+ul.data-extraction, ul.ts-selection
+{
+  font-size: 12px;
+/*  text-transform: uppercase;*/
+  margin-bottom: 10px;
+}
+ul.data-extraction>li>a, ul.ts-selection>li>a
+{
+  margin-right: 0px;
+  line-height: 10px;
+  padding-left: 8px;
+  padding-right: 8px;
+}
 
+div#sidebar1 {
+  font-size: 12px;
+  padding-bottom: 5px;
+}
 
+.nav li+.nav-header {
+  margin-top: 3px;
+}
 
+.nav-list .divider {
+  margin: 3px 1px;
+}
 
+form#AnimationForm {
+  margin-bottom: 10px;
+  font-size: 12px;
+}
+
+ul.datalist>li>a, ul.spatial-datalist>li>a {
+  padding-top: 1px;
+  padding-bottom: 1px;
+}
+ul.datalist>li>ul.dropdown-menu>li>a, ul.spatial-datalist>li>ul.dropdown-menu>li>a {
+  padding-top: 1px;
+  padding-bottom: 1px;
+}

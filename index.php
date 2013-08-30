@@ -86,7 +86,6 @@ $info_box_strings = array(1 => $_("Weather data used to drive the hydrologic mod
 <link href='http://fonts.googleapis.com/css?family=Raleway:200' rel='stylesheet' type='text/css'>
 <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
 <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
-<script type="text/javascript" src="jsscripts/popupcss.js"></script>
 <script type="text/javascript" src="jsscripts/MiscFunctions.js"></script>
 <script type="text/javascript" src="jsscripts/VarDeclaration.js"></script>
 <script type="text/javascript" src="jsscripts/AnimationPrep.js"></script>
@@ -97,14 +96,16 @@ $info_box_strings = array(1 => $_("Weather data used to drive the hydrologic mod
 <script type="text/javascript" src="jsscripts/data_extraction.js"></script>
 <script src="http://code.highcharts.com/highcharts.js" type="text/javascript"></script>
 <script src="http://code.highcharts.com/modules/exporting.js" type="text/javascript"></script>
-<script type="text/javasdcript" src="jsscripts/bootstrap.min.js"></script>
+<script type="text/javascript" src="jsscripts/bootstrap.min.js"></script>
 <script type="text/javascript">
   var basinImage  = <?php echo $mask_gauge ?>;
   var info_box_strings = <?php echo json_encode($info_box_strings, JSON_NUMERIC_CHECK) ?>;
   var data_timesteps = [];
   <?php foreach($xmlobj->variables->group as $group) {
-    foreach($group->variable as $var) {
-      echo "data_timesteps[\"".$var['dataset']."_".$var['name']."\"] = \"".$var['ts']."\";\n";
+    foreach($group->datatype as $dt) {
+      foreach($dt->dataset as $ds) {
+        echo "data_timesteps[\"".$ds['name']."_".$dt['name']."\"] = \"".$ds['ts']."\";\n";
+      }
     }
   } ?>
 
@@ -180,8 +181,13 @@ $info_box_strings = array(1 => $_("Weather data used to drive the hydrologic mod
     });
     $("#clear_all").click(function() {
       clear_all_overlays();
+      // Turn off the active chosen datasets
+      $("ul.datalist>li").removeClass("active");
+      $("ul.datalist>li>ul.dropdown-menu>li").removeClass("active");
+      $("ul.datalist>li>a>i").removeClass("icon-ok");
+      $("ul.datalist>li>ul.dropdown-menu>li>a>i").removeClass("icon-ok");
     });
-    $("input[name=group1]:radio, input[name=ts-radio]:radio").change(function() {
+    $("input[name=group1]:radio").change(function() {
       update_timestep();
       update_animation();
     });
@@ -210,6 +216,40 @@ $info_box_strings = array(1 => $_("Weather data used to drive the hydrologic mod
     $( "input[id='year_final']" ).change(function() {
       if($(this).val() < 1948 || $(this).val() > 2013)
         $(this).val(year_final);
+    });
+
+
+    $(".de-pills").click(function() {
+      if(!$(this).parent().hasClass("active")) { // only act on change
+        $(".de-pills").parent().removeClass("active");
+        $(this).parent().addClass("active");
+      }
+    });
+    $(".ts-pills").click(function() {
+      if(!$(this).parent().hasClass("active")) {
+        $(".ts-pills").parent().removeClass("active");
+        $(this).parent().addClass("active");
+        update_timestep();
+        update_animation();
+      }
+    });
+
+    // When you click a dataset from a dropdown menu...
+    // Check if it's different than the previously chosen one. If so, do a bunch of stuff.
+    $("ul.datalist>li>ul.dropdown-menu>li>a").click(function() {
+      if(!$(this).parent().hasClass("active")) {
+        $("ul.datalist>li").removeClass("active");
+        $("ul.datalist>li>ul.dropdown-menu>li").removeClass("active");
+        $("ul.datalist>li>a>i").removeClass("icon-ok");
+        $("ul.datalist>li>ul.dropdown-menu>li>a>i").removeClass("icon-ok");
+
+        $(this).parent().addClass("active");
+        $(this).parent().parent().parent().addClass("active");
+        $(this).find('i').addClass("icon-ok");
+        $(this).parent().parent().parent().find("a.dropdown-toggle>i").addClass("icon-ok");
+
+        update_animation();
+      }
     });
   });
 
