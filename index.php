@@ -228,6 +228,7 @@ $info_box_strings = array(1 => $_("Weather data used to drive the hydrologic mod
     });
 
     // When you click a dataset from a dropdown menu...
+    // Check if it's different than the previously chosen one. If so, do a bunch of stuff.
     $("ul.datalist>li>ul.dropdown-menu>li>a").click(function() {
       if(!$(this).parent().hasClass("active")) {
         $("ul.datalist>li").removeClass("active");
@@ -239,6 +240,8 @@ $info_box_strings = array(1 => $_("Weather data used to drive the hydrologic mod
         $(this).parent().parent().parent().addClass("active");
         $(this).find('i').addClass("icon-ok");
         $(this).parent().parent().parent().find("a.dropdown-toggle>i").addClass("icon-ok");
+
+        update_animation();
       }
     });
   });
