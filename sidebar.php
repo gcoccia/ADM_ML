@@ -10,9 +10,9 @@
 
   <form id="AnimationForm" name="AnimationForm">
     <ul class="nav nav-pills ts-selection">
-      <li class="active"><a href="javascript:void(0)" id="daily" class="ts-pills"><?php echo $_("Daily")?></a></li>
-      <li><a href="javascript:void(0)" id="monthly" class="ts-pills"><?php echo $_("Monthly")?></a></li>
-      <li><a href="javascript:void(0)" id="yearly" class="ts-pills"><?php echo $_("Yearly")?></a></li>
+      <li id="daily" class="active"><a href="javascript:void(0)" class="ts-pills"><?php echo $_("Daily")?></a></li>
+      <li id="monthly"><a href="javascript:void(0)" class="ts-pills"><?php echo $_("Monthly")?></a></li>
+      <li id="yearly"><a href="javascript:void(0)"class="ts-pills"><?php echo $_("Yearly")?></a></li>
     </ul>
     <label class="control-label"><?php echo $_("Time Interval")." (".$_("dd/mm/yyyy")."):"?></label>
     <div class="control-group form-inline">

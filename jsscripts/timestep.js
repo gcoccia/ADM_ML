@@ -1,6 +1,6 @@
 function update_timestep()
 {
-  var current_timestep = $("input[name='ts-radio']:checked").attr('id');
+  var current_timestep = $("ul.ts-selection li.active").attr('id');
   var abbrevs = {"daily": "D", "monthly": "M", "yearly": "Y"};
 
   for(dataset in data_timesteps) {
