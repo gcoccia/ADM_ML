@@ -57,7 +57,7 @@
         </a>
         <ul class="dropdown-menu">
           <?php foreach($datatype->dataset as $dataset) { ?>
-          <li><a id="<?php echo $datatype['name']."_".$dataset['name'] ?>" href="javascript:void(0)"><i></i><?php echo $dataset['name']?></a></li>
+          <li><a id="<?php echo $dataset['name']."_".$datatype['name'] ?>" href="javascript:void(0)"><i></i><?php echo $dataset['name']?></a></li>
           <?php } ?>
         </ul>
       </li>
