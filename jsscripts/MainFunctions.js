@@ -37,7 +37,7 @@ function update_animation()
   clear_image_overlays();
   ReadTimeInterval();
   var dataset = $("ul.datalist>li>ul.dropdown-menu>li.active").find("a").attr('id');
-
+  console.log(dataset);
   //Fill up the Array of image strings
   ImageTimeArray[dataset] = new Array();
   ImageStrArray[dataset] = new Array();
