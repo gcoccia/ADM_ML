@@ -180,7 +180,7 @@ $info_box_strings = array(1 => $_("Weather data used to drive the hydrologic mod
     $("#clear_all").click(function() {
       clear_all_overlays();
     });
-    $("input[name=group1]:radio, input[name=ts-radio]:radio").change(function() {
+    $("input[name=group1]:radio").change(function() {
       update_timestep();
       update_animation();
     });
@@ -210,13 +210,21 @@ $info_box_strings = array(1 => $_("Weather data used to drive the hydrologic mod
       if($(this).val() < 1948 || $(this).val() > 2013)
         $(this).val(year_final);
     });
+
+
     $(".de-pills").click(function() {
-      $(".de-pills").parent().removeClass("active");
-      $(this).parent().addClass("active");
+      if(!$(this).hasClass("active")) { // only act on change
+        $(".de-pills").parent().removeClass("active");
+        $(this).parent().addClass("active");
+      }
     });
     $(".ts-pills").click(function() {
-      $(".ts-pills").parent().removeClass("active");
-      $(this).parent().addClass("active");
+      if(!$(this).hasClass("active")) {
+        $(".ts-pills").parent().removeClass("active");
+        $(this).parent().addClass("active");
+        update_timestep();
+        update_animation();
+      }
     });
   });
 
