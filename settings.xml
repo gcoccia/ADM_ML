@@ -12,7 +12,11 @@
 <variables>
 
   <group name="Meteorology" divtitle="Forcing">
-    <variable name="prec" dataset="PGF" units="mm/day" ts="DMY" title="Precipitation (mm/day)"></variable>
+    <datatype name="prec" units="mm/day" title="Precipitation (mm/day)">
+      <dataset="TRMM" ts="DMY"></dataset>
+      <dataset="PGF" ts="DM"></dataset>
+      <dataset="etc" ts="DY"></dataset>
+    </datatype>
     <variable name="tmax" dataset="PGF" units="K" ts="D" title="Maximum Temperature (C)"></variable>
     <variable name="tmin" dataset="PGF" units="K" ts="D" title="Minimum Temperature (C)"></variable>
     <variable name="wind" dataset="PGF" units="m/s" ts="M" title="Wind (m/s)"></variable>

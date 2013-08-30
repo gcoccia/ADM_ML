@@ -54,13 +54,24 @@
       <img class="question_mark" id="<?php echo $group->infobox ?>" src="icons/question_icon.png" >
   </li>
  <!-- <div id="<?php echo $group['divtitle']."_div"?>" class="data-form-block"> -->
-  <div class="radio inline">
-    <?php foreach($group->variable as $var) { ?>
-      <label class="dataset" for="<?php echo $var['dataset']."_".$var['name'] ?>">
+  <div>
+    <?php foreach($group->datatype as $datatype) { ?>
+      <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="javascript:void(0)">
+          <?php echo $datatype['title'] ?>
+          <b class="caret"></b>
+        </a>
+        <ul class="dropdown-menu">
+          <li>AAA</li>
+          <li>BBB</li>
+        </ul>
+      </li>
+
+<!--       <label class="dataset" for="<?php echo $var['dataset']."_".$var['name'] ?>">
              <input id="<?php echo $var['dataset']."_".$var['name'] ?>" 
              type="radio" class="data-radio" name="group1" value="<?php echo $var["name"]?>"
              <?php if(strcmp($xmlobj->variables->default["tag"],$var["name"]) == 0) echo "checked=true"?>> <?php echo $_("".$var["title"])?> 
-      </label>
+      </label> -->
     <?php } ?>
   </div>
 <?php } ?>
