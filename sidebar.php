@@ -1,5 +1,6 @@
       <ul class="nav nav-list" data-spy="affix" data-offset-top="900">
-         <li class="nav-header" style="background: linear-gradient(rgb(238, 238, 238), rgb(204, 204, 204)); border-radius: 5px 5px 0px 0px;"><a><?php echo $_("Animation Interface")?></a></li> 
+         <div id="data-form-expand">
+         <li class="nav-header" style="background: linear-gradient(rgb(238, 238, 238), rgb(204, 204, 204)); border-radius: 5px 5px 0px 0px;"><?php echo $_("Animation Interface")?></li> 
         <div class="data-form-block">
         <form id="AnimationForm" name="AnimationForm">
          <div class="btn-group form-inline">
@@ -39,12 +40,15 @@
       </table>
      </form>
      </div>
+     </div>
 
      <!--       Consider floating the opacity options over the map <?php echo $_("Image Opacity")?>:
       <input type="button" value="-" onclick="update_overlay_opacity(0)">
       <input type="button" value="+" onclick="update_overlay_opacity(1)"><br/> -->
 
+    <div id="data-form-expand">
     <li class="nav-header" style="background: linear-gradient(rgb(238, 238, 238), rgb(204, 204, 204)); border-radius: 5px 5px 0px 0px;"><?php echo $_("Data Extraction") ?></li>
+      <div class="data-form-block">
       <div class="btn-group form-inline">
 	      <label class="radio inline">
                  <input id="none" type="radio" class="de-radio" name="de-radio" checked="true" onclick='Update_Listeners("none")'> None
@@ -56,18 +60,16 @@
                  <input id="spatial" type="radio" class="de-radio" name="de-radio" onclick='Update_Listeners("spatial")'>Spatial
 	      </label>
          </div>
+      </div>
+    </div>   
 
 <?php foreach($xmlobj->variables->group as $group) { ?>
-<!--<div id="<?php echo $group['divtitle']?>" class="sidebar-block">
-  <h1 id="<?php echo $group['divtitle']."_header"?>" class="data-group-header">
-    <?php echo $_("".$group["name"])?> 
-    <img class="question_mark" id="<?php echo $group->infobox ?>" src="icons/question_icon.png" >
-  </h1> -->
-  <li class="nav-header" style="background: linear-gradient(rgb(238, 238, 238), rgb(204, 204, 204)); border-radius: 5px 5px 0px 0px;">
+    <div id="data-form-expand">  
+    <li class="nav-header" style="background: linear-gradient(rgb(238, 238, 238), rgb(204, 204, 204)); border-radius: 5px 5px 0px 0px;">
       <?php echo $_("".$group["name"])?>
       <img class="question_mark" id="<?php echo $group->infobox ?>" src="icons/question_icon.png" >
   </li>
- <!-- <div id="<?php echo $group['divtitle']."_div"?>" class="data-form-block"> -->
+  <div class="data-form-block">
   <div class="radio inline">
     <?php foreach($group->variable as $var) { ?>
       <label class="dataset" for="<?php echo $var['dataset']."_".$var['name'] ?>">
@@ -77,6 +79,8 @@
       </label>
     <?php } ?>
   </div>
+</div>
+</div>
 <?php } ?>
 </ul>
 <div id="Info_Box" style="visibility: hidden;"></div>
