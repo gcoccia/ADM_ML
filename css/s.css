@@ -418,3 +418,7 @@ ul.data-extraction>li>a, ul.ts-selection>li>a
   padding-left: 8px;
   padding-right: 8px;
 }
+
+div#sidebar1 {
+  font-size: 12px;
+}
