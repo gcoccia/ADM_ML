@@ -3,7 +3,10 @@
   <li class="active"><a href="javascript:void(0)" id="none" class="de-box" onclick='Update_Listeners("none")'><?php echo $_("Animation")?></a></li>
   <li><a href="javascript:void(0)" id="point" class="de-box" onclick='Update_Listeners("point")'><?php echo $_("Point Data")?></a></li>
   <li><a href="javascript:void(0)" id="spatial" class="de-box" onclick='Update_Listeners("spatial")'><?php echo $_("Spatial Data")?></a></li>
-</ul>   
+</ul>
+   
+<li class="divider"></li>
+
         <li class="nav-header" style="background: linear-gradient(rgb(238, 238, 238), rgb(204, 204, 204)); border-radius: 5px 5px 0px 0px;"><?php echo $_("Animation Interface")?></li> 
       <form id="AnimationForm" name="AnimationForm">
          <div class="btn-group form-inline">
