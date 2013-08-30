@@ -213,17 +213,25 @@ $info_box_strings = array(1 => $_("Weather data used to drive the hydrologic mod
 
 
     $(".de-pills").click(function() {
-      if(!$(this).hasClass("active")) { // only act on change
+      if(!$(this).parent().hasClass("active")) { // only act on change
         $(".de-pills").parent().removeClass("active");
         $(this).parent().addClass("active");
       }
     });
     $(".ts-pills").click(function() {
-      if(!$(this).hasClass("active")) {
+      if(!$(this).parent().hasClass("active")) {
         $(".ts-pills").parent().removeClass("active");
         $(this).parent().addClass("active");
         update_timestep();
         update_animation();
+      }
+    });
+    $("ul.datalist>li>a").click(function() {
+      if(!$(this).parent().hasClass("active")) {
+        $("ul.datalist>li").removeClass("active");
+        $("ul.datalist>li>a>i").removeClass("icon-ok");
+        $(this).parent().addClass("active");
+        $(this).find('i').addClass("icon-ok");
       }
     });
   });

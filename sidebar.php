@@ -51,13 +51,13 @@
   <ul class="nav nav-list datalist">
     <?php foreach($group->datatype as $datatype) { ?>
       <li class="dropdown">
-        <a class="dropdown-toggle" data-toggle="dropdown" href="javascript:void(0)">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="javascript:void(0)"><i></i>
           <?php echo $datatype['title'] ?>
           <b class="caret"></b>
         </a>
         <ul class="dropdown-menu">
           <?php foreach($datatype->dataset as $dataset) { ?>
-          <li><a id="<?php echo $datatype['name']."_".$dataset['name'] ?>" href="javascript:void(0)"><?php echo $dataset['name']?></a></li>
+          <li><a id="<?php echo $datatype['name']."_".$dataset['name'] ?>" href="javascript:void(0)"><i></i><?php echo $dataset['name']?></a></li>
           <?php } ?>
         </ul>
       </li>
