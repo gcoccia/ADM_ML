@@ -69,11 +69,10 @@
 
 <!--Sidebar for point data selection - hidden by default -->
 <div id="Point-Sidebar" style="display: none">
-  <li class="nav-header" style="background: linear-gradient(rgb(238, 238, 238), rgb(204, 204, 204)); border-radius: 5px 5px 0px 0px;">
-    <?php echo $_("Point Data Selection") ?>
-  </li>
+  <li class="divider"></li>
+  <li class="nav-header"><?php echo $_("Point Data Selection") ?></li>
     
-  <i>Click a point on the map to view time series data.</i>
+  <i><?php echo $_("Click a point on the map to view time series data.") ?></i>
   <br>
   <div class="radio inline">
     <label><input type="radio" name="plot" value="Drought_Indices" checked=checked><?php echo $_('Drought Indices') ?></label>
