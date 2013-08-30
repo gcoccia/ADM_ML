@@ -437,11 +437,11 @@ form#AnimationForm {
   font-size: 12px;
 }
 
-ul.datalist>li>a {
+ul.datalist>li>a, ul.spatial-datalist>li>a {
   padding-top: 1px;
   padding-bottom: 1px;
 }
-ul.datalist>li>ul.dropdown-menu>li>a {
+ul.datalist>li>ul.dropdown-menu>li>a, ul.spatial-datalist>li>ul.dropdown-menu>li>a {
   padding-top: 1px;
   padding-bottom: 1px;
 }
