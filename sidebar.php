@@ -44,17 +44,11 @@
 
 <div id="Animation-Sidebar">
 <?php foreach($xmlobj->variables->group as $group) { ?>
-<!--<div id="<?php echo $group['divtitle']?>" class="sidebar-block">
-  <h1 id="<?php echo $group['divtitle']."_header"?>" class="data-group-header">
-    <?php echo $_("".$group["name"])?> 
-    <img class="question_mark" id="<?php echo $group->infobox ?>" src="icons/question_icon.png" >
-  </h1> -->
   <li class="nav-header" style="background: linear-gradient(rgb(238, 238, 238), rgb(204, 204, 204)); border-radius: 5px 5px 0px 0px;">
       <?php echo $_("".$group["name"])?>
       <img class="question_mark" id="<?php echo $group->infobox ?>" src="icons/question_icon.png" >
   </li>
- <!-- <div id="<?php echo $group['divtitle']."_div"?>" class="data-form-block"> -->
-  <ul class="nav nav-list">
+  <!-- <ul class="nav nav-list">
     <?php foreach($group->datatype as $datatype) { ?>
       <li class="dropdown">
         <a class="dropdown-toggle" data-toggle="dropdown" href="javascript:void(0)">
@@ -63,12 +57,12 @@
         </a>
         <ul class="dropdown-menu">
           <?php foreach($datatype->dataset as $dataset) { ?>
-          <li><a id="AAA" href="javascript:void(0)"><?php echo $dataset['name']?></a></li>
+          <li><a id="<?php echo $datatype['name']."_".$dataset['name'] ?>" href="javascript:void(0)"><?php echo $dataset['name']?></a></li>
           <? } ?>
         </ul>
       </li>
     <?php } ?>
-  </ul>
+  </ul> -->
 <?php } ?>
 </div>
 
