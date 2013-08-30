@@ -149,7 +149,7 @@ $info_box_strings = array(1 => $_("Weather data used to drive the hydrologic mod
     update_animation(); // Start animation with default settings
 
     //Collapsible sidebar elements
-    $(".data-group-header").click(function() {
+    $(".nav-header").click(function() {
       $(this).parent().find(".data-form-block").toggle();
     });
 

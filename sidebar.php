@@ -1,6 +1,7 @@
       <ul class="nav nav-list" data-spy="affix" data-offset-top="900">
-        <li class="nav-header" style="background: linear-gradient(rgb(238, 238, 238), rgb(204, 204, 204)); border-radius: 5px 5px 0px 0px;"><?php echo $_("Animation Interface")?></li> 
-      <form id="AnimationForm" name="AnimationForm">
+         <li class="nav-header" style="background: linear-gradient(rgb(238, 238, 238), rgb(204, 204, 204)); border-radius: 5px 5px 0px 0px;"><a><?php echo $_("Animation Interface")?></a></li> 
+        <div class="data-form-block">
+        <form id="AnimationForm" name="AnimationForm">
          <div class="btn-group form-inline">
 	   <label class="control-label"><?php echo $_("Timestep").":" ?></label>
 	      <label class="radio inline">
@@ -37,6 +38,7 @@
       </tr>
       </table>
      </form>
+     </div>
 
      <!--       Consider floating the opacity options over the map <?php echo $_("Image Opacity")?>:
       <input type="button" value="-" onclick="update_overlay_opacity(0)">
