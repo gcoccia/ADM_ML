@@ -5,19 +5,20 @@ function update_timestep()
 
   for(dataset in data_timesteps) {
     if(data_timesteps[dataset].indexOf(abbrevs[current_timestep]) == -1)
-      $("input[id='" + dataset + "']:radio").parent().hide(150, function() {});
+      $("ul.datalist>li>ul.dropdown-menu>li>a#" + dataset).parent().hide(150, function() {});
     else
-      $("input[id='" + dataset + "']:radio").parent().show(150, function() {});
+      $("ul.datalist>li>ul.dropdown-menu>li>a#" + dataset).parent().show(150, function() {});
   }
 
-  // If the currently-checked button is now disabled, pick a different one
-  var current_dataset = $("input[name='group1']:checked");
+  // If the currently-checked button is now disabled, pick a different one (using artificial click event)
+  var current_dataset = $("ul.datalist>li>ul.dropdown-menu>li.active");
   if(!current_dataset.is(':visible')) {
-    current_dataset.prop('checked', false);
+    current_dataset.removeClass("active");
+    current_dataset.parent().parent().removeClass("active");
 
     for(var dataset in data_timesteps) {
-      if($("input[id='" + dataset + "']:radio").is(':visible')) {
-        $("input[id='" + dataset + "']:radio").prop('checked', true);
+      if($("ul.datalist>li>ul.dropdown-menu>li>a#" + dataset).parent().is(':visible')) {
+        $("ul.datalist>li>ul.dropdown-menu>li>a#" + dataset).click();
         break;
       }
     }
@@ -33,6 +34,12 @@ function update_timestep()
     $("input[id='month_initial'], input[id='month_final']").hide(150, function() {});
   else
     $("input[id='month_initial'], input[id='month_final']").show(150, function() {});
+
+  // loop through dropdown list and hide anything with no dropdown links
+  $("ul.datalist>li").each(function(index) {
+    if($(this).find("ul.dropdown-menu>li:visible").length == 0)
+      $(this).hide(150, function() {});
+  });
 }
 
 function Update_TimeStamp_MP(increment, flag_timestamp)
