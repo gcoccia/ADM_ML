@@ -13,18 +13,18 @@
 
   <group name="Meteorology" divtitle="Forcing">
     <datatype name="prec" units="mm/day" title="Precipitation (mm/day)">
-      <dataset="TRMM" ts="DMY"></dataset>
-      <dataset="PGF" ts="DM"></dataset>
-      <dataset="etc" ts="DY"></dataset>
+      <dataset name="TRMM" ts="DMY"></dataset>
+      <dataset name="PGF" ts="DM"></dataset>
+      <dataset name="etc" ts="DY"></dataset>
     </datatype>
     <datatype name="tmax" units="K" title="Maximum Temperature (C)">
-      <dataset="PGF" ts="D"></dataset>
+      <dataset name="PGF" ts="D"></dataset>
     </datatype>
     <datatype name="tmin" units="K" title="Minimum Temperature (C)">
-      <dataset="PGF" ts="D"></dataset>
+      <dataset name="PGF" ts="D"></dataset>
     </datatype>
     <datatype name="wind" units="m/s" title="Wind (m/s)">
-      <dataset="PGF" ts="M" ></dataset>
+      <dataset name="PGF" ts="M" ></dataset>
     </datatype>
     <infobox>1</infobox>
   </group>

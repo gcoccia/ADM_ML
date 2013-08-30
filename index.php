@@ -2,12 +2,6 @@
 
 if (file_exists('settings.xml')) {
   $xmlobj = simplexml_load_file("settings.xml");
-  if ($xmlobj === false) {
-    echo "Failed loading XML\n";
-    foreach(libxml_get_errors() as $error) {
-        echo "\t", $error->message;
-    }
-  }
 } else { exit("Error: settings.xml file not found."); }
 
 require_once('php-gettext-1.0.11/gettext.inc');
