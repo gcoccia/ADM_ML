@@ -1,5 +1,5 @@
 <ul class="nav nav-list" data-spy="affix" data-offset-top="900">
-<ul class="nav nav-pills">
+<ul class="nav nav-pills data-extraction">
   <li class="active"><a href="javascript:void(0)" id="none" class="de-box" onclick='Update_Listeners("none")'><?php echo $_("Animation")?></a></li>
   <li><a href="javascript:void(0)" id="point" class="de-box" onclick='Update_Listeners("point")'><?php echo $_("Point")?></a></li>
   <li><a href="javascript:void(0)" id="spatial" class="de-box" onclick='Update_Listeners("spatial")'><?php echo $_("Spatial")?></a></li>
