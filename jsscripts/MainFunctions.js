@@ -81,6 +81,12 @@ function clear_image_overlays()
     }
   }
   $("#Colorbar").css({visibility: "hidden", height: ""});
+
+  // Turn off the active chosen datasets
+  $("ul.datalist>li").removeClass("active");
+  $("ul.datalist>li>ul.dropdown-menu>li").removeClass("active");
+  $("ul.datalist>li>a>i").removeClass("icon-ok");
+  $("ul.datalist>li>ul.dropdown-menu>li>a>i").removeClass("icon-ok");
 }
 
 function display_colorbar(dataset)
