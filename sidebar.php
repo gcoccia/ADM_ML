@@ -42,7 +42,7 @@
       <input type="button" value="-" onclick="update_overlay_opacity(0)">
       <input type="button" value="+" onclick="update_overlay_opacity(1)"><br/> -->
 
-<!-- <div id="Animation-Sidebar">
+<div id="Animation-Sidebar">
 <?php foreach($xmlobj->variables->group as $group) { ?>
   <li class="nav-header" style="background: linear-gradient(rgb(238, 238, 238), rgb(204, 204, 204)); border-radius: 5px 5px 0px 0px;">
       <?php echo $_("".$group["name"])?>
@@ -58,13 +58,13 @@
         <ul class="dropdown-menu">
           <?php foreach($datatype->dataset as $dataset) { ?>
           <li><a id="<?php echo $datatype['name']."_".$dataset['name'] ?>" href="javascript:void(0)"><?php echo $dataset['name']?></a></li>
-          <? } ?>
+          <?php } ?>
         </ul>
       </li>
     <?php } ?>
   </ul>
 <?php } ?>
-</div> -->
+</div>
 
 <!--Sidebar for point data selection - hidden by default -->
 <div id="Point-Sidebar" style="display: none">
