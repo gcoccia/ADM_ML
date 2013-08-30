@@ -127,12 +127,14 @@
                   <?php echo $datatype['title'] ?>
                   <b class="caret"></b>
                 </a>
-                <!-- <div class="dropdown-menu checkbox inline">
+                <ul class="dropdown-menu checkbox inline">
                   <li class="nav-header"><?php echo $_("Dataset")?></li>
                   <?php foreach($datatype->dataset as $dataset) { ?>
-                  <label><input type="checkbox" name="variables_spatial_data[]" value="<?php echo $datatype['name']."-".$dataset['name'] ?>" href="javascript:void(0)"><i></i><?php echo $dataset['name']?></label>
+                  <li>
+                    <label><input type="checkbox" name="variables_spatial_data[]" value="<?php echo $datatype['name']."-".$dataset['name'] ?>" href="javascript:void(0)"><i></i><?php echo $dataset['name']?></label>
+                  </li>
                   <?php } ?>
-                </div> -->
+                </ul>
               </li>
     <?php   }
           } 
