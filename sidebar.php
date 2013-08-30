@@ -48,7 +48,7 @@
       <?php echo $_("".$group["name"])?>
       <img class="question_mark" id="<?php echo $group->infobox ?>" src="icons/question_icon.png" >
   </li>
-  <ul class="nav nav-list">
+  <ul class="nav nav-list datalist">
     <?php foreach($group->datatype as $datatype) { ?>
       <li class="dropdown">
         <a class="dropdown-toggle" data-toggle="dropdown" href="javascript:void(0)">

@@ -435,3 +435,8 @@ form#AnimationForm {
   margin-bottom: 10px;
   font-size: 12px;
 }
+
+ul.datalist>li>a {
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
