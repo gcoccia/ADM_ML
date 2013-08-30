@@ -54,7 +54,7 @@
       <img class="question_mark" id="<?php echo $group->infobox ?>" src="icons/question_icon.png" >
   </li>
  <!-- <div id="<?php echo $group['divtitle']."_div"?>" class="data-form-block"> -->
-  <div>
+  <ul class="nav nav-list">
     <?php foreach($group->datatype as $datatype) { ?>
       <li class="dropdown">
         <a class="dropdown-toggle" data-toggle="dropdown" href="javascript:void(0)">
@@ -73,7 +73,7 @@
              <?php if(strcmp($xmlobj->variables->default["tag"],$var["name"]) == 0) echo "checked=true"?>> <?php echo $_("".$var["title"])?> 
       </label> -->
     <?php } ?>
-  </div>
+  </ul>
 <?php } ?>
 </div>
 
