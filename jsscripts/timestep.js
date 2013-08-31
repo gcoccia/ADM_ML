@@ -1,25 +1,26 @@
 function update_timestep()
 {
-  var current_timestep = $("input[name='ts-radio']:checked").attr('id');
+  var current_timestep = $("ul.ts-selection li.active").attr('id');
   var abbrevs = {"daily": "D", "monthly": "M", "yearly": "Y"};
+  var ddlink;
 
   for(dataset in data_timesteps) {
-    if(data_timesteps[dataset].indexOf(abbrevs[current_timestep]) == -1)
-      $("input[id='" + dataset + "']:radio").parent().hide(150, function() {});
-    else
-      $("input[id='" + dataset + "']:radio").parent().show(150, function() {});
-  }
+    ddlink = $("ul.datalist>li>ul.dropdown-menu>li>a#" + dataset);
 
-  // If the currently-checked button is now disabled, pick a different one
-  var current_dataset = $("input[name='group1']:checked");
-  if(!current_dataset.is(':visible')) {
-    current_dataset.prop('checked', false);
+    if(data_timesteps[dataset].indexOf(abbrevs[current_timestep]) == -1) {
+      ddlink.parent().hide(150, function() {});
+      ddlink.parent().removeClass("visible-data");
 
-    for(var dataset in data_timesteps) {
-      if($("input[id='" + dataset + "']:radio").is(':visible')) {
-        $("input[id='" + dataset + "']:radio").prop('checked', true);
-        break;
+      if(ddlink.parent().hasClass("active")) {
+        ddlink.parent().removeClass("active");
+        ddlink.parent().parent().parent().removeClass("active");
+        ddlink.parent().parent().parent().find("a.dropdown-toggle>i").removeClass("icon-ok");
+        ddlink.find('i').removeClass("icon-ok");
       }
+    }
+    else {
+      ddlink.parent().show(150, function() {});
+      ddlink.parent().addClass("visible-data");
     }
   }
 
@@ -33,6 +34,15 @@ function update_timestep()
     $("input[id='month_initial'], input[id='month_final']").hide(150, function() {});
   else
     $("input[id='month_initial'], input[id='month_final']").show(150, function() {});
+
+  // loop through dropdown list and hide anything with no dropdown links
+  $("ul.datalist>li").each(function(index) {
+    if($(this).find("ul.dropdown-menu>li.visible-data").length == 0) {
+      $(this).hide(150, function() {});
+    } else {
+      $(this).show(150, function() {});
+    }
+  });
 }
 
 function Update_TimeStamp_MP(increment, flag_timestamp)

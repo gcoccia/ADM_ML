@@ -5,6 +5,11 @@ var mapPolygon = null,
 function Update_Listeners(type){
 
  if (type == 'none'){
+  // Revert to the animation sidebar, and hide the others
+  $("#Animation-Sidebar").show();
+  $("#Point-Sidebar").hide();
+  $("#Spatial-Sidebar").hide();
+
   //Remove the listeners and lines/polygons from the map
   if(mapPolygon) {
     mapPolygon.stopEdit();
@@ -20,13 +25,30 @@ function Update_Listeners(type){
  }
  else if (type == 'point'){
   //Remove present listeners
-  Update_Listeners('none')
+  Update_Listeners('none');
+  map_array[0].setOptions({draggableCursor:'crosshair'});
+
+  // Switch to the point sidebar
+  $("#Animation-Sidebar").hide();
+  $("#Point-Sidebar").show();
+  $("#Spatial-Sidebar").hide();
+
   //Add the listeners
   google.maps.event.addListener(map_array[0], 'click', function(mEvent) {Point_Data(mEvent.latLng)});
+  google.maps.event.addListener(map_array[0], 'mousemove', function(point) {
+    $("#point-latitude").val(point.latLng.lat());
+    $("#point-longitude").val(point.latLng.lng());
+  });
  }
  else if (type == 'spatial'){
   //Remove present listeners
   Update_Listeners('none');
+
+  // Switch to the spatial sidebar
+  $("#Animation-Sidebar").hide();
+  $("#Point-Sidebar").hide();
+  $("#Spatial-Sidebar").show();
+
   map_array[0].setOptions({draggableCursor:'crosshair'});
   // Add polygon and lines to map
   var polyOptions = { map : map_array[0],
