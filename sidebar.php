@@ -76,7 +76,7 @@
 <div id="Point-Sidebar" style="display: none">
   <li class="divider"></li>
   <li class="nav-header"><?php echo $_("Point Data Selection") ?></li>
-    
+  <div class="data-form-block">  
   <i><?php echo $_("Click a point on the map to view time series data.") ?></i>
   <br>
   <div class="radio inline">
@@ -93,14 +93,14 @@
   <br>
   <input type="text" id="point-longitude" value=19.8750>
   <br>
-
+</div>
 </div>
 
 <!--Sidebar for spatial data selection - hidden by default -->
 <div id="Spatial-Sidebar" style="display: none">
   <li class="divider"></li>
   <li class="nav-header"><?php echo $_("Spatial Data Selection") ?></li>
-
+  <div class="data-form-block">
   <i><?php echo $_("Click points on the map to draw a polygon and select spatial data.") ?></i>
 
  <!--  <?php echo $_('Lower Left Corner Latitude')?>: <input type="text" name="llclat_spatial_data" value=0><br>
@@ -158,5 +158,5 @@
   <br>
 
 </div>  
-
+</div>
 </ul>
