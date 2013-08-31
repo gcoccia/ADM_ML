@@ -155,15 +155,18 @@ $info_box_strings = array("Meteorology" => $_("Weather data used to drive the hy
     });
 */
    
-   $('a').click(function(){
+   $('a').hover(function(){
+     //alert($(this).parent().attr("class")); 
+     if ($(this).parent().attr("class") == "nav-header") {
        var string = info_box_strings[$(this).parent().attr("id")];
-       alert(string);
+       //alert(string);
        $(this).popover({
           content: string,
           html: true,
           placement: 'top',
           container: 'body',
-       });
+          trigger: 'hover'
+       }); }
     });  
           
     $('#hideBtn').click(function() {
