@@ -6,6 +6,7 @@
   </ul>
 
   <li class="divider"></li>
+  <div class="dummy">
   <li class="nav-header"><?php echo $_("Time Interval")." (".$_("dd/mm/yyyy").")"?></li>
   <div class="data-form-block">
   <form id="AnimationForm" name="AnimationForm">
@@ -36,8 +37,8 @@
   </tr>
   </table>
   </form>
-   </div>
-
+  </div>
+  </div>
      <!--       Consider floating the opacity options over the map <?php echo $_("Image Opacity")?>:
       <input type="button" value="-" onclick="update_overlay_opacity(0)">
       <input type="button" value="+" onclick="update_overlay_opacity(1)"><br/> -->
