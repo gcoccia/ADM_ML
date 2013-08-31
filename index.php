@@ -149,11 +149,11 @@ $info_box_strings = array("Meteorology" => $_("Weather data used to drive the hy
     update_timestep();
     update_animation(); // Start animation with default settings
 
-/*    //Collapsible sidebar elements
+    //Collapsible sidebar elements
     $(".nav-header").click(function() {
       $(this).parent().find(".data-form-block").toggle();
     });
-*/
+
    
    $('a').hover(function(){
      //alert($(this).parent().attr("class")); 

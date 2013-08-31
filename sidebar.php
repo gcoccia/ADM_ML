@@ -7,7 +7,7 @@
 
   <li class="divider"></li>
   <li class="nav-header"><?php echo $_("Time Interval")." (".$_("dd/mm/yyyy").")"?></li>
-
+  <div class="data-form-block">
   <form id="AnimationForm" name="AnimationForm">
     <ul class="nav nav-pills ts-selection">
       <li id="daily" class="active"><a href="javascript:void(0)" class="ts-pills"><?php echo $_("Daily")?></a></li>
@@ -36,6 +36,7 @@
   </tr>
   </table>
   </form>
+   </div>
 
      <!--       Consider floating the opacity options over the map <?php echo $_("Image Opacity")?>:
       <input type="button" value="-" onclick="update_overlay_opacity(0)">
