@@ -39,7 +39,7 @@ function ImageArrayPrep(ImageStrArray,ImageTimeArray)
       date_temp.setDate(date_temp.getDate() + 1);
     }
     else if(""+current_timestep == "monthly") {
-      dir_tstring = Mstring + '/' + Dstring;
+      dir_tstring = Ystring + '/' + Mstring;
       tstring = Ystring + Mstring;
       tstamp = Ystring + "/" + Mstring;
       date_temp.setMonth(date_temp.getMonth() + 1);
