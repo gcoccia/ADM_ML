@@ -13,8 +13,8 @@ function ReadTimeInterval()
 function ImageArrayPrep(ImageStrArray,ImageTimeArray)
 {
 
-  var current_timestep = $("input[name='ts-radio']:checked").attr('id');
-  var dataset = $("input[name='group1']:checked").attr('id');
+  var current_timestep = $("ul.ts-selection li.active").attr('id');
+  var dataset = $("ul.datalist>li>ul.dropdown-menu>li.active").find("a").attr('id');
   var initial_date = new Date(year_initial, month_initial-1, day_initial);
   var final_date = new Date(year_final, month_final-1, day_final);
   var date_temp = initial_date;
