@@ -35,15 +35,24 @@
     <datatype name="vc2" units="%" title="Soil Moisture (%) - Layer 2">
       <dataset name="VIC_DERIVED_PGF" ts="DMY" itime="1JAN1950" ftime="31DEC2008"></dataset>
     </datatype>
-    <!--<datatype name="evap" units="mm" title="Evaporation (mm/day)">
-      <dataset name="VIC_PGF" ts="Y" itime="1JAN1948" ftime="31DEC2008"></dataset>
+    <datatype name="evap" units="mm" title="Evaporation (mm/day)">
+      <dataset name="VIC_PGF" ts="DMY" itime="1JAN1950" ftime="31DEC2008"></dataset>
     </datatype>
     <datatype name="runoff" units="mm" title="Surface Runoff (mm/day)">
-      <dataset name="VIC_PGF" ts="DMY" itime="1JAN1948" ftime="31DEC2008"></dataset>
+      <dataset name="VIC_PGF" ts="DMY" itime="1JAN1950" ftime="31DEC2008"></dataset>
     </datatype>
     <datatype name="baseflow" units="mm" title="Baseflow (mm/day)">
-      <dataset name="VIC_PGF" ts="DMY" itime="1JAN1948" ftime="31DEC2008"></dataset>
-    </datatype>-->
+      <dataset name="VIC_PGF" ts="DMY" itime="1JAN1950" ftime="31DEC2008"></dataset>
+    </datatype>
+    <datatype name="r_net" units="W/m^2" title="Net Radiation (W/m^2)">
+      <dataset name="VIC_PGF" ts="DMY" itime="1JAN1950" ftime="31DEC2008"></dataset>
+    </datatype>
+    <datatype name="net_long" units="W/m^2" title="Net Longwave Radiation (W/m^2)">
+      <dataset name="VIC_PGF" ts="DMY" itime="1JAN1950" ftime="31DEC2008"></dataset>
+    </datatype>
+    <datatype name="net_short" units="W/m^2" title="Net Shortwave Radiation (W/m^2)">
+      <dataset name="VIC_PGF" ts="DMY" itime="1JAN1950" ftime="31DEC2008"></dataset>
+    </datatype>
     <datatype name="flw" units="m^3/s" title="Streamflow (m^3/s)">
       <dataset name="ROUTING_VIC_PGF" ts="DMY" itime="1JAN1950" ftime="31DEC2008"></dataset>
     </datatype>
