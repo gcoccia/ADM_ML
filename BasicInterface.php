@@ -35,7 +35,6 @@ $Initial_Time = sprintf("%02d",$Initial_Day)."/".sprintf("%02d",$Initial_Month).
 $Final_Time = sprintf("%02d",$Latest_Day)."/".sprintf("%02d",$Latest_Month)."/".sprintf("%04d",$Latest_Year);
 $Month_Name = array("Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec");
 $Latest_Timestamp = $Month_Name[$Latest_Month-1]."/".sprintf("%02d",$Latest_Day)."/".sprintf("%04d",$Latest_Year);
-
 ?>
 
 <!DOCTYPE html>
@@ -60,8 +59,6 @@ $Latest_Timestamp = $Month_Name[$Latest_Month-1]."/".sprintf("%02d",$Latest_Day)
 <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 <link href="css/s.css" rel=stylesheet> 
 <link rel="stylesheet" type="text/css" media="screen,projection" href="css/Moz.css" title="Moz" />
-<link rel="stylesheet" type="text/css" media="screen" href="css/slimbox.css" />
-<link rel="stylesheet" type="text/css" media="print" href="css/print.css" title="print" />
 </head>
 
 <body style="width:100%; height:100%">
@@ -92,11 +89,12 @@ $Latest_Timestamp = $Month_Name[$Latest_Month-1]."/".sprintf("%02d",$Latest_Day)
     </div>
   </div>
 
+
   <div class="row-fluid">
   <div class='Static_Controls'>
   <form name="TimeForm">
-	{$_("Timestamp")} ({$_("dd/mm/yyyy")}) :  <input type="button" value="<" onclick="Update_Static_Images_Step(0)"><input type="text" size=1 name="latest_day" value=$Latest_Day><input type="text" size=1 name="latest_month" value=$Latest_Month><input type="text" size=3 name="latest_year" value=$Latest_Year><input type="button" value=">" onclick="Update_Static_Images_Step(1)">
-        <input type="button" value="{$_('Update Images')}" onclick="Update_Static_Images()">
+     	<?php echo $_("Timestamp")?> (<?php echo $_("dd/mm/yyyy")?>) :  <input type="button" value="<" onclick="Update_Static_Images_Step(0)"><input type="text" size=1 name="latest_day" value=$Latest_Day><input type="text" size=1 name="latest_month" value=$Latest_Month><input type="text" size=3 name="latest_year" value=$Latest_Year><input type="button" value=">" onclick="Update_Static_Images_Step(1)">
+        <input type="button" value="<?php echo $_('Update Images')?>" onclick="Update_Static_Images()">
         $Initial_Time - $Final_Time
   </form>
   </div>
@@ -164,4 +162,4 @@ $Latest_Timestamp = $Month_Name[$Latest_Month-1]."/".sprintf("%02d",$Latest_Day)
 </div>
 </body>
 </html>
-
+?>
