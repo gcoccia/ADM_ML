@@ -6,8 +6,9 @@
   </ul>
 
   <li class="divider"></li>
+  <div class="dummy">
   <li class="nav-header"><?php echo $_("Time Interval")." (".$_("dd/mm/yyyy").")"?></li>
-
+  <div class="data-form-block">
   <form id="AnimationForm" name="AnimationForm">
     <ul class="nav nav-pills ts-selection">
       <li id="daily" class="active"><a href="javascript:void(0)" class="ts-pills"><?php echo $_("Daily")?></a></li>
@@ -36,7 +37,8 @@
   </tr>
   </table>
   </form>
-
+  </div>
+  </div>
      <!--       Consider floating the opacity options over the map <?php echo $_("Image Opacity")?>:
       <input type="button" value="-" onclick="update_overlay_opacity(0)">
       <input type="button" value="+" onclick="update_overlay_opacity(1)"><br/> -->
@@ -44,10 +46,12 @@
 <div id="Animation-Sidebar">
 <?php foreach($xmlobj->variables->group as $group) { ?>
   <li class="divider"></li>
-  <li class="nav-header">
+  <div class="dummy">
+  <li id=<?php echo $_("".$group["name"])?> class="nav-header">
       <?php echo $_("".$group["name"])?>
-      <img class="question_mark" id="<?php echo $group->infobox ?>" src="icons/question_icon.png" >
+      <a id=<?php echo $_("".$group["name"])?> href="#" data-toggle="popover"><img class="question_mark" src="icons/question_icon.png"></a>
   </li>
+  <div class="data-form-block">
   <ul class="nav nav-list datalist">
     <?php foreach($group->datatype as $datatype) { ?>
       <li class="dropdown">
@@ -64,6 +68,8 @@
       </li>
     <?php } ?>
   </ul>
+  </div>
+  </div>
 <?php } ?>
 </div>
 
@@ -71,7 +77,7 @@
 <div id="Point-Sidebar" style="display: none">
   <li class="divider"></li>
   <li class="nav-header"><?php echo $_("Point Data Selection") ?></li>
-    
+  <div class="data-form-block">  
   <i><?php echo $_("Click a point on the map to view time series data.") ?></i>
   <br>
   <div class="radio inline">
@@ -88,14 +94,14 @@
   <br>
   <input type="text" id="point-longitude" value=19.8750>
   <br>
-
+</div>
 </div>
 
 <!--Sidebar for spatial data selection - hidden by default -->
 <div id="Spatial-Sidebar" style="display: none">
   <li class="divider"></li>
   <li class="nav-header"><?php echo $_("Spatial Data Selection") ?></li>
-
+  <div class="data-form-block">
   <i><?php echo $_("Click points on the map to draw a polygon and select spatial data.") ?></i>
 
  <!--  <?php echo $_('Lower Left Corner Latitude')?>: <input type="text" name="llclat_spatial_data" value=0><br>
@@ -153,6 +159,5 @@
   <br>
 
 </div>  
-
+</div>
 </ul>
-<div id="Info_Box" style="visibility: hidden;"></div>
