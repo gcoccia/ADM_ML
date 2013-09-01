@@ -12,41 +12,40 @@
 <variables>
 
   <group name="Meteorology" divtitle="Forcing">
-    <datatype name="prec" units="mm/day" title="Precipitation (mm/day)">
-      <dataset name="TRMM" ts="DMY"></dataset>
-      <dataset name="PGF" ts="DM"></dataset>
-      <dataset name="etc" ts="DY"></dataset>
+    <datatype name="prec" units="mm/day" title="Precipitation (mm)">
+      <dataset name="3B42RT_BC" ts="DMY" itime="1JAN2003" ftime="31JUL2013"></dataset>
+      <dataset name="PGF" ts="DM" itime="1JAN1950" ftime="31DEC2008"></dataset>
     </datatype>
     <datatype name="tmax" units="K" title="Maximum Temperature (C)">
-      <dataset name="PGF" ts="D"></dataset>
+      <dataset name="PGF" ts="DMY" itime="1JAN1950" ftime="31DEC2008"></dataset>
     </datatype>
     <datatype name="tmin" units="K" title="Minimum Temperature (C)">
-      <dataset name="PGF" ts="D"></dataset>
+      <dataset name="PGF" ts="DMY" itime="1JAN1950" ftime="31DEC2008"></dataset>
     </datatype>
     <datatype name="wind" units="m/s" title="Wind (m/s)">
-      <dataset name="PGF" ts="M" ></dataset>
+      <dataset name="PGF" ts="DMY" itime="1JAN1950" ftime="31DEC2008"></dataset>
     </datatype>
     <infobox>1</infobox>
   </group>
 
   <group name="Hydrologic Variables" divtitle="Model">
-    <datatype name="evap" units="mm/day" title="Evaporation (mm/day)">
-      <dataset name="VIC_PGF" ts="Y" ></dataset>
+    <datatype name="vc1" units="5" title="Soil Moisture (%) - Layer 1">
+      <dataset name="VIC_DERIVED_PGF" ts="DMY" itime="1JAN1950" ftime="31DEC2008"></dataset>
     </datatype>
-    <datatype name="Sm_1" units="???" title="Soil Moisture(%) - Layer 1">
-      <dataset name="VIC_PGF" ts="DMY" ></dataset>
+    <datatype name="vc2" units="%" title="Soil Moisture (%) - Layer 2">
+      <dataset name="VIC_DERIVED_PGF" ts="DMY" itime="1JAN1950" ftime="31DEC2008"></dataset>
     </datatype>
-    <datatype name="Sm_2" units="???" title="Soil Moisture(%) - Layer 2">
-      <dataset name="VIC_PGF" dataset="???"  ts="DMY"></dataset>
+    <!--<datatype name="evap" units="mm" title="Evaporation (mm/day)">
+      <dataset name="VIC_PGF" ts="Y" itime="1JAN1948" ftime="31DEC2008"></dataset>
     </datatype>
-    <datatype name="runoff" units="???" title="Surface Runoff (mm/day)">
-      <dataset name="VIC_PGF" ts="DMY" ></dataset>
+    <datatype name="runoff" units="mm" title="Surface Runoff (mm/day)">
+      <dataset name="VIC_PGF" ts="DMY" itime="1JAN1948" ftime="31DEC2008"></dataset>
     </datatype>
-    <datatype name="baseflow" units="???" title="Baseflow (mm/day)">
-      <dataset name="VIC_PGF" ts="DMY" ></dataset>
-    </datatype>
-    <datatype name="streamflow" units="???" title="Streamflow (mm/day)">
-      <dataset name="VIC_PGF" ts="DMY" ></dataset>
+    <datatype name="baseflow" units="mm" title="Baseflow (mm/day)">
+      <dataset name="VIC_PGF" ts="DMY" itime="1JAN1948" ftime="31DEC2008"></dataset>
+    </datatype>-->
+    <datatype name="flw" units="m^3/s" title="Streamflow (m^3/s)">
+      <dataset name="ROUTING_VIC_PGF" ts="DMY" itime="1JAN1950" ftime="31DEC2008"></dataset>
     </datatype>
 
     <infobox>2</infobox>
@@ -54,16 +53,19 @@
 
   <group name="Drought Products" divtitle="Drought">
     <datatype name="spi1" units="" title="SPI (1 month)">
-      <dataset name="SPI" ts="DMY" ></dataset>
+      <dataset name="SPI" ts="DMY" itime="1JAN1950" ftime="31DEC2008"></dataset>
     </datatype>
     <datatype name="spi3" units="" title="SPI (3 month)">
-      <dataset name="SPI" ts="DMY"></dataset>
+      <dataset name="SPI" ts="DMY" itime="1JAN1950" ftime="31DEC2008"></dataset>
     </datatype>
     <datatype name="spi6" units="" title="SPI (6 month)">
-      <dataset name="SPI" ts="DMY"></dataset>
+      <dataset name="SPI" ts="DMY" itime="1JAN1950" ftime="31DEC2008"></dataset>
     </datatype>
     <datatype name="spi12" units="" title="SPI (12 month)">
-      <dataset name="SPI" ts="DMY"></dataset>
+      <dataset name="SPI" ts="DMY" itime="1JAN1950" ftime="31DEC2008"></dataset>
+    </datatype>
+    <datatype name="vcpct" units="" title="Drought Index (%)">
+      <dataset name="VIC_DERIVED_PGF" ts="DMY" itime="1JAN1950" ftime="31DEC2008"></dataset>
     </datatype>
 
     <infobox>3</infobox>

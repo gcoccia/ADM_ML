@@ -85,7 +85,7 @@ function clear_image_overlays()
 
 function display_colorbar(dataset)
 {
-  var cbar_img = "Data/Colorbar/colorbar_" + dataset + ".png";
+  var cbar_img = "../IMAGES/COLORBARS/" + dataset + ".png";
   $("#Colorbar").css({visibility: "visible", height: "100"});
   $("#Colorbar").html("<img src=" + cbar_img + "></img>");
 }
