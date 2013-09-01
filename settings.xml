@@ -13,72 +13,97 @@
 
   <group name="Meteorology" divtitle="Forcing">
     <datatype name="prec" units="mm/day" title="Precipitation (mm)">
-      <dataset name="3B42RT_BC" ts="DMY" itime="1JAN2003" ftime="31JUL2013"></dataset>
-      <dataset name="PGF" ts="DM" itime="1JAN1950" ftime="31DEC2008"></dataset>
+      <dataset name="3B42RT_BC" ts="DMY" itime="1JAN2008" ftime="31JUL2013"></dataset>
+      <dataset name="PGF" ts="DM" itime="1JAN2008" ftime="31DEC2008"></dataset>
     </datatype>
     <datatype name="tmax" units="K" title="Maximum Temperature (C)">
-      <dataset name="PGF" ts="DMY" itime="1JAN1950" ftime="31DEC2008"></dataset>
+      <dataset name="PGF" ts="DMY" itime="1JAN2008" ftime="31DEC2008"></dataset>
+      <dataset name="GFS_ANALYSIS" ts="DMY" itime="1JAN2008" ftime="31DEC2008"></dataset>
     </datatype>
     <datatype name="tmin" units="K" title="Minimum Temperature (C)">
-      <dataset name="PGF" ts="DMY" itime="1JAN1950" ftime="31DEC2008"></dataset>
+      <dataset name="PGF" ts="DMY" itime="1JAN2008" ftime="31DEC2008"></dataset>
+      <dataset name="GFS_ANALYSIS" ts="DMY" itime="1JAN2008" ftime="31DEC2008"></dataset>
     </datatype>
     <datatype name="wind" units="m/s" title="Wind (m/s)">
-      <dataset name="PGF" ts="DMY" itime="1JAN1950" ftime="31DEC2008"></dataset>
+      <dataset name="PGF" ts="DMY" itime="1JAN2008" ftime="31DEC2008"></dataset>
+      <dataset name="GFS_ANALYSIS" ts="DMY" itime="1JAN2008" ftime="31DEC2008"></dataset>
     </datatype>
     <infobox>1</infobox>
   </group>
 
-  <group name="Hydrologic Variables" divtitle="Model">
+  <group name="Hydrology" divtitle="Model">
     <datatype name="vc1" units="5" title="Soil Moisture (%) - Layer 1">
-      <dataset name="VIC_DERIVED_PGF" ts="DMY" itime="1JAN1950" ftime="31DEC2008"></dataset>
+      <dataset name="VIC_DERIVED_PGF" ts="DMY" itime="1JAN2008" ftime="31DEC2008"></dataset>
     </datatype>
     <datatype name="vc2" units="%" title="Soil Moisture (%) - Layer 2">
-      <dataset name="VIC_DERIVED_PGF" ts="DMY" itime="1JAN1950" ftime="31DEC2008"></dataset>
+      <dataset name="VIC_DERIVED_PGF" ts="DMY" itime="1JAN2008" ftime="31DEC2008"></dataset>
     </datatype>
     <datatype name="evap" units="mm" title="Evaporation (mm/day)">
-      <dataset name="VIC_PGF" ts="DMY" itime="1JAN1950" ftime="31DEC2008"></dataset>
+      <dataset name="VIC_PGF" ts="DMY" itime="1JAN2008" ftime="31DEC2008"></dataset>
+      <dataset name="VIC_3B42RT" ts="DMY" itime="1JAN2008" ftime="31DEC2008"></dataset>
     </datatype>
     <datatype name="runoff" units="mm" title="Surface Runoff (mm/day)">
-      <dataset name="VIC_PGF" ts="DMY" itime="1JAN1950" ftime="31DEC2008"></dataset>
+      <dataset name="VIC_PGF" ts="DMY" itime="1JAN2008" ftime="31DEC2008"></dataset>
+      <dataset name="VIC_3B42RT" ts="DMY" itime="1JAN2008" ftime="31DEC2008"></dataset>
     </datatype>
     <datatype name="baseflow" units="mm" title="Baseflow (mm/day)">
-      <dataset name="VIC_PGF" ts="DMY" itime="1JAN1950" ftime="31DEC2008"></dataset>
-    </datatype>
-    <datatype name="r_net" units="W/m^2" title="Net Radiation (W/m^2)">
-      <dataset name="VIC_PGF" ts="DMY" itime="1JAN1950" ftime="31DEC2008"></dataset>
-    </datatype>
-    <datatype name="net_long" units="W/m^2" title="Net Longwave Radiation (W/m^2)">
-      <dataset name="VIC_PGF" ts="DMY" itime="1JAN1950" ftime="31DEC2008"></dataset>
-    </datatype>
-    <datatype name="net_short" units="W/m^2" title="Net Shortwave Radiation (W/m^2)">
-      <dataset name="VIC_PGF" ts="DMY" itime="1JAN1950" ftime="31DEC2008"></dataset>
+      <dataset name="VIC_PGF" ts="DMY" itime="1JAN2008" ftime="31DEC2008"></dataset>
+      <dataset name="VIC_3B42RT" ts="DMY" itime="1JAN2008" ftime="31DEC2008"></dataset>
     </datatype>
     <datatype name="flw" units="m^3/s" title="Streamflow (m^3/s)">
-      <dataset name="ROUTING_VIC_PGF" ts="DMY" itime="1JAN1950" ftime="31DEC2008"></dataset>
+      <dataset name="ROUTING_VIC_PGF" ts="DMY" itime="1JAN2008" ftime="31DEC2008"></dataset>
+      <dataset name="ROUTING_VIC_3B42RT" ts="DMY" itime="1JAN2008" ftime="31DEC2008"></dataset>
     </datatype>
 
     <infobox>2</infobox>
   </group>
 
-  <group name="Drought Products" divtitle="Drought">
+  <group name="Indices" divtitle="Drought">
     <datatype name="spi1" units="" title="SPI (1 month)">
-      <dataset name="SPI" ts="DMY" itime="1JAN1950" ftime="31DEC2008"></dataset>
+      <dataset name="SPI" ts="DMY" itime="1JAN2008" ftime="31DEC2008"></dataset>
     </datatype>
     <datatype name="spi3" units="" title="SPI (3 month)">
-      <dataset name="SPI" ts="DMY" itime="1JAN1950" ftime="31DEC2008"></dataset>
+      <dataset name="SPI" ts="DMY" itime="1JAN2008" ftime="31DEC2008"></dataset>
     </datatype>
     <datatype name="spi6" units="" title="SPI (6 month)">
-      <dataset name="SPI" ts="DMY" itime="1JAN1950" ftime="31DEC2008"></dataset>
+      <dataset name="SPI" ts="DMY" itime="1JAN2008" ftime="31DEC2008"></dataset>
     </datatype>
     <datatype name="spi12" units="" title="SPI (12 month)">
-      <dataset name="SPI" ts="DMY" itime="1JAN1950" ftime="31DEC2008"></dataset>
+      <dataset name="SPI" ts="DMY" itime="1JAN2008" ftime="31DEC2008"></dataset>
     </datatype>
     <datatype name="vcpct" units="" title="Drought Index (%)">
-      <dataset name="VIC_DERIVED_PGF" ts="DMY" itime="1JAN1950" ftime="31DEC2008"></dataset>
+      <dataset name="VIC_DERIVED_PGF" ts="DMY" itime="1JAN2008" ftime="31DEC2008"></dataset>
+    </datatype>
+    <datatype name="pct30day" units="" title="NDVI Percentile (30-day moving average)">
+      <dataset name="MOD09_NDVI_MA_PCT" ts="DMY" itime="1JAN2008" ftime="31DEC2008"></dataset>
     </datatype>
 
     <infobox>3</infobox>
   </group>
+
+  <group name="Surface Fluxes" divtitle="Fluxes">
+    <datatype name="r_net" units="W/m^2" title="Net Radiation (W/m^2)">
+     <dataset name="VIC_PGF" ts="DMY" itime="1JAN2008" ftime="31DEC2008"></dataset>
+     <dataset name="VIC_3B42RT" ts="DMY" itime="1JAN2008" ftime="31DEC2008"></dataset>
+    </datatype>
+    <datatype name="net_long" units="W/m^2" title="Net Longwave Radiation (W/m^2)">
+     <dataset name="VIC_PGF" ts="DMY" itime="1JAN2008" ftime="31DEC2008"></dataset>
+     <dataset name="VIC_3B42RT" ts="DMY" itime="1JAN2008" ftime="31DEC2008"></dataset>
+    </datatype>
+    <datatype name="net_short" units="W/m^2" title="Net Shortwave Radiation (W/m^2)">
+     <dataset name="VIC_PGF" ts="DMY" itime="1JAN2008" ftime="31DEC2008"></dataset>
+     <dataset name="VIC_3B42RT" ts="DMY" itime="1JAN2008" ftime="31DEC2008"></dataset>
+    </datatype>
+    <infobox>4</infobox>
+   </group>
+
+   <group name="Vegetation" divtitle="Vegetation">
+    <datatype name="ndvi30" units="" title="NDVI (30-day moving average)">
+     <dataset name="MOD09_NDVI_MA" ts="DMY" itime="1JAN2008" ftime="31DEC2008"></dataset>
+    </datatype>
+    <infobox>5</infobox>
+   </group>
+
 
   <default tag="vcpct"></default>
 
