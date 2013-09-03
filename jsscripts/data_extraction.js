@@ -192,7 +192,7 @@ function Request_Data(variables) {
 
   var lat = $("#point-latitude").val();
   var lon = $("#point-longitude").val();
-  var tstep = $("ul.ts-selection li.active").attr('id'); // "daily", "monthly" or "yearly"
+  var tstep = $("ul.ts-selection li.active").attr('id').toUpperCase(); // "daily", "monthly" or "yearly"
   var script = 'python POINT_DATA/Extract_Point_Data.py';
   var input = {idate:initial_date, fdate:final_date, tstep:tstep, lat:lat, lon:lon, variables:variables};
   input = JSON.stringify(input);
