@@ -73,6 +73,7 @@ function Update_Listeners(type){
        mapPolygon.stopEdit();
        mapPolygon.getPath().push(point.latLng);
        mapPolygon.runEdit(true);
+       Update_Spatial_Data_Display();
   });
      
   google.maps.event.addListener(map_array[0], 'rightclick', function () {
@@ -82,6 +83,7 @@ function Update_Listeners(type){
     google.maps.event.clearListeners(map_array[0], "mousemove");
     google.maps.event.clearListeners(map_array[0], "rightclick");
     map_array[0].setOptions({draggableCursor:null});
+    Update_Spatial_Data_Display();
   });
      
   google.maps.event.addListener(map_array[0], 'mousemove', function(point) {
@@ -95,30 +97,20 @@ function Update_Listeners(type){
       followLine2.setPath(followCoordinates2);
     }
   });
-  
-  google.maps.event.addListener(mapPolygon, 'click', function() {
-    Spatial_Data();
+
+  google.maps.event.addListener(mapPolygon, 'dragend', function(point) {
+    Update_Spatial_Data_Display();
   });
 
  }
 }
 
 function Point_Data(latLng){
- //Create the popup
- $("#blanket").show();
- $("#popUpDiv").show();
+  //Create the popup
+  $("#blanket").show();
+  $("#popUpDiv").show();
 
- //Add initial data
- var variables = {SPI:['spi1','spi3','spi6','spi12']};
- Plot_Data(variables,'Drought Indices');
-}
-
-function Spatial_Data(){
-
- //Create the popup
- Data_Extraction_Popup('popUpDiv')
- //Add controls
- Prepare_Spatial_Data_Display()
+  Create_Point_Plot();
 }
 
 function Hide_Data_Extraction_Popup() {
@@ -126,7 +118,20 @@ function Hide_Data_Extraction_Popup() {
   $("#popUpDiv").hide();
 }
 
-function Plot_Data(variables,subtitle) {
+function Create_Point_Plot() {
+
+  var variables, subtitle;
+  var plot = $('input:radio[name=plot]:checked').val();
+  if (plot == "Drought_Indices"){
+    variables = {SPI:['spi1','spi3','spi6','spi12']};
+  }
+  else if (plot == "Water_Balance"){
+    variables = {PGF:['prec'],VIC_PGF:['runoff','baseflow','evap']};
+  }
+  else if (plot == "Surface_Fluxes"){
+    variables = {VIC_PGF:['net_short','net_long','r_net']};
+  };
+  subtitle = plot;
  
  //Request data for these variables
  var Output = Request_Data(variables); 
@@ -205,98 +210,84 @@ function Request_Data(variables) {
   return Output;
 }
 
-function Request_and_Display() {
- plot = $('input:radio[name=plot]:checked').val();
- if (plot == "Drought_Indices"){
-  //Drought Indices
-  var variables = {SPI:['spi1','spi3','spi6','spi12']};
-  Plot_Data(variables,'Drought Indices');
- }
- else if (plot == "Water_Balance"){
-  //Water Balance
-  var variables = {PGF:['prec'],VIC_PGF:['runoff','baseflow','evap']};
-  Plot_Data(variables,'Water Balance');
- }
-  //Precipitation Products
- else if (plot == "Surface_Fluxes"){
-  //Surface Fluxes
-  var variables = {VIC_PGF:['net_short','net_long','r_net']};
-  Plot_Data(variables,'Surface Fluxes');
- };
- //TO DO: 
- //Specify the type of plot on entry per variable, order in plot of variable (e.g. prec at back and column...)
-};
-
 /* Spatial Data functions */
 
-function Prepare_Spatial_Data_Display() {
+function Update_Spatial_Data_Display() {
+  //Get spatial resolution
+  var sres = $('input:radio[name=sres_spatial_data]:checked').val();
+
   //Compute the bounding box
-  lats = []
-  lons = []
+  var lats = []
+  var lons = []
   mapPolygon.getPath().forEach(function(positions) {
     lats.push(positions.lat());
     lons.push(positions.lng());
   });
 
-  var minlat = Math.min.apply(Math, lats); 
-  var minlon = Math.min.apply(Math, lons);   
-  var maxlat = Math.max.apply(Math, lats);  
-  var maxlon = Math.max.apply(Math, lons);  
+  var minlat = Math.min.apply(Math, lats),
+      minlon = Math.min.apply(Math, lons),
+      maxlat = Math.max.apply(Math, lats),
+      maxlon = Math.max.apply(Math, lons),
+      npts = ((maxlat-minlat)/sres)*((maxlon-minlon)/sres);
 
-  //Empty the box
-  $('#popUpDiv').empty();
+  // Compute approximate number of timesteps
+  var initial_date = Date.UTC(parseInt($("#year_initial").val()),
+                           parseInt($("#month_initial").val())-1,
+                           parseInt($("#day_initial").val()))/1000;
+  var final_date = Date.UTC(parseInt($("#year_final").val()),
+                           parseInt($("#month_final").val())-1,
+                           parseInt($("#day_final").val())+1)/1000;
+  var tstep = 86400; // in seconds
+  var tstep_string = $("ul.ts-selection li.active").attr('id'); // "daily", "monthly" or "yearly"
+  if(""+tstep_string == "monthly")
+    tstep *= 30;
+  else if(""+tstep_string == "yearly")
+    tstep *= 365;
+  var nt = (final_date - initial_date)/tstep;
+  var nvars = $("input[name='variables_spatial_data[]']:checked").length;
+  var size_per_value = 8; // ??? 8 bytes? compressed? depends on choice of format?
+  var estimated_download_size = npts*nt*nvars*size_per_value;
 
-  var request = {'minlat': minlat, 'minlon': minlon, 'maxlat': maxlat, 'maxlon': maxlon};
-  //Get the current language and append it to the request
-  var lang = getURLParameter('locale');
-  if(lang != null)
-    request.locale = lang;
-
-  $.ajax({
-    type:"post",
-    url: 'spatial-popup-controls.php',
-    data: request,
-    success: function(response){
-      $('#popUpDiv').html(response);
-    },
-    async: false,
-    cache: false
-  });
+  // then do something with the estimated download size
 }
 
 function Submit_Spatial_Data() {
- var Output;
- //Get info to send to the server to request the data
- //Timestep
- tstep = $('input:radio[name=tstep_spatial_data]:checked').val();
- //Initial Timestamp
- iyear = $('input:text[name=iyear_spatial_data]').val();
- imonth = $('input:text[name=imonth_spatial_data]').val();
- iday = $('input:text[name=iday_spatial_data]').val();
- idate = Date.UTC(parseInt(iyear),parseInt(imonth)-1,parseInt(iday))/1000;
- //Final Timestamp
- fyear = $('input:text[name=fyear_spatial_data]').val();
- fmonth = $('input:text[name=fmonth_spatial_data]').val();
- fday = $('input:text[name=fday_spatial_data]').val();
- fdate = Date.UTC(parseInt(fyear),parseInt(fmonth)-1,parseInt(fday))/1000;
- //Spatial Bounding Box
- llclat = $('input:text[name=llclat_spatial_data]').val();
- llclon = $('input:text[name=llclon_spatial_data]').val();
- urclat = $('input:text[name=urclat_spatial_data]').val();
- urclon = $('input:text[name=urclon_spatial_data]').val();
- //Spatial resolution
- sres = $('input:radio[name=sres_spatial_data]:checked').val();
- //Variables
- var variables = []
- $("input[name='variables_spatial_data[]']:checked").each(function (){variables.push($(this).val());});
- //File format
- format = $('input:radio[name=format_spatial_data]:checked').val();
- //Email
- email = $('input:text[name=email_spatial_data]').val();
- //Define the python script for data extraction
- script = 'python SPATIAL_DATA/Spatial_Data_Request.py';//Extract_Point_Data.py'
- input = {idate:idate,
-          fdate:fdate,
+  var Output;
+  //Get info to send to the server to request the data
+  //Timestep
+  var tstep = $("ul.ts-selection li.active").attr('id');
+  var initial_date = Date.UTC(parseInt($("#year_initial").val()),
+                           parseInt($("#month_initial").val())-1,
+                           parseInt($("#day_initial").val()))/1000;
+  var final_date = Date.UTC(parseInt($("#year_final").val()),
+                           parseInt($("#month_final").val())-1,
+                           parseInt($("#day_final").val()))/1000;
+
+  //Spatial Bounding Box
+  var lats = []
+  var lons = []
+  mapPolygon.getPath().forEach(function(positions) {
+    lats.push(positions.lat());
+    lons.push(positions.lng());
+  });
+  var llclat = Math.min.apply(Math, lats),
+     llclon = Math.min.apply(Math, lons),
+     urclat = Math.max.apply(Math, lats),
+     urclon = Math.max.apply(Math, lons);
+
+  //Spatial resolution
+  var sres = $('input:radio[name=sres_spatial_data]:checked').val();
+  //Variables
+  var variables = []
+  $("input[name='variables_spatial_data[]']:checked").each(function (){variables.push($(this).val());});
+  //File format
+  var format = $('input:radio[name=format_spatial_data]:checked').val();
+  //Email
+  var email = $('input:text[name=email_spatial_data]').val();
+  //Define the python script for data extraction
+  var script = 'python SPATIAL_DATA/Spatial_Data_Request.py';//Extract_Point_Data.py'
+  var input = {idate:initial_date,
+          fdate:final_date,
           tstep:tstep,
           llclat:llclat,
           llclon:llclon,
@@ -307,9 +298,9 @@ function Submit_Spatial_Data() {
           format:format,
           email:email,
           };
- input = JSON.stringify(input);
- request = {script:script,input:input};
- $.ajax({
+  input = JSON.stringify(input);
+  var request = {script:script,input:input};
+  $.ajax({
   type:"post",
   url: 'scripts/Jquery_Python_JSON_Glue.php',//'Spatial_Data_Request.php ',
   data: request,
@@ -318,7 +309,7 @@ function Submit_Spatial_Data() {
   },
   async: false,
   cache: false
- });
- return Output;
+  });
+  return Output;
 }
  

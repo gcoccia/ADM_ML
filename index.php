@@ -187,8 +187,8 @@ $info_box_strings = array("Meteorology" => $_("Weather data used to drive the hy
     $("#update_interval").click(function() {
       var current_setting = $("ul.de-selection li.active>a").attr('id');
       if(""+current_setting == "none") update_animation();
-      else if(""+current_setting == "point") //
-      else //
+      else if(""+current_setting == "point") Create_Point_Plot();
+      else Update_Spatial_Data_Display();
     });
     $("#clear_all").click(function() {
       clear_all_overlays();
