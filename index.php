@@ -304,7 +304,7 @@ $info_box_strings = array("Meteorology" => $_("Weather data used to drive the hy
       <div id="blanket" style="display:none;"></div>
       <div id="popUpDiv" style="display:none;">
         <!--Close window box-->
-        <a onclick="Hide_Data_Extraction_Popup()" style="width:80px; height:10px"><?php echo $_('Close Window') ?></a>
+        <a onclick="Hide_Data_Extraction_Popup()" style="width:80px; height:10px">[X] <?php echo $_('Close Window') ?></a>
         <!--Chart Container-->
         <div id="popup_container"></div>
       </div>
