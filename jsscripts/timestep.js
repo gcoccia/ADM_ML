@@ -84,27 +84,6 @@ function Update_TimeStamp_MP(increment, flag_timestamp)
   $("#day_" + i_or_f).val(date_temp.getDate());
 }
 
-function UpdatePopUpTimestep(j)
-{
-  var j;
-  if(j == 0)//Daily time step
-  {
-    document.getElementById('time_interval_text').innerHTML = '({$_("dd/mm/yyyy")})';
-    document.getElementById('gauge_initial_time').innerHTML = '{$_("Initial Time")}:  <input type="text" size=1 name="gauge_day_initial" value=' + gauge_day_initial + '><input type="text" size=1 name="gauge_month_initial" value=' + gauge_month_initial + '><input type="text" size=3 name="gauge_year_initial" value=' + gauge_year_initial + '>';
-    document.getElementById('gauge_final_time').innerHTML = '{$_("Final Time")}:  <input type="text" size=1 name="gauge_day_final" value=' + gauge_day_final + '><input type="text" size=1 name="gauge_month_final" value=' + gauge_month_final + '><input type="text" size=3 name="gauge_year_final" value=' + gauge_year_final + '>';
-    timestep_flag = 1;
-    SwapGaugeImage(image_type);
-  }
-  if(j == 1) //Monthly time step
-  {
-    document.getElementById('time_interval_text').innerHTML = '({$_("mm/yyyy")})';
-    document.getElementById('gauge_initial_time').innerHTML = '{$_("Initial Time")}:  <input type="text" size=1 name="gauge_month_initial" value=' + gauge_month_initial_monthly + '><input type="text" size=3 name="gauge_year_initial" value=' + gauge_year_initial_monthly + '>';
-    document.getElementById('gauge_final_time').innerHTML = '{$_("Final Time")}:  <input type="text" size=1 name="gauge_month_final" value=' + gauge_month_final_monthly + '><input type="text" size=3 name="gauge_year_final" value=' + gauge_year_final_monthly + '>';
-    timestep_flag = 2;
-    SwapGaugeImage(image_type);
-  }
-}
-
 function data_dates_are_valid()
 {
   var dataset = $("ul.datalist>li>ul.dropdown-menu>li.active").find("a").attr('id');

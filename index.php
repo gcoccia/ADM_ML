@@ -185,7 +185,10 @@ $info_box_strings = array("Meteorology" => $_("Weather data used to drive the hy
      });
 
     $("#update_interval").click(function() {
-      update_animation();
+      var current_setting = $("ul.de-selection li.active>a").attr('id');
+      if(""+current_setting == "none") update_animation();
+      else if(""+current_setting == "point") //
+      else //
     });
     $("#clear_all").click(function() {
       clear_all_overlays();
@@ -296,7 +299,13 @@ $info_box_strings = array("Meteorology" => $_("Weather data used to drive the hy
 <div class="row-fluid" style="width:100%; position: absolute; bottom: 0px; top:110px;">
     <div class="span12" style="height:100%; width=100%;">
       <div id="blanket" style="display:none;"></div>
-      <div id="popUpDiv" style="display:none;"></div>
+      <div id="popUpDiv" style="display:none;">
+        <!--Close window box-->
+        <a onclick="Hide_Data_Extraction_Popup()" style="width:80px; height:10px"><?php echo $_('Close Window') ?></a>
+        <!--Chart Container-->
+        <div id="popup_container"></div>
+      </div>
+
       <div id="Colorbar" style="visibility:hidden;"></div>
       <div id="TimeStamp" style="visibility:hidden;"></div>
       <div id="Logo" style="visibility:hidden;"></div>

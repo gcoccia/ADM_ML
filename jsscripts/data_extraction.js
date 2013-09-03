@@ -105,9 +105,9 @@ function Update_Listeners(type){
 
 function Point_Data(latLng){
  //Create the popup
- Data_Extraction_Popup('popUpDiv');
- //Add controls
- Prepare_Point_Data_Display(latLng) 
+ $("#blanket").show();
+ $("#popUpDiv").show();
+
  //Add initial data
  var variables = {SPI:['spi1','spi3','spi6','spi12']};
  Plot_Data(variables,'Drought Indices');
@@ -121,41 +121,9 @@ function Spatial_Data(){
  Prepare_Spatial_Data_Display()
 }
 
-function Data_Extraction_Popup() {
-  windowname = "popUpDiv";
-  //Place underlying blanket
-  toggle('blanket');
-  //PLace main window
-  toggle(windowname);
-}
-
-function toggle(div_id) {
- var el = document.getElementById(div_id);
- if ( el.style.display == 'none' ) {     el.style.display = 'block';}
- else {el.style.display = 'none';}
-}
-
-/* Point Data functions */
-
-function Prepare_Point_Data_Display(latLng) {
-  //Empty the box
-  $('#popUpDiv').empty();
-  var request = {'latitude': latLng.lat(), 'longitude': latLng.lng()};
-  //Get the current language and append it to the request
-  var lang = getURLParameter('locale');
-  if(lang != null)
-    request.locale = lang;
-
-  $.ajax({
-    type:"post",
-    url: 'point-popup-controls.php',
-    data: request,
-    success: function(response){
-      $('#popUpDiv').html(response);
-    },
-    async: false,
-    cache: false
-  });
+function Hide_Data_Extraction_Popup() {
+  $("#blanket").hide();
+  $("#popUpDiv").hide();
 }
 
 function Plot_Data(variables,subtitle) {
@@ -209,27 +177,32 @@ function Plot_Data(variables,subtitle) {
 
 /*Obtain all the data at once from the server*/
 function Request_Data(variables) {
- var Output;
- idate = Date.UTC(parseInt($("#iyear").val()),parseInt($("#imonth").val()-1),parseInt($("#iday").val()))/1000;
- fdate = Date.UTC(parseInt($("#fyear").val()),parseInt($("#fmonth").val()-1),parseInt($("#fday").val())+1)/1000;
- lat = $("#latitude").val();
- lon = $("#longitude").val();
- tstep = $('input:radio[name=tstep]:checked').val();//"DAILY";
- script = 'python POINT_DATA/Extract_Point_Data.py'
- input = {idate:idate,fdate:fdate,tstep:tstep,lat:lat,lon:lon,variables:variables};
- input = JSON.stringify(input);
- request = {script:script,input:input};
- $.ajax({
-  type:"post",
-  url: 'scripts/Jquery_Python_JSON_Glue.php',
-  data: request,
-  success: function(response){
-   Output = JSON.parse(response);
-  },
-  async: false,
-  cache: false
- });    
- return Output;
+  var Output;
+  var initial_date = Date.UTC(parseInt($("#year_initial").val()),
+                           parseInt($("#month_initial").val())-1,
+                           parseInt($("#day_initial").val()))/1000;
+  var final_date = Date.UTC(parseInt($("#year_final").val()),
+                           parseInt($("#month_final").val())-1,
+                           parseInt($("#day_final").val())+1)/1000;
+
+  var lat = $("#point-latitude").val();
+  var lon = $("#point-longitude").val();
+  var tstep = $("ul.ts-selection li.active").attr('id'); // "daily", "monthly" or "yearly"
+  var script = 'python POINT_DATA/Extract_Point_Data.py'
+  var input = {idate:initial_date, fdate:final_date, tstep:tstep, lat:lat, lon:lon, variables:variables};
+  var input = JSON.stringify(input);
+  var request = {script:script,input:input};
+  $.ajax({
+    type:"post",
+    url: 'scripts/Jquery_Python_JSON_Glue.php',
+    data: request,
+    success: function(response){
+     Output = JSON.parse(response);
+    },
+    async: false,
+    cache: false
+  });    
+  return Output;
 }
 
 function Request_and_Display() {
