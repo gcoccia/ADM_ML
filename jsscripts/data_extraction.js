@@ -184,8 +184,8 @@ function Create_Point_Plot() {
 function Request_Data(variables) {
   var Output;
   // Use hardcoded values for now, rather than the input values.
-  var initial_date = Date.UTC(2001,1,1);
-  var final_date = Date.UTC(2001,1,10);
+  var initial_date = Date.UTC(2001,0,1);
+  var final_date = Date.UTC(2001,0,10);
   /*var initial_date = Date.UTC(parseInt($("#year_initial").val()),
                            parseInt($("#month_initial").val()-1),
                            parseInt($("#day_initial").val()))/1000;
