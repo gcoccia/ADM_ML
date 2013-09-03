@@ -184,10 +184,10 @@ function Create_Point_Plot() {
 function Request_Data(variables) {
   var Output;
   var initial_date = Date.UTC(parseInt($("#year_initial").val()),
-                           parseInt($("#month_initial").val())-1,
+                           parseInt($("#month_initial").val()-1),
                            parseInt($("#day_initial").val()))/1000;
   var final_date = Date.UTC(parseInt($("#year_final").val()),
-                           parseInt($("#month_final").val())-1,
+                           parseInt($("#month_final").val()-1),
                            parseInt($("#day_final").val())+1)/1000;
 
   var lat = $("#point-latitude").val();
