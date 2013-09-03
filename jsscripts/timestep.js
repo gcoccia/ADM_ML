@@ -47,7 +47,7 @@ function update_timestep()
 
 function Update_TimeStamp_MP(increment, flag_timestamp)
 {
-  var current_timestep = $("input[name='ts-radio']:checked").attr('id');
+  var current_timestep = $("ul.ts-selection li.active").attr('id');
   var date_temp, i_or_f;
 
   var initial_date = new Date(parseInt($("#year_initial").val()),
