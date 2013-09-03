@@ -202,6 +202,7 @@ function Request_Data(variables) {
     url: 'scripts/Jquery_Python_JSON_Glue.php',
     data: request,
     success: function(response){
+     console.log(response);
      Output = JSON.parse(response);
     },
     async: false,
