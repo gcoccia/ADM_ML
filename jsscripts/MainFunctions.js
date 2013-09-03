@@ -56,7 +56,7 @@ function update_animation()
       t = setInterval(next_image, time_delay);
     }
     else {
-      alert("Dataset " + dataset + "is only available from " + data_idates[dataset] + " to " + data_fdates[dataset]);
+      alert("Error: Dataset " + dataset + " is only available from " + data_idates[dataset] + " to " + data_fdates[dataset] + ".");
     }
   }
 }
