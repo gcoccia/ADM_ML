@@ -193,8 +193,8 @@ function Request_Data(variables) {
                            parseInt($("#month_final").val()-1),
                            parseInt($("#day_final").val())+1)/1000;*/
 
-  var lat = $("#point-latitude").val();
-  var lon = $("#point-longitude").val();
+  var lat = "34.6250"; //$("#point-latitude").val();
+  var lon = "19.8750"; //$("#point-longitude").val();
   var tstep = $("ul.ts-selection li.active").attr('id').toUpperCase(); // "daily", "monthly" or "yearly"
   var script = 'python POINT_DATA/Extract_Point_Data.py';
   var input = {idate:initial_date, fdate:final_date, tstep:tstep, lat:lat, lon:lon, variables:variables};
