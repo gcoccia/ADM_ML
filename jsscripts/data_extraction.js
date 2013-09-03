@@ -183,12 +183,15 @@ function Create_Point_Plot() {
 /*Obtain all the data at once from the server*/
 function Request_Data(variables) {
   var Output;
-  var initial_date = Date.UTC(parseInt($("#year_initial").val()),
+  // Use hardcoded values for now, rather than the input values.
+  var initial_date = Date.UTC(2001,1,1);
+  var final_date = Date.UTC(2001,1,10);
+  /*var initial_date = Date.UTC(parseInt($("#year_initial").val()),
                            parseInt($("#month_initial").val()-1),
                            parseInt($("#day_initial").val()))/1000;
   var final_date = Date.UTC(parseInt($("#year_final").val()),
                            parseInt($("#month_final").val()-1),
-                           parseInt($("#day_final").val())+1)/1000;
+                           parseInt($("#day_final").val())+1)/1000;*/
 
   var lat = $("#point-latitude").val();
   var lon = $("#point-longitude").val();
@@ -202,7 +205,6 @@ function Request_Data(variables) {
     url: 'scripts/Jquery_Python_JSON_Glue.php',
     data: request,
     success: function(response){
-     console.log(response);
      Output = JSON.parse(response);
     },
     async: false,
