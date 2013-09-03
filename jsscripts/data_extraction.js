@@ -195,7 +195,7 @@ function Request_Data(variables) {
   var tstep = $("ul.ts-selection li.active").attr('id'); // "daily", "monthly" or "yearly"
   var script = 'python POINT_DATA/Extract_Point_Data.py'
   var input = {idate:initial_date, fdate:final_date, tstep:tstep, lat:lat, lon:lon, variables:variables};
-  var input = JSON.stringify(input);
+  input = JSON.stringify(input);
   var request = {script:script,input:input};
   $.ajax({
     type:"post",
