@@ -202,6 +202,9 @@ $info_box_strings = array("Meteorology" => $_("Weather data used to drive the hy
       update_timestep();
       update_animation();
     });
+    $("input[name=plot]:radio").change(function() {
+      Create_Point_Plot();
+    });
 
     // Validation for date entry
     $( "input[id='day_initial']" ).change(function() {
