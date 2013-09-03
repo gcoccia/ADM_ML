@@ -104,3 +104,19 @@ function UpdatePopUpTimestep(j)
     SwapGaugeImage(image_type);
   }
 }
+
+function data_dates_are_valid()
+{
+  var dataset = $("ul.datalist>li>ul.dropdown-menu>li.active").find("a").attr('id');
+  var initial_date = new Date(parseInt($("#year_initial").val()),
+                           parseInt($("#month_initial").val())-1,
+                           parseInt($("#day_initial").val()));
+  var final_date = new Date(parseInt($("#year_final").val()),
+                           parseInt($("#month_final").val())-1,
+                           parseInt($("#day_final").val()));
+
+  if(Date.parse(data_idates[dataset]).valueOf() <= initial_date.valueOf()
+  && Date.parse(data_fdates[dataset]).valueOf() >= final_date.valueOf())
+    return true;
+  else return false; 
+}

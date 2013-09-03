@@ -100,11 +100,13 @@ $info_box_strings = array("Meteorology" => $_("Weather data used to drive the hy
 <script type="text/javascript">
   var basinImage  = <?php echo $mask_gauge ?>;
   var info_box_strings = <?php echo json_encode($info_box_strings, JSON_NUMERIC_CHECK) ?>;
-  var data_timesteps = [];
+  var data_timesteps = [], data_idates = [], data_fdates = [];
   <?php foreach($xmlobj->variables->group as $group) {
     foreach($group->datatype as $dt) {
       foreach($dt->dataset as $ds) {
         echo "data_timesteps[\"".$ds['name']."_".$dt['name']."\"] = \"".$ds['ts']."\";\n";
+        echo "data_idates[\"".$ds['name']."_".$dt['name']."\"] = \"".$ds['itime']."\";\n";
+        echo "data_fdates[\"".$ds['name']."_".$dt['name']."\"] = \"".$ds['ftime']."\";\n";
       }
     }
   } ?>
