@@ -86,9 +86,9 @@
     <label><input type="radio" name="plot" value="Surface_Fluxes" ><?php echo $_('Surface Fluxes') ?></label>
   </div>
   <br>
-  <?php echo $_('Latitude')?>: <span id="point-latitude">-34.6250</p>
+  <?php echo $_('Latitude')?>: <span id="point-latitude"></span>
   <br>
-  <?php echo $_('Longitude')?>: <span id="point-longitude">19.8750</p>
+  <?php echo $_('Longitude')?>: <span id="point-longitude"></span>
   <br>
 </div>
 </div>
