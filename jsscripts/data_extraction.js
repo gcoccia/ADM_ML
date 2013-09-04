@@ -36,8 +36,8 @@ function Update_Listeners(type){
   //Add the listeners
   google.maps.event.addListener(map_array[0], 'click', function(mEvent) {Point_Data(mEvent.latLng)});
   google.maps.event.addListener(map_array[0], 'mousemove', function(point) {
-    $("#point-latitude").val(point.latLng.lat());
-    $("#point-longitude").val(point.latLng.lng());
+    $("#point-latitude").html(point.latLng.lat());
+    $("#point-longitude").html(point.latLng.lng());
   });
  }
  else if (type == 'spatial'){
