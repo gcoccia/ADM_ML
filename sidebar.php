@@ -86,13 +86,9 @@
     <label><input type="radio" name="plot" value="Surface_Fluxes" ><?php echo $_('Surface Fluxes') ?></label>
   </div>
   <br>
-  <?php echo $_('Latitude') ?>
+  <?php echo $_('Latitude')?>: <span id="point-latitude"></span>
   <br>
-  <input type="text" id="point-latitude" value=-34.6250>
-  <br>
-  <?php echo $_('Longitude') ?>
-  <br>
-  <input type="text" id="point-longitude" value=19.8750>
+  <?php echo $_('Longitude')?>: <span id="point-longitude"></span>
   <br>
 </div>
 </div>
@@ -101,14 +97,42 @@
 <div id="Spatial-Sidebar" style="display: none">
   <li class="divider"></li>
   <li class="nav-header"><?php echo $_("Spatial Data Selection") ?></li>
-  <div class="data-form-block">
-  <i><?php echo $_("Click points on the map to draw a polygon and select spatial data.") ?></i>
+  <i><?php echo $_("Click points on the map to draw a polygon and select spatial data. Then select variables below.") ?></i>
+  <br>
 
- <!--  <?php echo $_('Lower Left Corner Latitude')?>: <input type="text" name="llclat_spatial_data" value=0><br>
-  <?php echo $_('Lower Left Corner Longitude')?>: <input type="text" name="llclon_spatial_data" value=0><br>
-  <?php echo $_('Upper Right Corner Latitude')?>: <input type="text" name="urclat_spatial_data" value=0><br>
-  <?php echo $_('Upper Right Corner Longitude')?>: <input type="text" name="urclon_spatial_data" value=0><br>
-   --><br>
+    <?php foreach($xmlobj->variables->group as $group) { ?>
+        <li class="divider"></li>
+        <div class="dummy">
+          <li id=<?php echo $_("".$group["name"])?> class="nav-header">
+              <?php echo $_("".$group["name"])?>
+              <a id=<?php echo $_("".$group["name"])?> href="#" data-toggle="popover"><img class="question_mark" src="icons/question_icon.png"></a>
+          </li>
+          <div class="data-form-block" style="display:none">
+
+          <ul class="nav nav-list spatial-datalist">
+              <?php foreach($group->datatype as $datatype) { ?>
+                <li class="dropdown">
+                  <a class="dropdown-toggle" data-toggle="dropdown" href="javascript:void(0)"><i></i>
+                    <?php echo $datatype['title'] ?>
+                    <b class="caret"></b>
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li class="nav-header"><?php echo $_("Dataset")?></li>
+                    <?php foreach($datatype->dataset as $dataset) { ?>
+                    <li>
+                      <label><input type="checkbox" name="variables_spatial_data[]" value="<?php echo $datatype['name']."-".$dataset['name'] ?>" href="javascript:void(0)"><i></i><?php echo $dataset['name']?></label>
+                    </li>
+                    <?php } ?>
+                  </ul>
+                </li>
+      <?php   } ?>
+          </ul>
+        </div>
+        </div>
+    <?php } ?>
+
+  <br>
+
   <?php echo $_('Spatial resolution (degrees)')?>:
   <div class="btn-group form-inline">
     <label class="radio inline">
@@ -123,31 +147,7 @@
   </div>
   <br>
   <br>
-  <?php echo $_('Choose the variables')?>: <br>
 
-  <ul class="nav nav-list spatial-datalist">
-    <?php foreach($xmlobj->variables->group as $group) { 
-            foreach($group->datatype as $datatype) { ?>
-              <li class="dropdown">
-                <a class="dropdown-toggle" data-toggle="dropdown" href="javascript:void(0)"><i></i>
-                  <?php echo $datatype['title'] ?>
-                  <b class="caret"></b>
-                </a>
-                <ul class="dropdown-menu">
-                  <li class="nav-header"><?php echo $_("Dataset")?></li>
-                  <?php foreach($datatype->dataset as $dataset) { ?>
-                  <li>
-                    <label><input type="checkbox" name="variables_spatial_data[]" value="<?php echo $datatype['name']."-".$dataset['name'] ?>" href="javascript:void(0)"><i></i><?php echo $dataset['name']?></label>
-                  </li>
-                  <?php } ?>
-                </ul>
-              </li>
-    <?php   }
-          } 
-    ?>
-  </ul>
-
-  <br>
   <?php echo $_('Choose the file format')?>: <br>
   <div class="radio inline">
     <label><input type="radio" name="format_spatial_data" value="arc_ascii"><?php echo $_('arc ascii')?></label>
@@ -157,7 +157,6 @@
   <input type="text" name="email_spatial_data"></br>
   <button type="button" onclick="Submit_Spatial_Data()"><?php echo $_('Submit Data Request')?></button>
   <br>
-
-</div>  
+ 
 </div>
 </ul>

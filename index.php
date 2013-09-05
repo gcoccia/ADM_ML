@@ -100,11 +100,13 @@ $info_box_strings = array("Meteorology" => $_("Weather data used to drive the hy
 <script type="text/javascript">
   var basinImage  = <?php echo $mask_gauge ?>;
   var info_box_strings = <?php echo json_encode($info_box_strings, JSON_NUMERIC_CHECK) ?>;
-  var data_timesteps = [];
+  var data_timesteps = [], data_idates = [], data_fdates = [];
   <?php foreach($xmlobj->variables->group as $group) {
     foreach($group->datatype as $dt) {
       foreach($dt->dataset as $ds) {
         echo "data_timesteps[\"".$ds['name']."_".$dt['name']."\"] = \"".$ds['ts']."\";\n";
+        echo "data_idates[\"".$ds['name']."_".$dt['name']."\"] = \"".$ds['itime']."\";\n";
+        echo "data_fdates[\"".$ds['name']."_".$dt['name']."\"] = \"".$ds['ftime']."\";\n";
       }
     }
   } ?>
@@ -183,7 +185,10 @@ $info_box_strings = array("Meteorology" => $_("Weather data used to drive the hy
      });
 
     $("#update_interval").click(function() {
-      update_animation();
+      var current_setting = $("ul.data-extraction li.active>a").attr('id');
+      if(""+current_setting == "none") update_animation();
+      else if(""+current_setting == "point") Create_Point_Plot();
+      else Update_Spatial_Data_Display();
     });
     $("#clear_all").click(function() {
       clear_all_overlays();
@@ -196,6 +201,9 @@ $info_box_strings = array("Meteorology" => $_("Weather data used to drive the hy
     $("input[name=group1]:radio").change(function() {
       update_timestep();
       update_animation();
+    });
+    $("input[name=plot]:radio").change(function() {
+      Create_Point_Plot();
     });
 
     // Validation for date entry
@@ -294,7 +302,13 @@ $info_box_strings = array("Meteorology" => $_("Weather data used to drive the hy
 <div class="row-fluid" style="width:100%; position: absolute; bottom: 0px; top:110px;">
     <div class="span12" style="height:100%; width=100%;">
       <div id="blanket" style="display:none;"></div>
-      <div id="popUpDiv" style="display:none;"></div>
+      <div id="popUpDiv" style="display:none;">
+        <!--Close window box-->
+        <a onclick="Hide_Data_Extraction_Popup()" style="width:80px; height:10px">[X] <?php echo $_('Close Window') ?></a>
+        <!--Chart Container-->
+        <div id="popup_container"></div>
+      </div>
+
       <div id="Colorbar" style="visibility:hidden;"></div>
       <div id="TimeStamp" style="visibility:hidden;"></div>
       <div id="Logo" style="visibility:hidden;"></div>
