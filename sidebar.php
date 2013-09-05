@@ -132,7 +132,8 @@
     <?php } ?>
 
   <br>
-
+  <?php echo $_('Estimated Download Size: ')?>: <span id="estimated-download-size">0</span>
+  <br>
   <?php echo $_('Spatial resolution (degrees)')?>:
   <div class="btn-group form-inline">
     <label class="radio inline">

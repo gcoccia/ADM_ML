@@ -191,12 +191,17 @@ $info_box_strings = array("Meteorology" => $_("Weather data used to drive the hy
       else if(""+current_setting == "spatial") Update_Spatial_Data_Display();
     });
     $("#clear_all").click(function() {
-      clear_all_overlays();
-      // Turn off the active chosen datasets
-      $("ul.datalist>li").removeClass("active");
-      $("ul.datalist>li>ul.dropdown-menu>li").removeClass("active");
-      $("ul.datalist>li>a>i").removeClass("icon-ok");
-      $("ul.datalist>li>ul.dropdown-menu>li>a>i").removeClass("icon-ok");
+      var current_setting = $("ul.data-extraction li.active>a").attr('id');
+      if(""+current_setting == "none") {
+        clear_all_overlays();
+        // Turn off the active chosen datasets
+        $("ul.datalist>li").removeClass("active");
+        $("ul.datalist>li>ul.dropdown-menu>li").removeClass("active");
+        $("ul.datalist>li>a>i").removeClass("icon-ok");
+        $("ul.datalist>li>ul.dropdown-menu>li>a>i").removeClass("icon-ok");
+      }
+      else if(""+current_setting == "point" && $("#popUpDiv").is(":visible")) Hide_Data_Extraction_Popup();
+      else if(""+current_setting == "spatial") UpdateListeners('spatial');
     });
     $("input[name=group1]:radio").change(function() {
       update_timestep();
