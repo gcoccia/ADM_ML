@@ -95,11 +95,10 @@ function Update_Listeners(type){
       var startingPoint2 = mapPolygon.getPath().getAt(0);
       var followCoordinates2 = [startingPoint2, point.latLng];
       followLine2.setPath(followCoordinates2);
-      Update_Spatial_Data_Display();
     }
   });
 
-  google.maps.event.addListener(mapPolygon, 'dragend', function(point) {
+  google.maps.event.addListener(mapPolygon.getPath(), 'set_at', function(point) {
     Update_Spatial_Data_Display();
   });
 
