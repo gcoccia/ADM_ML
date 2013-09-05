@@ -85,7 +85,8 @@ function clear_image_overlays()
 
 function display_colorbar(dataset)
 {
-  var cbar_img = "../IMAGES/COLORBARS/" + dataset + ".png";
+  var current_timestep = $("ul.ts-selection li.active").attr('id').toUpperCase();
+  var cbar_img = "../IMAGES/COLORBARS/" + dataset + "_" + current_timestep + ".png";
   $("#Colorbar").css({visibility: "visible", height: "100"});
   $("#Colorbar").html("<img src=" + cbar_img + "></img>");
 }
