@@ -36,7 +36,7 @@ $Final_Time = sprintf("%02d",$Latest_Day)."/".sprintf("%02d",$Latest_Month)."/".
 $Month_Name = array("Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec");
 $Latest_Timestamp = $Month_Name[$Latest_Month-1]."/".sprintf("%02d",$Latest_Day)."/".sprintf("%04d",$Latest_Year);
 
-
+$text = <<<EOF
 <!DOCTYPE html>
 <html style="height:100%">
 <head>
@@ -161,4 +161,11 @@ $Latest_Timestamp = $Month_Name[$Latest_Month-1]."/".sprintf("%02d",$Latest_Day)
 </div>
 </body>
 </html>
+EOF;
+
+print $text;
+
 ?>
+
+
+
