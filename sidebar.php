@@ -102,7 +102,6 @@
 
     <?php foreach($xmlobj->variables->group as $group) { ?>
         <li class="divider"></li>
-        <div class="dummy">
         <li id=<?php echo $_("".$group["name"])?> class="nav-header">
             <?php echo $_("".$group["name"])?>
             <a id=<?php echo $_("".$group["name"])?> href="#" data-toggle="popover"><img class="question_mark" src="icons/question_icon.png"></a>
