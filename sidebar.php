@@ -148,7 +148,7 @@
   <br>
 
   <div class="btn-group form-inline">
-    <label class="radio inline control-label">$_('File Format')</label>
+    <label class="radio inline control-label"><?php echo $_('File Format'): ?></label>
     <label class="radio inline"><input type="radio" name="format_spatial_data" value="arc_ascii"><?php echo $_('arc ascii')?></label>
     <label class="radio inline"><input type="radio" name="format_spatial_data" value="netcdf" checked><?php echo $_('netcdf')?></label><br>
   </div>
