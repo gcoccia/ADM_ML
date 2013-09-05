@@ -89,22 +89,27 @@ $text = <<<EOF
     </div>
   </div>
 
-
-  <div class="row-fluid">
-  <div class='Static_Controls'>
-  <form name="TimeForm"> Timestamp (dd/mm/yyyy) :  <input type="button" value="<" onclick="Update_Static_Images_Step(0)"><input type="text" size=1 name="latest_day" value=$Latest_Day><input type="text" size=1 name="latest_month" value=$Latest_Month><input type="text" size=3 name="latest_year" value=$Latest_Year><input type="button" value=">" onclick="Update_Static_Images_Step(1)">
-        <input type="button" value="$_('Update Images')" onclick="Update_Static_Images()">
-        $Initial_Time - $Final_Time
-  </form>
+  <div class="row-fluid" style="text-align:center">
+    <div id='Static_Controls'>
+      <form name="TimeForm"> Timestamp (dd/mm/yyyy) :  <button class="btn" type="button" onclick="Update_Static_Images_Step(0)"> < </button>
+      <input type="text" name="latest_day" class="input-small" value=$Latest_Day>
+      <input type="text" name="latest_month" class="input-small" value=$Latest_Month>
+      <input type="text" name="latest_year" class="input-small" value=$Latest_Year>
+      <button class="btn" type="button" onclick="Update_Static_Images_Step(1)"> > </button>
+      <button class="btn" type="button" onclick="Update_Static_Images()">Update Images</button>  $Initial_Time - $Final_Time
+      </form>
+    </div>
   </div>
-  <h5 id="Drought_Conditions">{$_("Drought Conditions on")} $Latest_Timestamp</h5>
-  <div id="Daily_Images">
-  <div class="inline">
-	<img id="SMQALL" src="Data/ADM_Data/Realtime/smqall_basic/smqall_$Latest_Time.png" title="image" onerror="this.src='icons/Basic_Noimage.png'"/>
-	<div class="image_superposition">
-	<h3 class="text_superposition">{$_('Drought Index')} (%)</h3>
-	</div>
-  </div>
+  
+  <div class="row-fluid" style="text-align:center">
+    <h2 id="Drought_Conditions">{$_("Drought Conditions on")} $Latest_Timestamp</h2>
+      <div id="Daily_Images">
+        <div class="inline">
+	  <img id="SMQALL" src="Data/ADM_Data/Realtime/smqall_basic/smqall_$Latest_Time.png" title="image" onerror="this.src='icons/Basic_Noimage.png'"/>
+	  <div class="image_superposition">
+	  <h3 class="text_superposition">{$_('Drought Index')} (%)</h3>
+	  </div>
+      </div>
   <div class="inline">
         <img id="PREC" src="Data/ADM_Data/Realtime/prec_basic/prec_$Latest_Time.png" onerror="this.src='icons/Basic_Noimage.png'"/>
         <div class="image_superposition">
@@ -158,6 +163,7 @@ $text = <<<EOF
 	<h3 class="text_superposition">{$_('Wind (m/s)')}</h3>  
         </div>
   </div>
+</div>
 </div>
 </body>
 </html>
