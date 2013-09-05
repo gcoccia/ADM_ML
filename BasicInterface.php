@@ -107,64 +107,65 @@ $text = <<<EOF
         <div class="inline">
 	  <img id="SMQALL" src="Data/ADM_Data/Realtime/smqall_basic/smqall_$Latest_Time.png" title="image" onerror="this.src='icons/Basic_Noimage.png'"/>
 	  <div class="image_superposition">
-	  <h3 class="text_superposition">{$_('Drought Index')} (%)</h3>
+	    <h3 class="text_superposition">{$_('Drought Index')} (%)</h3>
 	  </div>
+        </div>
+        <div class="inline">
+          <img id="PREC" src="Data/ADM_Data/Realtime/prec_basic/prec_$Latest_Time.png" onerror="this.src='icons/Basic_Noimage.png'"/>
+          <div class="image_superposition">
+            <h3 class="text_superposition">{$_('Precipitation (mm/day)')}</h3>
+          </div>
+        </div>
+        <div class="inline">
+          <img id="EVAP" src="Data/ADM_Data/Realtime/evap_basic/evap_$Latest_Time.png" onerror="this.src='icons/Basic_Noimage.png'"/>
+          <div class="image_superposition">    
+            <h3 class="text_superposition">{$_('Evaporation (mm/day)')}</h3> 
+          </div>
+        </div>
+        <div class="inline">       
+          <img id="SMWET1" src="Data/ADM_Data/Realtime/smwet1_basic/smwet1_$Latest_Time.png" onerror="this.src='icons/Basic_Noimage.png'"/> 
+          <div class="image_superposition">  
+            <h3 class="text_superposition">{$_('Soil Moisture(%) - Layer 1')}</h3>        
+          </div>
+        </div>
+        <div class="inline"> 
+          <img id="SMWET2" src="Data/ADM_Data/Realtime/smwet2_basic/smwet2_$Latest_Time.png" onerror="this.src='icons/Basic_Noimage.png'"/>  
+          <div class="image_superposition">    
+            <h3 class="text_superposition">{$_('Soil Moisture(%) - Layer 2')}</h3>        
+          </div>
+        </div>
+        <div class="inline">  
+          <img id="RUNOFF" src="Data/ADM_Data/Realtime/runoff_basic/runoff_$Latest_Time.png" onerror="this.src='icons/Basic_Noimage.png'"/> 
+          <div class="image_superposition">   
+            <h3 class="text_superposition">{$_('Surface Runoff (mm/day)')}</h3>        
+          </div>
+        </div>
+        <div class="inline">  
+          <img id="GAUGES_PERCENTILES" src="Data/ADM_Data/Realtime/gaugepct_basic/gaugepct_$Latest_Time.png" onerror="this.src='icons/Basic_Noimage.png'"/>
+          <div class="image_superposition">
+            <h3 class="text_superposition">{$_('Stream Gauges')}</h3>  
+          </div>
+        </div>
+        <div class="inline"> 
+          <img id="TMAX" src="Data/ADM_Data/Realtime/tmax_basic/tmax_$Latest_Time.png" onerror="this.src='icons/Basic_Noimage.png'"/>  
+          <div class="image_superposition"> 
+            <h3 class="text_superposition">{$_('Maximum Temperature (C)')}</h3>  
+          </div>
+        </div>
+        <div class="inline">                
+	  <img id="TMIN" src="Data/ADM_Data/Realtime/tmin_basic/tmin_$Latest_Time.png" onerror="this.src='icons/Basic_Noimage.png'"/>                
+	  <div class="image_superposition">                        
+	    <h3 class="text_superposition">{$_('Minimum Temperature (C)')}</h3>  
+          </div>
+        </div>
+        <div class="inline">                
+	  <img id="WIND" src="Data/ADM_Data/Realtime/wind_basic/wind_$Latest_Time.png" onerror="this.src='icons/Basic_Noimage.png'"/>                
+	  <div class="image_superposition">                        
+	    <h3 class="text_superposition">{$_('Wind (m/s)')}</h3>  
+          </div>
+        </div>
       </div>
-  <div class="inline">
-        <img id="PREC" src="Data/ADM_Data/Realtime/prec_basic/prec_$Latest_Time.png" onerror="this.src='icons/Basic_Noimage.png'"/>
-        <div class="image_superposition">
-        <h3 class="text_superposition">{$_('Precipitation (mm/day)')}</h3>
-        </div>
-   </div>
-  <div class="inline">
-        <img id="EVAP" src="Data/ADM_Data/Realtime/evap_basic/evap_$Latest_Time.png" onerror="this.src='icons/Basic_Noimage.png'"/>
-        <div class="image_superposition">    
-        <h3 class="text_superposition">{$_('Evaporation (mm/day)')}</h3> 
-        </div>
-  </div>
-  <div class="inline">       
-        <img id="SMWET1" src="Data/ADM_Data/Realtime/smwet1_basic/smwet1_$Latest_Time.png" onerror="this.src='icons/Basic_Noimage.png'"/> 
-       <div class="image_superposition">  
-       <h3 class="text_superposition">{$_('Soil Moisture(%) - Layer 1')}</h3>        
-        </div>
-  </div>
-  <div class="inline"> 
-        <img id="SMWET2" src="Data/ADM_Data/Realtime/smwet2_basic/smwet2_$Latest_Time.png" onerror="this.src='icons/Basic_Noimage.png'"/>  
-        <div class="image_superposition">    
-        <h3 class="text_superposition">{$_('Soil Moisture(%) - Layer 2')}</h3>        
-        </div>
-  </div>
-  <div class="inline">  
-        <img id="RUNOFF" src="Data/ADM_Data/Realtime/runoff_basic/runoff_$Latest_Time.png" onerror="this.src='icons/Basic_Noimage.png'"/> 
-        <div class="image_superposition">   
-        <h3 class="text_superposition">{$_('Surface Runoff (mm/day)')}</h3>        
-        </div>
-  </div>
- <div class="inline">  
-        <img id="GAUGES_PERCENTILES" src="Data/ADM_Data/Realtime/gaugepct_basic/gaugepct_$Latest_Time.png" onerror="this.src='icons/Basic_Noimage.png'"/>         <div class="image_superposition">  
-        <h3 class="text_superposition">{$_('Stream Gauges')}</h3>  
-        </div>
-  </div>
-  <div class="inline"> 
-        <img id="TMAX" src="Data/ADM_Data/Realtime/tmax_basic/tmax_$Latest_Time.png" onerror="this.src='icons/Basic_Noimage.png'"/>  
-        <div class="image_superposition"> 
-        <h3 class="text_superposition">{$_('Maximum Temperature (C)')}</h3>  
-        </div>
-  </div>
-  <div class="inline">                
-	<img id="TMIN" src="Data/ADM_Data/Realtime/tmin_basic/tmin_$Latest_Time.png" onerror="this.src='icons/Basic_Noimage.png'"/>                
-	<div class="image_superposition">                        
-	<h3 class="text_superposition">{$_('Minimum Temperature (C)')}</h3>  
-        </div>
-  </div>
-  <div class="inline">                
-	<img id="WIND" src="Data/ADM_Data/Realtime/wind_basic/wind_$Latest_Time.png" onerror="this.src='icons/Basic_Noimage.png'"/>                
-	<div class="image_superposition">                        
-	<h3 class="text_superposition">{$_('Wind (m/s)')}</h3>  
-        </div>
-  </div>
-</div>
-</div>
+    </div>
 </body>
 </html>
 EOF;
