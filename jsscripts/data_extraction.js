@@ -126,7 +126,7 @@ function Create_Point_Plot() {
     variables = {SPI:['spi1','spi3','spi6','spi12']};
   }
   else if (plot == "Water_Balance"){
-    variables = {PGF:['prec'],VIC_PGF:['runoff','baseflow','evap']};
+    variables = {PGF:['prec']};//,VIC_PGF:['runoff','baseflow','evap']};
   }
   else if (plot == "Surface_Fluxes"){
     variables = {VIC_PGF:['net_short','net_long','r_net']};
@@ -184,17 +184,19 @@ function Create_Point_Plot() {
 function Request_Data(variables) {
   var Output;
   // Use hardcoded values for now, rather than the input values.
-  var initial_date = Date.UTC(2001,0,1)/1000;
-  var final_date = Date.UTC(2001,0,11)/1000;
-  /*var initial_date = Date.UTC(parseInt($("#year_initial").val()),
+  //var initial_date = Date.UTC(2001,0,1)/1000;
+  //var final_date = Date.UTC(2001,0,11)/1000;
+  var initial_date = Date.UTC(parseInt($("#year_initial").val()),
                            parseInt($("#month_initial").val()-1),
                            parseInt($("#day_initial").val()))/1000;
   var final_date = Date.UTC(parseInt($("#year_final").val()),
                            parseInt($("#month_final").val()-1),
-                           parseInt($("#day_final").val())+1)/1000;*/
+                           parseInt($("#day_final").val())+1)/1000;
 
-  var lat = "-34.6250"; //$("#point-latitude").val();
-  var lon = "19.8750"; //$("#point-longitude").val();
+  //var lat = "-34.6250"; //$("#point-latitude").val();
+  //var lon = "19.8750"; //$("#point-longitude").val();
+  var lat = $("#point-latitude").html();
+  var lon = $("#point-longitude").html();
   var tstep = $("ul.ts-selection li.active").attr('id').toUpperCase(); // "daily", "monthly" or "yearly"
   var script = 'python POINT_DATA/Extract_Point_Data.py';
   var input = {idate:initial_date, fdate:final_date, tstep:tstep, lat:lat, lon:lon, variables:variables};

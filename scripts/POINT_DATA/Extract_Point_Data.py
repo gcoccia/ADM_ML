@@ -14,6 +14,15 @@ info = metadata["variables"]
 idate_datetime = datetime.datetime.utcfromtimestamp(idate)
 fdate_datetime = datetime.datetime.utcfromtimestamp(fdate)
 
+#Find closet grid cell
+minlat = -34.875
+minlon = -18.875
+res = 0.25
+ilat = np.rint((lat - minlat)/res + 1)
+lat = minlat + res*(ilat-1)
+ilon = np.rint((lon - minlon)/res + 1)
+lon = minlon + res*(ilon-1)
+
 #Define the time step for highcharts
 if tstep == "DAILY":
  pointInterval = 24*3600*1000
