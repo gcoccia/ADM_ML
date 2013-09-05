@@ -52,7 +52,7 @@ function Update_Listeners(type){
   map_array[0].setOptions({draggableCursor:'crosshair'});
   // Add polygon and lines to map
   var polyOptions = { map : map_array[0],
-                    strokeColor   : '#ff0000',
+                    strokeColor   : '#08c',
                     strokeOpacity : 0.6,
                     strokeWeight  : 4,
                     path:[]
