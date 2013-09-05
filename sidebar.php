@@ -108,25 +108,26 @@
               <a id=<?php echo $_("".$group["name"])?> href="#" data-toggle="popover"><img class="question_mark" src="icons/question_icon.png"></a>
           </li>
           <div class="data-form-block">
+
+          <ul class="nav nav-list spatial-datalist" display:"none">
+              <?php foreach($group->datatype as $datatype) { ?>
+                <li class="dropdown">
+                  <a class="dropdown-toggle" data-toggle="dropdown" href="javascript:void(0)"><i></i>
+                    <?php echo $datatype['title'] ?>
+                    <b class="caret"></b>
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li class="nav-header"><?php echo $_("Dataset")?></li>
+                    <?php foreach($datatype->dataset as $dataset) { ?>
+                    <li>
+                      <label><input type="checkbox" name="variables_spatial_data[]" value="<?php echo $datatype['name']."-".$dataset['name'] ?>" href="javascript:void(0)"><i></i><?php echo $dataset['name']?></label>
+                    </li>
+                    <?php } ?>
+                  </ul>
+                </li>
+      <?php   } ?>
+          </ul>
         </div>
-        <ul class="nav nav-list spatial-datalist" display:"none">
-            <?php foreach($group->datatype as $datatype) { ?>
-              <li class="dropdown">
-                <a class="dropdown-toggle" data-toggle="dropdown" href="javascript:void(0)"><i></i>
-                  <?php echo $datatype['title'] ?>
-                  <b class="caret"></b>
-                </a>
-                <ul class="dropdown-menu">
-                  <li class="nav-header"><?php echo $_("Dataset")?></li>
-                  <?php foreach($datatype->dataset as $dataset) { ?>
-                  <li>
-                    <label><input type="checkbox" name="variables_spatial_data[]" value="<?php echo $datatype['name']."-".$dataset['name'] ?>" href="javascript:void(0)"><i></i><?php echo $dataset['name']?></label>
-                  </li>
-                  <?php } ?>
-                </ul>
-              </li>
-    <?php   } ?>
-        </ul>
         </div>
     <?php } ?>
 
