@@ -214,6 +214,9 @@ $info_box_strings = array("Meteorology" => $_("Weather data used to drive the hy
     $("input[name=plot]:radio").change(function() {
       if($("#popUpDiv").is(":visible")) Create_Point_Plot();
     });
+    $("input[name='variables_spatial_data[]']").change(function() {
+      Update_Spatial_Data_Display();
+    });
 
     // Validation for date entry
     $( "input[id='day_initial']" ).change(function() {
