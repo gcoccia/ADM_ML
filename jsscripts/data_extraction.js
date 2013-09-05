@@ -95,6 +95,7 @@ function Update_Listeners(type){
       var startingPoint2 = mapPolygon.getPath().getAt(0);
       var followCoordinates2 = [startingPoint2, point.latLng];
       followLine2.setPath(followCoordinates2);
+      Update_Spatial_Data_Display();
     }
   });
 
