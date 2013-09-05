@@ -152,6 +152,7 @@
     <label class="radio inline"><input type="radio" name="format_spatial_data" value="netcdf" checked><?php echo $_('netcdf')?></label><br>
   </div>
   <br>
+  <br>
   <input type="text" name="email_spatial_data" placeholder="<?php echo $_('Email address')?>"></br>
   <button type="button" onclick="Submit_Spatial_Data()"><?php echo $_('Submit Data Request')?></button>
   <br>
