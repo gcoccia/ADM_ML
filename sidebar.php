@@ -102,11 +102,13 @@
 
     <?php foreach($xmlobj->variables->group as $group) { ?>
         <li class="divider"></li>
-        <li id=<?php echo $_("".$group["name"])?> class="nav-header">
-            <?php echo $_("".$group["name"])?>
-            <a id=<?php echo $_("".$group["name"])?> href="#" data-toggle="popover"><img class="question_mark" src="icons/question_icon.png"></a>
-        </li>
-        <div class="data-form-block">
+        <div class="dummy">
+          <li id=<?php echo $_("".$group["name"])?> class="nav-header">
+              <?php echo $_("".$group["name"])?>
+              <a id=<?php echo $_("".$group["name"])?> href="#" data-toggle="popover"><img class="question_mark" src="icons/question_icon.png"></a>
+          </li>
+          <div class="data-form-block">
+        </div>
         <ul class="nav nav-list spatial-datalist" display:"none">
             <?php foreach($group->datatype as $datatype) { ?>
               <li class="dropdown">
