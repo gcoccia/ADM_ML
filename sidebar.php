@@ -132,7 +132,7 @@
     <?php } ?>
 
   <div class="btn-group form-inline">
-    <label class="radio inline control-label"><?php echo $_('Spatial resolution (degrees)')?>: </label>
+    <label class="radio inline control-label"><?php echo $_('Resolution')?>: </label>
     <label class="radio inline">
       <input type="radio" name="sres_spatial_data" value="0.1">0.1&deg;
     </label>
