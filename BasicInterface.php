@@ -35,12 +35,12 @@ $Initial_Time = sprintf("%02d",$Initial_Day)."/".sprintf("%02d",$Initial_Month).
 $Final_Time = sprintf("%02d",$Latest_Day)."/".sprintf("%02d",$Latest_Month)."/".sprintf("%04d",$Latest_Year);
 $Month_Name = array("Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec");
 $Latest_Timestamp = $Month_Name[$Latest_Month-1]."/".sprintf("%02d",$Latest_Day)."/".sprintf("%04d",$Latest_Year);
-?>
+
 
 <!DOCTYPE html>
 <html style="height:100%">
 <head>
-<title>African Drought Monitor: <?php echo "$subtitle"?></title>
+<title>African Drought Monitor</title>
 <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
 <meta http-equiv="content-style-type" content="text/css" />
 <meta content="African Drought Monitor" name="description" />
@@ -74,11 +74,11 @@ $Latest_Timestamp = $Month_Name[$Latest_Month-1]."/".sprintf("%02d",$Latest_Day)
     <div class="navbar-inner">
       <div class="container">
         <ul class="nav">
-          <li><a href='index.php'><?php echo $_("Google Maps Interface"); ?></a></li>
-          <li class="active"><a href='#'><?php echo $_("Basic Interface"); ?></a></li>
-          <li><a href='Resources/ADM_Background.pdf'><?php echo $_("Background"); ?></a></li>
-          <li><a href='Resources/ADM_Glossary.pdf'><?php echo $_("Glossary"); ?></a></li>
-          <li><a href='Resources/Tutorial_HornAfrica.pdf'><?php echo $_("Tutorial"); ?></a></li>
+          <li><a href='index.php'>Google Maps Interface</a></li>
+          <li class="active"><a href='#'>Basic Interface</a></li>
+          <li><a href='Resources/ADM_Background.pdf'>Background</a></li>
+          <li><a href='Resources/ADM_Glossary.pdf'>Glossary</a></li>
+          <li><a href='Resources/Tutorial_HornAfrica.pdf'>Tutorial</a></li>
         </ul>
         <img id="Flag_Image" style="float:right" src="icons/flags/arabic_flag.gif" onclick=ChangeLanguage("Arabic")>
         <img id="Flag_Image" style="float:right" src="icons/flags/spanish_flag.gif" onclick=ChangeLanguage("Spanish")>
@@ -92,9 +92,8 @@ $Latest_Timestamp = $Month_Name[$Latest_Month-1]."/".sprintf("%02d",$Latest_Day)
 
   <div class="row-fluid">
   <div class='Static_Controls'>
-  <form name="TimeForm">
-     	<?php echo $_("Timestamp")?> (<?php echo $_("dd/mm/yyyy")?>) :  <input type="button" value="<" onclick="Update_Static_Images_Step(0)"><input type="text" size=1 name="latest_day" value=$Latest_Day><input type="text" size=1 name="latest_month" value=$Latest_Month><input type="text" size=3 name="latest_year" value=$Latest_Year><input type="button" value=">" onclick="Update_Static_Images_Step(1)">
-        <input type="button" value="<?php echo $_('Update Images')?>" onclick="Update_Static_Images()">
+  <form name="TimeForm"> Timestamp (dd/mm/yyyy) :  <input type="button" value="<" onclick="Update_Static_Images_Step(0)"><input type="text" size=1 name="latest_day" value=$Latest_Day><input type="text" size=1 name="latest_month" value=$Latest_Month><input type="text" size=3 name="latest_year" value=$Latest_Year><input type="button" value=">" onclick="Update_Static_Images_Step(1)">
+        <input type="button" value="$_('Update Images')" onclick="Update_Static_Images()">
         $Initial_Time - $Final_Time
   </form>
   </div>
