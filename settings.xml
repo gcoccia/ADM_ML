@@ -14,7 +14,7 @@
   <group name="Meteorology" divtitle="Forcing">
     <datatype name="prec" units="mm/day" title="Precipitation (mm)" mask="mask">
       <dataset name="3B42RT_BC" ts="DMY" itime="1JAN2008" ftime="31JUL2013"></dataset>
-      <dataset name="PGF" ts="DM" itime="1JAN1950" ftime="31DEC2008"></dataset>
+      <dataset name="PGF" ts="DMY" itime="1JAN1950" ftime="31DEC2008"></dataset>
     </datatype>
     <datatype name="tmax" units="K" title="Maximum Temperature (C)" mask="mask">
       <dataset name="PGF" ts="DMY" itime="1JAN1950" ftime="31DEC2008"></dataset>
