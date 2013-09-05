@@ -98,32 +98,19 @@
   <li class="divider"></li>
   <li class="nav-header"><?php echo $_("Spatial Data Selection") ?></li>
   <div class="data-form-block">
-  <i><?php echo $_("Click points on the map to draw a polygon and select spatial data.") ?></i>
-
- <!--  <?php echo $_('Lower Left Corner Latitude')?>: <input type="text" name="llclat_spatial_data" value=0><br>
-  <?php echo $_('Lower Left Corner Longitude')?>: <input type="text" name="llclon_spatial_data" value=0><br>
-  <?php echo $_('Upper Right Corner Latitude')?>: <input type="text" name="urclat_spatial_data" value=0><br>
-  <?php echo $_('Upper Right Corner Longitude')?>: <input type="text" name="urclon_spatial_data" value=0><br>
-   --><br>
-  <?php echo $_('Spatial resolution (degrees)')?>:
-  <div class="btn-group form-inline">
-    <label class="radio inline">
-      <input type="radio" name="sres_spatial_data" value="0.1">0.1&deg;
-    </label>
-    <label class="radio inline">
-      <input type="radio" name="sres_spatial_data" value="0.25" checked>0.25&deg;
-    </label>
-    <label class="radio inline">
-      <input type="radio" name="sres_spatial_data" value="1.0">1.0&deg;
-    </label>
-  </div>
+  <i><?php echo $_("Click points on the map to draw a polygon and select spatial data. Then select variables below.") ?></i>
   <br>
-  <br>
-  <?php echo $_('Choose the variables')?>: <br>
 
-  <ul class="nav nav-list spatial-datalist">
-    <?php foreach($xmlobj->variables->group as $group) { 
-            foreach($group->datatype as $datatype) { ?>
+    <?php foreach($xmlobj->variables->group as $group) { ?>
+        <li class="divider"></li>
+        <div class="dummy">
+        <li id=<?php echo $_("".$group["name"])?> class="nav-header">
+            <?php echo $_("".$group["name"])?>
+            <a id=<?php echo $_("".$group["name"])?> href="#" data-toggle="popover"><img class="question_mark" src="icons/question_icon.png"></a>
+        </li>
+        <div class="data-form-block">
+        <ul class="nav nav-list spatial-datalist" display:"none">
+            <?php foreach($group->datatype as $datatype) { ?>
               <li class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="javascript:void(0)"><i></i>
                   <?php echo $datatype['title'] ?>
@@ -141,9 +128,26 @@
     <?php   }
           } 
     ?>
-  </ul>
+        </ul>
+        </div>
 
   <br>
+
+  <?php echo $_('Spatial resolution (degrees)')?>:
+  <div class="btn-group form-inline">
+    <label class="radio inline">
+      <input type="radio" name="sres_spatial_data" value="0.1">0.1&deg;
+    </label>
+    <label class="radio inline">
+      <input type="radio" name="sres_spatial_data" value="0.25" checked>0.25&deg;
+    </label>
+    <label class="radio inline">
+      <input type="radio" name="sres_spatial_data" value="1.0">1.0&deg;
+    </label>
+  </div>
+  <br>
+  <br>
+
   <?php echo $_('Choose the file format')?>: <br>
   <div class="radio inline">
     <label><input type="radio" name="format_spatial_data" value="arc_ascii"><?php echo $_('arc ascii')?></label>
