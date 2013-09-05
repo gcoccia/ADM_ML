@@ -201,7 +201,7 @@ $info_box_strings = array("Meteorology" => $_("Weather data used to drive the hy
         $("ul.datalist>li>ul.dropdown-menu>li>a>i").removeClass("icon-ok");
       }
       else if(""+current_setting == "point" && $("#popUpDiv").is(":visible")) Hide_Data_Extraction_Popup();
-      else if(""+current_setting == "spatial") UpdateListeners('spatial');
+      else if(""+current_setting == "spatial") Update_Listeners('spatial');
     });
     $("input[name=group1]:radio").change(function() {
       update_timestep();
