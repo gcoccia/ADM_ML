@@ -132,8 +132,6 @@
     <?php } ?>
 
   <br>
-  <?php echo $_('Estimated Download Size: ')?>: <span id="estimated-download-size">0</span>
-  <br>
   <?php echo $_('Spatial resolution (degrees)')?>:
   <div class="btn-group form-inline">
     <label class="radio inline">
@@ -157,6 +155,8 @@
   <?php echo $_('Email to notify when data is ready:')?><br>
   <input type="text" name="email_spatial_data"></br>
   <button type="button" onclick="Submit_Spatial_Data()"><?php echo $_('Submit Data Request')?></button>
+  <br>
+  <?php echo $_('Estimated Download Size')?>: <span id="estimated-download-size">0</span>
   <br>
  
 </div>
