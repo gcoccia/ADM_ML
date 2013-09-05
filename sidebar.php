@@ -147,13 +147,15 @@
   <br>
   <br>
 
-  <?php echo $_('Estimated Download Size')?>: <span id="estimated-download-size">0</span>
-  <br>
-  <?php echo $_('Choose the file format')?>:
   <div class="btn-group form-inline">
+    <label class="radio inline control-label">$_('File Format')</label>
     <label class="radio inline"><input type="radio" name="format_spatial_data" value="arc_ascii"><?php echo $_('arc ascii')?></label>
     <label class="radio inline"><input type="radio" name="format_spatial_data" value="netcdf" checked><?php echo $_('netcdf')?></label><br>
   </div>
+
+  <?php echo $_('Estimated Download Size')?>: <span id="estimated-download-size">0</span>
+  <br>
+  
   <?php echo $_('Email to notify when data is ready:')?><br>
   <input type="text" name="email_spatial_data"></br>
   <button type="button" onclick="Submit_Spatial_Data()"><?php echo $_('Submit Data Request')?></button>
