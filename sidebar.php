@@ -107,9 +107,9 @@
               <?php echo $_("".$group["name"])?>
               <a id=<?php echo $_("".$group["name"])?> href="#" data-toggle="popover"><img class="question_mark" src="icons/question_icon.png"></a>
           </li>
-          <div class="data-form-block">
+          <div class="data-form-block" display:"none">
 
-          <ul class="nav nav-list spatial-datalist" display:"none">
+          <ul class="nav nav-list spatial-datalist">
               <?php foreach($group->datatype as $datatype) { ?>
                 <li class="dropdown">
                   <a class="dropdown-toggle" data-toggle="dropdown" href="javascript:void(0)"><i></i>
