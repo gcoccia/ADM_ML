@@ -34,7 +34,7 @@ $Latest_Time = sprintf("%04d",$Latest_Year).sprintf("%02d",$Latest_Month).sprint
 $Initial_Time = sprintf("%02d",$Initial_Day)."/".sprintf("%02d",$Initial_Month)."/".sprintf("%04d",$Initial_Year);
 $Final_Time = sprintf("%02d",$Latest_Day)."/".sprintf("%02d",$Latest_Month)."/".sprintf("%04d",$Latest_Year);
 $Month_Name = array("Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec");
-$Latest_Timestamp = $Month_Name[$Latest_Month-1]."/".sprintf("%02d",$Latest_Day)."/".sprintf("%04d",$Latest_Year);
+$Latest_Timestamp = sprintf("%02d",$Latest_Day)."/".sprintf("%02d",$Latest_Month)."/".sprintf("%04d",$Latest_Year);
 
 $text = <<<EOF
 <!DOCTYPE html>
