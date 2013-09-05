@@ -97,7 +97,6 @@
 <div id="Spatial-Sidebar" style="display: none">
   <li class="divider"></li>
   <li class="nav-header"><?php echo $_("Spatial Data Selection") ?></li>
-  <div class="data-form-block">
   <i><?php echo $_("Click points on the map to draw a polygon and select spatial data. Then select variables below.") ?></i>
   <br>
 
@@ -157,7 +156,6 @@
   <input type="text" name="email_spatial_data"></br>
   <button type="button" onclick="Submit_Spatial_Data()"><?php echo $_('Submit Data Request')?></button>
   <br>
-
-</div>  
+ 
 </div>
 </ul>
