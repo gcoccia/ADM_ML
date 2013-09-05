@@ -43,19 +43,21 @@ function update_animation()
     ImageTimeArray[dataset] = new Array();
     ImageStrArray[dataset] = new Array();
 
-  /*  if (time_flag == "SPI")ImageArrayPrep_SPI(ImageStrArray[j],ImageRootArray[j],ImageTimeArray[j]);
-    else ImageArrayPrep(ImageStrArray[j],ImageRootArray[j],ImageTimeArray[j]);*/
+    if(data_dates_are_valid()) {
+      ImageArrayPrep(ImageStrArray[dataset], ImageTimeArray[dataset]);
+      display_colorbar(dataset);
 
-    ImageArrayPrep(ImageStrArray[dataset], ImageTimeArray[dataset]);
-    display_colorbar(dataset);
+      var time_delay = 1000*1/frames_per_second;
 
-    var time_delay = 1000*1/frames_per_second;
+      overlay_obj[dataset] = new ImageOverlay(bounds, ImageStrArray[dataset][0], map_array[0], dataset);
+      ChangeTimeStamp(1, ImageCounter, dataset);
+      ImageCounter = 1;
 
-    overlay_obj[dataset] = new ImageOverlay(bounds, ImageStrArray[dataset][0], map_array[0], dataset);
-    ChangeTimeStamp(1, ImageCounter, dataset);
-    ImageCounter = 1;
-
-    t = setInterval(next_image, time_delay);
+      t = setInterval(next_image, time_delay);
+    }
+    else {
+      alert("Error: Dataset " + dataset + " is only available from " + data_idates[dataset] + " to " + data_fdates[dataset] + ".");
+    }
   }
 }
 
@@ -85,7 +87,8 @@ function clear_image_overlays()
 
 function display_colorbar(dataset)
 {
-  var cbar_img = "../IMAGES/COLORBARS/" + dataset + ".png";
+  var current_timestep = $("ul.ts-selection li.active").attr('id').toUpperCase();
+  var cbar_img = "../IMAGES/COLORBARS/" + dataset + "_" + current_timestep + ".png";
   $("#Colorbar").css({visibility: "visible", height: "100"});
   $("#Colorbar").html("<img src=" + cbar_img + "></img>");
 }
