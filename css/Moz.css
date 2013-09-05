@@ -160,10 +160,11 @@ p {
 	color:#ff0000;
 	font-weight:bold;
 }
-
-hr{
-	background:#ddd;
-	color:#ddd;
+ 
+hr{ 
+        margin: 15px 15% 15px;
+        border-width: 1px;
+        border-color: #000000;
 }
 /* main */
     div.main a {
