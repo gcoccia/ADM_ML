@@ -113,7 +113,7 @@ $text = <<<EOF
         </div>
         <hr>
         <div class="inline">
-          <img id="PREC" src="Data/ADM_Data/Realtime/prec_basic/prec_$Latest_Time.png" onerror="this.src='icons/Basic_Noimage.png'"/>
+          <img id="PREC" src="../IMAGES/$latest_year/$latest_month/$latest_day/PGF_prec_$Latest_Time.png" onerror="this.src='icons/Basic_Noimage.png'"/>
           <div class="image_superposition">
             <h3 class="text_superposition">{$_('Precipitation (mm/day)')}</h3>
           </div>
