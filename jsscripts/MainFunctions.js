@@ -89,7 +89,7 @@ function display_colorbar(dataset)
 {
   var current_timestep = $("ul.ts-selection li.active").attr('id').toUpperCase();
   var cbar_img = "../IMAGES/COLORBARS/" + dataset + "_" + current_timestep + ".png";
-  $("#Colorbar").css({visibility: "visible", height: "100"});
+  $("#Colorbar").css({visibility: "visible", height: "52px"});
   $("#Colorbar").html("<img src=" + cbar_img + "></img>");
 }
 

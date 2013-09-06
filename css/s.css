@@ -249,7 +249,7 @@ top:20px;
 }
 #Colorbar {
   position: absolute;
-  bottom: 25px; 
+  bottom: 0px; 
   left: 0px;
   right: 0px;
   min-width: 900px;
