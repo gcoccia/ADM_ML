@@ -126,7 +126,7 @@ function Create_Point_Plot() {
     variables = {SPI:['spi1','spi3','spi6','spi12']};
   }
   else if (plot == "Water_Balance"){
-    variables = {PGF:['prec']};//,VIC_PGF:['runoff','baseflow','evap']};
+    variables = {PGF:['prec'],VIC_PGF:['runoff','baseflow','evap']};
   }
   else if (plot == "Surface_Fluxes"){
     variables = {VIC_PGF:['net_short','net_long','r_net']};
