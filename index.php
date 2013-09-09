@@ -187,23 +187,38 @@ $info_box_strings = array("Meteorology" => $_("Weather data used to drive the hy
     $("#update_interval").click(function() {
       var current_setting = $("ul.data-extraction li.active>a").attr('id');
       if(""+current_setting == "none") update_animation();
-      else if(""+current_setting == "point") Create_Point_Plot();
-      else Update_Spatial_Data_Display();
+      else if(""+current_setting == "point" && $("#popUpDiv").is(":visible")) Create_Point_Plot();
+      else if(""+current_setting == "spatial") Update_Spatial_Data_Display();
     });
     $("#clear_all").click(function() {
-      clear_all_overlays();
-      // Turn off the active chosen datasets
-      $("ul.datalist>li").removeClass("active");
-      $("ul.datalist>li>ul.dropdown-menu>li").removeClass("active");
-      $("ul.datalist>li>a>i").removeClass("icon-ok");
-      $("ul.datalist>li>ul.dropdown-menu>li>a>i").removeClass("icon-ok");
+      var current_setting = $("ul.data-extraction li.active>a").attr('id');
+      if(""+current_setting == "none") {
+        clear_all_overlays();
+        // Turn off the active chosen datasets
+        $("ul.datalist>li").removeClass("active");
+        $("ul.datalist>li>ul.dropdown-menu>li").removeClass("active");
+        $("ul.datalist>li>a>i").removeClass("icon-ok");
+        $("ul.datalist>li>ul.dropdown-menu>li>a>i").removeClass("icon-ok");
+      }
+      else if(""+current_setting == "point" && $("#popUpDiv").is(":visible")) Hide_Data_Extraction_Popup();
+      else if(""+current_setting == "spatial") {
+        Update_Listeners('spatial');
+        $("input[name='variables_spatial_data[]']:checked").prop('checked', false);
+        Update_Spatial_Data_Display();
+      }
     });
     $("input[name=group1]:radio").change(function() {
       update_timestep();
       update_animation();
     });
     $("input[name=plot]:radio").change(function() {
-      Create_Point_Plot();
+      if($("#popUpDiv").is(":visible")) Create_Point_Plot();
+    });
+    $("input[name='variables_spatial_data[]']").change(function() {
+      Update_Spatial_Data_Display();
+    });
+    $("input[name='sres_spatial_data']").change(function() {
+      Update_Spatial_Data_Display();
     });
 
     // Validation for date entry

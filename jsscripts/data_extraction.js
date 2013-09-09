@@ -52,7 +52,7 @@ function Update_Listeners(type){
   map_array[0].setOptions({draggableCursor:'crosshair'});
   // Add polygon and lines to map
   var polyOptions = { map : map_array[0],
-                    strokeColor   : '#ff0000',
+                    strokeColor   : '#08c',
                     strokeOpacity : 0.6,
                     strokeWeight  : 4,
                     path:[]
@@ -98,7 +98,7 @@ function Update_Listeners(type){
     }
   });
 
-  google.maps.event.addListener(mapPolygon, 'dragend', function(point) {
+  google.maps.event.addListener(mapPolygon.getPath(), 'set_at', function(point) {
     Update_Spatial_Data_Display();
   });
 
@@ -251,9 +251,9 @@ function Update_Spatial_Data_Display() {
   var nt = (final_date - initial_date)/tstep;
   var nvars = $("input[name='variables_spatial_data[]']:checked").length;
   var size_per_value = 8; // ??? 8 bytes? compressed? depends on choice of format?
-  var estimated_download_size = npts*nt*nvars*size_per_value;
+  var estimated_download_size = npts*nt*nvars*size_per_value/1000/1000;
 
-  // then do something with the estimated download size
+  $("#estimated-download-size").html(Math.round(estimated_download_size) + " MB"); // what about units?
 }
 
 function Submit_Spatial_Data() {
