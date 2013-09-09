@@ -10,10 +10,12 @@ function Update_Static_Images()
 	else {Time_Period = "Realtime";}
 
 	//Update the images
-	var timestamp = sprintf("%04d",timestamp_year) + sprintf("%02d",timestamp_month) + sprintf("%02d",timestamp_day); 
+	var timestamp = sprintf("%04d",timestamp_year) + sprintf("%02d",timestamp_month) + sprintf("%02d",timestamp_day);
 	var timestamp_str = sprintf("%02d",timestamp_day) + "/" + sprintf("%02d",timestamp_month) + "/" + sprintf("%04d",timestamp_year);
-	document.getElementById("SMQALL").src = "Data/ADM_Data/" + Time_Period + "/smqall_basic/smqall_" + timestamp + ".png";  
-        document.getElementById("PREC").src =  "Data/ADM_Data/" + Time_Period + "/prec_basic/prec_" + timestamp + ".png"; 
+	var timestamp_str1 = sprintf("%04d",timestamp_year) + "/" + sprintf("%02d",timestamp_month) + "/" + sprintf("%02d",timestamp_day);
+
+	document.getElementById("SMQALL").src =  ""
+        document.getElementById("PREC").src =  "../IMAGES/"+timestamp_str1+"/PGF_prec_"+timestamp+".png"; 
         document.getElementById("EVAP").src =  "Data/ADM_Data/" + Time_Period + "/evap_basic/evap_" + timestamp + ".png"; 
         document.getElementById("GAUGES_PERCENTILES").src = "Data/ADM_Data/" + Time_Period + "/gaugepct_basic/gaugepct_" + timestamp + ".png"; 
         document.getElementById("SMWET1").src = "Data/ADM_Data/" + Time_Period + "/smwet1_basic/smwet1_" + timestamp + ".png"; 

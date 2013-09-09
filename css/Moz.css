@@ -47,9 +47,7 @@ div.main{
 div.Static_Controls{
     	font-family: arial, lucida sans unicode, verdana, sans, helvetica, sans-serif;
 	text-align:left;
-	background:#CFECEC;
 	top:0px;
-	font-size:120%;
 	padding: 5px 10px 5px 10px;
 }
 
@@ -162,10 +160,11 @@ p {
 	color:#ff0000;
 	font-weight:bold;
 }
-
-hr{
-	background:#ddd;
-	color:#ddd;
+ 
+hr{ 
+        margin: 15px 15% 15px;
+        border-width: 1px;
+        border-color: #000000;
 }
 /* main */
     div.main a {
@@ -209,4 +208,6 @@ abbr, acronym {
 	cursor: pointer;
 }
 
-
+input[type=text]{
+        margin-bottom: 0px;
+}

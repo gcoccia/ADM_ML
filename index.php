@@ -335,7 +335,7 @@ $info_box_strings = array("Meteorology" => $_("Weather data used to drive the hy
         </div>
       </div>
      </div>
-   <div id="hideBtn"><i id="hideBtnImg" class="icon-arrow-right" style="position: absolute; top:0px; right:0px; z-index: 100;"></i></div>
+   <div id="hideBtn"><i id="hideBtnImg" class="icon-arrow-right" style="position: absolute; top:0px; right:0px; z-index: 9100;"></i></div>
 </div>
 </div>
 </body>
