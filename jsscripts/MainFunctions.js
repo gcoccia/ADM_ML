@@ -57,7 +57,10 @@ function update_animation()
       // Make sure the play/pause icons are visible and set to "pause" to start the animation
       $( "#pause-or-continue").show();
       if($( "#pause-or-continue").attr('class') == "icon-play")
-        $("#pause-or-continue").click();
+      {
+        $("#pause-or-continue").removeClass("icon-play");
+        $("#pause-or-continue").addClass("icon-pause");
+      }
 
       // Set up the slider for this date range
       $(function() {
@@ -224,7 +227,6 @@ function ChangeLanguage(language)
 
 function update_monitor_or_forecast()
 {
-  clear_image_overlays();
   var morf = $("ul.monitor-or-forecast>li.active").find("a").attr('id');
 
   if(""+morf == "monitor") {
