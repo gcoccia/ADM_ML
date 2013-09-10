@@ -67,6 +67,7 @@ function update_animation()
           },
           stop: function( event, ui ) {
             ImageCounter = ui.value;
+            next_image();
             $( "#slider-date" ).html( ImageTimeArray[dataset][ImageCounter-1] );
             t = setInterval(next_image, 1000*1/frames_per_second);
           }
@@ -112,6 +113,7 @@ function clear_image_overlays()
   }
   $("#Colorbar").css({visibility: "hidden", height: ""});
   $( "#animation-slider" ).slider("option", "disabled", true);
+  $( "#animation-slider" ).slider("option", "value", 1);
   $( "#slider-date" ).html("");
 }
 
