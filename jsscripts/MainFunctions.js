@@ -189,8 +189,8 @@ function clear_all_overlays()
   }
 
   // Clear all forms
-  document.getElementById("AnimationForm").reset();
-  $(".data-radio").prop('checked', false);
+  //document.getElementById("AnimationForm").reset();
+  //$(".data-radio").prop('checked', false);
 }
 
 function ChangeLanguage(language)
