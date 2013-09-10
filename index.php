@@ -150,9 +150,7 @@ $info_box_strings = array("Meteorology" => $_("Weather data used to drive the hy
   $(document).ready(function() {
 
     // Initialize Jquery UI slider
-    $(function() {
-      $( "#animation-slider" ).slider();
-    });
+    $( "#animation-slider" ).slider();
 
     initialize();
     update_timestep();
