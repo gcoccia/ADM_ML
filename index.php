@@ -292,6 +292,21 @@ $info_box_strings = array("Meteorology" => $_("Weather data used to drive the hy
         update_animation();
       }
     });
+
+    // Configure jquery UI slider
+    $(function() {
+      $( "#animation-slider" ).slider({
+        value:100,
+        min: 0,
+        max: 500,
+        step: 50,
+        slide: function( event, ui ) {
+          $( "#amount" ).val( "$" + ui.value );
+        }
+      });
+      $( "#amount" ).val( "$" + $( "#animation-slider" ).slider( "value" ) );
+    });
+
   });
 
 </script>

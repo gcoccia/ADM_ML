@@ -52,6 +52,12 @@
       <input type="button" value="-" onclick="update_overlay_opacity(0)">
       <input type="button" value="+" onclick="update_overlay_opacity(1)"><br/> -->
 
+ <!-- Slider for animation -->
+<div id="slider-div">
+  <li class="divider"></li>
+  <div id="animation-slider"></div>
+</div>
+
 <div id="Animation-Sidebar">
 <?php foreach($xmlobj->variables->group as $group) { ?>
   <div class="dummy">
