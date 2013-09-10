@@ -191,10 +191,10 @@ img {
   position:absolute;
   background-color:#eeeeee;
   margin:auto;
-  left:2%;
-  right:20%;
-  bottom:2%;
-  top:2%;
+  left:10px;
+  right: 310px;
+  bottom:10px;
+  top:10px;
   z-index: 8900;
   -moz-box-shadow: 0px 0px 15px #000;
   -webkit-box-shadow: 0px 0px 15px #000;
