@@ -74,7 +74,9 @@ function Update_TimeStamp_MP(increment, flag_timestamp)
   else 
     date_temp.setFullYear(date_temp.getFullYear() + increment);
   
-  if (flag_timestamp == 0 && date_temp.valueOf() > final_date.valueOf()) return;
+  var morf = $("ul.monitor-or-forecast>li.active").find("a").attr('id');
+  if (flag_timestamp == 0 && date_temp.valueOf() > final_date.valueOf()) {
+    if(""+morf == "monitor") return;
   else if (flag_timestamp == 1 && date_temp.valueOf() < initial_date.valueOf()) return;
 
   // Update the time string
