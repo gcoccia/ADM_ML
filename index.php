@@ -295,6 +295,19 @@ $info_box_strings = array("Meteorology" => $_("Weather data used to drive the hy
         update_animation();
       }
     });
+
+    // Animation play/pause buttons
+    $( "#pause-or-continue").click(function() {
+      if($(this).attr('class') == "icon-pause") {
+        clearInterval(t);
+        $(this).removeClass("icon-pause");
+        $(this).addClass("icon-play");
+      } else {
+        t = setInterval(next_image, 1000*1/frames_per_second);
+        $(this).removeClass("icon-play");
+        $(this).addClass("icon-pause");
+      }
+    });
   });
 
 </script>
