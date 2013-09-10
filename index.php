@@ -80,7 +80,7 @@ $info_box_strings = array("Meteorology" => $_("Weather data used to drive the hy
 <title><?php echo $_("Africa Drought Monitor") ?></title>
 <meta name="viewport" content="initial-scale=1.0, user-scalable=no" /> 
 <meta http-equiv="content-type" content="text/html; charset=UTF-8"/> 
-<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
 <link rel="stylesheet" href="css/s.css"> 
 <link rel="stylesheet" type="text/css" href="css/Moz.css" title="Moz">
 <link href='http://fonts.googleapis.com/css?family=Raleway:200' rel='stylesheet' type='text/css'>
@@ -296,9 +296,9 @@ $info_box_strings = array("Meteorology" => $_("Weather data used to drive the hy
       	</h2>
  
 <div class="navbar">
-  <div class="navbar-inner">
+  <div class="navbar-inner"> 
     <div class="container">
-      <ul class="nav">
+      <ul class="nav" >
 	<li class="active"><a href="#"><?php echo $_("Google Maps Interface"); ?></a></li>
         <li><a href='BasicInterface.php'><?php echo $_("Basic Interface"); ?></a></li>
         <li><a href='Resources/ADM_Background.pdf'><?php echo $_("Background"); ?></a></li>
