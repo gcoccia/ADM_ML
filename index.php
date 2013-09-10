@@ -150,6 +150,7 @@ $info_box_strings = array("Meteorology" => $_("Weather data used to drive the hy
     initialize();
     update_timestep();
     update_animation(); // Start animation with default settings
+    update_monitor_or_forecast();
 
     //Collapsible sidebar elements
     $(".nav-header").click(function() {

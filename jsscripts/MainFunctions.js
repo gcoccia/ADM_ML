@@ -182,3 +182,18 @@ function ChangeLanguage(language)
     window.location.replace(uri[0]+'?locale='+locale_val);
   }
 }
+
+function update_monitor_or_forecast()
+{
+  clear_image_overlays();
+  var morf = $("ul.monitor-or-forecast>li.active").find("a").attr('id');
+
+  if(""+morf == "monitor") {
+    $("#Animation-Sidebar>div.dummy").show();
+    $("li#Forecast").parent().hide();
+  } else {
+    $("#Animation-Sidebar>div.dummy").hide();
+    $("li#Forecast").parent().show();
+  }
+
+}
