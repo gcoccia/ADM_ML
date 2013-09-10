@@ -53,7 +53,7 @@ function update_animation()
       ChangeTimeStamp(1, ImageCounter, dataset);
       ImageCounter = 1;
 
-      // Set the slider values
+      // Set up the slider for this date range
       $(function() {
         $( "#animation-slider" ).slider({
           value:1,
@@ -62,7 +62,8 @@ function update_animation()
           step: 1,
           disabled: false,
           slide: function( event, ui ) {
-            $( "#slider-date" ).html( ImageTimeArray[dataset][ui.value] );
+            ImageCounter = ui.value;
+            $( "#slider-date" ).html( ImageTimeArray[dataset][ImageCounter] );
           }
         });
       });
