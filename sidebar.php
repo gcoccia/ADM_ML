@@ -6,11 +6,13 @@
   </ul>
 
   <!-- Select between Monitor and Forecast Data for Animation -->
-  <li class="divider"></li>
-  <ul class="nav nav-pills monitor-or-forecast">
-    <li class="active"><a href="javascript:void(0)" id="monitor" class="mf-pills" onclick=''><?php echo $_("Monitor")?></a></li>
-    <li><a href="javascript:void(0)" id="forecast" class="mf-pills" onclick=''><?php echo $_("Forecast")?></a></li>
-  </ul>
+  <div id="monitor-or-forecast-div">
+    <li class="divider"></li>
+    <ul class="nav nav-pills monitor-or-forecast">
+      <li class="active"><a href="javascript:void(0)" id="monitor" class="mf-pills" onclick=''><?php echo $_("Monitor")?></a></li>
+      <li><a href="javascript:void(0)" id="forecast" class="mf-pills" onclick=''><?php echo $_("Forecast")?></a></li>
+    </ul>
+  </div>
 
   <li class="divider"></li>
   <div class="dummy">
