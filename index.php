@@ -248,7 +248,7 @@ $info_box_strings = array("Meteorology" => $_("Weather data used to drive the hy
     });
 
 
-    $(".de-pills").click(function() {
+    $(".de-pills,.mf-pills").click(function() {
       if(!$(this).parent().hasClass("active")) { // only act on change
         $(".de-pills").parent().removeClass("active");
         $(this).parent().addClass("active");
