@@ -11,8 +11,8 @@ function ReadTimeInterval()
   var morf = $("ul.monitor-or-forecast>li.active").find("a").attr('id');
   if(""+morf == "forecast") {
     var forecast_days = 30;
-    var forecast_months = 6;
-    
+    var forecast_months = 5; // 6 month forecast - includes current initial month
+
     var current_timestep = $("ul.ts-selection li.active").attr('id');
     var initial_date = new Date(parseInt($("#year_initial").val()),
                            parseInt($("#month_initial").val())-1,
