@@ -63,20 +63,15 @@ function update_animation()
           max: ImageStrArray[dataset].length,
           step: 1,
           disabled: false,
-          start: function( event, ui) {
-            clearInterval(t);
-          },
-          stop: function( event, ui ) {
-            ImageCounter = ui.value;
-            next_image();
-            $( "#slider-date" ).html( ImageTimeArray[dataset][ImageCounter-1] );
-            t = setInterval(next_image, 1000*1/frames_per_second);
-          },
           slide: function( event, ui ) {
+            if($("#pause-or-continue").attr('class') == "icon-pause") // if playing
+              clearInterval(t);
             ImageCounter = ui.value;
             next_image();
             $( "#slider-date" ).html( ImageTimeArray[dataset][ImageCounter-1] );
-            t = setInterval(next_image, 1000*1/frames_per_second);
+            
+            if($("#pause-or-continue").attr('class') == "icon-pause") // if playing
+              t = setInterval(next_image, 1000*1/frames_per_second);
           }
         });
       });
