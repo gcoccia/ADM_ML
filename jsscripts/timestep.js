@@ -75,10 +75,10 @@ function Update_TimeStamp_MP(increment, flag_timestamp)
     date_temp.setFullYear(date_temp.getFullYear() + increment);
   
   var morf = $("ul.monitor-or-forecast>li.active").find("a").attr('id');
-  if (flag_timestamp == 0 && date_temp.valueOf() > final_date.valueOf()) {
+  if (flag_timestamp == 0 && increment == 1 && date_temp.valueOf() > final_date.valueOf()) {
     if(""+morf == "monitor") return;
   }
-  else if (flag_timestamp == 1 && date_temp.valueOf() < initial_date.valueOf()) return;
+  else if (flag_timestamp == 1 && increment == -1 && date_temp.valueOf() < initial_date.valueOf()) return;
 
   // Update the time string
   $("#year_" + i_or_f).val(date_temp.getFullYear());
