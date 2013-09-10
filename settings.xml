@@ -13,45 +13,45 @@
 
   <group name="Meteorology" divtitle="Forcing">
     <datatype name="prec" units="mm/day" title="Precipitation (mm)" mask="mask">
-      <dataset name="3B42RT_BC" ts="DMY" itime="1JAN2008" ftime="31JUL2013"></dataset>
-      <dataset name="PGF" ts="DMY" itime="1JAN1950" ftime="31DEC2008"></dataset>
+      <dataset name="3B42RT_BC" ts="DMY" itime="2008/01/01" ftime="2013/07/31"></dataset>
+      <dataset name="PGF" ts="DMY" itime="1950/01/01" ftime="2008/12/31"></dataset>
     </datatype>
     <datatype name="tmax" units="K" title="Maximum Temperature (C)" mask="mask">
-      <dataset name="PGF" ts="DMY" itime="1JAN1950" ftime="31DEC2008"></dataset>
-      <!--<dataset name="GFS_ANALYSIS_BC" ts="DMY" itime="1JAN2008" ftime="31DEC2008"></dataset>-->
+      <dataset name="PGF" ts="DMY" itime="1950/01/01" ftime="2008/12/31"></dataset>
+      <!--<dataset name="GFS_ANALYSIS_BC" ts="DMY" itime="2008/01/01" ftime="2008/12/31"></dataset>-->
     </datatype>
     <datatype name="tmin" units="K" title="Minimum Temperature (C)" mask="mask">
-      <dataset name="PGF" ts="DMY" itime="1JAN1950" ftime="31DEC2008"></dataset>
-      <!--<dataset name="GFS_ANALYSIS_BC" ts="DMY" itime="1JAN2008" ftime="31DEC2008"></dataset>-->
+      <dataset name="PGF" ts="DMY" itime="1950/01/01" ftime="2008/12/31"></dataset>
+      <!--<dataset name="GFS_ANALYSIS_BC" ts="DMY" itime="2008/01/01" ftime="2008/12/31"></dataset>-->
     </datatype>
     <datatype name="wind" units="m/s" title="Wind (m/s)" mask="mask">
-      <dataset name="PGF" ts="DMY" itime="1JAN1950" ftime="31DEC2008"></dataset>
-      <!--<dataset name="GFS_ANALYSIS_BC" ts="DMY" itime="1JAN2008" ftime="31DEC2008"></dataset>-->
+      <dataset name="PGF" ts="DMY" itime="1950/01/01" ftime="2008/12/31"></dataset>
+      <!--<dataset name="GFS_ANALYSIS_BC" ts="DMY" itime="2008/01/01" ftime="2008/12/31"></dataset>-->
     </datatype>
     <infobox>1</infobox>
   </group>
   <group name="Hydrology" divtitle="Model">
     <datatype name="vc1" units="5" title="Soil Moisture (%) - Layer 1" mask="mask">
-      <dataset name="VIC_DERIVED" ts="DMY" itime="1JAN1950" ftime="31DEC2009"></dataset>
+      <dataset name="VIC_DERIVED" ts="DMY" itime="1950/01/01" ftime="2009/12/31"></dataset>
     </datatype>
     <datatype name="vc2" units="%" title="Soil Moisture (%) - Layer 2" mask="mask">
-      <dataset name="VIC_DERIVED" ts="DMY" itime="1JAN1950" ftime="31DEC2009"></dataset>
+      <dataset name="VIC_DERIVED" ts="DMY" itime="1950/01/01" ftime="2009/12/31"></dataset>
     </datatype>
     <datatype name="evap" units="mm" title="Evaporation (mm/day)" mask="mask">
-      <dataset name="VIC_PGF" ts="DMY" itime="1JAN1950" ftime="31DEC2008"></dataset>
-      <dataset name="VIC_3B42RT" ts="DMY" itime="1JAN2008" ftime="31DEC2008"></dataset>
+      <dataset name="VIC_PGF" ts="DMY" itime="1950/01/01" ftime="2008/12/31"></dataset>
+      <dataset name="VIC_3B42RT" ts="DMY" itime="2008/01/01" ftime="2008/12/31"></dataset>
     </datatype>
     <datatype name="runoff" units="mm" title="Surface Runoff (mm/day)" mask="mask">
-      <dataset name="VIC_PGF" ts="DMY" itime="1JAN1950" ftime="31DEC2008"></dataset>
-      <dataset name="VIC_3B42RT" ts="DMY" itime="1JAN2008" ftime="31DEC2008"></dataset>
+      <dataset name="VIC_PGF" ts="DMY" itime="1950/01/01" ftime="2008/12/31"></dataset>
+      <dataset name="VIC_3B42RT" ts="DMY" itime="2008/01/01" ftime="2008/12/31"></dataset>
     </datatype>
     <datatype name="baseflow" units="mm" title="Baseflow (mm/day)" mask="mask">
-      <dataset name="VIC_PGF" ts="DMY" itime="1JAN1950" ftime="31DEC2008"></dataset>
-      <dataset name="VIC_3B42RT" ts="DMY" itime="1JAN2008" ftime="31DEC2008"></dataset>
+      <dataset name="VIC_PGF" ts="DMY" itime="1950/01/01" ftime="2008/12/31"></dataset>
+      <dataset name="VIC_3B42RT" ts="DMY" itime="2008/01/01" ftime="2008/12/31"></dataset>
     </datatype>
     <datatype name="flw" units="m^3/s" title="Streamflow (m^3/s)" mask="maskSO">
-      <dataset name="ROUTING_VIC_PGF" ts="DMY" itime="1JAN1950" ftime="31DEC2008"></dataset>
-      <dataset name="ROUTING_VIC_3B42RT" ts="DMY" itime="1JAN2008" ftime="31DEC2008"></dataset>
+      <dataset name="ROUTING_VIC_PGF" ts="DMY" itime="1950/01/01" ftime="2008/12/31"></dataset>
+      <dataset name="ROUTING_VIC_3B42RT" ts="DMY" itime="2008/01/01" ftime="2008/12/31"></dataset>
     </datatype>
 
     <infobox>2</infobox>
@@ -59,25 +59,25 @@
 
   <group name="Indices" divtitle="Drought">
     <datatype name="spi1" units="" title="SPI (1 month)" mask="mask200">
-      <dataset name="SPI" ts="DMY" itime="1JAN1950" ftime="31DEC2009"></dataset>
+      <dataset name="SPI" ts="DMY" itime="1950/01/01" ftime="2009/12/31"></dataset>
     </datatype>
     <datatype name="spi3" units="" title="SPI (3 month)" mask="mask200">
-      <dataset name="SPI" ts="DMY" itime="1JAN1950" ftime="31DEC2009"></dataset>
+      <dataset name="SPI" ts="DMY" itime="1950/01/01" ftime="2009/12/31"></dataset>
     </datatype>
     <datatype name="spi6" units="" title="SPI (6 month)" mask="mask200">
-      <dataset name="SPI" ts="DMY" itime="1JAN1950" ftime="31DEC2009"></dataset>
+      <dataset name="SPI" ts="DMY" itime="1950/01/01" ftime="2009/12/31"></dataset>
     </datatype>
     <datatype name="spi12" units="" title="SPI (12 month)" mask="mask200">
-      <dataset name="SPI" ts="DMY" itime="1JAN1950" ftime="31DEC2009"></dataset>
+      <dataset name="SPI" ts="DMY" itime="1950/01/01" ftime="2009/12/31"></dataset>
     </datatype>
     <datatype name="vcpct" units="%" title="Drought Index (%)" mask="mask200">
-      <dataset name="VIC_DERIVED" ts="DMY" itime="1JAN1950" ftime="31DEC2009"></dataset>
+      <dataset name="VIC_DERIVED" ts="DMY" itime="1950/01/01" ftime="2009/12/31"></dataset>
     </datatype>
     <datatype name="pct30day" units="%" title="NDVI Percentile (30-day moving average)" mask="mask200">
-      <dataset name="MOD09_NDVI_MA_PCT" ts="DMY" itime="1JAN2008" ftime="31DEC2008"></dataset>
+      <dataset name="MOD09_NDVI_MA_PCT" ts="DMY" itime="2008/01/01" ftime="2008/12/31"></dataset>
     </datatype>
     <datatype name="flw_pct" units="%" title="Streamflow Percentile (%)" mask="maskSO">
-      <dataset name="ROUTING_VIC_DERIVED" ts="DMY" itime="1JAN1950" ftime="31DEC2008"></dataset>
+      <dataset name="ROUTING_VIC_DERIVED" ts="DMY" itime="1950/01/01" ftime="2008/12/31"></dataset>
     </datatype>
 
     <infobox>3</infobox>
@@ -85,82 +85,82 @@
 
   <group name="Surface Fluxes" divtitle="Fluxes">
     <datatype name="r_net" units="W/m^2" title="Net Radiation (W/m^2)" mask="mask">
-     <dataset name="VIC_PGF" ts="DMY" itime="1JAN1950" ftime="31DEC2008"></dataset>
-     <dataset name="VIC_3B42RT" ts="DMY" itime="1JAN2008" ftime="31DEC2008"></dataset>
+     <dataset name="VIC_PGF" ts="DMY" itime="1950/01/01" ftime="2008/12/31"></dataset>
+     <dataset name="VIC_3B42RT" ts="DMY" itime="2008/01/01" ftime="2008/12/31"></dataset>
     </datatype>
     <datatype name="net_long" units="W/m^2" title="Net Longwave Radiation (W/m^2)" mask="mask">
-     <dataset name="VIC_PGF" ts="DMY" itime="1JAN1950" ftime="31DEC2008"></dataset>
-     <dataset name="VIC_3B42RT" ts="DMY" itime="1JAN2008" ftime="31DEC2008"></dataset>
+     <dataset name="VIC_PGF" ts="DMY" itime="1950/01/01" ftime="2008/12/31"></dataset>
+     <dataset name="VIC_3B42RT" ts="DMY" itime="2008/01/01" ftime="2008/12/31"></dataset>
     </datatype>
     <datatype name="net_short" units="W/m^2" title="Net Shortwave Radiation (W/m^2)" mask="mask">
-     <dataset name="VIC_PGF" ts="DMY" itime="1JAN1950" ftime="31DEC2008"></dataset>
-     <dataset name="VIC_3B42RT" ts="DMY" itime="1JAN2008" ftime="31DEC2008"></dataset>
+     <dataset name="VIC_PGF" ts="DMY" itime="1950/01/01" ftime="2008/12/31"></dataset>
+     <dataset name="VIC_3B42RT" ts="DMY" itime="2008/01/01" ftime="2008/12/31"></dataset>
     </datatype>
     <infobox>4</infobox>
    </group>
 
    <group name="Vegetation" divtitle="Vegetation">
     <datatype name="ndvi30" units="" title="NDVI (30-day moving average)" mask="mask">
-     <dataset name="MOD09_NDVI_MA" ts="DMY" itime="1JAN2008" ftime="31DEC2008"></dataset>
+     <dataset name="MOD09_NDVI_MA" ts="DMY" itime="2008/01/01" ftime="2008/12/31"></dataset>
     </datatype>
     <infobox>5</infobox>
    </group>
 
    <group name="Forecast" divtitle="Forecast">
     <datatype name="spi1" units="" title="SPI (1 month)" mask="mask">
-     <dataset name="CMC1-CanCM3" ts="M" itime="1JUL2013" ftime="1DEC2013"></dataset>
-     <dataset name="GFDL-CM2p1-aer04" ts="M" itime="1JUL2013" ftime="1DEC2013"></dataset>
-     <dataset name="COLA-RSMAS-CCSM3" ts="M" itime="1JUL2013" ftime="1DEC2013"></dataset>
-     <dataset name="NASA-GMAO-062012" ts="M" itime="1JUL2013" ftime="1DEC2013"></dataset>
-     <dataset name="CMC2-CanCM4" ts="M" itime="1JUL2013" ftime="1DEC2013"></dataset>
-     <dataset name="MultiModel" ts="M" itime="1JUL2013" ftime="1DEC2013"></dataset>
+     <dataset name="CMC1-CanCM3" ts="M" itime="2013/07/01" ftime="2013/12/01"></dataset>
+     <dataset name="GFDL-CM2p1-aer04" ts="M" itime="2013/07/01" ftime="2013/12/01"></dataset>
+     <dataset name="COLA-RSMAS-CCSM3" ts="M" itime="2013/07/01" ftime="2013/12/01"></dataset>
+     <dataset name="NASA-GMAO-062012" ts="M" itime="2013/07/01" ftime="2013/12/01"></dataset>
+     <dataset name="CMC2-CanCM4" ts="M" itime="2013/07/01" ftime="2013/12/01"></dataset>
+     <dataset name="MultiModel" ts="M" itime="2013/07/01" ftime="2013/12/01"></dataset>
     </datatype>
     <datatype name="spi3" units="" title="SPI (3 month)" mask="mask">
-     <dataset name="CMC1-CanCM3" ts="M" itime="1JUL2013" ftime="1DEC2013"></dataset>
-     <dataset name="GFDL-CM2p1-aer04" ts="M" itime="1JUL2013" ftime="1DEC2013"></dataset>
-     <dataset name="COLA-RSMAS-CCSM3" ts="M" itime="1JUL2013" ftime="1DEC2013"></dataset>
-     <dataset name="NASA-GMAO-062012" ts="M" itime="1JUL2013" ftime="1DEC2013"></dataset>
-     <dataset name="CMC2-CanCM4" ts="M" itime="1JUL2013" ftime="1DEC2013"></dataset>
-     <dataset name="MultiModel" ts="M" itime="1JUL2013" ftime="1DEC2013"></dataset>
+     <dataset name="CMC1-CanCM3" ts="M" itime="2013/07/01" ftime="2013/12/01"></dataset>
+     <dataset name="GFDL-CM2p1-aer04" ts="M" itime="2013/07/01" ftime="2013/12/01"></dataset>
+     <dataset name="COLA-RSMAS-CCSM3" ts="M" itime="2013/07/01" ftime="2013/12/01"></dataset>
+     <dataset name="NASA-GMAO-062012" ts="M" itime="2013/07/01" ftime="2013/12/01"></dataset>
+     <dataset name="CMC2-CanCM4" ts="M" itime="2013/07/01" ftime="2013/12/01"></dataset>
+     <dataset name="MultiModel" ts="M" itime="2013/07/01" ftime="2013/12/01"></dataset>
     </datatype>
     <datatype name="spi6" units="" title="SPI (6 month)" mask="mask">
-     <dataset name="CMC1-CanCM3" ts="M" itime="1JUL2013" ftime="1DEC2013"></dataset>
-     <dataset name="GFDL-CM2p1-aer04" ts="M" itime="1JUL2013" ftime="1DEC2013"></dataset>
-     <dataset name="COLA-RSMAS-CCSM3" ts="M" itime="1JUL2013" ftime="1DEC2013"></dataset>
-     <dataset name="NASA-GMAO-062012" ts="M" itime="1JUL2013" ftime="1DEC2013"></dataset>
-     <dataset name="CMC2-CanCM4" ts="M" itime="1JUL2013" ftime="1DEC2013"></dataset>
-     <dataset name="MultiModel" ts="M" itime="1JUL2013" ftime="1DEC2013"></dataset>
+     <dataset name="CMC1-CanCM3" ts="M" itime="2013/07/01" ftime="2013/12/01"></dataset>
+     <dataset name="GFDL-CM2p1-aer04" ts="M" itime="2013/07/01" ftime="2013/12/01"></dataset>
+     <dataset name="COLA-RSMAS-CCSM3" ts="M" itime="2013/07/01" ftime="2013/12/01"></dataset>
+     <dataset name="NASA-GMAO-062012" ts="M" itime="2013/07/01" ftime="2013/12/01"></dataset>
+     <dataset name="CMC2-CanCM4" ts="M" itime="2013/07/01" ftime="2013/12/01"></dataset>
+     <dataset name="MultiModel" ts="M" itime="2013/07/01" ftime="2013/12/01"></dataset>
     </datatype>
     <datatype name="spi12" units="" title="SPI (12 month)" mask="mask">
-     <dataset name="CMC1-CanCM3" ts="M" itime="1JUL2013" ftime="1DEC2013"></dataset>
-     <dataset name="GFDL-CM2p1-aer04" ts="M" itime="1JUL2013" ftime="1DEC2013"></dataset>
-     <dataset name="COLA-RSMAS-CCSM3" ts="M" itime="1JUL2013" ftime="1DEC2013"></dataset>
-     <dataset name="NASA-GMAO-062012" ts="M" itime="1JUL2013" ftime="1DEC2013"></dataset>
-     <dataset name="CMC2-CanCM4" ts="M" itime="1JUL2013" ftime="1DEC2013"></dataset>
-     <dataset name="MultiModel" ts="M" itime="1JUL2013" ftime="1DEC2013"></dataset>
+     <dataset name="CMC1-CanCM3" ts="M" itime="2013/07/01" ftime="2013/12/01"></dataset>
+     <dataset name="GFDL-CM2p1-aer04" ts="M" itime="2013/07/01" ftime="2013/12/01"></dataset>
+     <dataset name="COLA-RSMAS-CCSM3" ts="M" itime="2013/07/01" ftime="2013/12/01"></dataset>
+     <dataset name="NASA-GMAO-062012" ts="M" itime="2013/07/01" ftime="2013/12/01"></dataset>
+     <dataset name="CMC2-CanCM4" ts="M" itime="2013/07/01" ftime="2013/12/01"></dataset>
+     <dataset name="MultiModel" ts="M" itime="2013/07/01" ftime="2013/12/01"></dataset>
     </datatype>
     <datatype name="prec" units="" title="Precipitation (mm/day)" mask="mask">
-     <dataset name="CMC1-CanCM3" ts="M" itime="1JUL2013" ftime="1DEC2013"></dataset>
-     <dataset name="GFDL-CM2p1-aer04" ts="M" itime="1JUL2013" ftime="1DEC2013"></dataset>
-     <dataset name="COLA-RSMAS-CCSM3" ts="M" itime="1JUL2013" ftime="1DEC2013"></dataset>
-     <dataset name="NASA-GMAO-062012" ts="M" itime="1JUL2013" ftime="1DEC2013"></dataset>
-     <dataset name="CMC2-CanCM4" ts="M" itime="1JUL2013" ftime="1DEC2013"></dataset>
-     <dataset name="MultiModel" ts="M" itime="1JUL2013" ftime="1DEC2013"></dataset>
+     <dataset name="CMC1-CanCM3" ts="M" itime="2013/07/01" ftime="2013/12/01"></dataset>
+     <dataset name="GFDL-CM2p1-aer04" ts="M" itime="2013/07/01" ftime="2013/12/01"></dataset>
+     <dataset name="COLA-RSMAS-CCSM3" ts="M" itime="2013/07/01" ftime="2013/12/01"></dataset>
+     <dataset name="NASA-GMAO-062012" ts="M" itime="2013/07/01" ftime="2013/12/01"></dataset>
+     <dataset name="CMC2-CanCM4" ts="M" itime="2013/07/01" ftime="2013/12/01"></dataset>
+     <dataset name="MultiModel" ts="M" itime="2013/07/01" ftime="2013/12/01"></dataset>
     </datatype>
     <datatype name="t2m" units="" title="Average temperature (C)" mask="mask">
-     <dataset name="CMC1-CanCM3" ts="M" itime="1JUL2013" ftime="1DEC2013"></dataset>
-     <dataset name="GFDL-CM2p1-aer04" ts="M" itime="1JUL2013" ftime="1DEC2013"></dataset>
-     <dataset name="COLA-RSMAS-CCSM3" ts="M" itime="1JUL2013" ftime="1DEC2013"></dataset>
-     <dataset name="NASA-GMAO-062012" ts="M" itime="1JUL2013" ftime="1DEC2013"></dataset>
-     <dataset name="CMC2-CanCM4" ts="M" itime="1JUL2013" ftime="1DEC2013"></dataset>
-     <dataset name="MultiModel" ts="M" itime="1JUL2013" ftime="1DEC2013"></dataset>
+     <dataset name="CMC1-CanCM3" ts="M" itime="2013/07/01" ftime="2013/12/01"></dataset>
+     <dataset name="GFDL-CM2p1-aer04" ts="M" itime="2013/07/01" ftime="2013/12/01"></dataset>
+     <dataset name="COLA-RSMAS-CCSM3" ts="M" itime="2013/07/01" ftime="2013/12/01"></dataset>
+     <dataset name="NASA-GMAO-062012" ts="M" itime="2013/07/01" ftime="2013/12/01"></dataset>
+     <dataset name="CMC2-CanCM4" ts="M" itime="2013/07/01" ftime="2013/12/01"></dataset>
+     <dataset name="MultiModel" ts="M" itime="2013/07/01" ftime="2013/12/01"></dataset>
     </datatype>
     <datatype name="t2ano" units="" title="Temperature Anomaly (C)" mask="mask">
-     <dataset name="CMC1-CanCM3" ts="M" itime="1JUL2013" ftime="1DEC2013"></dataset>
-     <dataset name="GFDL-CM2p1-aer04" ts="M" itime="1JUL2013" ftime="1DEC2013"></dataset>
-     <dataset name="COLA-RSMAS-CCSM3" ts="M" itime="1JUL2013" ftime="1DEC2013"></dataset>
-     <dataset name="NASA-GMAO-062012" ts="M" itime="1JUL2013" ftime="1DEC2013"></dataset>
-     <dataset name="CMC2-CanCM4" ts="M" itime="1JUL2013" ftime="1DEC2013"></dataset>
+     <dataset name="CMC1-CanCM3" ts="M" itime="2013/07/01" ftime="2013/12/01"></dataset>
+     <dataset name="GFDL-CM2p1-aer04" ts="M" itime="2013/07/01" ftime="2013/12/01"></dataset>
+     <dataset name="COLA-RSMAS-CCSM3" ts="M" itime="2013/07/01" ftime="2013/12/01"></dataset>
+     <dataset name="NASA-GMAO-062012" ts="M" itime="2013/07/01" ftime="2013/12/01"></dataset>
+     <dataset name="CMC2-CanCM4" ts="M" itime="2013/07/01" ftime="2013/12/01"></dataset>
     </datatype>
     <infobox>6</infobox>
    </group>
@@ -173,9 +173,9 @@
 <!--<forecast>
  <group name="Meteorology" divtitle="Forcing">
   <datatype name="t2m" units="" title="Average temperature (C)" mask="mask">
-   <dataset name="CMC1-CanCM3" ts="M" itime="1JUL2013" ftime="1JUL2013" nt=6></dataset>
-   <dataset name="GFDL-CM2p1-aer04" ts="M" itime="1JUL2013" ftime="1JUL2013" nt=6></dataset>
-   <dataset name="COLA-RSMAS-CCSM3" ts="M" itime="1JUL2013" ftime="1JUL2013" nt=6></dataset>
+   <dataset name="CMC1-CanCM3" ts="M" itime="2013/07/01" ftime="2013/07/01" nt=6></dataset>
+   <dataset name="GFDL-CM2p1-aer04" ts="M" itime="2013/07/01" ftime="2013/07/01" nt=6></dataset>
+   <dataset name="COLA-RSMAS-CCSM3" ts="M" itime="2013/07/01" ftime="2013/07/01" nt=6></dataset>
    </datatype>
   <infobox>1</infobox>
  </group>
