@@ -52,6 +52,7 @@ function update_animation()
       overlay_obj[dataset] = new ImageOverlay(bounds, ImageStrArray[dataset][0], map_array[0], dataset);
       ChangeTimeStamp(1, ImageCounter, dataset);
       ImageCounter = 1;
+      $( "#slider-date" ).html( ImageTimeArray[dataset][ImageCounter-1] );
 
       // Set up the slider for this date range
       $(function() {
