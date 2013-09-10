@@ -54,8 +54,8 @@ function update_animation()
       $( "#slider-date" ).html( ImageTimeArray[dataset][0] );
       ImageCounter = 1;
       
-      // Make sure the play/pause icons are visible and set to "pause" to start the animation
-      $( "#pause-or-continue").show();
+      // Make sure the play/pause icons are visible and set to "pause" when the animation starts
+      $( "#slider-div").show();
       if($( "#pause-or-continue").attr('class') == "icon-play")
       {
         $("#pause-or-continue").removeClass("icon-play");
@@ -122,9 +122,9 @@ function clear_image_overlays()
   }
   $("#Colorbar").css({visibility: "hidden", height: ""});
   $( "#animation-slider" ).slider("option", "disabled", true);
-  $( "#animation-slider" ).slider("option", "value", 1);
+  $( "#animation-slider" ).slider("option", "value", 0);
   $( "#slider-date" ).html("");
-  $( "#pause-or-continue").hide();
+  $( "#slider-div").hide();
 }
 
 function display_colorbar(dataset)

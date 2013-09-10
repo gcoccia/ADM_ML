@@ -53,10 +53,10 @@
       <input type="button" value="+" onclick="update_overlay_opacity(1)"><br/> -->
 
  <!-- Slider for animation -->
-<div id="slider-div">
+<div id="slider-div" style="display:none">
   <li class="divider"></li>
   <span id="slider-date"></span>
-  <span><i id="pause-or-continue" class="icon-pause" style="display:none"></i></span>
+  <span><i id="pause-or-continue" class="icon-pause"></i></span>
   <div id="animation-slider"></div>
 </div>
 
