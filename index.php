@@ -287,17 +287,18 @@ $info_box_strings = array("Meteorology" => $_("Weather data used to drive the hy
 
 <body style="width:100%; height:100%">
 <div class="container-fluid" style="width:100%; height:100%; padding-right:0px; padding-left:0px;">
-	<h2>African Drought Monitor
+	<!-- <h2>African Water Cycle Monitor
       	<img style="float:right" id="UW_logo" src="icons/UW_logo.png">
 	<img style="float:right" id="UNESCO_logo" src="icons/Unesco_logo.gif">
       	<img style="float:right" id="ICPAC_logo" src="icons/ICPAC_logo.gif">
       	<img style="float:right" id="AGRHYMET_logo" src="icons/agrhymet_logo.gif">
 	<img style="float:right" id="PU_logo" src="icons/PU_logo.gif">
-      	</h2>
+      	</h2>-->
  
 <div class="navbar">
   <div class="navbar-inner"> 
     <div class="container">
+      <a class="brand" href="#">African Water Cycle Monitor</a>
       <ul class="nav" >
 	<li class="active"><a href="#"><?php echo $_("Google Maps Interface"); ?></a></li>
         <li><a href='BasicInterface.php'><?php echo $_("Basic Interface"); ?></a></li>
@@ -305,16 +306,16 @@ $info_box_strings = array("Meteorology" => $_("Weather data used to drive the hy
         <li><a href='Resources/ADM_Glossary.pdf'><?php echo $_("Glossary"); ?></a></li>
         <li><a href='Resources/Tutorial_HornAfrica.pdf'><?php echo $_("Tutorial"); ?></a></li>
         </ul>
-	<img id="Flag_Image" style="float:right" src="icons/flags/arabic_flag.gif" onclick=ChangeLanguage("Arabic")>
+<!--	<img id="Flag_Image" style="float:right" src="icons/flags/arabic_flag.gif" onclick=ChangeLanguage("Arabic")>
 	<img id="Flag_Image" style="float:right" src="icons/flags/spanish_flag.gif" onclick=ChangeLanguage("Spanish")>
 	<img id="Flag_Image" style="float:right" src="icons/flags/chinese_flag.gif" onclick=ChangeLanguage("Chinese")>
 	<img id="Flag_Image" style="float:right" src="icons/flags/french_flag.gif" onclick=ChangeLanguage("French")>
-	<img id="Flag_Image" style="float:right" src="icons/flags/english_flag.gif" onclick=ChangeLanguage("English")>
+	<img id="Flag_Image" style="float:right" src="icons/flags/english_flag.gif" onclick=ChangeLanguage("English")> -->
     </div>
   </div>
 </div>
 
-<div class="row-fluid" style="width:100%; position: absolute; bottom: 0px; top:110px;">
+<div class="row-fluid" style="width:100%; position: absolute; bottom: 0px; top:41px;">
     <div class="span12" style="height:100%; width=100%;">
       <div id="blanket" style="display:none;"></div>
       <div id="popUpDiv" style="display:none;">
