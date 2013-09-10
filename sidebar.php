@@ -1,5 +1,5 @@
 <ul class="nav nav-list" data-spy="affix" data-offset-top="900">
-  <ul class="nav nav-pills data-extraction">
+  <ul class="nav nav-pills data-extraction" style="margin-bottom: 5px">
     <li class="active"><a href="javascript:void(0)" id="none" class="de-pills" onclick='Update_Listeners("none")'><?php echo $_("Animation")?></a></li>
     <li><a href="javascript:void(0)" id="point" class="de-pills" onclick='Update_Listeners("point")'><?php echo $_("Point Data")?></a></li>
     <li><a href="javascript:void(0)" id="spatial" class="de-pills" onclick='Update_Listeners("spatial")'><?php echo $_("Spatial Data")?></a></li>
@@ -7,7 +7,7 @@
 
   <!-- Select between Monitor and Forecast Data for Animation -->
   <li class="divider"></li>
-  <ul class="nav nav-pills monitor-or-forecast">
+  <ul class="nav nav-pills monitor-or-forecast" style="margin-bottom: 5px; padding-left: 10px">
     <li class="active"><a href="javascript:void(0)" id="monitor" class="mf-pills" onclick=''><?php echo $_("Monitor")?></a></li>
     <li><a href="javascript:void(0)" id="forecast" class="mf-pills" onclick=''><?php echo $_("Forecast")?></a></li>
   </ul>
