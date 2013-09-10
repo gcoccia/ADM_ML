@@ -85,6 +85,8 @@ $info_box_strings = array("Meteorology" => $_("Weather data used to drive the hy
 <link rel="stylesheet" type="text/css" href="css/Moz.css" title="Moz">
 <link href='http://fonts.googleapis.com/css?family=Raleway:200' rel='stylesheet' type='text/css'>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
 <script type="text/javascript" src="jsscripts/bootstrap.min.js"></script>
 <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
 <script type="text/javascript" src="jsscripts/MiscFunctions.js"></script>
@@ -147,9 +149,13 @@ $info_box_strings = array("Meteorology" => $_("Weather data used to drive the hy
 
   $(document).ready(function() {
 
+    // Initialize Jquery UI slider
+    $( "#animation-slider" ).slider();
+
     initialize();
     update_timestep();
     update_animation(); // Start animation with default settings
+    update_monitor_or_forecast();
 
     //Collapsible sidebar elements
     $(".nav-header").click(function() {
@@ -254,6 +260,14 @@ $info_box_strings = array("Meteorology" => $_("Weather data used to drive the hy
         $(this).parent().addClass("active");
       }
     });
+    $(".mf-pills").click(function() {
+      if(!$(this).parent().hasClass("active")) { // only act on change
+        $(".mf-pills").parent().removeClass("active");
+        $(this).parent().addClass("active");
+        update_monitor_or_forecast();
+        $("#clear_all").click(); // when switching between monitor/forecast, clear the current animation.
+      }
+    });
     $(".ts-pills").click(function() {
       if(!$(this).parent().hasClass("active")) {
         $(".ts-pills").parent().removeClass("active");
@@ -278,6 +292,19 @@ $info_box_strings = array("Meteorology" => $_("Weather data used to drive the hy
         $(this).parent().parent().parent().find("a.dropdown-toggle>i").addClass("icon-ok");
 
         update_animation();
+      }
+    });
+
+    // Animation play/pause buttons
+    $( "#pause-or-continue").click(function() {
+      if($(this).attr('class') == "icon-pause") {
+        clearInterval(t);
+        $(this).removeClass("icon-pause");
+        $(this).addClass("icon-play");
+      } else {
+        t = setInterval(next_image, 1000*1/frames_per_second);
+        $(this).removeClass("icon-play");
+        $(this).addClass("icon-pause");
       }
     });
   });

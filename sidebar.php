@@ -5,6 +5,15 @@
     <li><a href="javascript:void(0)" id="spatial" class="de-pills" onclick='Update_Listeners("spatial")'><?php echo $_("Spatial Data")?></a></li>
   </ul>
 
+  <!-- Select between Monitor and Forecast Data for Animation -->
+  <div id="monitor-or-forecast-div">
+    <li class="divider"></li>
+    <ul class="nav nav-pills monitor-or-forecast">
+      <li class="active"><a href="javascript:void(0)" id="monitor" class="mf-pills" onclick=''><?php echo $_("Monitor")?></a></li>
+      <li><a href="javascript:void(0)" id="forecast" class="mf-pills" onclick=''><?php echo $_("Forecast")?></a></li>
+    </ul>
+  </div>
+
   <li class="divider"></li>
   <div class="dummy">
   <li class="nav-header"><?php echo $_("Time Interval")." (".$_("dd/mm/yyyy").")"?></li>
@@ -23,7 +32,7 @@
 	    <input type="button" value="-" class="btn btn-mini" onclick="Update_TimeStamp_MP(-1,0)">
       <input type="button" value="+" class="btn btn-mini" onclick="Update_TimeStamp_MP(1,0)">
     </div>
-    <div class="control-group form-inline">
+    <div id="final-date-inputs" class="control-group form-inline">
       <label><?php echo $_("Final") ?>:</label>
       <input id="day_final" type="text" maxlength="2" name="day_final" value=<?php echo $day_final ?> style="width:15px;">
       <input id="month_final" type="text" maxlength="2" name="month_final" value=<?php echo $month_final ?> style="width:15px;">
@@ -43,10 +52,17 @@
       <input type="button" value="-" onclick="update_overlay_opacity(0)">
       <input type="button" value="+" onclick="update_overlay_opacity(1)"><br/> -->
 
+ <!-- Slider for animation -->
+<div id="slider-div" style="display:none">
+  <span id="slider-date"></span>
+  <span><i id="pause-or-continue" class="icon-pause"></i></span>
+  <div id="animation-slider"></div>
+</div>
+
 <div id="Animation-Sidebar">
 <?php foreach($xmlobj->variables->group as $group) { ?>
-  <li class="divider"></li>
   <div class="dummy">
+  <li class="divider"></li>
   <li id=<?php echo $_("".$group["name"])?> class="nav-header">
       <?php echo $_("".$group["name"])?>
       <a id=<?php echo $_("".$group["name"])?> href="#" data-toggle="popover"><img class="question_mark" src="icons/question_icon.png"></a>
@@ -101,9 +117,9 @@
   <br>
 
     <?php foreach($xmlobj->variables->group as $group) { ?>
-        <li class="divider"></li>
         <div class="dummy">
-          <li id=<?php echo $_("".$group["name"])?> class="nav-header">
+          <li class="divider"></li>
+          <li id=<?php echo $_("".$group["name"])."_spatial"?> class="nav-header">
               <?php echo $_("".$group["name"])?>
               <a id=<?php echo $_("".$group["name"])?> href="#" data-toggle="popover"><img class="question_mark" src="icons/question_icon.png"></a>
           </li>
