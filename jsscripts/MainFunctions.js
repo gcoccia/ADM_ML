@@ -53,6 +53,7 @@ function update_animation()
       ChangeTimeStamp(1, ImageCounter, dataset);
       ImageCounter = 1;
       $( "#slider-date" ).html( ImageTimeArray[dataset][ImageCounter-1] );
+      $( "#pause-or-continue").show();
 
       // Set up the slider for this date range
       $(function() {
@@ -94,6 +95,18 @@ function update_animation()
   }
 }
 
+$( "#pause-or-continue").click(function() {
+  if($(this).attr('class') == "icon-pause") {
+    clearInterval(t);
+    $(this).removeClass("icon-pause");
+    $(this).addClass("icon-play");
+  } else {
+    t = setInterval(next_image, 1000*1/frames_per_second);
+    $(this).removeClass("icon-play");
+    $(this).addClass("icon-pause");
+  }
+});
+
 function next_image()
 {
   var dataset = $("ul.datalist>li>ul.dropdown-menu>li.active").find("a").attr('id');
@@ -121,6 +134,7 @@ function clear_image_overlays()
   $( "#animation-slider" ).slider("option", "disabled", true);
   $( "#animation-slider" ).slider("option", "value", 1);
   $( "#slider-date" ).html("");
+  $( "#pause-or-continue").hide();
 }
 
 function display_colorbar(dataset)

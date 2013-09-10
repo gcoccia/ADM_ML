@@ -55,8 +55,8 @@
  <!-- Slider for animation -->
 <div id="slider-div">
   <li class="divider"></li>
-  <div id="slider-date">(Date)</div>
-  <span><i id="pause-or-continue" class="icon-pause"></i></span>
+  <div id="slider-date"></div>
+  <span><i id="pause-or-continue" class="icon-pause" style="display:none"></i></span>
   <div id="animation-slider"></div>
 </div>
 
