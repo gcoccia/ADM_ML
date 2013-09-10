@@ -56,13 +56,13 @@ function update_animation()
       // Set the slider values
       $(function() {
         $( "#animation-slider" ).slider({
-          value:0,
-          min: 0,
-          max: ImageStrArray[dataset].length-1,
+          value:1,
+          min: 1,
+          max: ImageStrArray[dataset].length,
           step: 1,
           disabled: false,
           slide: function( event, ui ) {
-            $( "#slider-date" ).val( ImageTimeArray[dataset][ui.value] );
+            $( "#slider-date" ).html( ImageTimeArray[dataset][ui.value] );
           }
         });
       });
@@ -105,7 +105,7 @@ function clear_image_overlays()
   }
   $("#Colorbar").css({visibility: "hidden", height: ""});
   $( "#animation-slider" ).slider("option", "disabled", true);
-  $( "#slider-date" ).val("");
+  $( "#slider-date" ).html("");
 }
 
 function display_colorbar(dataset)
