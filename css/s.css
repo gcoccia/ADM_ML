@@ -391,7 +391,7 @@ div.sidebar-block
 div.data-form-block
 {
   -webkit-box-shadow:none;
-  padding-top: 5px;
+  padding-top: 0px;
   padding-bottom: 5px;
 }
 #pageTitle
