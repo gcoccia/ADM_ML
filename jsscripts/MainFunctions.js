@@ -53,7 +53,11 @@ function update_animation()
       ChangeTimeStamp(1, ImageCounter, dataset);
       ImageCounter = 1;
       $( "#slider-date" ).html( ImageTimeArray[dataset][ImageCounter-1] );
+
+      // Make sure the play/pause icons are visible and set to "pause" to start the animation
       $( "#pause-or-continue").show();
+      if($( "#pause-or-continue").attr('class') == "icon-play")
+        $("#pause-or-continue").click();
 
       // Set up the slider for this date range
       $(function() {

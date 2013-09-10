@@ -265,8 +265,7 @@ $info_box_strings = array("Meteorology" => $_("Weather data used to drive the hy
         $(".mf-pills").parent().removeClass("active");
         $(this).parent().addClass("active");
         update_monitor_or_forecast();
-        update_timestep();
-        update_animation();
+        $("#clear_all").click(); // when switching between monitor/forecast, clear the current animation.
       }
     });
     $(".ts-pills").click(function() {
