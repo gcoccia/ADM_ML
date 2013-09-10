@@ -55,7 +55,13 @@ function update_animation()
 
       t = setInterval(next_image, time_delay);
     }
-    else {
+    else { // Error
+      clear_all_overlays();
+      // Turn off the active chosen datasets
+      $("ul.datalist>li").removeClass("active");
+      $("ul.datalist>li>ul.dropdown-menu>li").removeClass("active");
+      $("ul.datalist>li>a>i").removeClass("icon-ok");
+      $("ul.datalist>li>ul.dropdown-menu>li>a>i").removeClass("icon-ok");
       alert("Error: Dataset " + dataset + " is only available from " + data_idates[dataset] + " to " + data_fdates[dataset] + ".");
     }
   }
