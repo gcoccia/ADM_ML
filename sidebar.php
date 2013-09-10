@@ -5,6 +5,13 @@
     <li><a href="javascript:void(0)" id="spatial" class="de-pills" onclick='Update_Listeners("spatial")'><?php echo $_("Spatial Data")?></a></li>
   </ul>
 
+  <!-- Select between Monitor and Forecast Data for Animation -->
+  <li class="divider"></li>
+  <ul class="nav nav-pills monitor-or-forecast">
+    <li class="active"><a href="javascript:void(0)" id="monitor" class="mf-pills" onclick=''><?php echo $_("Monitor")?></a></li>
+    <li><a href="javascript:void(0)" id="forecast" class="mf-pills" onclick=''><?php echo $_("Forecast")?></a></li>
+  </ul>
+
   <li class="divider"></li>
   <div class="dummy">
   <li class="nav-header"><?php echo $_("Time Interval")." (".$_("dd/mm/yyyy").")"?></li>
