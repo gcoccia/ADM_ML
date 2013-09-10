@@ -232,9 +232,11 @@ function update_monitor_or_forecast()
   if(""+morf == "monitor") {
     $("#Animation-Sidebar>div.dummy").show();
     $("li#Forecast").parent().hide();
+    $("#final-date-inputs").show();
   } else {
     $("#Animation-Sidebar>div.dummy").hide();
     $("li#Forecast").parent().show();
+    $("#final-date-inputs").hide();
   }
 
 }

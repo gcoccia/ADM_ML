@@ -32,7 +32,7 @@
 	    <input type="button" value="-" class="btn btn-mini" onclick="Update_TimeStamp_MP(-1,0)">
       <input type="button" value="+" class="btn btn-mini" onclick="Update_TimeStamp_MP(1,0)">
     </div>
-    <div class="control-group form-inline">
+    <div id="final-date-inputs" class="control-group form-inline">
       <label><?php echo $_("Final") ?>:</label>
       <input id="day_final" type="text" maxlength="2" name="day_final" value=<?php echo $day_final ?> style="width:15px;">
       <input id="month_final" type="text" maxlength="2" name="month_final" value=<?php echo $month_final ?> style="width:15px;">

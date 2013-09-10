@@ -6,8 +6,27 @@ function ReadTimeInterval()
   month_final = parseInt(document.forms["AnimationForm"]["month_final"].value);
   day_initial = parseInt(document.forms["AnimationForm"]["day_initial"].value);
   day_final = parseInt(document.forms["AnimationForm"]["day_final"].value);
-  //Set Time delay between images
-  //frames_per_second = parseInt(document.forms["AnimationForm"]["frames_per_second"].value);
+  
+  // If in forecast mode, need to get a different final date for the animation
+  var morf = $("ul.monitor-or-forecast>li.active").find("a").attr('id');
+  if(""+morf == "forecast") {
+    var forecast_days = 30;
+    var forecast_months = 6;
+
+    var initial_date = new Date(parseInt($("#year_initial").val()),
+                           parseInt($("#month_initial").val())-1,
+                           parseInt($("#day_initial").val()));
+    var forecast_final_date = new Date();
+
+    if(""+current_timestep == "daily")
+      forecast_final_date.setDate(initial_date.getDate() + forecast_days);
+    else if(""+current_timestep == "monthly")
+      forecast_final_date.setMonth(initial_date.getMonth() + forecast_months); // will loop around 12 automatically
+    
+    day_final = forecast_final_date.getDate();
+    month_final = forecast_final_date.getMonth()+1;
+    year_final = forecast_final_date.getFullYear();
+  }
 }
 
 function ImageArrayPrep(ImageStrArray,ImageTimeArray)
@@ -20,6 +39,11 @@ function ImageArrayPrep(ImageStrArray,ImageTimeArray)
   var date_temp = initial_date;
   var framect = 0;
   var Dstring, Mstring, Ystring, tstring, tstamp;
+  // If in forecast mode, need to get a different URL for images
+  var morf = $("ul.monitor-or-forecast>li.active").find("a").attr('id');
+  var initDstring = sprintf("%02d",parseInt(initial_date.getDate())),
+      initMstring = sprintf("%02d",parseInt(initial_date.getMonth()+1)),
+      initYstring = sprintf("%02d", parseInt(initial_date.getFullYear()));
 
   // Example image urls:
   //../IMAGES/DAILY/19480101/PGF_prec_19480101_daily.svg
@@ -34,21 +58,34 @@ function ImageArrayPrep(ImageStrArray,ImageTimeArray)
 
     if(""+current_timestep == "daily") {
       tstring = Ystring + Mstring + Dstring;
-      dir_tstring = Ystring + '/' + Mstring + '/' + Dstring;
       tstamp = Ystring + "/" + Mstring + "/" + Dstring;
       date_temp.setDate(date_temp.getDate() + 1);
+
+      if(""+morf == "monitor")
+        dir_tstring = Ystring + '/' + Mstring + '/' + Dstring;
+      else
+        dir_tstring = initYstring + '/' + initMstring + '/' + initDstring;
     }
     else if(""+current_timestep == "monthly") {
-      dir_tstring = Ystring + '/' + Mstring;
       tstring = Ystring + Mstring;
       tstamp = Ystring + "/" + Mstring;
       date_temp.setMonth(date_temp.getMonth() + 1);
+
+      if(""+morf == "monitor")
+        dir_tstring = Ystring + '/' + Mstring;
+      else
+        dir_tstring = initYstring + '/' + initMstring;
     }
     else {
       tstring = Ystring;
       dir_tstring = Ystring;
       tstamp = Ystring;
       date_temp.setFullYear(date_temp.getFullYear() + 1);
+
+      if(""+morf == "monitor")
+        dir_tstring = Ystring;
+      else
+        dir_tstring = initYstring;
     }
 
     //ImageStrArray[framect] = "../IMAGES/" + current_timestep.toUpperCase() + "/" + tstring + "/" + dataset + "_" + tstring + ".png";
