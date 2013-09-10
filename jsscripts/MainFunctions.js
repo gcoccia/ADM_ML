@@ -62,9 +62,13 @@ function update_animation()
           max: ImageStrArray[dataset].length,
           step: 1,
           disabled: false,
-          slide: function( event, ui ) {
+          start: function( event, ui) {
+            clearInterval(t);
+          },
+          stop: function( event, ui ) {
             ImageCounter = ui.value;
             $( "#slider-date" ).html( ImageTimeArray[dataset][ImageCounter-1] );
+            t = setInterval(next_image, 1000*1/frames_per_second);
           }
         });
       });
