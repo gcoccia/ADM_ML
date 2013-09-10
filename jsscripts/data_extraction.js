@@ -109,13 +109,14 @@ function Point_Data(latLng){
   //Create the popup
   $("#blanket").show();
   $("#popUpDiv").show();
-
+  $("#hideBtn").hide();
   Create_Point_Plot();
 }
 
 function Hide_Data_Extraction_Popup() {
   $("#blanket").hide();
   $("#popUpDiv").hide();
+  $("#hideBtn").show();
 }
 
 function Create_Point_Plot() {
