@@ -173,9 +173,9 @@
 <!--<forecast>
  <group name="Meteorology" divtitle="Forcing">
   <datatype name="t2m" units="" title="Average temperature (C)" mask="mask">
-   <dataset name="CMC1-CanCM3" ts="M" itime="1JUL2013" nt=6></dataset>
-   <dataset name="GFDL-CM2p1-aer04" ts="M" itime="1JUL2013" nt=6></dataset>
-   <dataset name="COLA-RSMAS-CCSM3" ts="M" itime="1JUL2013" ftime=6></dataset>
+   <dataset name="CMC1-CanCM3" ts="M" itime="1JUL2013" ftime="1JUL2013" nt=6></dataset>
+   <dataset name="GFDL-CM2p1-aer04" ts="M" itime="1JUL2013" ftime="1JUL2013" nt=6></dataset>
+   <dataset name="COLA-RSMAS-CCSM3" ts="M" itime="1JUL2013" ftime="1JUL2013" nt=6></dataset>
    </datatype>
   <infobox>1</infobox>
  </group>
