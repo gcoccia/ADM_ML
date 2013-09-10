@@ -63,7 +63,7 @@ function update_animation()
           disabled: false,
           slide: function( event, ui ) {
             ImageCounter = ui.value;
-            $( "#slider-date" ).html( ImageTimeArray[dataset][ImageCounter] );
+            $( "#slider-date" ).html( ImageTimeArray[dataset][ImageCounter-1] );
           }
         });
       });
@@ -90,7 +90,7 @@ function next_image()
   ChangeTimeStamp(2, ImageCounter, dataset);
   ImageCounter += 1;
   $( "#animation-slider" ).slider("option", "value", ImageCounter);
-  $( "#slider-date" ).html( ImageTimeArray[dataset][ImageCounter] );
+  $( "#slider-date" ).html( ImageTimeArray[dataset][ImageCounter-1] );
 }
 
 function clear_image_overlays()
