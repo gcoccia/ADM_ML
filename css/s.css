@@ -409,13 +409,13 @@ div.data-form-block
     display: inline-block;
     float: none; /* Very important */
 }
-ul.data-extraction, ul.ts-selection
+ul.data-extraction, ul.ts-selection, ul.monitor-or-forecast
 {
   font-size: 12px;
 /*  text-transform: uppercase;*/
-  margin-bottom: 10px;
+  margin-bottom: 5px;
 }
-ul.data-extraction>li>a, ul.ts-selection>li>a
+ul.data-extraction>li>a, ul.ts-selection>li>a, ul.monitor-or-forecast>li>a
 {
   margin-right: 0px;
   line-height: 10px;
