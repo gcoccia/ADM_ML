@@ -51,9 +51,9 @@ function update_animation()
 
       overlay_obj[dataset] = new ImageOverlay(bounds, ImageStrArray[dataset][0], map_array[0], dataset);
       ChangeTimeStamp(1, ImageCounter, dataset);
+      $( "#slider-date" ).html( ImageTimeArray[dataset][0] );
       ImageCounter = 1;
-      $( "#slider-date" ).html( ImageTimeArray[dataset][ImageCounter-1] );
-
+      
       // Make sure the play/pause icons are visible and set to "pause" to start the animation
       $( "#pause-or-continue").show();
       if($( "#pause-or-continue").attr('class') == "icon-play")
@@ -75,7 +75,7 @@ function update_animation()
               clearInterval(t);
             ImageCounter = ui.value;
             next_image();
-            $( "#slider-date" ).html( ImageTimeArray[dataset][ImageCounter-1] );
+            $( "#slider-date" ).html( ImageTimeArray[dataset][ImageCounter] );
             
             if($("#pause-or-continue").attr('class') == "icon-pause") // if playing
               t = setInterval(next_image, 1000*1/frames_per_second);
