@@ -65,17 +65,17 @@ function update_animation()
       // Set up the slider for this date range
       $(function() {
         $( "#animation-slider" ).slider({
-          value:1,
-          min: 1,
-          max: ImageStrArray[dataset].length,
+          value:0,
+          min: 0,
+          max: ImageStrArray[dataset].length-1,
           step: 1,
           disabled: false,
           slide: function( event, ui ) {
             if($("#pause-or-continue").attr('class') == "icon-pause") // if playing
               clearInterval(t);
             ImageCounter = ui.value;
-            next_image();
             $( "#slider-date" ).html( ImageTimeArray[dataset][ImageCounter] );
+            next_image();
             
             if($("#pause-or-continue").attr('class') == "icon-pause") // if playing
               t = setInterval(next_image, 1000*1/frames_per_second);
@@ -103,9 +103,9 @@ function next_image()
   if (ImageCounter == ImageTimeArray[dataset].length) ImageCounter = 0;
   overlay_obj[dataset].swap(ImageStrArray[dataset][ImageCounter]);
   ChangeTimeStamp(2, ImageCounter, dataset);
-  ImageCounter += 1;
   $( "#animation-slider" ).slider("option", "value", ImageCounter);
-  $( "#slider-date" ).html( ImageTimeArray[dataset][ImageCounter-1] );
+  $( "#slider-date" ).html( ImageTimeArray[dataset][ImageCounter] );
+  ImageCounter += 1;
 }
 
 function clear_image_overlays()
