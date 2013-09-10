@@ -300,11 +300,11 @@ $info_box_strings = array("Meteorology" => $_("Weather data used to drive the hy
         min: 0,
         max: 500,
         step: 50,
+        disabled: true,
         slide: function( event, ui ) {
           $( "#amount" ).val( "$" + ui.value );
         }
       });
-      $( "#amount" ).val( "$" + $( "#animation-slider" ).slider( "value" ) );
     });
 
   });
