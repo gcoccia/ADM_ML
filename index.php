@@ -296,14 +296,19 @@ $info_box_strings = array("Meteorology" => $_("Weather data used to drive the hy
       	</h2>-->
  
 <div class="navbar">
-  <div class="navbar-inner"> 
+  <div class="navbar-inner" style="border-radius: 0px;"> 
     <div class="container">
       <a class="brand" href="#">African Water Cycle Monitor</a>
       <ul class="nav" >
+        <li class="divider-vertical"></li>
 	<li class="active"><a href="#"><?php echo $_("Google Maps Interface"); ?></a></li>
+        <li class="divider-vertical"></li>
         <li><a href='BasicInterface.php'><?php echo $_("Basic Interface"); ?></a></li>
+        <li class="divider-vertical"></li>
         <li><a href='Resources/ADM_Background.pdf'><?php echo $_("Background"); ?></a></li>
+        <li class="divider-vertical"></li>
         <li><a href='Resources/ADM_Glossary.pdf'><?php echo $_("Glossary"); ?></a></li>
+        <li class="divider-vertical"></li>
         <li><a href='Resources/Tutorial_HornAfrica.pdf'><?php echo $_("Tutorial"); ?></a></li>
         </ul>
 <!--	<img id="Flag_Image" style="float:right" src="icons/flags/arabic_flag.gif" onclick=ChangeLanguage("Arabic")>
