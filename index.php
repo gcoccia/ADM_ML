@@ -324,14 +324,19 @@ $info_box_strings = array("Meteorology" => $_("Weather data used to drive the hy
       	</h2>-->
  
 <div class="navbar">
-  <div class="navbar-inner"> 
+  <div class="navbar-inner" style="border-radius: 0px"> 
     <div class="container">
       <a class="brand" onclick="Welcome_Popup()">African Water Cycle Monitor</a>
       <ul class="nav" >
+        <li class="divider-vertical"></li>
 	<li class="active"><a href="#"><?php echo $_("Google Maps Interface"); ?></a></li>
+        <li class="divider-vertical"></li>
         <li><a href='BasicInterface.php'><?php echo $_("Basic Interface"); ?></a></li>
+        <li class="divider-vertical"></li>
         <li><a href='Resources/ADM_Background.pdf'><?php echo $_("Background"); ?></a></li>
+        <li class="divider-vertical"></li>
         <li><a href='Resources/ADM_Glossary.pdf'><?php echo $_("Glossary"); ?></a></li>
+        <li class="divider-vertical"></li>
         <li><a href='Resources/Tutorial_HornAfrica.pdf'><?php echo $_("Tutorial"); ?></a></li>
         </ul>
 <!--	<img id="Flag_Image" style="float:right" src="icons/flags/arabic_flag.gif" onclick=ChangeLanguage("Arabic")>
@@ -359,7 +364,7 @@ $info_box_strings = array("Meteorology" => $_("Weather data used to drive the hy
 
     <div id="map_canvas_1" style="max-width: none;"></div>
     <div class="row">
-      <div id="sidebar1" class="span3 scrollDiv" style="visibility:visible; padding-right:0; position: absolute; top: 0px; background-color: #FFFFFF; width: auto; min-width:250px; max-width:320px; right:0px; bottom: 0px;">
+      <div id="sidebar1" class="span3 scrollDiv" style="visibility:visible; padding-right:0; position: absolute; top: 0px; background-color: #FFFFFF; border-radius: 5px; width: auto; width:300px; right:0px; bottom: 0px;">
          <?php include('sidebar.php'); ?>
         </div>
       </div>
