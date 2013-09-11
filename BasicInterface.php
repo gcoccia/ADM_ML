@@ -112,23 +112,22 @@ $Latest_Timestamp = sprintf("%02d",$Latest_Day)."/".sprintf("%02d",$Latest_Month
 
  <div class="row-fluid" style="text-align:center">
     <h2 id="Drought_Conditions">Drought Conditions on <?php echo $Latest_Timestamp?></h2>
-    <!--<div id="Daily_Images">
-       foreach($xmlobj->group as $group) {  
-         foreach($group->datatype as $datatype) {
-          foreach($datatype->dataset as $dataset) {
-    	   if (1 == 1) {
+    <div id="Daily_Images">
+    <?php  foreach($xmlobj->group as $group) { ?> 
+        <?php foreach($group->datatype as $datatype) { ?>
+         <?php foreach($datatype->dataset as $dataset) { ?>
               <hr>
               <div class="inline">
                 <img id="" src="" title="image" onerror="this.src='icons/Basic_Noimage.png'"/>
                 <div class="image_superposition">
-                  <h3 class="text_superposition">{$datatype['title']}</h3>
+                  <h3 class="text_superposition"><?php echo $datatype['title']?></h3>
                </div>
-              </div>  } 
-           }
-         } 
-       } ?> 
+              </div> 
+          <?php } ?>
+        <?php } ?> 
+      <?php } ?> 
      <hr>  
-     </div>-->
+     </div>
    </div>
    <!--     <hr>
         <div class="inline">
