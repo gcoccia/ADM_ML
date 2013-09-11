@@ -89,6 +89,7 @@ $info_box_strings = array("Meteorology" => $_("Weather data used to drive the hy
 <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
 <script type="text/javascript" src="jsscripts/bootstrap.min.js"></script>
 <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+<script type="text/javascript" src="jsscripts/Welcome.js"></script>
 <script type="text/javascript" src="jsscripts/MiscFunctions.js"></script>
 <script type="text/javascript" src="jsscripts/VarDeclaration.js"></script>
 <script type="text/javascript" src="jsscripts/AnimationPrep.js"></script>
@@ -325,7 +326,7 @@ $info_box_strings = array("Meteorology" => $_("Weather data used to drive the hy
 <div class="navbar">
   <div class="navbar-inner"> 
     <div class="container">
-      <a class="brand" href="#">African Water Cycle Monitor</a>
+      <a class="brand" onclick="Welcome_Popup()">African Water Cycle Monitor</a>
       <ul class="nav" >
 	<li class="active"><a href="#"><?php echo $_("Google Maps Interface"); ?></a></li>
         <li><a href='BasicInterface.php'><?php echo $_("Basic Interface"); ?></a></li>
@@ -342,7 +343,7 @@ $info_box_strings = array("Meteorology" => $_("Weather data used to drive the hy
   </div>
 </div>
 
-<div class="row-fluid" style="width:100%; position: absolute; bottom: 0px; top:41px;">
+<div class="row-fluid" style="width:100%; position: absolute; bottom: 0px; top:40px;">
     <div class="span12" style="height:100%; width=100%;">
       <div id="blanket" style="display:none;"></div>
       <div id="popUpDiv" style="display:none;">
@@ -358,12 +359,14 @@ $info_box_strings = array("Meteorology" => $_("Weather data used to drive the hy
 
     <div id="map_canvas_1" style="max-width: none;"></div>
     <div class="row">
-      <div id="sidebar1" class="span3 scrollDiv" style="visibility:visible; padding-right:0; position: absolute; top: 0px; background-color: #FFFFFF; border-radius: 5px; width: auto; min-width:250px; max-width:320px; right:0px; bottom: 0px;">
+      <div id="sidebar1" class="span3 scrollDiv" style="visibility:visible; padding-right:0; position: absolute; top: 0px; background-color: #FFFFFF; width: auto; min-width:250px; max-width:320px; right:0px; bottom: 0px;">
          <?php include('sidebar.php'); ?>
         </div>
       </div>
      </div>
    <div id="hideBtn"><i id="hideBtnImg" class="icon-arrow-right" style="position: absolute; top:0px; right:0px; z-index: 9100;"></i></div>
+   <div id="Welcome" style"visibility:visible; width:100%; height:100%">
+   </div>
 </div>
 </div>
 </body>
