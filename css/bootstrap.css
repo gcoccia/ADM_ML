@@ -4374,11 +4374,11 @@ input[type="submit"].btn.btn-mini {
   padding-right: 20px;
   padding-left: 20px;
   background-color: #fafafa;
-  background-image: -moz-linear-gradient(top, #ffffff, #f2f2f2);
+  background-image: -moz-linear-gradient(top, #ffffff, #e0e0e0);
   background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ffffff), to(#f2f2f2));
   background-image: -webkit-linear-gradient(top, #ffffff, #f2f2f2);
-  background-image: -o-linear-gradient(top, #ffffff, #f2f2f2);
-  background-image: linear-gradient(to bottom, #ffffff, #f2f2f2);
+  background-image: -o-linear-gradient(top, #dcdcdc, #a9a9a9);
+  background-image: linear-gradient(to bottom, #dcdcdc, #c0c0c0);
   background-repeat: repeat-x;
   border: 1px solid #d4d4d4;
   -webkit-border-radius: 4px;
@@ -4444,8 +4444,8 @@ input[type="submit"].btn.btn-mini {
 
 .navbar .divider-vertical {
   height: 40px;
-  margin: 0 9px;
-  border-right: 1px solid #ffffff;
+  margin: 0 0px;
+  border-right: 0px solid #ffffff;
   border-left: 1px solid #f2f2f2;
 }
 
