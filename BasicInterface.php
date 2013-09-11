@@ -110,9 +110,9 @@ $Latest_Timestamp = sprintf("%02d",$Latest_Day)."/".sprintf("%02d",$Latest_Month
     </div>
   </div>
 
- <!-- <div class="row-fluid" style="text-align:center">
+ <div class="row-fluid" style="text-align:center">
     <h2 id="Drought_Conditions">Drought Conditions on <?php echo $Latest_Timestamp?></h2>
-    <div id="Daily_Images">
+    <!--<div id="Daily_Images">
        foreach($xmlobj->group as $group) {  
          foreach($group->datatype as $datatype) {
           foreach($datatype->dataset as $dataset) {
@@ -128,8 +128,8 @@ $Latest_Timestamp = sprintf("%02d",$Latest_Day)."/".sprintf("%02d",$Latest_Month
          } 
        } ?> 
      <hr>  
-     </div>
-   </div>-->
+     </div>-->
+   </div>
    <!--     <hr>
         <div class="inline">
 	  <img id="SMQALL" src="Data/ADM_Data/Realtime/smqall_basic/smqall_$Latest_Time.png" title="image" onerror="this.src='icons/Basic_Noimage.png'"/>
