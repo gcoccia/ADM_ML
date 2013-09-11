@@ -9,6 +9,7 @@ function Update_Listeners(type){
   $("#Animation-Sidebar").show();
   $("#Point-Sidebar").hide();
   $("#Spatial-Sidebar").hide();
+  $("#monitor-or-forecast-div").show();
 
   //Remove the listeners and lines/polygons from the map
   if(mapPolygon) {
@@ -25,13 +26,20 @@ function Update_Listeners(type){
  }
  else if (type == 'point'){
   //Remove present listeners
+  clear_all_overlays();
+  // Turn off the active chosen datasets
+  $("ul.datalist>li").removeClass("active");
+  $("ul.datalist>li>ul.dropdown-menu>li").removeClass("active");
+  $("ul.datalist>li>a>i").removeClass("icon-ok");
+  $("ul.datalist>li>ul.dropdown-menu>li>a>i").removeClass("icon-ok");
   Update_Listeners('none');
   map_array[0].setOptions({draggableCursor:'crosshair'});
-
+  
   // Switch to the point sidebar
   $("#Animation-Sidebar").hide();
   $("#Point-Sidebar").show();
   $("#Spatial-Sidebar").hide();
+  $("#monitor-or-forecast-div").hide();
 
   //Add the listeners
   google.maps.event.addListener(map_array[0], 'click', function(mEvent) {Point_Data(mEvent.latLng)});
@@ -42,12 +50,19 @@ function Update_Listeners(type){
  }
  else if (type == 'spatial'){
   //Remove present listeners
+  clear_all_overlays();
   Update_Listeners('none');
+  // Turn off the active chosen datasets
+  $("ul.datalist>li").removeClass("active");
+  $("ul.datalist>li>ul.dropdown-menu>li").removeClass("active");
+  $("ul.datalist>li>a>i").removeClass("icon-ok");
+  $("ul.datalist>li>ul.dropdown-menu>li>a>i").removeClass("icon-ok");
 
   // Switch to the spatial sidebar
   $("#Animation-Sidebar").hide();
   $("#Point-Sidebar").hide();
   $("#Spatial-Sidebar").show();
+  $("#monitor-or-forecast-div").hide();
 
   map_array[0].setOptions({draggableCursor:'crosshair'});
   // Add polygon and lines to map

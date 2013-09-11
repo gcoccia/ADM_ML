@@ -51,11 +51,47 @@ function update_animation()
 
       overlay_obj[dataset] = new ImageOverlay(bounds, ImageStrArray[dataset][0], map_array[0], dataset);
       ChangeTimeStamp(1, ImageCounter, dataset);
+      $( "#slider-date" ).html( ImageTimeArray[dataset][0] );
       ImageCounter = 1;
+      
+      // Make sure the play/pause icons are visible and set to "pause" when the animation starts
+      $( "#slider-div").show();
+      if($( "#pause-or-continue").attr('class') == "icon-play")
+      {
+        $("#pause-or-continue").removeClass("icon-play");
+        $("#pause-or-continue").addClass("icon-pause");
+      }
+
+      // Set up the slider for this date range
+      $(function() {
+        $( "#animation-slider" ).slider({
+          value:0,
+          min: 0,
+          max: ImageStrArray[dataset].length-1,
+          step: 1,
+          disabled: false,
+          slide: function( event, ui ) {
+            if($("#pause-or-continue").attr('class') == "icon-pause") // if playing
+              clearInterval(t);
+            ImageCounter = ui.value;
+            $( "#slider-date" ).html( ImageTimeArray[dataset][ImageCounter] );
+            next_image();
+            
+            if($("#pause-or-continue").attr('class') == "icon-pause") // if playing
+              t = setInterval(next_image, 1000*1/frames_per_second);
+          }
+        });
+      });
 
       t = setInterval(next_image, time_delay);
     }
-    else {
+    else { // Error
+      clear_all_overlays();
+      // Turn off the active chosen datasets
+      $("ul.datalist>li").removeClass("active");
+      $("ul.datalist>li>ul.dropdown-menu>li").removeClass("active");
+      $("ul.datalist>li>a>i").removeClass("icon-ok");
+      $("ul.datalist>li>ul.dropdown-menu>li>a>i").removeClass("icon-ok");
       alert("Error: Dataset " + dataset + " is only available from " + data_idates[dataset] + " to " + data_fdates[dataset] + ".");
     }
   }
@@ -67,6 +103,8 @@ function next_image()
   if (ImageCounter == ImageTimeArray[dataset].length) ImageCounter = 0;
   overlay_obj[dataset].swap(ImageStrArray[dataset][ImageCounter]);
   ChangeTimeStamp(2, ImageCounter, dataset);
+  $( "#animation-slider" ).slider("option", "value", ImageCounter);
+  $( "#slider-date" ).html( ImageTimeArray[dataset][ImageCounter] );
   ImageCounter += 1;
 }
 
@@ -83,6 +121,10 @@ function clear_image_overlays()
     }
   }
   $("#Colorbar").css({visibility: "hidden", height: ""});
+  $( "#animation-slider" ).slider("option", "disabled", true);
+  $( "#animation-slider" ).slider("option", "value", 0);
+  $( "#slider-date" ).html("");
+  $( "#slider-div").hide();
 }
 
 function display_colorbar(dataset)
@@ -147,8 +189,8 @@ function clear_all_overlays()
   }
 
   // Clear all forms
-  document.getElementById("AnimationForm").reset();
-  $(".data-radio").prop('checked', false);
+  //document.getElementById("AnimationForm").reset();
+  //$(".data-radio").prop('checked', false);
 }
 
 function ChangeLanguage(language)
@@ -181,4 +223,20 @@ function ChangeLanguage(language)
   else {
     window.location.replace(uri[0]+'?locale='+locale_val);
   }
+}
+
+function update_monitor_or_forecast()
+{
+  var morf = $("ul.monitor-or-forecast>li.active").find("a").attr('id');
+
+  if(""+morf == "monitor") {
+    $("#Animation-Sidebar>div.dummy").show();
+    $("li#Forecast").parent().hide();
+    $("#final-date-inputs").show();
+  } else {
+    $("#Animation-Sidebar>div.dummy").hide();
+    $("li#Forecast").parent().show();
+    $("#final-date-inputs").hide();
+  }
+
 }
