@@ -1,6 +1,10 @@
 <?php 
+
+if (file_exists('settings.xml')) { 
+  $xmlobj = simplexml_load_file("settings.xml");
+} else { exit("Error: settings.xml file not found"); }
+
 require_once('php-gettext-1.0.11/gettext.inc');
-#require('scripts/main_layout.inc');
 include 'scripts/Read_DM_log.php';
 $locale = BP_LANG;
 $textdomain="adm";
@@ -21,9 +25,6 @@ T_bind_textdomain_codeset($textdomain, 'UTF-8');
 T_textdomain($textdomain);
 $_= 'T_';
 
-#page_header($locale, "Current Conditions");
-#menu();
-#$Current_Time= date('d/m/Y',jdtounix(unixtojd() - 2));
 $Latest_Year = $year_initial;
 $Latest_Month = $month_initial;
 $Latest_Day = $day_initial;
@@ -108,11 +109,29 @@ $text = <<<EOF
       </form>
     </div>
   </div>
-  
+
   <div class="row-fluid" style="text-align:center">
     <h2 id="Drought_Conditions">{$_("Drought Conditions on")} $Latest_Timestamp</h2>
-      <div id="Daily_Images">
-        <hr>
+    <div id="Daily_Images">
+       foreach($xmlobj->group as $group) {  
+         foreach($group->datatype as $datatype) {
+          foreach($datatype->dataset as $dataset) {
+    	   if (1 == 1) {
+              <hr>
+              <div class="inline">
+                <img id="" src="" title="image" onerror="this.src='icons/Basic_Noimage.png'"/>
+                <div class="image_superposition">
+                  <h3 class="text_superposition">{$datatype['title']}</h3>
+               </div>
+              </div>  } 
+           }
+         } 
+       } 
+     <hr>
+     </div>
+   </div>
+     
+   <!--     <hr>
         <div class="inline">
 	  <img id="SMQALL" src="Data/ADM_Data/Realtime/smqall_basic/smqall_$Latest_Time.png" title="image" onerror="this.src='icons/Basic_Noimage.png'"/>
 	  <div class="image_superposition">
@@ -184,7 +203,7 @@ $text = <<<EOF
         </div>
         <hr>
       </div>
-    </div>
+    </div> -->
 </body>
 </html>
 EOF;
