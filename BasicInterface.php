@@ -56,36 +56,44 @@ $text = <<<EOF
 <script type="text/javascript" src="jsscripts/MainFunctions.js"></script>
 
 <link rel="Shortcut Icon" href="vic.ico" type="image/x-icon" >
-<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
 <link href="css/s.css" rel=stylesheet> 
 <link rel="stylesheet" type="text/css" media="screen,projection" href="css/Moz.css" title="Moz" />
 </head>
 
 <body style="width:100%; height:100%">
   <div class="container-fluid" style="width:100%; height:100%; padding-right:0px; padding-left:0px;">
-    <h2>African Drought Monitor
+   <!-- <h2>African Drought Monitor
       <img style="float:right" id="UW_logo" src="icons/UW_logo.png">
       <img style="float:right" id="UNESCO_logo" src="icons/Unesco_logo.gif">
       <img style="float:right" id="ICPAC_logo" src="icons/ICPAC_logo.gif">
       <img style="float:right" id="AGRHYMET_logo" src="icons/agrhymet_logo.gif">
       <img style="float:right" id="PU_logo" src="icons/PU_logo.gif">
-    </h2>
+    </h2>-->
   <div class="navbar">
-    <div class="navbar-inner">
+    <div class="navbar-inner" style="border-radius: 0px">
       <div class="container">
-        <ul class="nav">
+       <a class="brand" href="#">African Water Cycle Monitor</a> 
+       <ul class="nav">
+          <li class="divider-vertical"></li> 
           <li><a href='index.php'>Google Maps Interface</a></li>
+          <li class="divider-vertical"></li>
           <li class="active"><a href='#'>Basic Interface</a></li>
+          <li class="divider-vertical"></li>
           <li><a href='Resources/ADM_Background.pdf'>Background</a></li>
+          <li class="divider-vertical"></li>
           <li><a href='Resources/ADM_Glossary.pdf'>Glossary</a></li>
+          <li class="divider-vertical"></li>
           <li><a href='Resources/Tutorial_HornAfrica.pdf'>Tutorial</a></li>
         </ul>
+        <!--
         <img id="Flag_Image" style="float:right" src="icons/flags/arabic_flag.gif" onclick=ChangeLanguage("Arabic")>
         <img id="Flag_Image" style="float:right" src="icons/flags/spanish_flag.gif" onclick=ChangeLanguage("Spanish")>
         <img id="Flag_Image" style="float:right" src="icons/flags/chinese_flag.gif" onclick=ChangeLanguage("Chinese")>
         <img id="Flag_Image" style="float:right" src="icons/flags/french_flag.gif" onclick=ChangeLanguage("French")>
         <img id="Flag_Image" style="float:right" src="icons/flags/english_flag.gif" onclick=ChangeLanguage("English")>
-      </div>
+        -->
+     </div>
     </div>
   </div>
 
