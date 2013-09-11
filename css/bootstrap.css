@@ -4418,7 +4418,7 @@ input[type="submit"].btn.btn-mini {
   margin-left: -20px;
   font-size: 20px;
   font-weight: 200;
-  color: #777777;
+  color: #000000;
   text-shadow: 0 1px 0 #ffffff;
 }
 
@@ -4445,8 +4445,8 @@ input[type="submit"].btn.btn-mini {
 .navbar .divider-vertical {
   height: 40px;
   margin: 0 0px;
-  border-right: 0px solid #ffffff;
-  border-left: 1px solid #f2f2f2;
+  border-right: 1px solid #a9a9a9;
+  border-left: 1px solid #c0c0c0;
 }
 
 .navbar .btn,
