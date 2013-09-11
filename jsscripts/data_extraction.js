@@ -26,9 +26,10 @@ function Update_Listeners(type){
  }
  else if (type == 'point'){
   //Remove present listeners
+  clear_all_overlays();
   Update_Listeners('none');
   map_array[0].setOptions({draggableCursor:'crosshair'});
-
+  
   // Switch to the point sidebar
   $("#Animation-Sidebar").hide();
   $("#Point-Sidebar").show();
@@ -44,6 +45,7 @@ function Update_Listeners(type){
  }
  else if (type == 'spatial'){
   //Remove present listeners
+  clear_all_overlays();
   Update_Listeners('none');
 
   // Switch to the spatial sidebar
