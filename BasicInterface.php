@@ -71,13 +71,13 @@ $Latest_Timestamp = sprintf("%02d",$Latest_Day)."/".sprintf("%02d",$Latest_Month
       <img style="float:right" id="AGRHYMET_logo" src="icons/agrhymet_logo.gif">
       <img style="float:right" id="PU_logo" src="icons/PU_logo.gif">
     </h2> -->
-  <div class="navbar">
+  <div class="navbar navbar-inverse">
     <div class="navbar-inner" style="border-radius: 0px">
       <div class="container">
        <a class="brand" href="#">African Water Cycle Monitor</a> 
        <ul class="nav">
           <li class="divider-vertical"></li> 
-          <li><a href='index.php'>Google Maps Interface</a></li>
+          <li><a href='index.php'>Interactive Interface</a></li>
           <li class="divider-vertical"></li>
           <li class="active"><a href='#'>Basic Interface</a></li>
           <li class="divider-vertical"></li>

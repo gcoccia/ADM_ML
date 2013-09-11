@@ -329,7 +329,7 @@ $info_box_strings = array("Meteorology" => $_("Weather data used to drive the hy
       <a class="brand" onclick="Welcome_Popup()">African Water Cycle Monitor</a>
       <ul class="nav" >
         <li class="divider-vertical"></li>
-	<li class="active"><a href="#"><?php echo $_("Google Maps Interface"); ?></a></li>
+	<li class="active"><a href="#"><?php echo $_("Interactive Interface"); ?></a></li>
         <li class="divider-vertical"></li>
         <li><a href='BasicInterface.php'><?php echo $_("Basic Interface"); ?></a></li>
         <li class="divider-vertical"></li>
