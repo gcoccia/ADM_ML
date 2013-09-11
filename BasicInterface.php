@@ -36,17 +36,21 @@ $Initial_Time = sprintf("%02d",$Initial_Day)."/".sprintf("%02d",$Initial_Month).
 $Final_Time = sprintf("%02d",$Latest_Day)."/".sprintf("%02d",$Latest_Month)."/".sprintf("%04d",$Latest_Year);
 $Month_Name = array("Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec");
 $Latest_Timestamp = sprintf("%02d",$Latest_Day)."/".sprintf("%02d",$Latest_Month)."/".sprintf("%04d",$Latest_Year);
+?>
 
-$text = <<<EOF
 <!DOCTYPE html>
 <html style="height:100%">
 <head>
 <title>African Drought Monitor</title>
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no" /> 
 <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
-<meta http-equiv="content-style-type" content="text/css" />
 <meta content="African Drought Monitor" name="description" />
 <meta content="Drought, drought monitor, drought monitoring, streamflow, soil moisture, hydrological forecast,hydrologic forecast, water, resource, management, Nathaniel Chaney, Justin Sheffield, Eric Wood" name="keywords" />
 <meta content="Nathaniel Chaney" name="author" />
+
+<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+<link href="css/s.css" rel=stylesheet>
+<link rel="stylesheet" type="text/css" media="screen,projection" href="css/Moz.css" title="Moz" />
 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script type="text/javascript" src="jsscripts/bootstrap.min.js"></script>
@@ -56,10 +60,6 @@ $text = <<<EOF
 <script type="text/javascript" src="jsscripts/MiscFunctions.js"></script>
 <script type="text/javascript" src="jsscripts/MainFunctions.js"></script>
 
-<link rel="Shortcut Icon" href="vic.ico" type="image/x-icon" >
-<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
-<link href="css/s.css" rel=stylesheet> 
-<link rel="stylesheet" type="text/css" media="screen,projection" href="css/Moz.css" title="Moz" />
 </head>
 
 <body style="width:100%; height:100%">
@@ -70,7 +70,7 @@ $text = <<<EOF
       <img style="float:right" id="ICPAC_logo" src="icons/ICPAC_logo.gif">
       <img style="float:right" id="AGRHYMET_logo" src="icons/agrhymet_logo.gif">
       <img style="float:right" id="PU_logo" src="icons/PU_logo.gif">
-    </h2>-->
+    </h2> -->
   <div class="navbar">
     <div class="navbar-inner" style="border-radius: 0px">
       <div class="container">
@@ -100,18 +100,18 @@ $text = <<<EOF
 
   <div class="row-fluid" style="text-align:center">
     <div id='Static_Controls'>
-      <form name="TimeForm"> Timestamp (dd/mm/yyyy) :  <button class="btn" type="button" onclick="Update_Static_Images_Step(0)"> < </button>
-      <input type="text" name="latest_day" class="input-small" value=$Latest_Day>
-      <input type="text" name="latest_month" class="input-small" value=$Latest_Month>
-      <input type="text" name="latest_year" class="input-small" value=$Latest_Year>
-      <button class="btn" type="button" onclick="Update_Static_Images_Step(1)"> > </button>
-      <button class="btn" type="button" onclick="Update_Static_Images()">Update Images</button>  $Initial_Time - $Final_Time
+      <form name="TimeForm"> Timestamp (dd/mm/yyyy) :  <button class="btn" type="button" onclick="Update_Static_Images_Step(0)">d</button>
+      <input type="text" name="latest_day" class="input-small" value="">
+      <input type="text" name="latest_month" class="input-small" value="">
+      <input type="text" name="latest_year" class="input-small" value="">
+      <button class="btn" type="button" onclick="Update_Static_Images_Step(1)">u</button>
+      <button class="btn" type="button" onclick="Update_Static_Images()">Update Images</button> <?php echo $Initial_Time ?> - <?php echo $Final_Time ?>
       </form>
     </div>
   </div>
 
-  <div class="row-fluid" style="text-align:center">
-    <h2 id="Drought_Conditions">{$_("Drought Conditions on")} $Latest_Timestamp</h2>
+ <!-- <div class="row-fluid" style="text-align:center">
+    <h2 id="Drought_Conditions">Drought Conditions on <?php echo $Latest_Timestamp?></h2>
     <div id="Daily_Images">
        foreach($xmlobj->group as $group) {  
          foreach($group->datatype as $datatype) {
@@ -126,11 +126,10 @@ $text = <<<EOF
               </div>  } 
            }
          } 
-       } 
-     <hr>
+       } ?> 
+     <hr>  
      </div>
-   </div>
-     
+   </div>-->
    <!--     <hr>
         <div class="inline">
 	  <img id="SMQALL" src="Data/ADM_Data/Realtime/smqall_basic/smqall_$Latest_Time.png" title="image" onerror="this.src='icons/Basic_Noimage.png'"/>
@@ -206,11 +205,8 @@ $text = <<<EOF
     </div> -->
 </body>
 </html>
-EOF;
 
-print $text;
 
-?>
 
 
 
