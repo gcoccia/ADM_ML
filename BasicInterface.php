@@ -100,11 +100,11 @@ $Latest_Timestamp = sprintf("%02d",$Latest_Day)."/".sprintf("%02d",$Latest_Month
 
   <div class="row-fluid" style="text-align:center">
     <div id='Static_Controls'>
-      <form name="TimeForm"> Timestamp (dd/mm/yyyy) :  <button class="btn" type="button" onclick="Update_Static_Images_Step(0)">d</button>
-      <input type="text" name="latest_day" class="input-small" value="">
-      <input type="text" name="latest_month" class="input-small" value="">
-      <input type="text" name="latest_year" class="input-small" value="">
-      <button class="btn" type="button" onclick="Update_Static_Images_Step(1)">u</button>
+      <form name="TimeForm"> Timestamp (dd/mm/yyyy) :  <button class="btn" type="button" onclick="Update_Static_Images_Step(0)"><?php echo $_("<")?></button>
+      <input type="text" name="latest_day" class="input-small" value=<?php echo $Latest_Day ?>>
+      <input type="text" name="latest_month" class="input-small" value=<?php echo $Latest_Month ?>>
+      <input type="text" name="latest_year" class="input-small" value=<?php echo $Latest_Year ?>>
+      <button class="btn" type="button" onclick="Update_Static_Images_Step(1)"><?php echo $_(">")?></button>
       <button class="btn" type="button" onclick="Update_Static_Images()">Update Images</button> <?php echo $Initial_Time ?> - <?php echo $Final_Time ?>
       </form>
     </div>
