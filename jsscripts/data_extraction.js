@@ -26,9 +26,15 @@ function Update_Listeners(type){
  }
  else if (type == 'point'){
   //Remove present listeners
+  clear_all_overlays();
+  // Turn off the active chosen datasets
+  $("ul.datalist>li").removeClass("active");
+  $("ul.datalist>li>ul.dropdown-menu>li").removeClass("active");
+  $("ul.datalist>li>a>i").removeClass("icon-ok");
+  $("ul.datalist>li>ul.dropdown-menu>li>a>i").removeClass("icon-ok");
   Update_Listeners('none');
   map_array[0].setOptions({draggableCursor:'crosshair'});
-
+  
   // Switch to the point sidebar
   $("#Animation-Sidebar").hide();
   $("#Point-Sidebar").show();
@@ -44,7 +50,13 @@ function Update_Listeners(type){
  }
  else if (type == 'spatial'){
   //Remove present listeners
+  clear_all_overlays();
   Update_Listeners('none');
+  // Turn off the active chosen datasets
+  $("ul.datalist>li").removeClass("active");
+  $("ul.datalist>li>ul.dropdown-menu>li").removeClass("active");
+  $("ul.datalist>li>a>i").removeClass("icon-ok");
+  $("ul.datalist>li>ul.dropdown-menu>li>a>i").removeClass("icon-ok");
 
   // Switch to the spatial sidebar
   $("#Animation-Sidebar").hide();

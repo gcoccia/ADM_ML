@@ -17,7 +17,7 @@ function ReadTimeInterval()
     var initial_date = new Date(parseInt($("#year_initial").val()),
                            parseInt($("#month_initial").val())-1,
                            parseInt($("#day_initial").val()));
-    var forecast_final_date = new Date();
+    var forecast_final_date = initial_date;
 
     if(""+current_timestep == "daily")
       forecast_final_date.setDate(initial_date.getDate() + forecast_days);
@@ -32,7 +32,6 @@ function ReadTimeInterval()
 
 function ImageArrayPrep(ImageStrArray,ImageTimeArray)
 {
-
   var current_timestep = $("ul.ts-selection li.active").attr('id');
   var dataset = $("ul.datalist>li>ul.dropdown-menu>li.active").find("a").attr('id');
   var initial_date = new Date(year_initial, month_initial-1, day_initial);
