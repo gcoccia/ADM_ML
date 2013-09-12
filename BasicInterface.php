@@ -59,7 +59,19 @@ $Latest_Timestamp = sprintf("%02d",$Latest_Day)."/".sprintf("%02d",$Latest_Month
 <script type="text/javascript" src="jsscripts/Static_Images.js"></script>
 <script type="text/javascript" src="jsscripts/MiscFunctions.js"></script>
 <script type="text/javascript" src="jsscripts/MainFunctions.js"></script>
-
+<script type="text/javascript" src="jsscripts/timestep.js"></script>
+<script type="text/javascript">
+  var data_timesteps = [], data_idates = [], data_fdates = [];
+  <?php foreach($xmlobj->variables->group as $group) {
+    foreach($group->datatype as $dt) {
+      foreach($dt->dataset as $ds) {
+        echo "data_timesteps[\"".$ds['name']."_".$dt['name']."\"] = \"".$ds['ts']."\";\n";
+        echo "data_idates[\"".$ds['name']."_".$dt['name']."\"] = \"".$ds['itime']."\";\n";
+        echo "data_fdates[\"".$ds['name']."_".$dt['name']."\"] = \"".$ds['ftime']."\";\n";
+      }
+    }
+  } ?>
+</script>
 </head>
 
 <body style="width:100%; height:100%">
@@ -94,9 +106,9 @@ $Latest_Timestamp = sprintf("%02d",$Latest_Day)."/".sprintf("%02d",$Latest_Month
   <div class="row-fluid" style="text-align:center">
     <div id='Static_Controls'>
       <form name="TimeForm"><?php echo $_('Timestamp'); ?> (dd/mm/yyyy) :  <button class="btn" type="button" onclick="Update_Static_Images_Step(0)"><?php echo $_("<")?></button>
-      <input type="text" name="latest_day" class="input-small" value=<?php echo $Latest_Day ?>>
-      <input type="text" name="latest_month" class="input-small" value=<?php echo $Latest_Month ?>>
-      <input type="text" name="latest_year" class="input-small" value=<?php echo $Latest_Year ?>>
+      <input id="day_latest" type="text" name="latest_day" class="input-small" value="<?php echo $Latest_Day ?>">
+      <input id="month_latest" type="text" name="latest_month" class="input-small" value="<?php echo $Latest_Month ?>">
+      <input id="year_latest" type="text" name="latest_year" class="input-small" value="<?php echo $Latest_Year ?>">
       <button class="btn" type="button" onclick="Update_Static_Images_Step(1)"><?php echo $_(">")?></button>
       <button class="btn" type="button" onclick="Update_Static_Images()"><?php echo $_('Update Images'); ?></button> <?php echo $Initial_Time ?> - <?php echo $Final_Time ?>
       </form>
@@ -109,7 +121,8 @@ $Latest_Timestamp = sprintf("%02d",$Latest_Day)."/".sprintf("%02d",$Latest_Month
     <?php  foreach($xmlobj->variables->group as $group) { ?> 
         <?php foreach($group->datatype as $datatype) { ?>
          <?php foreach($datatype->dataset as $dataset) { ?>
-             <?php if ($group['name'] != "Forecast") { ?>
+             <script> var printbool = data_dates_are_valid_basic("<?php echo $dataset['name'] ?>"+"_"+"<?php echo $datatype['name'] ?>");</script>
+             <?php if ($group['name'] != "Forecast") { ?> 
               <hr>
               <div class="inline">
                 <img id="" src="a" title="image" onerror="this.src='icons/Basic_Noimage.png'"/>

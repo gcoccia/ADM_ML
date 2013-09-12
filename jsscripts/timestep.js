@@ -101,3 +101,16 @@ function data_dates_are_valid()
     return true;
   else return false; 
 }
+
+function data_dates_are_valid_basic(dataset)
+{
+  var current_date = new Date(parseInt(document.getElementById('year_latest').value),
+                           parseInt(document.getElementById('month_latest').value)-1,
+                           parseInt(document.getElementById('day_latest').value));
+
+  if(Date.parse(data_idates[dataset]).valueOf() <= current_date.valueOf() && Date.parse(data_fdates[dataset]).valueOf() >= current_date.valueOf())
+    return true;
+  else return false;
+}
+
+
