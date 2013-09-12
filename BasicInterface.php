@@ -109,13 +109,15 @@ $Latest_Timestamp = sprintf("%02d",$Latest_Day)."/".sprintf("%02d",$Latest_Month
     <?php  foreach($xmlobj->variables->group as $group) { ?> 
         <?php foreach($group->datatype as $datatype) { ?>
          <?php foreach($datatype->dataset as $dataset) { ?>
+             <?php if ($group['name'] != "Forecast") { ?>
               <hr>
               <div class="inline">
                 <img id="" src="a" title="image" onerror="this.src='icons/Basic_Noimage.png'"/>
                 <div class="image_superposition">
-                  <h3 class="text_superposition"><?php echo $datatype['title']?></h3>
+                  <h3 class="text_superposition"><?php echo $datatype['title']?> - <?php echo $dataset['name']?></h3>
                </div>
               </div> 
+           <?php } ?>
           <?php } ?>
         <?php } ?> 
       <?php } ?> 
