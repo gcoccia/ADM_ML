@@ -77,7 +77,8 @@ $info_box_strings = array("Meteorology" => $_("Weather data used to drive the hy
 <!DOCTYPE html> 
 <html style="height:100%"> 
 <head> 
-<title><?php echo $_("Africa Drought Monitor") ?></title>
+<title>AWCM</title>
+<link rel="icon" type="image/ico" href="icons/AWCM_logo.ico">
 <meta name="viewport" content="initial-scale=1.0, user-scalable=no" /> 
 <meta http-equiv="content-type" content="text/html; charset=UTF-8"/> 
 <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
@@ -326,7 +327,7 @@ $info_box_strings = array("Meteorology" => $_("Weather data used to drive the hy
 <div class="navbar navbar-inverse">
   <div class="navbar-inner" style="border-radius: 0px"> 
     <div class="container">
-      <a class="brand" onclick="Welcome_Popup()">African Water Cycle Monitor</a>
+      <a class="brand" href='index.html'>African Water Cycle Monitor</a>
       <ul class="nav" >
         <li class="divider-vertical"></li>
 	<li class="active"><a href="#"><?php echo $_("Interactive Interface"); ?></a></li>
