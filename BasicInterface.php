@@ -93,18 +93,18 @@ $Latest_Timestamp = sprintf("%02d",$Latest_Day)."/".sprintf("%02d",$Latest_Month
 
   <div class="row-fluid" style="text-align:center">
     <div id='Static_Controls'>
-      <form name="TimeForm"> Timestamp (dd/mm/yyyy) :  <button class="btn" type="button" onclick="Update_Static_Images_Step(0)"><?php echo $_("<")?></button>
+      <form name="TimeForm"><?php echo $_('Timestamp'); ?> (dd/mm/yyyy) :  <button class="btn" type="button" onclick="Update_Static_Images_Step(0)"><?php echo $_("<")?></button>
       <input type="text" name="latest_day" class="input-small" value=<?php echo $Latest_Day ?>>
       <input type="text" name="latest_month" class="input-small" value=<?php echo $Latest_Month ?>>
       <input type="text" name="latest_year" class="input-small" value=<?php echo $Latest_Year ?>>
       <button class="btn" type="button" onclick="Update_Static_Images_Step(1)"><?php echo $_(">")?></button>
-      <button class="btn" type="button" onclick="Update_Static_Images()">Update Images</button> <?php echo $Initial_Time ?> - <?php echo $Final_Time ?>
+      <button class="btn" type="button" onclick="Update_Static_Images()"><?php echo $_('Update Images'); ?></button> <?php echo $Initial_Time ?> - <?php echo $Final_Time ?>
       </form>
     </div>
   </div>
 
  <div class="row-fluid" style="text-align:center">
-    <h2 id="Drought_Conditions">Drought Conditions on <?php echo $Latest_Timestamp?></h2>
+    <h2 id="Drought_Conditions"><?php echo $_("Drought Conditions on"); ?> <?php echo $Latest_Timestamp?></h2>
     <div id="Daily_Images">
     <?php  foreach($xmlobj->group as $group) { ?> 
         <?php foreach($group->datatype as $datatype) { ?>
