@@ -77,7 +77,7 @@ $info_box_strings = array("Meteorology" => $_("Weather data used to drive the hy
 <!DOCTYPE html> 
 <html style="height:100%"> 
 <head> 
-<title>AWCM</title>
+<title>African Water Cycle Monitor</title>
 <link rel="icon" type="image/ico" href="icons/AWCM_logo.ico">
 <meta name="viewport" content="initial-scale=1.0, user-scalable=no" /> 
 <meta http-equiv="content-type" content="text/html; charset=UTF-8"/> 
