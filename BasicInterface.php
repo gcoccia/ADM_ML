@@ -64,28 +64,21 @@ $Latest_Timestamp = sprintf("%02d",$Latest_Day)."/".sprintf("%02d",$Latest_Month
 
 <body style="width:100%; height:100%">
   <div class="container-fluid" style="width:100%; height:100%; padding-right:0px; padding-left:0px;">
-   <!-- <h2>African Drought Monitor
-      <img style="float:right" id="UW_logo" src="icons/UW_logo.png">
-      <img style="float:right" id="UNESCO_logo" src="icons/Unesco_logo.gif">
-      <img style="float:right" id="ICPAC_logo" src="icons/ICPAC_logo.gif">
-      <img style="float:right" id="AGRHYMET_logo" src="icons/agrhymet_logo.gif">
-      <img style="float:right" id="PU_logo" src="icons/PU_logo.gif">
-    </h2> -->
   <div class="navbar navbar-inverse">
     <div class="navbar-inner" style="border-radius: 0px">
       <div class="container">
        <a class="brand" href="#">African Water Cycle Monitor</a> 
        <ul class="nav">
           <li class="divider-vertical"></li> 
-          <li><a href='index.php'>Interactive Interface</a></li>
+          <li><a href='interface.php?locale=<?php echo $locale?>'><?php echo $_("Interactive Interface"); ?></a></li>
           <li class="divider-vertical"></li>
-          <li class="active"><a href='#'>Basic Interface</a></li>
+          <li class="active"><a href='#'><?php echo $_("Basic Interface"); ?></a></li>
           <li class="divider-vertical"></li>
-          <li><a href='Resources/ADM_Background.pdf'>Background</a></li>
+          <li><a href='Resources/ADM_Background.pdf'><?php echo $_("Background"); ?></a></li>
           <li class="divider-vertical"></li>
-          <li><a href='Resources/ADM_Glossary.pdf'>Glossary</a></li>
+          <li><a href='Resources/ADM_Glossary.pdf'><?php echo $_("Glossary"); ?></a></li>
           <li class="divider-vertical"></li>
-          <li><a href='Resources/Tutorial_HornAfrica.pdf'>Tutorial</a></li>
+          <li><a href='Resources/Tutorial_HornAfrica.pdf'><?php echo $_("Tutorial"); ?></a></li>
         </ul>
         <!--
         <img id="Flag_Image" style="float:right" src="icons/flags/arabic_flag.gif" onclick=ChangeLanguage("Arabic")>

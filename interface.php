@@ -331,7 +331,7 @@ $info_box_strings = array("Meteorology" => $_("Weather data used to drive the hy
         <li class="divider-vertical"></li>
 	<li class="active"><a href="#"><?php echo $_("Interactive Interface"); ?></a></li>
         <li class="divider-vertical"></li>
-        <li><a href='BasicInterface.php'><?php echo $_("Basic Interface"); ?></a></li>
+        <li><a href='BasicInterface.php?locale=<?php echo $locale?>'><?php echo $_("Basic Interface"); ?></a></li>
         <li class="divider-vertical"></li>
         <li><a href='Resources/ADM_Background.pdf'><?php echo $_("Background"); ?></a></li>
         <li class="divider-vertical"></li>
