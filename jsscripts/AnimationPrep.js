@@ -10,8 +10,8 @@ function ReadTimeInterval()
   // If in forecast mode, need to get a different final date for the animation
   var morf = $("ul.monitor-or-forecast>li.active").find("a").attr('id');
   if(""+morf == "forecast") {
-    var forecast_days = 7;
-    var forecast_months = 6; // 6 month forecast - includes current initial month
+    var forecast_days = 7-1;
+    var forecast_months = 6-1; // 6 month forecast - includes current initial month
 
     var current_timestep = $("ul.ts-selection li.active").attr('id');
     var initial_date = new Date(parseInt($("#year_initial").val()),
