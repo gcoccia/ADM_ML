@@ -27,19 +27,6 @@ T_textdomain($textdomain);
 $year_final = $year_initial;
 $month_final = $month_initial;
 $day_final = $day_initial;
-$Gauge_Initial_Time = date('d/m/Y',jdtounix(unixtojd() - 91));
-$gauge_year_initial = (int)(substr($Gauge_Initial_Time,6,4));
-$gauge_month_initial = (int)(substr($Gauge_Initial_Time,3,2));
-$gauge_day_initial = (int)(substr($Gauge_Initial_Time,0,2));
-$Gauge_Initial_Time_Monthly = date('d/m/Y',jdtounix(unixtojd() - 5*365));
-$gauge_year_initial_monthly = (int)(substr($Gauge_Initial_Time_Monthly,6,4));
-$gauge_month_initial_monthly = (int)(substr($Gauge_Initial_Time_Monthly,3,2));
-$Gauge_Final_Time_Monthly = date('d/m/Y',mktime(0, 0, 0, $month_final - 1 ,1 ,$year_final));  
-$gauge_year_final_monthly = (int)(substr($Gauge_Final_Time_Monthly,6,4));
-$gauge_month_final_monthly = (int)(substr($Gauge_Final_Time_Monthly,3,2));
-$gauge_year_final = $year_final;
-$gauge_month_final = $month_final;
-$gauge_day_final = $day_final;
 $_ = 'T_';
 
 $date_array = compact("year_initial", "month_initial", "day_initial",
@@ -65,13 +52,6 @@ $info_box_strings = array("Meteorology" => $_("Weather data used to drive the hy
                           5 => $_("This is the SMOS CATDS L4 Root zone soil moisture index. The product is obtained from the integration of SMOS surface soil moisture L3 products into a double bucket hydrological model. It represents the soil moisture in the first meters of the soil in percentage."),
                           6 => $_("The SPI is an index based on the probability of recording a given amount of precipitation after standardizing the probabilities so that an index of zero indicates the median precipitation amount for the entire precipitation record. The SPI can be calculated at any time step. The index is negative for drought, and positive for wet conditions."));
 
-/*$gauge_info_arrays = array("gauge_number" => $gauge_number_2,
-                            "gauge_lat" => $gauge_lat,
-                            "gauge_lon" => $gauge_lon,
-                            "gauge_area" => $gauge_area,
-                            "gauge_percentile" => $gauge_percentile,
-                            "gauge_flag" => $gauge_flag);*/
-
 ?>
 
 <!DOCTYPE html> 
@@ -90,7 +70,6 @@ $info_box_strings = array("Meteorology" => $_("Weather data used to drive the hy
 <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
 <script type="text/javascript" src="jsscripts/bootstrap.min.js"></script>
 <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
-<script type="text/javascript" src="jsscripts/Welcome.js"></script>
 <script type="text/javascript" src="jsscripts/MiscFunctions.js"></script>
 <script type="text/javascript" src="jsscripts/VarDeclaration.js"></script>
 <script type="text/javascript" src="jsscripts/AnimationPrep.js"></script>
@@ -316,14 +295,6 @@ $info_box_strings = array("Meteorology" => $_("Weather data used to drive the hy
 
 <body style="width:100%; height:100%">
 <div class="container-fluid" style="width:100%; height:100%; padding-right:0px; padding-left:0px;">
-	<!-- <h2>African Water Cycle Monitor
-      	<img style="float:right" id="UW_logo" src="icons/UW_logo.png">
-	<img style="float:right" id="UNESCO_logo" src="icons/Unesco_logo.gif">
-      	<img style="float:right" id="ICPAC_logo" src="icons/ICPAC_logo.gif">
-      	<img style="float:right" id="AGRHYMET_logo" src="icons/agrhymet_logo.gif">
-	<img style="float:right" id="PU_logo" src="icons/PU_logo.gif">
-      	</h2>-->
- 
 <div class="navbar navbar-inverse">
   <div class="navbar-inner" style="border-radius: 0px"> 
     <div class="container">
