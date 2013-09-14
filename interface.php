@@ -285,8 +285,8 @@ $info_box_strings = array("Meteorology" => $_("Weather data used to drive the hy
     $("ul.spatial-datalist>li>ul.dropdown-menu>li>a").click(function() {
       $(this).find('i').removeClass('icon-plus-sign');
       $(this).find('i').addClass('icon-remove');
+      $(this).parent().appendTo("ul#currently-selected-vars");
       $(this).parent().hide();
-      $("ul#currently-selected-vars").append($(this).parent());
       Update_Spatial_Data_Display();
     });
 
