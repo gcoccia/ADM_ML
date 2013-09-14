@@ -121,7 +121,7 @@
           <li class="divider"></li>
           <li id=<?php echo $_("".$group["name"])."_spatial"?> class="nav-header expandable">
               <?php echo $_("".$group["name"])?>
-              <b class="caret"></b>
+              <b class="caret centeredcaret"></b>
           </li>
           <div class="data-form-block" style="display:none">
 
