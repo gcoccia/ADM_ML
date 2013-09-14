@@ -1,6 +1,6 @@
 <?php
 if (isset($_COOKIE["locale"])) {
-  header("/interface.php?locale=".$_COOKIE["locale"]));
+  header("/interface.php?locale=".$_COOKIE["locale"]);
 }
 ?>
 
