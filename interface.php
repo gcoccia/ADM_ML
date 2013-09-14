@@ -9,10 +9,18 @@ include 'scripts/Read_Gauges.php';
 include 'scripts/Read_DM_log.php';#Script to read in the drought monitor parameters to set as limits
 $locale = BP_LANG;
 $textdomain="adm";
-if (empty($locale))
-  $locale = 'en';
-if (isset($_GET['locale']) && !empty($_GET['locale']))
+
+if (isset($_GET['locale']) && !empty($_GET['locale'])) {
   $locale = $_GET['locale'];
+  setcookie("locale", $locale, time()+60*60*24*7); //cookie expires 1 week from last page visit
+}
+elseif(isset($_COOKIE["locale"]) && !empty($_COOKIE["locale"])) {
+  header("/interface.php?locale=".$_COOKIE["locale"]));
+}
+else {
+  $locale = 'en';
+}
+
 putenv('LANGUAGE='.$locale);
 putenv('LANG='.$locale);
 putenv('LC_ALL='.$locale);
