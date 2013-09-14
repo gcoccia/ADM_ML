@@ -116,6 +116,9 @@
   <i><?php echo $_("Click points on the map to draw a polygon and select spatial data. Then select variables below.") ?></i>
   <br>
 
+  <ul id="currently-selected-vars" class="nav nav-list">
+  </ul>
+
     <?php foreach($xmlobj->variables->group as $group) { ?>
         <div class="dummy">
           <li class="divider"></li>

@@ -209,9 +209,6 @@ $info_box_strings = array("Meteorology" => $_("Weather data used to drive the hy
     $("input[name=plot]:radio").change(function() {
       if($("#popUpDiv").is(":visible")) Create_Point_Plot();
     });
-    $("input[name='variables_spatial_data[]']").change(function() {
-      Update_Spatial_Data_Display();
-    });
     $("input[name='sres_spatial_data']").change(function() {
       Update_Spatial_Data_Display();
     });
@@ -282,6 +279,15 @@ $info_box_strings = array("Meteorology" => $_("Weather data used to drive the hy
 
         update_animation();
       }
+    });
+
+    // Selecting spatial data types from dropdown menus
+    $("ul.datalist>li>ul.dropdown-menu>li>a").change(function() {
+      $(this).find('i').removeClass('icon-plus-sign');
+      $(this).find('i').addClass('icon-remove');
+      $(this).parent().hide();
+      $("ul#currently-selected-vars").append($(this).parent());
+      Update_Spatial_Data_Display();
     });
 
     // Animation play/pause buttons
