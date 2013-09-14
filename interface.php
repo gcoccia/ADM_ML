@@ -306,7 +306,7 @@ $info_box_strings = array("Meteorology" => $_("Weather data used to drive the hy
 <div class="navbar navbar-inverse">
   <div class="navbar-inner" style="border-radius: 0px"> 
     <div class="container">
-      <a class="brand" href='/'>African Water Cycle Monitor</a>
+      <a class="brand" href='index.php'>African Water Cycle Monitor</a>
       <ul class="nav" >
         <li class="divider-vertical"></li>
 	<li class="active"><a href="#"><?php echo $_("Interactive Interface"); ?></a></li>
