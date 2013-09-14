@@ -285,10 +285,10 @@ $info_box_strings = array("Meteorology" => $_("Weather data used to drive the hy
     $("ul.spatial-datalist>li>ul.dropdown-menu>li>a").click(function() {
       var copyLi = $(this).parent().clone();
       copyLi.appendTo("ul#currently-selected-vars");
+      copyLi.find('a').text(copyLi.find('a').attr('id')); // give new element full ID including datatype
       copyLi.find('a>i').removeClass('icon-plus-sign');
-      copyLi.find('a>i').addClass('icon-remove');
-      copyLi.find('a').text(copyLi.find('a>i').html() + copyLi.find('a').attr('id')); // give new element full ID including datatype
-
+      copyLi.find('a>i').prepend("<i class='icon-remove'></i>");
+      
       $(this).parent().hide();
       Update_Spatial_Data_Display();
     });
