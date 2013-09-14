@@ -283,9 +283,11 @@ $info_box_strings = array("Meteorology" => $_("Weather data used to drive the hy
 
     // Selecting spatial data types from dropdown menus
     $("ul.spatial-datalist>li>ul.dropdown-menu>li>a").click(function() {
-      $(this).find('i').removeClass('icon-plus-sign');
-      $(this).find('i').addClass('icon-remove');
-      $(this).parent().appendTo("ul#currently-selected-vars");
+      var copyLi = $(this).parent().clone();
+      copyLi.appendTo("ul#currently-selected-vars");
+      copyLi.find('a>i').removeClass('icon-plus-sign');
+      copyLi.find('a>i').addClass('icon-remove');
+
       $(this).parent().hide();
       Update_Spatial_Data_Display();
     });
