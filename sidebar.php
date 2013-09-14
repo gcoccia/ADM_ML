@@ -119,9 +119,9 @@
     <?php foreach($xmlobj->variables->group as $group) { ?>
         <div class="dummy">
           <li class="divider"></li>
-          <li id=<?php echo $_("".$group["name"])."_spatial"?> class="nav-header">
+          <li id=<?php echo $_("".$group["name"])."_spatial"?> class="nav-header expandable">
               <?php echo $_("".$group["name"])?>
-              <a id=<?php echo $_("".$group["name"])?> href="#" data-toggle="popover"><img class="question_mark" src="icons/question_icon.png"></a>
+              <b class="caret"></b>
           </li>
           <div class="data-form-block" style="display:none">
 
