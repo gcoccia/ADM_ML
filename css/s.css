@@ -456,7 +456,9 @@ ul.datalist>li>ul.dropdown-menu>li>a, ul.spatial-datalist>li>ul.dropdown-menu>li
   cursor:pointer;
   color: #555;
 }
-.nav-header.expandable>b.caret {
+.caret {
   vertical-align:center;
+}
+.nav-header.expandable>b.caret {
   color:#555;
 }
