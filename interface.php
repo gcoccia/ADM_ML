@@ -287,7 +287,7 @@ $info_box_strings = array("Meteorology" => $_("Weather data used to drive the hy
       copyLi.appendTo("ul#currently-selected-vars");
       copyLi.find('a>i').removeClass('icon-plus-sign');
       copyLi.find('a>i').addClass('icon-remove');
-      copyLi.find('a').val(copyLi.find('a').attr('id')); // give new element full ID including datatype
+      copyLi.find('a').text(copyLi.find('a').attr('id')); // give new element full ID including datatype
 
       $(this).parent().hide();
       Update_Spatial_Data_Display();
