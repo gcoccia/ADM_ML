@@ -287,17 +287,16 @@ $info_box_strings = array("Meteorology" => $_("Weather data used to drive the hy
       copyLi.appendTo("ul#currently-selected-vars");
       copyLi.find('a').text(copyLi.find('a').attr('id')); // give new element full ID including datatype
       copyLi.find('a').prepend("<i class='icon-remove'></i>");
+
+      // need to bind the removal click listener here, because the element did not exist at page load
+      copyLi.find('a').click(function() {
+        $("ul.spatial-datalist>li>ul.dropdown-menu>li>a#" + $(this).attr('id')).parent().show();
+        $(this).parent().remove();
+        Update_Spatial_Data_Display();
+      });
       
       $(this).parent().hide();
       Update_Spatial_Data_Display();
-    });
-    // Removing them from currently-selected list
-    $("ul#currently-selected-vars>li>a").click(function() {
-      console.log("HAI");
-      $("ul.spatial-datalist>li>ul.dropdown-menu>li>a#" + $(this).attr('id')).parent().show();
-      $(this).parent().remove();
-      Update_Spatial_Data_Display();
-
     });
 
     // Animation play/pause buttons
