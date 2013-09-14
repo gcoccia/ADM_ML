@@ -135,9 +135,7 @@
                   <ul class="dropdown-menu">
                     <li class="nav-header"><?php echo $_("Dataset")?></li>
                     <?php foreach($datatype->dataset as $dataset) { ?>
-                    <li>
-                      <label><input type="checkbox" name="variables_spatial_data[]" value="<?php echo $datatype['name']."-".$dataset['name'] ?>" href="javascript:void(0)"><i></i><?php echo $dataset['name']?></label>
-                    </li>
+                      <li><a id="<?php echo $dataset['name']."_".$datatype['name'] ?>" href="javascript:void(0)"><i class="icon-plus"></i><?php echo $dataset['name']?></a></li>
                     <?php } ?>
                   </ul>
                 </li>
