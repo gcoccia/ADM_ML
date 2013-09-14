@@ -291,6 +291,12 @@ $info_box_strings = array("Meteorology" => $_("Weather data used to drive the hy
       $(this).parent().hide();
       Update_Spatial_Data_Display();
     });
+    // Removing them from currently-selected list
+    $("ul#currently-selected-vars>li>a").click(function() {
+      $("ul.spatial-datalist>li>ul.dropdown-menu>li>a#" + $(this).attr('id')).show();
+      $(this).parent().remove();
+      Update_Spatial_Data_Display();
+    });
 
     // Animation play/pause buttons
     $( "#pause-or-continue").click(function() {
