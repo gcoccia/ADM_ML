@@ -457,6 +457,6 @@ ul.datalist>li>ul.dropdown-menu>li>a, ul.spatial-datalist>li>ul.dropdown-menu>li
   color: #555;
 }
 .nav-header.expandable>b.caret.centeredcaret {
-  vertical-align:center;
+  margin-top:4px;
   color:#555;
 }
