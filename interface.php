@@ -282,7 +282,7 @@ $info_box_strings = array("Meteorology" => $_("Weather data used to drive the hy
     });
 
     // Selecting spatial data types from dropdown menus
-    $("ul.spatial-datalist>li>ul.dropdown-menu>li>a").change(function() {
+    $("ul.spatial-datalist>li>ul.dropdown-menu>li>a").click(function() {
       $(this).find('i').removeClass('icon-plus-sign');
       $(this).find('i').addClass('icon-remove');
       $(this).parent().hide();
