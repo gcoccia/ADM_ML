@@ -454,7 +454,9 @@ ul.datalist>li>ul.dropdown-menu>li>a, ul.spatial-datalist>li>ul.dropdown-menu>li
 
 .nav-header.expandable:hover {
   cursor:pointer;
+  color: #555;
 }
 .nav-header.expandable>b.caret {
-  padding-top: 4px;
+  vertical-align:center;
+  color:#555;
 }
