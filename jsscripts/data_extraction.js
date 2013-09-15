@@ -270,7 +270,10 @@ function Update_Spatial_Data_Display() {
   var size_per_value = 8; // ??? 8 bytes? compressed? depends on choice of format?
   var estimated_download_size = npts*nt*nvars*size_per_value/1000/1000;
 
-  $("#estimated-download-size").html(Math.round(estimated_download_size) + " MB"); // what about units?
+  if(estimated_download_size < 1)
+    $("#estimated-download-size").html(estimated_download_size.toFixed(2) + " MB"); // what about units?
+  else
+    $("#estimated-download-size").html(Math.round(estimated_download_size) + " MB");
 }
 
 function Submit_Spatial_Data() {
