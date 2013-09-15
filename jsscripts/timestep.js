@@ -88,6 +88,10 @@ function Update_TimeStamp_MP(increment, flag_timestamp)
   $("#year_" + i_or_f).val(date_temp.getFullYear());
   $("#month_" + i_or_f).val(date_temp.getMonth() + 1);
   $("#day_" + i_or_f).val(date_temp.getDate());
+
+  // If selecting spatial data, update the "estimated download size" display
+  if("spatial" == $("ul.data-extraction li.active>a").attr('id'))
+      Update_Spatial_Data_Display();
 }
 
 function data_dates_are_valid()
