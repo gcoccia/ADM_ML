@@ -175,7 +175,7 @@
   <br>
   <?php echo $_('Estimated Download Size')?>: <span id="estimated-download-size">0</span>
   <br>
-  <p id="download_size_warning" style="color:red"><?php echo $_("The current request exceeds 1 GB. Please reduce the size of your request.")?></p>
+  <p id="download_size_warning" style="color:red; display:none"><?php echo $_("The current request exceeds 1 GB. Please reduce the size of your request.")?></p>
 
 </div>
 </ul>
