@@ -274,6 +274,14 @@ function Update_Spatial_Data_Display() {
     $("#estimated-download-size").html(estimated_download_size.toFixed(2) + " MB"); // what about units?
   else
     $("#estimated-download-size").html(Math.round(estimated_download_size) + " MB");
+  
+  if(estimated_download_size > 1000) {
+    $("#submit_request_button").prop('disabled', true);
+    $("#download_size_warning").show();
+  } else {
+    $("#submit_request_button").prop('disabled', false);
+    $("#download_size_warning").hide();
+  }
 }
 
 function Submit_Spatial_Data() {

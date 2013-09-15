@@ -171,10 +171,11 @@
   <br>
   <br>
   <input type="text" name="email_spatial_data" placeholder="<?php echo $_('Email address')?>"></br>
-  <button type="button" onclick="Submit_Spatial_Data()"><?php echo $_('Submit Data Request')?></button>
+  <button type="button" id="submit_request_button" onclick="Submit_Spatial_Data()"><?php echo $_('Submit Data Request')?></button>
   <br>
   <?php echo $_('Estimated Download Size')?>: <span id="estimated-download-size">0</span>
   <br>
+  <p id="download_size_warning" style="color:red"><?php echo $_("The current request exceeds 1 GB. Please reduce the size of your request.")?></p>
 
 </div>
 </ul>
