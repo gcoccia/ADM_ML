@@ -43,6 +43,10 @@ function update_timestep()
       $(this).show(150, function() {});
     }
   });
+
+  // If selecting spatial data, update the "estimated download size" display
+  if("spatial" == $("ul.data-extraction li.active>a").attr('id'))
+      Update_Spatial_Data_Display();
 }
 
 function Update_TimeStamp_MP(increment, flag_timestamp)
