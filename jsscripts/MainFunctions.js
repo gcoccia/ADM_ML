@@ -240,3 +240,33 @@ function update_monitor_or_forecast()
   }
 
 }
+
+function LoadBasic()
+{ 
+  //Hide gmaps interface and elements of sidebar
+  //Alter nav bar to show the correct link
+  if ($("#InteractiveInterface").hasClass("active")) {
+    $("#map_canvas_1").hide();
+    $("#Colorbar").hide();
+    $("#TimeStamp").hide();
+    $("#InteractiveInterface").removeClass("active");
+    $("#BasicInterface").addClass("active");
+
+    $("#basic_interface1").css("visibility","visible");
+  }
+}
+
+function LoadInteractive()
+{ 
+  //Show gmaps interface and elements of sidebar
+  //Alter nav bar to show the correct link
+  if ($("#BasicInterface").hasClass("active")) {
+    $("#map_canvas_1").show();
+    $("#Colorbar").show();
+    $("#TimeStamp").show();
+    $("#InteractiveInterface").addClass("active");
+    $("#BasicInterface").removeClass("active");
+    
+    $("#basic_interface1").css("visibility", "hidden");
+  }
+}

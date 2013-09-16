@@ -327,9 +327,9 @@ $info_box_strings = array("Meteorology" => $_("Weather data used to drive the hy
       <a class="brand" href='index.php'>African Water Cycle Monitor</a>
       <ul class="nav" >
         <li class="divider-vertical"></li>
-	<li class="active"><a href="#"><?php echo $_("Interactive Interface"); ?></a></li>
+	<li id="InteractiveInterface" class="active"><a onclick="LoadInteractive()"><?php echo $_("Interactive Interface"); ?></a></li>
         <li class="divider-vertical"></li>
-        <li><a href='BasicInterface.php?locale=<?php echo $locale?>'><?php echo $_("Basic Interface"); ?></a></li>
+        <li id="BasicInterface"><a onclick="LoadBasic()"><?php echo $_("Basic Interface"); ?></a></li>
         <li class="divider-vertical"></li>
         <li><a href='Resources/ADM_Background.pdf'><?php echo $_("Background"); ?></a></li>
         <li class="divider-vertical"></li>
@@ -359,8 +359,10 @@ $info_box_strings = array("Meteorology" => $_("Weather data used to drive the hy
     <div class="row">
       <div id="sidebar1" class="span3 scrollDiv" style="visibility:visible; padding-right:0; position: absolute; top: 0px; background-color: rgb(240,240,240); width: auto; width:300px; right:0px; bottom: 0px;">
          <?php include('sidebar.php'); ?>
-        </div>
+        </div>      
+      <div id="basic_interface1" class="span10 scrollDiv" style="visibility:hidden; overflow-x:scroll; position: absolute; background-color:pink; top:0px; bottom:0px; left:0px; margin-left:0;">Test
       </div>
+     </div>
      </div>
    <div id="hideBtn"><i id="hideBtnImg" class="icon-arrow-right" style="position: absolute; top:0px; right:0px; z-index: 9100;"></i></div>
 </div>

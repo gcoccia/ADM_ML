@@ -16,7 +16,7 @@
 
   <li class="divider"></li>
   <div class="dummy">
-  <li class="nav-header"><?php echo $_("Time Interval")." (".$_("dd/mm/yyyy").")"?></li>
+  <li id="TimeInterval" class="nav-header"><?php echo $_("Time Interval")." (".$_("dd/mm/yyyy").")"?></li>
   <div class="data-form-block">
   <form id="AnimationForm" name="AnimationForm">
     <ul class="nav nav-pills ts-selection">
