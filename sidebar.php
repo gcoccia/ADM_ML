@@ -78,7 +78,7 @@
         <ul class="dropdown-menu">
           <li class="nav-header"><?php echo $_("Dataset")?></li>
           <?php foreach($datatype->dataset as $dataset) { ?>
-          <li><a id="<?php echo $dataset['name']."_".$datatype['name'] ?>" href="javascript:void(0)"><i></i><?php echo $dataset['name']?></a></li>
+          <li><a id="<?php echo $dataset['name']."-".$datatype['name'] ?>" href="javascript:void(0)"><i></i><?php echo $dataset['name']?></a></li>
           <?php } ?>
         </ul>
       </li>
@@ -138,7 +138,7 @@
                   <ul class="dropdown-menu">
                     <li class="nav-header"><?php echo $_("Dataset")?></li>
                     <?php foreach($datatype->dataset as $dataset) { ?>
-                      <li><a id="<?php echo $dataset['name']."_".$datatype['name'] ?>" href="javascript:void(0)"><i class="icon-plus-sign" style="color:#5cb85c"></i><?php echo $dataset['name']?></a></li>
+                      <li><a id="<?php echo $dataset['name']."-".$datatype['name'] ?>" href="javascript:void(0)"><i class="icon-plus-sign" style="color:#5cb85c"></i><?php echo $dataset['name']?></a></li>
                     <?php } ?>
                   </ul>
                 </li>
