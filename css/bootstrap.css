@@ -231,7 +231,7 @@ body {
 }
 
 a {
-  color: #0088cc;
+  color: rgb(91,111,71);
   text-decoration: none;
 }
 
@@ -4104,7 +4104,7 @@ input[type="submit"].btn.btn-mini {
 .nav-pills > .active > a:hover,
 .nav-pills > .active > a:focus {
   color: #ffffff;
-  background-color: #0088cc;
+  background-color: rgb(152,178,126);
 }
 
 .nav-stacked > li {

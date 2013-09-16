@@ -414,6 +414,9 @@ ul.data-extraction, ul.ts-selection, ul.monitor-or-forecast
   font-size: 12px;
 /*  text-transform: uppercase;*/
   margin-bottom: 5px;
+  padding-left: 15px;
+  padding-right: 0px;
+  background-color
 }
 ul.data-extraction>li>a, ul.ts-selection>li>a, ul.monitor-or-forecast>li>a
 {
@@ -432,6 +435,7 @@ div#sidebar1 {
 
 .nav li+.nav-header {
   margin-top: 3px;
+  background-color: rgb(205,205,205);
 }
 
 .nav-list .divider {
