@@ -251,6 +251,8 @@ function LoadBasic()
     $("#TimeStamp").hide();
     $("#InteractiveInterface").removeClass("active");
     $("#BasicInterface").addClass("active");
+
+    $("#basic_interface1").css("visibility","visible");
   }
 }
 
@@ -264,5 +266,7 @@ function LoadInteractive()
     $("#TimeStamp").show();
     $("#InteractiveInterface").addClass("active");
     $("#BasicInterface").removeClass("active");
+    
+    $("#basic_interface1").css("visibility", "hidden");
   }
 }

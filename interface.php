@@ -358,6 +358,9 @@ $info_box_strings = array("Meteorology" => $_("Weather data used to drive the hy
          <?php include('sidebar.php'); ?>
         </div>
       </div>
+      
+      <div id="basic_interface1" class="span9" style="visibility:hidden; padding-left: 0px; position: absolute; background-color:pink; top:0px; bottom:0px; left:0px;">Test
+      </div>
      </div>
    <div id="hideBtn"><i id="hideBtnImg" class="icon-arrow-right" style="position: absolute; top:0px; right:0px; z-index: 9100;"></i></div>
    <div id="Welcome" style"visibility:visible; width:100%; height:100%">
