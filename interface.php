@@ -95,9 +95,9 @@ $info_box_strings = array("Meteorology" => $_("Weather data used to drive the hy
   <?php foreach($xmlobj->variables->group as $group) {
     foreach($group->datatype as $dt) {
       foreach($dt->dataset as $ds) {
-        echo "data_timesteps[\"".$ds['name']."-".$dt['name']."\"] = \"".$ds['ts']."\";\n";
-        echo "data_idates[\"".$ds['name']."-".$dt['name']."\"] = \"".$ds['itime']."\";\n";
-        echo "data_fdates[\"".$ds['name']."-".$dt['name']."\"] = \"".$ds['ftime']."\";\n";
+        echo "data_timesteps[\"".$ds['name']."--".$dt['name']."\"] = \"".$ds['ts']."\";\n";
+        echo "data_idates[\"".$ds['name']."--".$dt['name']."\"] = \"".$ds['itime']."\";\n";
+        echo "data_fdates[\"".$ds['name']."--".$dt['name']."\"] = \"".$ds['ftime']."\";\n";
       }
     }
   } ?>
