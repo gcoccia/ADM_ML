@@ -357,7 +357,7 @@ $info_box_strings = array("Meteorology" => $_("Weather data used to drive the hy
       <div id="sidebar1" class="span3 scrollDiv" style="visibility:visible; padding-right:0; position: absolute; top: 0px; background-color: rgb(240,240,240); width: auto; width:300px; right:0px; bottom: 0px;">
          <?php include('sidebar.php'); ?>
         </div>      
-      <div id="basic_interface1" class="span9 scrollDiv" style="visibility:hidden; overflow-x:scroll; position: absolute; background-color:pink; top:0px; bottom:0px; left:0px;">Test
+      <div id="basic_interface1" class="span10 scrollDiv" style="visibility:hidden; overflow-x:scroll; position: absolute; background-color:pink; top:0px; bottom:0px; left:0px; margin-left:0;">Test
       </div>
      </div>
      </div>
