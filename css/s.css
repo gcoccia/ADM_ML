@@ -438,6 +438,10 @@ div#sidebar1 {
   background-color: rgb(205,205,205);
 }
 
+#TimeInterval {
+  background-color: rgb(205,205,205);
+}
+
 .nav-list .divider {
   margin: 3px 1px;
 }
