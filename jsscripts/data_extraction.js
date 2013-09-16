@@ -10,6 +10,7 @@ function Update_Listeners(type){
   $("#Point-Sidebar").hide();
   $("#Spatial-Sidebar").hide();
   $("#monitor-or-forecast-div").show();
+  $("#hideBtnImg").show();
 
   //Remove the listeners and lines/polygons from the map
   if(mapPolygon) {
@@ -40,6 +41,7 @@ function Update_Listeners(type){
   $("#Point-Sidebar").show();
   $("#Spatial-Sidebar").hide();
   $("#monitor-or-forecast-div").hide();
+  $("#hideBtnImg").hide();
 
   //Add the listeners
   google.maps.event.addListener(map_array[0], 'click', function(mEvent) {Point_Data(mEvent.latLng)});
@@ -63,6 +65,7 @@ function Update_Listeners(type){
   $("#Point-Sidebar").hide();
   $("#Spatial-Sidebar").show();
   $("#monitor-or-forecast-div").hide();
+  $("#hideBtnImg").hide();
 
   map_array[0].setOptions({draggableCursor:'crosshair'});
   // Add polygon and lines to map
