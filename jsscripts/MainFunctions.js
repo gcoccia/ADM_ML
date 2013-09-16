@@ -247,6 +247,8 @@ function LoadBasic()
   //Alter nav bar to show the correct link
   if ($("#InteractiveInterface").hasClass("active")) {
     $("#map_canvas_1").hide();
+    $("#Colorbar").hide();
+    $("#TimeStamp").hide();
     $("#InteractiveInterface").removeClass("active");
     $("#BasicInterface").addClass("active");
   }
@@ -258,6 +260,8 @@ function LoadInteractive()
   //Alter nav bar to show the correct link
   if ($("#BasicInterface").hasClass("active")) {
     $("#map_canvas_1").show();
+    $("#Colorbar").show();
+    $("#TimeStamp").show();
     $("#InteractiveInterface").addClass("active");
     $("#BasicInterface").removeClass("active");
   }
