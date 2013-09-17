@@ -268,11 +268,23 @@ function Update_Spatial_Data_Display() {
   else if(""+tstep_string == "yearly")
     tstep *= 365;
   var nt = (final_date - initial_date)/tstep;
-  var nvars = $("input[name='variables_spatial_data[]']:checked").length;
+  var nvars = $("ul#currently-selected-vars").find("li>a").length;
+
   var size_per_value = 8; // ??? 8 bytes? compressed? depends on choice of format?
   var estimated_download_size = npts*nt*nvars*size_per_value/1000/1000;
 
-  $("#estimated-download-size").html(Math.round(estimated_download_size) + " MB"); // what about units?
+  if(estimated_download_size < 1)
+    $("#estimated-download-size").html(estimated_download_size.toFixed(2) + " MB"); // what about units?
+  else
+    $("#estimated-download-size").html(Math.round(estimated_download_size) + " MB");
+  
+  if(estimated_download_size > 1000) {
+    $("#submit_request_button").prop('disabled', true);
+    $("#download_size_warning").show();
+  } else {
+    $("#submit_request_button").prop('disabled', false);
+    $("#download_size_warning").hide();
+  }
 }
 
 function Submit_Spatial_Data() {
@@ -302,8 +314,9 @@ function Submit_Spatial_Data() {
   //Spatial resolution
   var sres = $('input:radio[name=sres_spatial_data]:checked').val();
   //Variables
-  var variables = []
-  $("input[name='variables_spatial_data[]']:checked").each(function (){variables.push($(this).val());});
+  var variables = [];
+
+  $("ul#currently-selected-vars").find("li>a").each(function (){variables.push($(this).attr('id'));});
   //File format
   var format = $('input:radio[name=format_spatial_data]:checked').val();
   //Email

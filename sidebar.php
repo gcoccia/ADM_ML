@@ -78,7 +78,7 @@
         <ul class="dropdown-menu">
           <li class="nav-header"><?php echo $_("Dataset")?></li>
           <?php foreach($datatype->dataset as $dataset) { ?>
-          <li><a id="<?php echo $dataset['name']."_".$datatype['name'] ?>" href="javascript:void(0)"><i></i><?php echo $dataset['name']?></a></li>
+          <li><a id="<?php echo $dataset['name']."--".$datatype['name'] ?>" href="javascript:void(0)"><i></i><?php echo $dataset['name']?></a></li>
           <?php } ?>
         </ul>
       </li>
@@ -138,7 +138,7 @@
                   <ul class="dropdown-menu">
                     <li class="nav-header"><?php echo $_("Dataset")?></li>
                     <?php foreach($datatype->dataset as $dataset) { ?>
-                      <li><a id="<?php echo $dataset['name']."_".$datatype['name'] ?>" href="javascript:void(0)"><i class="icon-plus-sign" style="color:#5cb85c"></i><?php echo $dataset['name']?></a></li>
+                      <li><a id="<?php echo $dataset['name']."--".$datatype['name'] ?>" href="javascript:void(0)"><i class="icon-plus-sign" style="color:#5cb85c"></i><?php echo $dataset['name']?></a></li>
                     <?php } ?>
                   </ul>
                 </li>
@@ -171,10 +171,11 @@
   <br>
   <br>
   <input type="text" name="email_spatial_data" placeholder="<?php echo $_('Email address')?>"></br>
-  <button type="button" onclick="Submit_Spatial_Data()"><?php echo $_('Submit Data Request')?></button>
+  <button type="button" id="submit_request_button" onclick="Submit_Spatial_Data()"><?php echo $_('Submit Data Request')?></button>
   <br>
   <?php echo $_('Estimated Download Size')?>: <span id="estimated-download-size">0</span>
   <br>
+  <p id="download_size_warning" style="color:red; display:none"><?php echo $_("The current request exceeds 1 GB. Please reduce the size of your request.")?></p>
 
 </div>
 </ul>

@@ -13,7 +13,7 @@
 
   <group name="Meteorology" divtitle="Forcing">
     <datatype name="prec" units="mm/day" title="Precipitation (mm)" mask="mask">
-      <dataset name="3B42RT_BC" ts="DMY" itime="2008/01/01" ftime="2013/07/31"></dataset>
+      <dataset name="3B42RT_BC" ts="DMY" itime="2008/01/01" ftime="2013/01/31"></dataset>
       <dataset name="PGF" ts="DMY" itime="1950/01/01" ftime="2008/12/31"></dataset>
     </datatype>
     <datatype name="tmax" units="K" title="Maximum Temperature (C)" mask="mask">
@@ -67,7 +67,7 @@
     <datatype name="spi6" units="" title="SPI (6 month)" mask="mask200">
       <dataset name="SPI" ts="DMY" itime="1950/01/01" ftime="2009/12/31"></dataset>
     </datatype>
-    <datatype name="spi9" units="" title="SPI (9 month)" mask="mask200">
+    <datatype name="spi12" units="" title="SPI (9 month)" mask="mask200">
       <dataset name="SPI" ts="DMY" itime="1950/01/01" ftime="2009/12/31"></dataset>
     </datatype>
     <datatype name="vcpct" units="%" title="Drought Index (%)" mask="mask200">
@@ -107,69 +107,95 @@
    </group>
 
    <group name="Forecast" divtitle="Forecast">
-    <datatype name="spi1" units="" title="SPI (1 month)" mask="mask">
-     <dataset name="CMC1-CanCM3" ts="M" itime="2013/07/01" ftime="2013/8/31"></dataset>
-     <dataset name="GFDL-CM2p1-aer04" ts="M" itime="2013/07/01" ftime="2013/8/31"></dataset>
-     <dataset name="COLA-RSMAS-CCSM3" ts="M" itime="2013/07/01" ftime="2013/8/31"></dataset>
-     <dataset name="NASA-GMAO-06209" ts="M" itime="2013/07/01" ftime="2013/8/31"></dataset>
-     <dataset name="CMC2-CanCM4" ts="M" itime="2013/07/01" ftime="2013/8/31"></dataset>
-     <dataset name="MultiModel" ts="M" itime="2013/07/01" ftime="2013/8/31"></dataset>
+    <datatype name="spi1" units="" title="SPI (1 month)" mask="mask200">
+     <dataset name="CMC1-CanCM3" ts="M" itime="2013/01/01" ftime="2013/8/31"></dataset>
+     <dataset name="GFDL-CM2p1-aer04" ts="M" itime="2013/01/01" ftime="2013/8/31"></dataset>
+     <dataset name="COLA-RSMAS-CCSM3" ts="M" itime="2013/01/01" ftime="2013/8/31"></dataset>
+     <dataset name="NASA-GMAO-062012" ts="M" itime="2013/01/01" ftime="2013/8/31"></dataset>
+     <dataset name="CMC2-CanCM4" ts="M" itime="2013/01/01" ftime="2013/8/31"></dataset>
+     <dataset name="MultiModel" ts="M" itime="2013/01/01" ftime="2013/8/31"></dataset>
      <dataset name="GFS_7DAY_FORECAST" ts="D" itime="2013/01/01" ftime="2013/09/01"></dataset>
     </datatype>
-    <datatype name="spi3" units="" title="SPI (3 month)" mask="mask">
-     <dataset name="CMC1-CanCM3" ts="M" itime="2013/07/01" ftime="2013/8/31"></dataset>
-     <dataset name="GFDL-CM2p1-aer04" ts="M" itime="2013/07/01" ftime="2013/8/31"></dataset>
-     <dataset name="COLA-RSMAS-CCSM3" ts="M" itime="2013/07/01" ftime="2013/8/31"></dataset>
-     <dataset name="NASA-GMAO-06209" ts="M" itime="2013/07/01" ftime="2013/8/31"></dataset>
-     <dataset name="CMC2-CanCM4" ts="M" itime="2013/07/01" ftime="2013/8/31"></dataset>
-     <dataset name="MultiModel" ts="M" itime="2013/07/01" ftime="2013/8/31"></dataset>
+    <datatype name="spi3" units="" title="SPI (3 month)" mask="mask200">
+     <dataset name="CMC1-CanCM3" ts="M" itime="2013/01/01" ftime="2013/8/31"></dataset>
+     <dataset name="GFDL-CM2p1-aer04" ts="M" itime="2013/01/01" ftime="2013/8/31"></dataset>
+     <dataset name="COLA-RSMAS-CCSM3" ts="M" itime="2013/01/01" ftime="2013/8/31"></dataset>
+     <dataset name="NASA-GMAO-062012" ts="M" itime="2013/01/01" ftime="2013/8/31"></dataset>
+     <dataset name="CMC2-CanCM4" ts="M" itime="2013/01/01" ftime="2013/8/31"></dataset>
+     <dataset name="MultiModel" ts="M" itime="2013/01/01" ftime="2013/8/31"></dataset>
      <dataset name="GFS_7DAY_FORECAST" ts="D" itime="2013/01/01" ftime="2013/09/01"></dataset>
     </datatype>
-    <datatype name="spi6" units="" title="SPI (6 month)" mask="mask">
-     <dataset name="CMC1-CanCM3" ts="M" itime="2013/07/01" ftime="2013/8/31"></dataset>
-     <dataset name="GFDL-CM2p1-aer04" ts="M" itime="2013/07/01" ftime="2013/8/31"></dataset>
-     <dataset name="COLA-RSMAS-CCSM3" ts="M" itime="2013/07/01" ftime="2013/8/31"></dataset>
-     <dataset name="NASA-GMAO-06209" ts="M" itime="2013/07/01" ftime="2013/8/31"></dataset>
-     <dataset name="CMC2-CanCM4" ts="M" itime="2013/07/01" ftime="2013/8/31"></dataset>
-     <dataset name="MultiModel" ts="M" itime="2013/07/01" ftime="2013/8/31"></dataset>
+    <datatype name="spi6" units="" title="SPI (6 month)" mask="mask200">
+     <dataset name="CMC1-CanCM3" ts="M" itime="2013/01/01" ftime="2013/8/31"></dataset>
+     <dataset name="GFDL-CM2p1-aer04" ts="M" itime="2013/01/01" ftime="2013/8/31"></dataset>
+     <dataset name="COLA-RSMAS-CCSM3" ts="M" itime="2013/01/01" ftime="2013/8/31"></dataset>
+     <dataset name="NASA-GMAO-062012" ts="M" itime="2013/01/01" ftime="2013/8/31"></dataset>
+     <dataset name="CMC2-CanCM4" ts="M" itime="2013/01/01" ftime="2013/8/31"></dataset>
+     <dataset name="MultiModel" ts="M" itime="2013/01/01" ftime="2013/8/31"></dataset>
      <dataset name="GFS_7DAY_FORECAST" ts="D" itime="2013/01/01" ftime="2013/09/01"></dataset>
     </datatype>
-    <datatype name="spi9" units="" title="SPI (9 month)" mask="mask">
-     <dataset name="CMC1-CanCM3" ts="M" itime="2013/07/01" ftime="2013/8/31"></dataset>
-     <dataset name="GFDL-CM2p1-aer04" ts="M" itime="2013/07/01" ftime="2013/8/31"></dataset>
-     <dataset name="COLA-RSMAS-CCSM3" ts="M" itime="2013/07/01" ftime="2013/8/31"></dataset>
-     <dataset name="NASA-GMAO-06209" ts="M" itime="2013/07/01" ftime="2013/8/31"></dataset>
-     <dataset name="CMC2-CanCM4" ts="M" itime="2013/07/01" ftime="2013/8/31"></dataset>
-     <dataset name="MultiModel" ts="M" itime="2013/07/01" ftime="2013/8/31"></dataset>
+    <datatype name="spi12" units="" title="SPI (9 month)" mask="mask200">
+     <dataset name="CMC1-CanCM3" ts="M" itime="2013/01/01" ftime="2013/8/31"></dataset>
+     <dataset name="GFDL-CM2p1-aer04" ts="M" itime="2013/01/01" ftime="2013/8/31"></dataset>
+     <dataset name="COLA-RSMAS-CCSM3" ts="M" itime="2013/01/01" ftime="2013/8/31"></dataset>
+     <dataset name="NASA-GMAO-062012" ts="M" itime="2013/01/01" ftime="2013/8/31"></dataset>
+     <dataset name="CMC2-CanCM4" ts="M" itime="2013/01/01" ftime="2013/8/31"></dataset>
+     <dataset name="MultiModel" ts="M" itime="2013/01/01" ftime="2013/8/31"></dataset>
      <dataset name="GFS_7DAY_FORECAST" ts="D" itime="2013/01/01" ftime="2013/09/01"></dataset>
     </datatype>
     <datatype name="prec" units="" title="Precipitation (mm/day)" mask="mask">
-     <dataset name="CMC1-CanCM3" ts="M" itime="2013/07/01" ftime="2013/8/31"></dataset>
-     <dataset name="GFDL-CM2p1-aer04" ts="M" itime="2013/07/01" ftime="2013/8/31"></dataset>
-     <dataset name="COLA-RSMAS-CCSM3" ts="M" itime="2013/07/01" ftime="2013/8/31"></dataset>
-     <dataset name="NASA-GMAO-06209" ts="M" itime="2013/07/01" ftime="2013/8/31"></dataset>
-     <dataset name="CMC2-CanCM4" ts="M" itime="2013/07/01" ftime="2013/8/31"></dataset>
-     <dataset name="MultiModel" ts="M" itime="2013/07/01" ftime="2013/8/31"></dataset>
+     <dataset name="CMC1-CanCM3" ts="M" itime="2013/01/01" ftime="2013/8/31"></dataset>
+     <dataset name="GFDL-CM2p1-aer04" ts="M" itime="2013/01/01" ftime="2013/8/31"></dataset>
+     <dataset name="COLA-RSMAS-CCSM3" ts="M" itime="2013/01/01" ftime="2013/8/31"></dataset>
+     <dataset name="NASA-GMAO-062012" ts="M" itime="2013/01/01" ftime="2013/8/31"></dataset>
+     <dataset name="CMC2-CanCM4" ts="M" itime="2013/01/01" ftime="2013/8/31"></dataset>
+     <dataset name="MultiModel" ts="M" itime="2013/01/01" ftime="2013/8/31"></dataset>
      <dataset name="GFS_7DAY_FORECAST" ts="D" itime="2013/01/01" ftime="2013/09/01"></dataset>
     </datatype>
     <datatype name="t2m" units="" title="Average temperature (C)" mask="mask">
-     <dataset name="CMC1-CanCM3" ts="M" itime="2013/07/01" ftime="2013/8/31"></dataset>
-     <dataset name="GFDL-CM2p1-aer04" ts="M" itime="2013/07/01" ftime="2013/8/31"></dataset>
-     <dataset name="COLA-RSMAS-CCSM3" ts="M" itime="2013/07/01" ftime="2013/8/31"></dataset>
-     <dataset name="NASA-GMAO-06209" ts="M" itime="2013/07/01" ftime="2013/8/31"></dataset>
-     <dataset name="CMC2-CanCM4" ts="M" itime="2013/07/01" ftime="2013/8/31"></dataset>
-     <dataset name="MultiModel" ts="M" itime="2013/07/01" ftime="2013/8/31"></dataset>
+     <dataset name="CMC1-CanCM3" ts="M" itime="2013/01/01" ftime="2013/8/31"></dataset>
+     <dataset name="GFDL-CM2p1-aer04" ts="M" itime="2013/01/01" ftime="2013/8/31"></dataset>
+     <dataset name="COLA-RSMAS-CCSM3" ts="M" itime="2013/01/01" ftime="2013/8/31"></dataset>
+     <dataset name="NASA-GMAO-062012" ts="M" itime="2013/01/01" ftime="2013/8/31"></dataset>
+     <dataset name="CMC2-CanCM4" ts="M" itime="2013/01/01" ftime="2013/8/31"></dataset>
+     <dataset name="MultiModel" ts="M" itime="2013/01/01" ftime="2013/8/31"></dataset>
     </datatype>
     <datatype name="t2ano" units="" title="Temperature Anomaly (C)" mask="mask">
-     <dataset name="CMC1-CanCM3" ts="M" itime="2013/07/01" ftime="2013/8/31"></dataset>
-     <dataset name="GFDL-CM2p1-aer04" ts="M" itime="2013/07/01" ftime="2013/8/31"></dataset>
-     <dataset name="COLA-RSMAS-CCSM3" ts="M" itime="2013/07/01" ftime="2013/8/31"></dataset>
-     <dataset name="NASA-GMAO-06209" ts="M" itime="2013/07/01" ftime="2013/8/31"></dataset>
-     <dataset name="CMC2-CanCM4" ts="M" itime="2013/07/01" ftime="2013/8/31"></dataset>
+     <dataset name="CMC1-CanCM3" ts="M" itime="2013/01/01" ftime="2013/8/31"></dataset>
+     <dataset name="GFDL-CM2p1-aer04" ts="M" itime="2013/01/01" ftime="2013/8/31"></dataset>
+     <dataset name="COLA-RSMAS-CCSM3" ts="M" itime="2013/01/01" ftime="2013/8/31"></dataset>
+     <dataset name="NASA-GMAO-062012" ts="M" itime="2013/01/01" ftime="2013/8/31"></dataset>
+     <dataset name="CMC2-CanCM4" ts="M" itime="2013/01/01" ftime="2013/8/31"></dataset>
+    </datatype>
+    <datatype name="tmax" units="K" title="Maximum Temperature (C)" mask="mask">
+     <dataset name="GFS_7DAY_FORECAST" ts="D" itime="2013/01/01" ftime="2013/09/01"></dataset>
+    </datatype>
+    <datatype name="tmin" units="K" title="Minimum Temperature (C)" mask="mask">
+     <dataset name="GFS_7DAY_FORECAST" ts="D" itime="2013/01/01" ftime="2013/09/01"></dataset>
+    </datatype>
+    <datatype name="wind" units="m/s" title="Wind (m/s)" mask="mask">
+     <dataset name="GFS_7DAY_FORECAST" ts="D" itime="2013/01/01" ftime="2013/09/01"></dataset>
+    </datatype>
+    <datatype name="vc1" units="5" title="Soil Moisture (%) - Layer 1" mask="mask">
+     <dataset name="GFS_7DAY_FORECAST" ts="D" itime="2013/01/01" ftime="2013/09/01"></dataset>
+    </datatype>
+    <datatype name="vc2" units="%" title="Soil Moisture (%) - Layer 2" mask="mask">
+     <dataset name="GFS_7DAY_FORECAST" ts="D" itime="2013/01/01" ftime="2013/09/01"></dataset>
+    </datatype>
+    <datatype name="evap" units="mm" title="Evaporation (mm/day)" mask="mask">
+     <dataset name="GFS_7DAY_FORECAST" ts="D" itime="2013/01/01" ftime="2013/09/01"></dataset>
+    </datatype>
+    <datatype name="vcpct" units="%" title="Drought Index (%)" mask="mask200">
+     <dataset name="GFS_7DAY_FORECAST" ts="D" itime="2013/01/01" ftime="2013/09/01"></dataset>
+    </datatype>
+    <datatype name="flw_pct" units="%" title="Streamflow Percentile (%)" mask="maskSO">
+     <dataset name="GFS_7DAY_FORECAST" ts="D" itime="2013/01/01" ftime="2013/09/01"></dataset>
+    </datatype>
+    <datatype name="flw" units="m^3/s" title="Streamflow (m^3/s)" mask="maskSO">
+     <dataset name="GFS_7DAY_FORECAST" ts="D" itime="2013/01/01" ftime="2013/09/01"></dataset>
     </datatype>
     <infobox>6</infobox>
    </group>
-
 
   <default tag="vcpct"></default>
 
@@ -178,9 +204,9 @@
 <!--<forecast>
  <group name="Meteorology" divtitle="Forcing">
   <datatype name="t2m" units="" title="Average temperature (C)" mask="mask">
-   <dataset name="CMC1-CanCM3" ts="M" itime="2013/07/01" ftime="2013/07/01" nt=6></dataset>
-   <dataset name="GFDL-CM2p1-aer04" ts="M" itime="2013/07/01" ftime="2013/07/01" nt=6></dataset>
-   <dataset name="COLA-RSMAS-CCSM3" ts="M" itime="2013/07/01" ftime="2013/07/01" nt=6></dataset>
+   <dataset name="CMC1-CanCM3" ts="M" itime="2013/01/01" ftime="2013/01/01" nt=6></dataset>
+   <dataset name="GFDL-CM2p1-aer04" ts="M" itime="2013/01/01" ftime="2013/01/01" nt=6></dataset>
+   <dataset name="COLA-RSMAS-CCSM3" ts="M" itime="2013/01/01" ftime="2013/01/01" nt=6></dataset>
    </datatype>
   <infobox>1</infobox>
  </group>

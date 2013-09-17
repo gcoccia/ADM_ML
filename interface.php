@@ -95,9 +95,9 @@ $info_box_strings = array("Meteorology" => $_("Weather data used to drive the hy
   <?php foreach($xmlobj->variables->group as $group) {
     foreach($group->datatype as $dt) {
       foreach($dt->dataset as $ds) {
-        echo "data_timesteps[\"".$ds['name']."_".$dt['name']."\"] = \"".$ds['ts']."\";\n";
-        echo "data_idates[\"".$ds['name']."_".$dt['name']."\"] = \"".$ds['itime']."\";\n";
-        echo "data_fdates[\"".$ds['name']."_".$dt['name']."\"] = \"".$ds['ftime']."\";\n";
+        echo "data_timesteps[\"".$ds['name']."--".$dt['name']."\"] = \"".$ds['ts']."\";\n";
+        echo "data_idates[\"".$ds['name']."--".$dt['name']."\"] = \"".$ds['itime']."\";\n";
+        echo "data_fdates[\"".$ds['name']."--".$dt['name']."\"] = \"".$ds['ftime']."\";\n";
       }
     }
   } ?>
@@ -259,7 +259,10 @@ $info_box_strings = array("Meteorology" => $_("Weather data used to drive the hy
         $(".ts-pills").parent().removeClass("active");
         $(this).parent().addClass("active");
         update_timestep();
-        update_animation();
+
+        // If running animation, update
+        if("none" == $("ul.data-extraction li.active>a").attr('id'))
+          update_animation();
       }
     });
 
@@ -362,8 +365,6 @@ $info_box_strings = array("Meteorology" => $_("Weather data used to drive the hy
      </div>
      </div>
    <div id="hideBtn"><i id="hideBtnImg" class="icon-arrow-right" style="position: absolute; top:0px; right:0px; z-index: 9100;"></i></div>
-   <div id="Welcome" style"visibility:visible; width:100%; height:100%">
-   </div>
 </div>
 </div>
 </body>

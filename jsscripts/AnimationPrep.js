@@ -89,14 +89,14 @@ function ImageArrayPrep(ImageStrArray,ImageTimeArray)
     }
 
     //ImageStrArray[framect] = "../IMAGES/" + current_timestep.toUpperCase() + "/" + tstring + "/" + dataset + "_" + tstring + ".png";
-    if(""+morf == "monitor")
-     ImageStrArray[framect] = "../IMAGES/" + dir_tstring + "/" + dataset + "_" + tstring + ".png";
-    else {
-     temp = dataset.split("_")
-     variable = temp[temp.length-1]
-     datadir = temp.slice(0,temp.length-1).join("_")
-     ImageStrArray[framect] = "../IMAGES/" + dir_tstring + "/" + datadir + "/" + variable + "_" + tstring + ".png";
-    }
+    //if(""+morf == "monitor")
+    // ImageStrArray[framect] = "../IMAGES/" + dir_tstring + "/" + dataset + "_" + tstring + ".png";
+    //else {
+    //temp = dataset.split("-")
+    variable = dataset.split("--")[1]//temp[temp.length-1]
+    datadir = dataset.split("--")[0]//temp.slice(0,temp.length-1).join("_")
+    ImageStrArray[framect] = "../IMAGES/" + dir_tstring + "/" + datadir + "/" + variable + "_" + tstring + ".png";
+    //}
     ImageTimeArray[framect] = tstamp;
     framect += 1;
   }
