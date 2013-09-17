@@ -129,11 +129,12 @@ $info_box_strings = array("Meteorology" => $_("Weather data used to drive the hy
     var dim = <?php echo json_encode($xmlobj->dimensions, JSON_NUMERIC_CHECK) ?>;
     var swBound = new google.maps.LatLng(dim.minlat, dim.minlon);
     var neBound = new google.maps.LatLng(dim.minlat + (dim.nlat-1)*dim.res, dim.minlon + (dim.nlon-1)*dim.res);
-    var mapCenter = new google.maps.LatLng(dim.minlat + dim.nlat*dim.res/2.5, dim.minlon + dim.nlon*dim.res/2);
+    //var mapCenter = new google.maps.LatLng(dim.minlat + dim.nlat*dim.res/2.5, dim.minlon + dim.nlon*dim.res/2);
+    var mapCenter = new google.maps.LatLng(dim.centerlat, dim.centerlon);
     
     var styleArray = [{featureType: 'administrative.country',stylers: [{ visibility: 'simplified' }]}];
 
-    var myOptions = {styles: styleArray,zoom: 3,center: mapCenter,panControl: false,zoomControl: true,zoomControlOptions:{style:      
+    var myOptions = {styles: styleArray,zoom: dim.izoom,center: mapCenter,panControl: false,zoomControl: true,zoomControlOptions:{style:      
     google.maps.ZoomControlStyle.DEFAULT,position: google.maps.ControlPosition.LEFT_TOP},scaleControl: false,streetViewControl: false,mapTypeControl: 
     true,mapTypeControlOptions:{style: google.maps.MapTypeControlStyle.DROPDOWN_MENU,position: google.maps.ControlPosition.TOP_LEFT},mapTypeId: 
     google.maps.MapTypeId.TERRAIN};
