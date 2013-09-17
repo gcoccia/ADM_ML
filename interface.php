@@ -5,7 +5,6 @@ if (file_exists('../settings.xml')) {
 } else { exit("Error: settings.xml file not found."); }
 
 require_once('php-gettext-1.0.11/gettext.inc');
-include 'scripts/Read_Gauges.php';
 include 'scripts/Read_DM_log.php';#Script to read in the drought monitor parameters to set as limits
 $locale = BP_LANG;
 $textdomain="adm";
@@ -38,11 +37,7 @@ $day_final = $day_initial;
 $_ = 'T_';
 
 $date_array = compact("year_initial", "month_initial", "day_initial",
-                      "year_final", "month_final", "day_final",
-                      "gauge_year_initial", "gauge_month_initial", "gauge_day_initial",
-                      "gauge_year_initial_monthly", "gauge_month_initial_monthly",
-                      "gauge_year_final_monthly", "gauge_month_final_monthly",
-                      "gauge_year_final", "gauge_month_final", "gauge_day_final");
+                      "year_final", "month_final", "day_final");
 
 $label_array = array("LinktoImage" => $_('Link to Image'),
                      "LinktoData" => $_('Link to Data'),
@@ -89,7 +84,6 @@ $info_box_strings = array("Meteorology" => $_("Weather data used to drive the hy
 <script src="http://code.highcharts.com/highcharts.js" type="text/javascript"></script>
 <script src="http://code.highcharts.com/modules/exporting.js" type="text/javascript"></script>
 <script type="text/javascript">
-  var basinImage  = <?php echo $mask_gauge ?>;
   var info_box_strings = <?php echo json_encode($info_box_strings, JSON_NUMERIC_CHECK) ?>;
   var data_timesteps = [], data_idates = [], data_fdates = [];
   <?php foreach($xmlobj->variables->group as $group) {
