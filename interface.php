@@ -12,7 +12,7 @@ $textdomain="adm";
 
 if (isset($_GET['locale']) && !empty($_GET['locale'])) {
   $locale = $_GET['locale'];
-  setcookie("locale", $locale, time()+60*60*24*7); //cookie expires 1 week from last page visit
+  setcookie("locale", $locale, time()+60*30); //cookie expires 30 minutes from last page visit
 }
 elseif(isset($_COOKIE["locale"]) && !empty($_COOKIE["locale"])) {
   header("Location: interface.php?locale=".$_COOKIE["locale"]);
