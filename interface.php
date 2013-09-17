@@ -5,7 +5,6 @@ if (file_exists('../settings.xml')) {
 } else { exit("Error: settings.xml file not found."); }
 
 require_once('php-gettext-1.0.11/gettext.inc');
-include 'scripts/Read_DM_log.php';#Script to read in the drought monitor parameters to set as limits
 $locale = BP_LANG;
 $textdomain="adm";
 
@@ -31,6 +30,21 @@ $locales_dir = dirname(__FILE__).'/i18n';
 T_bindtextdomain($textdomain,$locales_dir);
 T_bind_textdomain_codeset($textdomain, 'UTF-8'); 
 T_textdomain($textdomain);
+
+//Extract the time information
+foreach($xmlobj->variables->group as $group) {
+ foreach($group->datatype as $dt) {
+  foreach($dt->dataset as $ds) {
+   if ($dt['name'] == 'vcpct' and $ds['name'] == 'VIC_DERIVED'){
+    $fdate = (date_parse($ds['ftime']));
+    $year_initial = $fdate['year'];
+    $month_initial = $fdate['month'];
+    $day_initial = $fdate['day'];
+    break 3;
+   }
+  }
+ }
+} 
 $year_final = $year_initial;
 $month_final = $month_initial;
 $day_final = $day_initial;
@@ -105,9 +119,6 @@ $info_box_strings = array("Meteorology" => $_("Weather data used to drive the hy
     foreach($label_array as $key => $value) {
       echo "var ".$key." = "."\"".$value."\"".";\n";
     }
-/*    foreach($gauge_info_arrays as $key => $value) {
-      echo "var ".$key." = ".$value.";\n";
-    }*/
   ?>
 
   function initialize() 
