@@ -1,7 +1,7 @@
 <?php
 
-if (file_exists('settings.xml')) {
-  $xmlobj = simplexml_load_file("settings.xml");
+if (file_exists('../settings.xml')) {
+  $xmlobj = simplexml_load_file("../settings.xml");
 } else { exit("Error: settings.xml file not found."); }
 
 require_once('php-gettext-1.0.11/gettext.inc');
