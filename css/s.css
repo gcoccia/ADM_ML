@@ -251,7 +251,7 @@ top:20px;
   position: absolute;
   bottom: 0px; 
   left: 0px;
-  right: 0px;
+  right: 310px;
   min-width: 900px;
   background-color: transparent;
   z-index: 1;
@@ -266,7 +266,7 @@ top:20px;
   bottom: 35px; 
   color:#000000;
   left: 0px;
-  right: 0px;
+  right: 310px;
   min-width: 900px;
   width: auto;
   margin: auto;*/
