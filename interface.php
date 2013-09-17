@@ -10,7 +10,7 @@ $textdomain="adm";
 
 if (isset($_GET['locale']) && !empty($_GET['locale'])) {
   $locale = $_GET['locale'];
-  setcookie("locale", $locale, time()+60*60*24*7); //cookie expires 1 week from last page visit
+  setcookie("locale", $locale, time()+60*30); //cookie expires 30 minutes from last page visit
 }
 elseif(isset($_COOKIE["locale"]) && !empty($_COOKIE["locale"])) {
   header("Location: interface.php?locale=".$_COOKIE["locale"]);
@@ -109,6 +109,8 @@ $info_box_strings = array("Meteorology" => $_("Weather data used to drive the hy
       }
     }
   } ?>
+
+  var DEFAULT_ANIMATION_DATASET = "VIC_DERIVED--vcpct";
 
   // Define JS variables from PHP arrays
   <?php 
@@ -319,6 +321,9 @@ $info_box_strings = array("Meteorology" => $_("Weather data used to drive the hy
         $(this).addClass("icon-pause");
       }
     });
+
+    // Load the default dataset
+    $("ul.datalist>li>ul.dropdown-menu>li>a#" + DEFAULT_ANIMATION_DATASET).click();
   });
 
 </script>
