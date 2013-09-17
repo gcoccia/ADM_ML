@@ -25,17 +25,17 @@
       <li id="yearly"><a href="javascript:void(0)"class="ts-pills"><?php echo $_("Yearly")?></a></li>
     </ul>
     <div class="control-group form-inline">
-      <label><?php echo $_("Initial")?>:</label>
-	    <input id="day_initial" type="text" maxlength="2" name="day_initial" value=<?php echo $day_initial ?> style="width:15px;">
-      <input id="month_initial" type="text" maxlength="2" name="month_initial" value=<?php echo $month_initial ?> style="width:15px;">
+      <label style="width:40px;"><?php echo $_("Initial")?>:</label>
+      <input id="day_initial" type="text" maxlength="2" name="day_initial" value=<?php echo $day_initial ?> style="width:20px;">
+      <input id="month_initial" type="text" maxlength="2" name="month_initial" value=<?php echo $month_initial ?> style="width:20px;">
       <input id="year_initial" type="text" maxlength="4" name="year_initial" value=<?php echo $year_initial ?> style="width:35px;">
 	    <input type="button" value="-" class="btn btn-mini" onclick="Update_TimeStamp_MP(-1,0)">
       <input type="button" value="+" class="btn btn-mini" onclick="Update_TimeStamp_MP(1,0)">
     </div>
     <div id="final-date-inputs" class="control-group form-inline">
-      <label><?php echo $_("Final") ?>:</label>
-      <input id="day_final" type="text" maxlength="2" name="day_final" value=<?php echo $day_final ?> style="width:15px;">
-      <input id="month_final" type="text" maxlength="2" name="month_final" value=<?php echo $month_final ?> style="width:15px;">
+      <label style="width:40px;"><?php echo $_("Final") ?>:</label>
+      <input id="day_final" type="text" maxlength="2" name="day_final" value=<?php echo $day_final ?> style="width:20px;">
+      <input id="month_final" type="text" maxlength="2" name="month_final" value=<?php echo $month_final ?> style="width:20px;">
       <input id="year_final" type="text" maxlength="4" name="year_final" value=<?php echo $year_final ?> style="width:35px;">
       <input type="button" value="-" class="btn btn-mini" onclick="Update_TimeStamp_MP(-1,1)">
       <input type="button" value="+" class="btn btn-mini" onclick="Update_TimeStamp_MP(1,1)"><br/>
