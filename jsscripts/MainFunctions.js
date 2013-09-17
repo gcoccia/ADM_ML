@@ -251,7 +251,8 @@ function LoadBasic()
     $("#TimeStamp").hide();
     $("#InteractiveInterface").removeClass("active");
     $("#BasicInterface").addClass("active");
-
+    $("#pointpill").css("visibility","hidden");
+    $("#spatialpill").css("visibility","hidden");
     $("#basic_interface1").css("visibility","visible");
   }
 }
@@ -266,7 +267,8 @@ function LoadInteractive()
     $("#TimeStamp").show();
     $("#InteractiveInterface").addClass("active");
     $("#BasicInterface").removeClass("active");
-    
+    $("#pointpill").css("visibility","visible");
+    $("#spatialpill").css("visibility","visible");
     $("#basic_interface1").css("visibility", "hidden");
   }
 }
