@@ -102,7 +102,7 @@ $info_box_strings = array("Meteorology" => $_("Weather data used to drive the hy
     }
   } ?>
 
-  var DEFAULT_ANIMATION_DATASET = "VIC_DERIVED_vcpct";
+  var DEFAULT_ANIMATION_DATASET = "VIC_DERIVED--vcpct";
 
   // Define JS variables from PHP arrays
   <?php 
