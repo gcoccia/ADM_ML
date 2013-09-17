@@ -102,6 +102,8 @@ $info_box_strings = array("Meteorology" => $_("Weather data used to drive the hy
     }
   } ?>
 
+  var DEFAULT_ANIMATION_DATASET = "VIC_DERIVED_vcpct";
+
   // Define JS variables from PHP arrays
   <?php 
     foreach($date_array as $key => $value) {
@@ -314,6 +316,9 @@ $info_box_strings = array("Meteorology" => $_("Weather data used to drive the hy
         $(this).addClass("icon-pause");
       }
     });
+
+    // Load the default dataset
+    $("ul.datalist>li>ul.dropdown-menu>li>a#" + DEFAULT_ANIMATION_DATASET).click();
   });
 
 </script>
