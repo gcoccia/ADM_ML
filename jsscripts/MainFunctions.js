@@ -114,15 +114,20 @@ function update_basic()
       var time_delay = 1000*1/frames_per_second;
 
       //overlay_obj[dataset] = new ImageOverlay(bounds, ImageStrArray[dataset][0], map_array[0], dataset);  //Edit
+      var div = document.createElement("div");
+      div.style.position = "absolute";
+      div.style.left = "15%";
+      div.style.top = "50px";
       var img = document.createElement("img");
       img.setAttribute('id',dataset);
       img.src = ImageStrArray[dataset][0];
       img.onerror = function (evt){
   	this.src = 'icons/gm_noimage.gif';
       }
-      img.style.width = "100%";
-      img.style.height = "100%";
-      document.getElementById("basic_interface1").appendChild(img)
+      img.style.width = "50%";
+      img.style.height = "50%";
+      div.appendChild(img);
+      document.getElementById("basic_interface1").appendChild(div)
 
       ChangeTimeStamp(1, ImageCounter, dataset);  //Edit
       $( "#slider-date" ).html( ImageTimeArray[dataset][0] );
