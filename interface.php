@@ -287,8 +287,11 @@ $info_box_strings = array("Meteorology" => $_("Weather data used to drive the hy
         $(this).parent().parent().parent().addClass("active");
         $(this).find('i').addClass("icon-ok");
         $(this).parent().parent().parent().find("a.dropdown-toggle>i").addClass("icon-ok");
-
-        update_animation();
+        
+        if ($("#InteractiveInterface").hasClass("active")) {
+          update_animation(); }
+        else {
+          update_basic(); }
       }
     });
 
@@ -371,7 +374,9 @@ $info_box_strings = array("Meteorology" => $_("Weather data used to drive the hy
       <div id="sidebar1" class="span3 scrollDiv" style="visibility:visible; padding-right:0; position: absolute; top: 0px; background-color: rgb(240,240,240); width: auto; width:320px; right:0px; bottom: 0px;">
          <?php include('sidebar.php'); ?>
         </div>      
-      <div id="basic_interface1" class="span10 scrollDiv" style="visibility:hidden; overflow-x:scroll; position: absolute; background-color:pink; top:0px; bottom:0px; left:0px; margin-left:0;">Test
+      <div id="basic_interface1" class="span10 scrollDiv" style="visibility:hidden; overflow-x:scroll; position: absolute; background-color:pink; top:0px; bottom:0px; left:0px; margin-left:0;">
+      Test
+
       </div>
      </div>
      </div>
