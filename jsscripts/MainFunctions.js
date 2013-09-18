@@ -105,11 +105,11 @@ function update_basic()
 
   if(!(typeof dataset === "undefined")) {
     //Fill up the Array of image strings
-    ImageTimeArrayBasic[dataset] = new Array();
-    ImageStrArrayBasic[dataset] = new Array();
+    ImageTimeArray[dataset] = new Array();
+    ImageStrArray[dataset] = new Array();
 
     if(data_dates_are_valid()) {
-      ImageArrayPrep(ImageStrArray[dataset], ImageTimeArray[dataset]);  //Add condition for basic
+      ImageArrayPrep(ImageStrArray[dataset], ImageTimeArray[dataset]);  
 
       var time_delay = 1000*1/frames_per_second;
 
