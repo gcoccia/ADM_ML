@@ -97,6 +97,70 @@ function update_animation()
   }
 }
 
+function update_basic()
+{
+  clear_image_overlays();  //Need to add condition for basic 
+  ReadTimeInterval();      //Shouldn't need extra condition - but check
+  var dataset = $("ul.datalist>li>ul.dropdown-menu>li.active").find("a").attr('id');
+
+  if(!(typeof dataset === "undefined")) {
+    //Fill up the Array of image strings
+    ImageTimeArrayBasic[dataset] = new Array();
+    ImageStrArrayBasic[dataset] = new Array();
+
+    if(data_dates_are_valid()) {
+      ImageArrayPrep(ImageStrArray[dataset], ImageTimeArray[dataset]);  //Add condition for basic
+
+      var time_delay = 1000*1/frames_per_second;
+
+      overlay_obj[dataset] = new ImageOverlay(bounds, ImageStrArray[dataset][0], map_array[0], dataset);  //Edit
+      ChangeTimeStamp(1, ImageCounter, dataset);  //Edit
+      $( "#slider-date" ).html( ImageTimeArray[dataset][0] );
+      ImageCounter = 1;
+      
+      // Make sure the play/pause icons are visible and set to "pause" when the animation starts
+      $( "#slider-div").show();
+      if($( "#pause-or-continue").attr('class') == "icon-play")
+      {
+        $("#pause-or-continue").removeClass("icon-play");
+        $("#pause-or-continue").addClass("icon-pause");
+      }
+
+      // Set up the slider for this date range
+      $(function() {
+        $( "#animation-slider" ).slider({
+          value:0,
+          min: 0,
+          max: ImageStrArray[dataset].length-1,
+          step: 1,
+          disabled: false,
+          slide: function( event, ui ) {
+            if($("#pause-or-continue").attr('class') == "icon-pause") // if playing
+              clearInterval(t);
+            ImageCounter = ui.value;
+            $( "#slider-date" ).html(ImageTimeArray[dataset][ImageCounter] );
+            next_image();  //edit
+            
+            if($("#pause-or-continue").attr('class') == "icon-pause") // if playing
+              t = setInterval(next_image, 1000*1/frames_per_second); //edit
+          }
+        });
+      });
+
+      t = setInterval(next_image, time_delay);
+    }
+    else { // Error
+      clear_all_overlays();  //Edit
+      // Turn off the active chosen datasets
+      $("ul.datalist>li").removeClass("active");
+      $("ul.datalist>li>ul.dropdown-menu>li").removeClass("active");
+      $("ul.datalist>li>a>i").removeClass("icon-ok");
+      $("ul.datalist>li>ul.dropdown-menu>li>a>i").removeClass("icon-ok");
+      alert("Error: Dataset " + dataset + " is only available from " + data_idates[dataset] + " to " + data_fdates[dataset] + ".");
+    }
+  }
+}
+
 function next_image()
 {
   var dataset = $("ul.datalist>li>ul.dropdown-menu>li.active").find("a").attr('id');
