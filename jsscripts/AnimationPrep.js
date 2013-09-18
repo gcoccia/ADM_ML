@@ -95,8 +95,11 @@ function ImageArrayPrep(ImageStrArray,ImageTimeArray)
     //temp = dataset.split("-")
     variable = dataset.split("--")[1]//temp[temp.length-1]
     datadir = dataset.split("--")[0]//temp.slice(0,temp.length-1).join("_")
-    ImageStrArray[framect] = "../IMAGES/" + dir_tstring + "/" + datadir + "/" + variable + "_" + tstring + ".png";
-    //}
+    
+    if ($("#InteractiveInterface").hasClass("active"))
+      ImageStrArray[framect] = "../IMAGES/" + dir_tstring + "/" + datadir + "/" + variable + "_" + tstring + ".png";
+    else  //Change to correct path when processed!
+      ImageStrArray[framect] = "../IMAGES/" + dir_tstring + "/" + datadir + "/" + variable + "_" + tstring + ".png";
     ImageTimeArray[framect] = tstamp;
     framect += 1;
   }
