@@ -183,7 +183,7 @@ function next_image()
   if ($("#InteractiveInterface").hasClass("active"))
     overlay_obj[dataset].swap(ImageStrArray[dataset][ImageCounter]);
   else
-    document.getElementById(dataset).src=(ImageStrArray[dataset][ImageCounter]);
+    $("#basic_image").find("img").attr('src', ImageStrArray[dataset][ImageCounter]);
   ChangeTimeStamp(2, ImageCounter, dataset);
   $( "#animation-slider" ).slider("option", "value", ImageCounter);
   $( "#slider-date" ).html( ImageTimeArray[dataset][ImageCounter] );
