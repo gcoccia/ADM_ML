@@ -113,11 +113,11 @@ function update_basic()
 
       var time_delay = 1000*1/frames_per_second;
 
-      //overlay_obj[dataset] = new ImageOverlay(bounds, ImageStrArray[dataset][0], map_array[0], dataset);  //Edit
       var div = document.createElement("div");
       div.style.position = "absolute";
       div.style.left = "15%";
       div.style.top = "50px";
+      div.setAttribute('id','basic_image');
       var img = document.createElement("img");
       img.setAttribute('id',dataset);
       img.src = ImageStrArray[dataset][0];
@@ -180,7 +180,10 @@ function next_image()
 {
   var dataset = $("ul.datalist>li>ul.dropdown-menu>li.active").find("a").attr('id');
   if (ImageCounter == ImageTimeArray[dataset].length) ImageCounter = 0;
-  overlay_obj[dataset].swap(ImageStrArray[dataset][ImageCounter]);
+  if ($("#InteractiveInterface").hasClass("active"))
+    overlay_obj[dataset].swap(ImageStrArray[dataset][ImageCounter]);
+  else
+    document.getElementById(dataset).src=(ImageStrArray[dataset][ImageCounter]);
   ChangeTimeStamp(2, ImageCounter, dataset);
   $( "#animation-slider" ).slider("option", "value", ImageCounter);
   $( "#slider-date" ).html( ImageTimeArray[dataset][ImageCounter] );
@@ -190,13 +193,18 @@ function next_image()
 function clear_image_overlays()
 {
   clearInterval(t);
-
+  if ($("#InteractiveInterface").hasClass("active")) {
   for (var key in overlay_obj){
     if (overlay_obj[key] != undefined){
       overlay_obj[key].remove();
       delete overlay_obj[key];
       //Remove time stamp
       ChangeTimeStamp(3);
+    }
+  } }
+  else {
+    if (document.getElementById("basic_interface1").hasChildNodes()) {
+      document.getElementById("basic_interface1").removeChild(document.getElementById("basic_image"));
     }
   }
   $("#Colorbar").css({visibility: "hidden", height: ""});
