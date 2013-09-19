@@ -24,7 +24,7 @@
       <li id="monthly"><a href="javascript:void(0)" class="ts-pills"><?php echo $_("Monthly")?></a></li>
       <li id="yearly"><a href="javascript:void(0)"class="ts-pills"><?php echo $_("Yearly")?></a></li>
     </ul>
-    <div class="control-group form-inline">
+    <div id="initial-date-inputs" class="control-group form-inline">
       <label style="width:40px;"><?php echo $_("Initial")?>:</label>
       <input id="day_initial" type="text" maxlength="2" name="day_initial" value=<?php echo $day_initial ?> style="width:20px;">
       <input id="month_initial" type="text" maxlength="2" name="month_initial" value=<?php echo $month_initial ?> style="width:20px;">
@@ -40,7 +40,7 @@
       <input type="button" value="-" class="btn btn-mini" onclick="Update_TimeStamp_MP(-1,1)">
       <input type="button" value="+" class="btn btn-mini" onclick="Update_TimeStamp_MP(1,1)"><br/>
     </div>
-  <table><tr>
+  <table id="Animation-Update"><tr>
   <td><input id="update_interval" type="button" class="btn" value=<?php echo $_("Update time interval")?> ></td>
   <td><input id="clear_all" type="button" class="btn" value=<?php echo $_("Clear all overlays")?> ></td>
   </tr>

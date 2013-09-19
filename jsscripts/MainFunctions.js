@@ -312,6 +312,8 @@ function update_monitor_or_forecast()
     $("#Animation-Sidebar>div.dummy").show();
     $("li#Forecast").parent().hide();
     $("#final-date-inputs").show();
+    $("#initial-date-inputs").show();
+    $("#Animation-Update").show();
     var sample_dataset = 'VIC_DERIVED--vcpct';
     var final_date = new Date(data_fdates[sample_dataset]);
     $("#year_initial").val(final_date.getFullYear());
@@ -324,7 +326,9 @@ function update_monitor_or_forecast()
   else {
     $("#Animation-Sidebar>div.dummy").hide();
     $("li#Forecast").parent().show();
+    $("#initial-date-inputs").hide();
     $("#final-date-inputs").hide();
+    $("#Animation-Update").hide();
     //Set the date to the latest forecast
     ReadTimeInterval();
   }
