@@ -312,10 +312,21 @@ function update_monitor_or_forecast()
     $("#Animation-Sidebar>div.dummy").show();
     $("li#Forecast").parent().hide();
     $("#final-date-inputs").show();
-  } else {
+    var sample_dataset = 'VIC_DERIVED--vcpct';
+    var final_date = new Date(data_fdates[sample_dataset]);
+    $("#year_initial").val(final_date.getFullYear());
+    $("#month_initial").val(final_date.getMonth() + 1);
+    $("#day_initial").val(final_date.getDate());
+    $("#year_final").val(final_date.getFullYear());
+    $("#month_final").val(final_date.getMonth() + 1);
+    $("#day_final").val(final_date.getDate());
+  }
+  else {
     $("#Animation-Sidebar>div.dummy").hide();
     $("li#Forecast").parent().show();
     $("#final-date-inputs").hide();
+    //Set the date to the latest forecast
+    ReadTimeInterval();
   }
 
 }

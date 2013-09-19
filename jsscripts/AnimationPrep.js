@@ -14,9 +14,23 @@ function ReadTimeInterval()
     var forecast_months = 6-1; // 6 month forecast - includes current initial month
 
     var current_timestep = $("ul.ts-selection li.active").attr('id');
-    var initial_date = new Date(parseInt($("#year_initial").val()),
-                           parseInt($("#month_initial").val())-1,
-                           parseInt($("#day_initial").val()));
+    var dataset = $("ul.datalist>li>ul.dropdown-menu>li.active").find("a").attr('id');
+    if (current_timestep == 'daily') {
+     var sample_dataset = "GFS_7DAY_FORECAST--vcpct";
+    }
+    else if (current_timestep == 'monthly') { 
+     var sample_dataset = "MultiModel--prec";
+    }
+    var initial_date = new Date(data_idates[sample_dataset]);
+    $("#year_initial").val(initial_date.getFullYear());
+    $("#month_initial").val(initial_date.getMonth() + 1);
+    $("#day_initial").val(initial_date.getDate());
+    $("#year_final").val(initial_date.getFullYear());
+    $("#month_final").val(initial_date.getMonth() + 1);
+    $("#day_final").val(initial_date.getDate());
+    //var initial_date = new Date(parseInt($("#year_initial").val()),
+    //                      parseInt($("#month_initial").val())-1,
+    //                       parseInt($("#day_initial").val()));
     var forecast_final_date = initial_date;
 
     if(""+current_timestep == "daily")
