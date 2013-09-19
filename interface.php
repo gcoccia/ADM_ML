@@ -240,11 +240,11 @@ $info_box_strings = array("Meteorology" => $_("Weather data used to drive the hy
         $(this).val(month_final);
     });
     $( "input[id='year_initial']" ).change(function() {
-      if($(this).val() < 1948 || $(this).val() > 2013)
+      if($(this).val() < 1948 || $(this).val() > 2020)
         $(this).val(year_initial);
     });
     $( "input[id='year_final']" ).change(function() {
-      if($(this).val() < 1948 || $(this).val() > 2013)
+      if($(this).val() < 1948 || $(this).val() > 2020)
         $(this).val(year_final);
     });
 
