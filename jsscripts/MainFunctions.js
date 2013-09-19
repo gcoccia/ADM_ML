@@ -333,7 +333,10 @@ function LoadBasic()
     $("#pointpill").css("visibility","hidden");
     $("#spatialpill").css("visibility","hidden");
     $("#basic_interface1").css("visibility","visible");
-  }
+
+    update_basic();
+
+   }
 }
 
 function LoadInteractive()
@@ -349,5 +352,7 @@ function LoadInteractive()
     $("#pointpill").css("visibility","visible");
     $("#spatialpill").css("visibility","visible");
     $("#basic_interface1").css("visibility", "hidden");
+    
+    update_animation();
   }
 }
