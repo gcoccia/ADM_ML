@@ -11,6 +11,9 @@ function Update_Listeners(type){
   $("#Spatial-Sidebar").hide();
   $("#monitor-or-forecast-div").show();
   $("#hideBtnImg").show();
+   
+  //Set up time info accordingly
+  update_monitor_or_forecast();
 
   //Remove the listeners and lines/polygons from the map
   if(mapPolygon) {
@@ -35,7 +38,18 @@ function Update_Listeners(type){
   $("ul.datalist>li>ul.dropdown-menu>li>a>i").removeClass("icon-ok");
   Update_Listeners('none');
   map_array[0].setOptions({draggableCursor:'crosshair'});
-  
+  // Make sure the time info is present
+  $("#final-date-inputs").show();
+  $("#initial-date-inputs").show();
+  $("#Animation-Update").show();
+  var sample_dataset = 'VIC_DERIVED--vcpct';
+  var final_date = new Date(data_fdates[sample_dataset]);
+  $("#year_initial").val(final_date.getFullYear());
+  $("#month_initial").val(final_date.getMonth() + 1);
+  $("#day_initial").val(final_date.getDate());
+  $("#year_final").val(final_date.getFullYear());
+  $("#month_final").val(final_date.getMonth() + 1);
+  $("#day_final").val(final_date.getDate());
   // Switch to the point sidebar
   $("#Animation-Sidebar").hide();
   $("#Point-Sidebar").show();
@@ -66,6 +80,19 @@ function Update_Listeners(type){
   $("#Spatial-Sidebar").show();
   $("#monitor-or-forecast-div").hide();
   $("#hideBtnImg").hide();
+
+  // Ensure the time info is present
+  $("#final-date-inputs").show();
+  $("#initial-date-inputs").show();
+  $("#Animation-Update").show();
+  var sample_dataset = 'VIC_DERIVED--vcpct';
+  var final_date = new Date(data_fdates[sample_dataset]);
+  $("#year_initial").val(final_date.getFullYear());
+  $("#month_initial").val(final_date.getMonth() + 1);
+  $("#day_initial").val(final_date.getDate());
+  $("#year_final").val(final_date.getFullYear());
+  $("#month_final").val(final_date.getMonth() + 1);
+  $("#day_final").val(final_date.getDate());
 
   map_array[0].setOptions({draggableCursor:'crosshair'});
   // Add polygon and lines to map
