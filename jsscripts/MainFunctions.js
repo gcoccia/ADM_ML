@@ -118,6 +118,7 @@ function update_basic()
       div.style.left = "20%";
       div.style.top = "120px";
       div.setAttribute('id','basic_image');
+      
       var img = document.createElement("img");
       img.setAttribute('id',dataset);
       img.src = ImageStrArray[dataset][0];
@@ -127,6 +128,14 @@ function update_basic()
       img.style.width = "100%";
       img.style.height = "100%";
       div.appendChild(img);
+      
+      var titlediv = document.createElement("div");
+      titlediv.setAttribute('class',"image_superposition");
+      var titletext = document.createElement("h3");
+      titletext.setAttribute('class',"text_superposition");
+      titletext.innerHTML = dataset;
+      titlediv.appendChild(titletext);
+      div.appendChild(titlediv);
       document.getElementById("basic_interface1").appendChild(div)
 
       ChangeTimeStamp(1, ImageCounter, dataset);  //Edit
