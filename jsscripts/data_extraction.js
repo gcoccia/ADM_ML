@@ -305,8 +305,8 @@ function Update_Spatial_Data_Display() {
     tstep *= 365;
   var nt = (final_date - initial_date)/tstep;
   var nvars = $("ul#currently-selected-vars").find("li>a").length;
-  var size_per_value = 8; // ??? 8 bytes? compressed? depends on choice of format?
-  var estimated_download_size = npts*nt*nvars*size_per_value/1000/1000;
+  var size_per_value = 4; // ??? 8 bytes? compressed? depends on choice of format?
+  var estimated_download_size = npts*nt*nvars*size_per_value/1024/1024;
   var email = $('input:text[name=email_spatial_data]').val();
 
   if(estimated_download_size < 1)

@@ -123,16 +123,12 @@ user = email.split('@')[0]
 #Change directory
 os.chdir('../..')
 
-#Determine the time step
 if tstep == "daily":
  dt = relativedelta.relativedelta(days=1)
- nt = (fdate-idate).days + 1
 if tstep == "monthly":
- dt = relativedelta.relativedelta(month=1)
- nt = (fdate-idate).days/30
+ dt = relativedelta.relativedelta(months=1)
 if tstep == "yearly":
  dt = relativedelta.relativedelta(years=1)
- nt = (fdate-idate).days/365
 
 #Define the monitor's boundaries
 minlat = -35.0
@@ -144,7 +140,6 @@ maxlon = 55.0
 nlat = (urclat - llclat)/res
 nlon = (urclon - llclon)/res
 nvars = len(variables)
-nmb = 4*nlat*nlon*nvars*nt/1024/1024
 
 #Define dimensions
 dims = {}
@@ -182,16 +177,30 @@ for var in variables:
  var_info = qh.var_titles[qh.vars.index(var)]
 
  #Make sure we are within the ti1")
+ idate_var = idate
+ fdate_var = fdate
  ga("set t 1 last")
- idate_dataset = ga.query('dims').time[0]
- fdate_dataset = ga.query('dims').time[1]
+ idate_dataset = gradstime2datetime(ga.query('dims').time[0])
+ fdate_dataset = gradstime2datetime(ga.query('dims').time[1])
+ if idate_var < idate_dataset:
+  idate_var = idate_dataset
+ if fdate_var > fdate_dataset:
+  fdate_var = fdate_dataset
+ 
+ #Change month and year
+ if tstep == "monthly":
+  idate_var = datetime.datetime(idate_var.year,idate_var.month,1)
+  fdate_var = datetime.datetime(fdate_var.year,fdate_var.month,1)
+ if tstep == "yearly":
+  idate_var = datetime.datetime(idate_var.year,1,1)
+  fdate_var = datetime.datetime(fdate_var.year,1,1)
 
  #Set grads region
  ga("set lat %f %f" % (dims['minlat'],dims['maxlat']))
  ga("set lon %f %f" % (dims['minlon'],dims['maxlon']))
 
- date = idate
- while date <= fdate:
+ date = idate_var
+ while date <= fdate_var:
   time = datetime2gradstime(date)  
   #Set time
   ga("set time %s" % time)
@@ -199,12 +208,22 @@ for var in variables:
   Grads_Regrid(var,'data',dims)
   #Write data
   if format == "netcdf":
-   file = var_dir + "/%s_%s_%04d%02d%02d.nc" % (var,dataset,date.year,date.month,date.day)
+   if tstep == "daily":
+    file = var_dir + "/%s_%s_%04d%02d%02d_daily.nc" % (var,dataset,date.year,date.month,date.day)
+   elif tstep == "monthly":
+    file = var_dir + "/%s_%s_%04d%02d_monthly.nc" % (var,dataset,date.year,date.month)
+   elif tstep == "yearly":
+    file = var_dir + "/%s_%s_%04d_yearly.nc" % (var,dataset,date.year)
    fp = Create_NETCDF_File(dims,file,[var,],[var_info,],date,'days',1)
    fp.variables[var][0] = np.ma.getdata(ga.exp("data"))
    fp.close()
   elif format == "arc_ascii":
-   file = var_dir + "/%s_%s_%04d%02d%02d.asc" % (var,dataset,date.year,date.month,date.day)
+   if tstep == "daily":
+    file = var_dir + "/%s_%s_%04d%02d%02d_daily.asc" % (var,dataset,date.year,date.month,date.day)
+   elif tstep == "monthly":
+    file = var_dir + "/%s_%s_%04d%02d_monthly.asc" % (var,dataset,date.year,date.month)
+   elif tstep == "yearly":
+    file = var_dir + "/%s_%s_%04d_yearly.asc" % (var,dataset,date.year)
    Write_Arc_Ascii(dims,file,np.ma.getdata(ga.exp("data")))
   #Move to next time step
   date = date + dt
@@ -220,5 +239,4 @@ os.system("tar -czf %s.tar.gz %s" % (user,user) )
 os.system("rm -rf %s" % user)
 
 #Send the email confirming that it succeeded and the location of the zipped archive
-#http_file = http_root  + "/WORKSPACE/%s.tar.gz" % user
 Send_Email("The data was processed and can be dowloaded at %s. The data will be removed in 6 hours." % http_file)
