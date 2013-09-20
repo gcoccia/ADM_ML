@@ -307,16 +307,27 @@ function Update_Spatial_Data_Display() {
   var nvars = $("ul#currently-selected-vars").find("li>a").length;
   var size_per_value = 8; // ??? 8 bytes? compressed? depends on choice of format?
   var estimated_download_size = npts*nt*nvars*size_per_value/1000/1000;
+  var email = $('input:text[name=email_spatial_data]').val();
 
   if(estimated_download_size < 1)
     $("#estimated-download-size").html(estimated_download_size.toFixed(2) + " MB"); // what about units?
   else
     $("#estimated-download-size").html(Math.round(estimated_download_size) + " MB");
 
-  if(nvars <= 0 | estimated_download_size > 1000){
+  if(nvars <= 0 | npts <= 0 | nt <= 0){
+   $("#estimated-download-size").html(0);
+  }
+
+  if(nvars <= 0 | estimated_download_size > 1000 | email == ''){
    $("#submit_request_button").prop('disabled', true);  
   } else {
    $("#submit_request_button").prop('disabled', false);
+  }
+
+  if(email == ''){
+    $("#email_warning").show();
+  } else {
+    $("#email_warning").hide();
   }
 
   if(npts == Infinity){
@@ -386,6 +397,7 @@ function Submit_Spatial_Data() {
           variables:variables,
           format:format,
           email:email,
+          http:document.URL,
           };
   input = JSON.stringify(input);
   var request = {script:script,input:input};

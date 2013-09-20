@@ -172,13 +172,14 @@
   </div>
   <br>
   <br>
-  <input type="text" name="email_spatial_data" placeholder="<?php echo $_('Email address')?>"></br>
+  <input type="text" name="email_spatial_data" onchange="Update_Spatial_Data_Display()" placeholder="<?php echo $_('Email address')?>"></br>
   <button type="button" id="submit_request_button" onclick="Submit_Spatial_Data()"><?php echo $_('Submit Data Request')?></button>
   <br>
   <?php echo $_('Estimated Download Size')?>: <span id="estimated-download-size">0</span>
   <br>
   <p id="npts_warning" style="color:red; display:none"><?php echo $_("Please select a region.")?></p>
   <p id="nvars_warning" style="color:red; display:none"><?php echo $_("Please select variables.")?></p>
+  <p id="email_warning" style="color:red; display:none"><?php echo $_("Please provide an email.")?></p>
   <p id="download_size_warning" style="color:red; display:none"><?php echo $_("The current request exceeds 1 GB. Please reduce the size of your request.")?></p>
 
 </div>

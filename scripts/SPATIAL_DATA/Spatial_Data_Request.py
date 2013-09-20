@@ -103,15 +103,15 @@ llclat = float(metadata['llclat'])
 llclon = float(metadata['llclon'])
 urclat = float(metadata['urclat'])
 urclon = float(metadata['urclon'])
-#idate = datetime.datetime(int(sys.argv[6]),int(sys.argv[7]),int(sys.argv[8]))
-#fdate = datetime.datetime(int(sys.argv[9]),int(sys.argv[10]),int(sys.argv[11]))
 idate = datetime.datetime.utcfromtimestamp(int(metadata['idate']))
 fdate = datetime.datetime.utcfromtimestamp(int(metadata['fdate']))
 format= metadata['format']
 email = metadata['email']
 variables = metadata['variables']
 res = float(metadata['sres'])
-http_root = 'http://freeze.princeton.edu'
+http = metadata['http'].split('/')
+http_root = '/'.join(http[0:-2])
+user = email.split('@')[0]
 
 #Change directory
 os.chdir('../..')
@@ -152,7 +152,7 @@ dims['maxlat'] = dims['minlat'] + dims['res']*(dims['nlat']-1)
 dims['maxlon'] = dims['minlon'] + dims['res']*(dims['nlon']-1)
 
 #Remove old files
-os.system("find WORKSPACE/* -mmin +1 -exec rm -rf {} \;")
+os.system("find WORKSPACE/* -mmin +400 -exec rm -rf {} \;")
 
 #Run some initial checks 
 #if idate < datetime.datetime(1950,1,1):
@@ -168,7 +168,7 @@ os.system("find WORKSPACE/* -mmin +1 -exec rm -rf {} \;")
 #Extract the data
 #Create temporary directory
 #val = int(1000000.0*random.random())
-dir = "WORKSPACE/%s" % email
+dir = "WORKSPACE/%s" % user
 os.system("mkdir %s" % dir)
 
 #Open Grads
@@ -176,7 +176,6 @@ grads_exe = 'LIBRARIES/grads-2.0.1.oga.1/Contents/grads'
 ga = grads.GrADS(Bin=grads_exe,Window=False,Echo=False)
 
 for var in variables:
- #print var
 
  #Create directory for variable
  var_dir = dir + "/" + var
@@ -188,6 +187,8 @@ for var in variables:
  var = var.split("--")[1]
  qh = ga.query("file")
  var_info = qh.var_titles[qh.vars.index(var)]
+ print var
+ exit()
 
  #Set grads region
  ga("set lat %f %f" % (dims['minlat'],dims['maxlat']))
@@ -214,9 +215,9 @@ for var in variables:
 
 #Zip up the directory
 os.chdir('WORKSPACE')
-os.system("tar -czf %s.tar.gz request_%s" % (email,email) )
-os.system("rm -rf %s" % email)
+os.system("tar -czf %s.tar.gz request_%s" % (user,user) )
+os.system("rm -rf %s" % user)
 
 #Send the email confirming that it succeeded and the location of the zipped archive
-http_file = http_root  + "/ADM/WORKSPACE/%s.tar.gz" % email
+http_file = http_root  + "/WORKSPACE/%s.tar.gz" % user
 Send_Email("The data was processed and can be dowloaded at %s. The data will be removed in 6 hours." % http_file)
