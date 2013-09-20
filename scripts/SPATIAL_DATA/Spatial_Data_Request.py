@@ -187,15 +187,13 @@ for var in variables:
  var = var.split("--")[1]
  qh = ga.query("file")
  var_info = qh.var_titles[qh.vars.index(var)]
- print var
- exit()
 
  #Set grads region
  ga("set lat %f %f" % (dims['minlat'],dims['maxlat']))
  ga("set lon %f %f" % (dims['minlon'],dims['maxlon']))
 
  while date <= fdate:
-  time = datetime2gradstime(date)
+  time = datetime2gradstime(date)  
   #Set time
   ga("set time %s" % time)
   #Regrid data
@@ -215,7 +213,7 @@ for var in variables:
 
 #Zip up the directory
 os.chdir('WORKSPACE')
-os.system("tar -czf %s.tar.gz request_%s" % (user,user) )
+os.system("tar -czf %s.tar.gz %s" % (user,user) )
 os.system("rm -rf %s" % user)
 
 #Send the email confirming that it succeeded and the location of the zipped archive
