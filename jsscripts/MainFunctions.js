@@ -124,8 +124,8 @@ function update_basic()
       img.onerror = function (evt){
   	this.src = 'icons/gm_noimage.gif';
       }
-      img.style.width = "50%";
-      img.style.height = "50%";
+      img.style.width = "100%";
+      img.style.height = "100%";
       div.appendChild(img);
       document.getElementById("basic_interface1").appendChild(div)
 
