@@ -4007,7 +4007,7 @@ input[type="submit"].btn.btn-mini {
 .nav-list > .active > a:focus {
   color: #ffffff;
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.2);
-  background-color: #0088cc;
+  background-color: rgb(152,178,126);
 }
 
 .nav-list [class^="icon-"],
@@ -4172,8 +4172,8 @@ input[type="submit"].btn.btn-mini {
 
 .nav .dropdown-toggle .caret {
   margin-top: 6px;
-  border-top-color: #0088cc;
-  border-bottom-color: #0088cc;
+  border-top-color: rgb(152,178,126);
+  border-bottom-color: rgb(152,178,126);
 }
 
 .nav .dropdown-toggle:hover .caret,
