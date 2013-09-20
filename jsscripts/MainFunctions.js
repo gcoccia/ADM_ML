@@ -115,8 +115,8 @@ function update_basic()
 
       var div = document.createElement("div");
       div.style.position = "absolute";
-      div.style.left = "15%";
-      div.style.top = "50px";
+      div.style.left = "20%";
+      div.style.top = "120px";
       div.setAttribute('id','basic_image');
       var img = document.createElement("img");
       img.setAttribute('id',dataset);
