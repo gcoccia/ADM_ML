@@ -113,7 +113,7 @@ function ImageArrayPrep(ImageStrArray,ImageTimeArray)
     if ($("#InteractiveInterface").hasClass("active"))
       ImageStrArray[framect] = "../IMAGES/" + dir_tstring + "/" + datadir + "/" + variable + "_" + tstring + ".png";
     else  //Change to correct path when processed!
-      ImageStrArray[framect] = "../IMAGES/" + dir_tstring + "/" + datadir + "/" + variable + "_" + tstring + ".png";
+      ImageStrArray[framect] = "../IMAGES/" + dir_tstring + "/" + datadir + "/" + variable + "_" + tstring + "_s.png";
     ImageTimeArray[framect] = tstamp;
     framect += 1;
   }
