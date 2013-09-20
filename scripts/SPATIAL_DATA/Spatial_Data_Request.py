@@ -83,6 +83,13 @@ def datetime2gradstime(date):
 
  return str
 
+def gradstime2datetime(str):
+
+ #Convert grads time to datetime
+ date = datetime.datetime.strptime(str,'%HZ%d%b%Y')
+
+ return date
+
 def Send_Email(txt):
 
  sender = "nchaney@princeton.edu"
@@ -155,19 +162,6 @@ dims['maxlon'] = dims['minlon'] + dims['res']*(dims['nlon']-1)
 os.system("find WORKSPACE/* -mmin +400 -exec rm -rf {} \;")
 
 #Run some initial checks 
-#if idate < datetime.datetime(1950,1,1):
-# Send_Email('The monitor does not have data before January, 1st 1950. Please select a new time period.')
-#if len(variables) < 1:
-# Send_Email('No variables were selected. Please select at least one variable.')
-#if llclat < minlat or llclon < minlon or urclat > maxlat or urclon > maxlon:
-# Send_Email("Part or all of the requested region is outside of the monitor's domain. Please change the chosen region")
-#FLAG - need to adjust if netcdf or arcascii
-#if nmb > 1000.0:
-# Send_Email("Request is larger than 1 gigabyte. Please change either the domain, spatial resolution, temporal resolution, time range, or the number of variables.")
-
-#Extract the data
-#Create temporary directory
-#val = int(1000000.0*random.random())
 dir = "WORKSPACE/%s" % user
 os.system("mkdir %s" % dir)
 
@@ -183,15 +177,20 @@ for var in variables:
  dataset = var.split("--")[0]
  ctl_file = "DATA_GRID/CTL/%s_%s.ctl" % (dataset,tstep.upper())
  ga("xdfopen %s" % ctl_file)
- date = idate
  var = var.split("--")[1]
  qh = ga.query("file")
  var_info = qh.var_titles[qh.vars.index(var)]
+
+ #Make sure we are within the ti1")
+ ga("set t 1 last")
+ idate_dataset = ga.query('dims').time[0]
+ fdate_dataset = ga.query('dims').time[1]
 
  #Set grads region
  ga("set lat %f %f" % (dims['minlat'],dims['maxlat']))
  ga("set lon %f %f" % (dims['minlon'],dims['maxlon']))
 
+ date = idate
  while date <= fdate:
   time = datetime2gradstime(date)  
   #Set time
@@ -212,10 +211,14 @@ for var in variables:
  ga("close 1")
 
 #Zip up the directory
+file = "WORKSPACE/%s.tar.gz" % user
+if os.path.exists(file) == True:
+ os.system("rm %s" % file)
+http_file = http_root + '/' + file
 os.chdir('WORKSPACE')
 os.system("tar -czf %s.tar.gz %s" % (user,user) )
 os.system("rm -rf %s" % user)
 
 #Send the email confirming that it succeeded and the location of the zipped archive
-http_file = http_root  + "/WORKSPACE/%s.tar.gz" % user
+#http_file = http_root  + "/WORKSPACE/%s.tar.gz" % user
 Send_Email("The data was processed and can be dowloaded at %s. The data will be removed in 6 hours." % http_file)

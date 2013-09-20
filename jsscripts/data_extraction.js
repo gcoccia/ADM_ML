@@ -406,7 +406,6 @@ function Submit_Spatial_Data() {
   url: 'scripts/Jquery_Python_JSON_Glue.php',//'Spatial_Data_Request.php ',
   data: request,
   success: function(response){
-   alert(response);
    Output = JSON.parse(response);
   },
   async: false,
