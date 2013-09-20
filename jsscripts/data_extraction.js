@@ -65,6 +65,7 @@ function Update_Listeners(type){
   });
  }
  else if (type == 'spatial'){
+
   //Remove present listeners
   clear_all_overlays();
   Update_Listeners('none');
@@ -93,6 +94,9 @@ function Update_Listeners(type){
   $("#year_final").val(final_date.getFullYear());
   $("#month_final").val(final_date.getMonth() + 1);
   $("#day_final").val(final_date.getDate());
+
+  // Remove forecast variables for now
+  $("li#Forecast_spatial").parent().hide();
 
   map_array[0].setOptions({draggableCursor:'crosshair'});
   // Add polygon and lines to map
@@ -146,6 +150,9 @@ function Update_Listeners(type){
   google.maps.event.addListener(mapPolygon.getPath(), 'set_at', function(point) {
     Update_Spatial_Data_Display();
   });
+
+ //Initialize errors
+ Update_Spatial_Data_Display()
 
  }
 }
@@ -264,6 +271,8 @@ function Request_Data(variables) {
 /* Spatial Data functions */
 
 function Update_Spatial_Data_Display() {
+
+ 
   //Get spatial resolution
   var sres = $('input:radio[name=sres_spatial_data]:checked').val();
 
@@ -296,7 +305,6 @@ function Update_Spatial_Data_Display() {
     tstep *= 365;
   var nt = (final_date - initial_date)/tstep;
   var nvars = $("ul#currently-selected-vars").find("li>a").length;
-
   var size_per_value = 8; // ??? 8 bytes? compressed? depends on choice of format?
   var estimated_download_size = npts*nt*nvars*size_per_value/1000/1000;
 
@@ -304,14 +312,31 @@ function Update_Spatial_Data_Display() {
     $("#estimated-download-size").html(estimated_download_size.toFixed(2) + " MB"); // what about units?
   else
     $("#estimated-download-size").html(Math.round(estimated_download_size) + " MB");
-  
+
+  if(nvars <= 0 | estimated_download_size > 1000){
+   $("#submit_request_button").prop('disabled', true);  
+  } else {
+   $("#submit_request_button").prop('disabled', false);
+  }
+
+  if(npts == Infinity){
+    $("#npts_warning").show();
+  } else {
+    $("#npts_warning").hide();
+  }
+
+  if(nvars <= 0){
+    $("#nvars_warning").show();
+  } else {
+    $("#nvars_warning").hide();
+  }
+
   if(estimated_download_size > 1000) {
-    $("#submit_request_button").prop('disabled', true);
     $("#download_size_warning").show();
   } else {
-    $("#submit_request_button").prop('disabled', false);
     $("#download_size_warning").hide();
   }
+
 }
 
 function Submit_Spatial_Data() {
@@ -369,6 +394,7 @@ function Submit_Spatial_Data() {
   url: 'scripts/Jquery_Python_JSON_Glue.php',//'Spatial_Data_Request.php ',
   data: request,
   success: function(response){
+   alert(response);
    Output = JSON.parse(response);
   },
   async: false,

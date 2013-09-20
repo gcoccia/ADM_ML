@@ -153,14 +153,16 @@
   <div class="btn-group form-inline">
     <label class="radio inline control-label"><?php echo $_('Resolution')?>: </label>
     <label class="radio inline">
-      <input type="radio" name="sres_spatial_data" value="0.1">0.1&deg;
+      <input type="radio" name="sres_spatial_data" value="0.25" checked>0.25&deg;
     </label>
+    <!--
     <label class="radio inline">
       <input type="radio" name="sres_spatial_data" value="0.25" checked>0.25&deg;
     </label>
     <label class="radio inline">
       <input type="radio" name="sres_spatial_data" value="1.0">1.0&deg;
     </label>
+    -->
   </div>
 
   <div class="btn-group form-inline" style="margin-left: 0px">
@@ -175,6 +177,8 @@
   <br>
   <?php echo $_('Estimated Download Size')?>: <span id="estimated-download-size">0</span>
   <br>
+  <p id="npts_warning" style="color:red; display:none"><?php echo $_("Please select a region.")?></p>
+  <p id="nvars_warning" style="color:red; display:none"><?php echo $_("Please select variables.")?></p>
   <p id="download_size_warning" style="color:red; display:none"><?php echo $_("The current request exceeds 1 GB. Please reduce the size of your request.")?></p>
 
 </div>

@@ -111,19 +111,19 @@ format= metadata['format']
 email = metadata['email']
 variables = metadata['variables']
 res = float(metadata['sres'])
-http_root = 'http://freeze.princeton.edu/'
+http_root = 'http://freeze.princeton.edu'
 
 #Change directory
 os.chdir('../..')
 
 #Determine the time step
-if tstep == "DAILY":
+if tstep == "daily":
  dt = relativedelta.relativedelta(days=1)
- nt = (fdate-idate).days
-if tstep == "MONTHLY":
+ nt = (fdate-idate).days + 1
+if tstep == "monthly":
  dt = relativedelta.relativedelta(month=1)
  nt = (fdate-idate).days/30
-if tstep == "YEARLY":
+if tstep == "yearly":
  dt = relativedelta.relativedelta(years=1)
  nt = (fdate-idate).days/365
 
@@ -155,20 +155,20 @@ dims['maxlon'] = dims['minlon'] + dims['res']*(dims['nlon']-1)
 os.system("find WORKSPACE/* -mmin +1 -exec rm -rf {} \;")
 
 #Run some initial checks 
-if idate < datetime.datetime(1950,1,1):
- Send_Email('The monitor does not have data before January, 1st 1950. Please select a new time period.')
-if len(variables) < 1:
- Send_Email('No variables were selected. Please select at least one variable.')
-if llclat < minlat or llclon < minlon or urclat > maxlat or urclon > maxlon:
- Send_Email("Part or all of the requested region is outside of the monitor's domain. Please change the chosen region")
+#if idate < datetime.datetime(1950,1,1):
+# Send_Email('The monitor does not have data before January, 1st 1950. Please select a new time period.')
+#if len(variables) < 1:
+# Send_Email('No variables were selected. Please select at least one variable.')
+#if llclat < minlat or llclon < minlon or urclat > maxlat or urclon > maxlon:
+# Send_Email("Part or all of the requested region is outside of the monitor's domain. Please change the chosen region")
 #FLAG - need to adjust if netcdf or arcascii
-if nmb > 1000.0:
- Send_Email("Request is larger than 1 gigabyte. Please change either the domain, spatial resolution, temporal resolution, time range, or the number of variables.")
+#if nmb > 1000.0:
+# Send_Email("Request is larger than 1 gigabyte. Please change either the domain, spatial resolution, temporal resolution, time range, or the number of variables.")
 
 #Extract the data
 #Create temporary directory
-val = int(1000000.0*random.random())
-dir = "WORKSPACE/request_%d" % val
+#val = int(1000000.0*random.random())
+dir = "WORKSPACE/%s" % email
 os.system("mkdir %s" % dir)
 
 #Open Grads
@@ -181,11 +181,11 @@ for var in variables:
  #Create directory for variable
  var_dir = dir + "/" + var
  os.system("mkdir %s" % var_dir)
- dataset = var.split("-")[1]
- ctl_file = "DATA/%s/%s_%s.ctl" % (tstep,dataset,tstep)
+ dataset = var.split("--")[0]
+ ctl_file = "DATA_GRID/CTL/%s_%s.ctl" % (dataset,tstep.upper())
  ga("xdfopen %s" % ctl_file)
  date = idate
- var = var.split("-")[0]
+ var = var.split("--")[1]
  qh = ga.query("file")
  var_info = qh.var_titles[qh.vars.index(var)]
 
@@ -206,8 +206,6 @@ for var in variables:
    fp.variables[var][0] = np.ma.getdata(ga.exp("data"))
    fp.close()
   elif format == "arc_ascii":
-   #Send_Email("ARC-ascii output not yet implemented")
-   #exit()
    file = var_dir + "/%s_%s_%04d%02d%02d.asc" % (var,dataset,date.year,date.month,date.day)
    Write_Arc_Ascii(dims,file,np.ma.getdata(ga.exp("data")))
   #Move to next time step
@@ -216,9 +214,9 @@ for var in variables:
 
 #Zip up the directory
 os.chdir('WORKSPACE')
-os.system("tar -czf request_%d.tar.gz request_%d" % (val,val) )
-os.system("rm -rf request_%d" % val)
+os.system("tar -czf %s.tar.gz request_%s" % (email,email) )
+os.system("rm -rf %s" % email)
 
 #Send the email confirming that it succeeded and the location of the zipped archive
-http_file = http_root  + "/ADM/WORKSPACE/request_%d.tar.gz" % val
+http_file = http_root  + "/ADM/WORKSPACE/%s.tar.gz" % email
 Send_Email("The data was processed and can be dowloaded at %s. The data will be removed in 6 hours." % http_file)
