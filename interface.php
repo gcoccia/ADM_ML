@@ -355,7 +355,7 @@ $info_box_strings = array("prec" => $_(""),
 <div class="navbar navbar-inverse">
   <div class="navbar-inner" style="border-radius: 0px"> 
     <div class="container">
-      <a class="brand" href='index.php'>African Water Cycle Monitor</a>
+      <a class="brand" href='index.php'><?php echo $_("African Water Cycle Monitor"); ?></a>
       <ul class="nav" >
         <li class="divider-vertical"></li>
 	<li id="InteractiveInterface" class="active"><a onclick="LoadInteractive()"><?php echo $_("Interactive Interface"); ?></a></li>

@@ -41,16 +41,13 @@
       <input type="button" value="+" class="btn btn-mini" onclick="Update_TimeStamp_MP(1,1)"><br/>
     </div>
   <table id="Animation-Update"><tr>
-  <td><input id="update_interval" type="button" class="btn" value=<?php echo $_("Update time interval")?> ></td>
-  <td><input id="clear_all" type="button" class="btn" value=<?php echo $_("Clear all overlays")?> ></td>
+  <td><input id="update_interval" type="button" class="btn" value=<?php echo $_("Update")?> ></td>
+  <td><input id="clear_all" type="button" class="btn" value=<?php echo $_("Clear")?> ></td>
   </tr>
   </table>
   </form>
   </div>
   </div>
-     <!--       Consider floating the opacity options over the map <?php echo $_("Image Opacity")?>:
-      <input type="button" value="-" onclick="update_overlay_opacity(0)">
-      <input type="button" value="+" onclick="update_overlay_opacity(1)"><br/> -->
 
  <!-- Slider for animation -->
 <div id="slider-div" style="display:none">
