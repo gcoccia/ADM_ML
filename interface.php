@@ -62,12 +62,29 @@ $label_array = array("LinktoImage" => $_('Link to Image'),
                      "ProcessNTI" => $_('Process new time interval'),
                      "ProcessRPW" => $_('Processing request, please wait'));
 
-$info_box_strings = array("Meteorology" => $_("Weather data used to drive the hydrologic model. Precipitation comes from either satellite precipitation (TMPA) or the global forecasting system (GFS). The temperature and wind data come from GFS. All variables are bias-corrected against the data set that is used in the historical simulations to ensure consistency."),
-                          "Hydrologic" => $_("Hydrologic variables obtained through simulations of the Variable Infiltration Capacity model. The soil moisture is expressed as relative soil moisture (0 - 100%)."),
-                          "Drought" => $_("The drought index is obtained by comparing the current relative soil moisture of layers 1 and 2 to empirical cumulative distribution functions derived from the historical record (1948 - 2008). There is a different empirical cumulative distribution function per day per grid cell which samples each year using a 21 day window around the day in question."),
-                          4 => $_("Each point represents a location at which different variables are calculated that are specific to the basin that drains into that point. The variables include simulated discharge and basin averaged variables including precipitation, evaporation, runoff, soil moisture and the drought index. The colors on the map represents the percentile of the current simulated discharge with respect to the historical record (1948 - 2008)."),
-                          5 => $_("This is the SMOS CATDS L4 Root zone soil moisture index. The product is obtained from the integration of SMOS surface soil moisture L3 products into a double bucket hydrological model. It represents the soil moisture in the first meters of the soil in percentage."),
-                          6 => $_("The SPI is an index based on the probability of recording a given amount of precipitation after standardizing the probabilities so that an index of zero indicates the median precipitation amount for the entire precipitation record. The SPI can be calculated at any time step. The index is negative for drought, and positive for wet conditions."));
+$info_box_strings = array("prec" => $_(""),
+                          "tmax" => $_(""),
+                          "tmin" => $_(""),
+                          "wind" => $_(""),
+                          "vc1" => $_(""),
+                          "vc2" => $_(""),
+			  "evap" => $_(""),
+                          "runoff" => $_(""),
+  			  "baseflow" => $_(""),
+			  "flw" => $_(""),
+   			  "spi1" => $_(""),
+			  "spi3" => $_(""),
+			  "spi6" => $_(""),
+			  "spi12" => $_(""),
+			  "vcpct" => $_(""),
+ 			  "pct30day" => $_(""),
+ 			  "flw_pct" => $_(""),
+			  "r_net" => $_(""),
+ 			  "net_long" => $_(""),
+			  "net_short" => $_(""),
+			  "ndvi30" => $_(""),
+			  "t2m" => $_(""),
+			  "t2ano" => $_(""));
 
 ?>
 
