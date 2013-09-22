@@ -1,8 +1,184 @@
-body 
-    {
-/*    font:15px sans-serif;*/  
-    min-width: 1000px;
+@charset "iso-8859-1";
+
+body {
+    margin: 0 0 0 0;
+    font-family:arial,lucida sans unicode, verdana, sans, helvetica, sans-serif;
+    font-size:14px;
+    min-width: 1100px;
+}
+
+div.body{
+	background: #AFC7C7;
+    min-width: 1100px;
+    padding: 10px;
+    min-height:40em;
+}
+
+div.shim {
+       float: right;
+       height: 40em;
+       display: none;
+}
+
+/* Basic layout properties */
+div.menu {
+    font-family: arial, lucida sans unicode, verdana, sans, helvetica, sans-serif;
+    font-size:80%;
+    left:0.5em;
+    top:6em;
+    width: 12em;
+    position: absolute;
+    float:left;
+}
+[class="menu"]{
+        position: fixed !important;
+}
+
+div.main{
+    text-align:center;
+    background:#95B9C7;
+    padding-bottom:1em;
+    border:#E0E9E9 4px solid;
+    min-width:850px;
+    margin: auto;
+
+}
+
+div.Static_Controls{
+    	font-family: arial, lucida sans unicode, verdana, sans, helvetica, sans-serif;
+	text-align:left;
+	top:0px;
+	padding: 5px 10px 5px 10px;
+}
+
+div.clickmap{
+	float:right;
+	border-bottom: 3px #ddd solid;
+	border-right: 3px #ddd solid;
+	padding:0;
+	right:1em;
+	margin: 0 0 3ex 3ex;
+}
+
+
+div.top div.box {
+    position: relative;
+    background: transparent;
+    color: #2d880d;
+    border: none;
+    font-size: 250%;
+    min-width: 1100px;
+    margin: auto;
+}
+
+div.top div.box table {
+    width: 100%;
+}
+
+div.footer{
+    background:transparent url("../images/pulogo.gif") no-repeat top left;
+	margin: 0px 0 5px 0;
+	padding: 0px 0 5px 80px;
+	text-align:left;
+	font-size:90%;
+}
+
+div.code{
+   background:#eee;
+   margin: 3ex;
+   padding: 1ex;
+   font-size: 90%;
+   text-align:justify;
+}
+
+div.footer a{
+    text-decoration:none;
+    color: #2f2f2f;
+    font-weight: bold;
+}
+
+div.hbar{
+    background: #186194;/*#41627E;*/
+    height: 18px;
+    min-width: 1100px;
+}
+
+div.main a:hover {
+	text-decoration: none;
+	background:#cfcfcf; 
+        color:#ff0000;
+}
+
+img.inline {
+	position:relative;
+        float:left;
+        padding:0px;
+	
+}
+
+/* basic element*/
+p {
+	margin-bottom: 1em;
+	margin-top: 0em;
+	line-height: 1.2em;
+    text-align: justify
+}
+
+.hidden {   
+    display:none;
+}
+
+.hilight {
+	background:#ddd;
+	color:#ff0000;
+	font-weight:bold;
+}
+ 
+/* main */
+    div.main a {
+        text-decoration: none;
     }
+	
+abbr, acronym {
+        border-width: 0 0 2px 0;
+        border-color: #a01e08;
+        border-style: dashed;
+        cursor: help;
+}
+
+#Daily_Images {
+	text-align:center;
+}
+#nav {
+	text-align: center;
+	background: #2783C4;
+	border-spacing: 0px;
+}
+
+#nav td {
+	color: white;
+	text-align: center;
+	font-size: 14px;
+	font-weight: bold;
+	background: #2783C4;
+	padding: 0px 20px 0px 20px;
+	position: relative;
+	border-spacing: 0px;
+	height: 18px;
+	}
+
+#nav td.link {
+	background: #186194;
+}
+
+#nav td.link:hover {
+	background: #51A5E0;
+	cursor: pointer;
+}
+
+input[type=text]{
+        margin-bottom: 0px;
+}
 
 #sidebar div{
   font: 15px sans-serif;
@@ -32,27 +208,6 @@ body
   width: 200px;
 }
 
-/*h1 {
-  display:block;
-  height:23px;
-  line-height:23px;
-  background:-webkit-gradient(
-    linear, 0 0, 0 100%,
-    from(#eee), to(#ccc)
-  );
-  background:-moz-linear-gradient(#eee, #ccc);
-  background:-o-linear-gradient(#eee, #ccc);
-  background:-ms-linear-gradient(#eee, #ccc);
-  background:linear-gradient(#eee, #ccc);
-  color:#333;
-  text-decoration:none;
-  text-align:center;
-  margin:0px;
-  text-shadow:0 1px 0 rgba(255,255,255,.5);
-  border-bottom:1px solid #aaa;
-  font-size:1em;
-}*/
-
 #Region_Placement {
   position: absolute;
   top: 70px;
@@ -80,34 +235,6 @@ body
   z-index: 1;
 }
 
-#Language_Flags{
- position: absolute;
- left: 5px;
- top: 300px;
- z-index: 1;
- /*height: 100px;*/
- background-color: transparent;
-}
-
-#Language_Flags:hover {
-cursor: pointer;
-}
-
-#Flag_Image{
-display: block;
-padding: 1px;
-background: white;
-position: relative;
-/*margin-right: auto;
-margin-left: auto;*/
-}
-#BasinSelect{
-  position: absolute;
-  left: 100px;
-  top: 4px;
-  z-index: 1;
-}
-
 div.inline{
   /*position:relative;*/
   /*float:center;*/
@@ -128,6 +255,7 @@ h3.text_superposition{
   padding-bottom:7px;
   font-size:1.5em;
   font-weight:normal;
+  text-align:center;
 }
 
 img.inline{
@@ -135,8 +263,6 @@ img.inline{
   float:left;*/
   padding:10px;
 }
-
-
 
 #sidebar {
   position: absolute;
@@ -416,7 +542,6 @@ ul.data-extraction, ul.ts-selection, ul.monitor-or-forecast
   margin-bottom: 5px;
   padding-left: 15px;
   padding-right: 0px;
-  background-color
 }
 ul.data-extraction>li>a, ul.ts-selection>li>a, ul.monitor-or-forecast>li>a
 {

@@ -65,7 +65,7 @@
   <li class="divider"></li>
   <li id=<?php echo $_("".$group["name"])?> class="nav-header">
       <?php echo $_("".$group["name"])?>
-      <a id=<?php echo $_("".$group["name"])?> href="#" data-toggle="popover"><img class="question_mark" src="icons/question_icon.png"></a>
+      <!--<a id=<?php echo $_("".$group["name"])?> href="#" data-toggle="popover"><img class="question_mark" src="icons/question_icon.png"></a>-->
   </li>
   <div class="data-form-block">
   <ul class="nav nav-list datalist">
