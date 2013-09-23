@@ -176,7 +176,21 @@ function Create_Point_Plot() {
   var variables, subtitle;
   var plot = $('input:radio[name=plot]:checked').val();
   if (plot == "Drought_Indices"){
-    variables = {SPI:['spi1','spi3','spi6','spi12'],VIC_DERIVED:['vcpct']};
+    //variables = {SPI:['spi1','spi3','spi6','spi12'],VIC_DERIVED:['vcpct'],MOD09_NDVI_MA_DERIVED:['pct30day']};
+    variables = {
+     SPI:{
+      'spi1':{'units':'',},
+      'spi3':{'units':'',},
+      'spi6':{'units':'',},
+      'spi12':{'units':'',},
+     },
+     VIC_DERIVED:{
+      'vcpct':{'units':'Percentile (%)',},
+     },
+     MOD09_NDVI_MA_DERIVED:{
+      'pct30day':{'units':'',},
+     }
+    }
   }
   else if (plot == "Water_Balance"){
     variables = {PGF:['prec'],VIC_PGF:['runoff','baseflow','evap']};
@@ -263,7 +277,7 @@ function Request_Data(variables) {
     url: 'scripts/Jquery_Python_JSON_Glue.php',
     data: request,
     success: function(response){
-     Output = JSON.parse(response);
+     Output = JSON.parse(response.replace(/\bNaN\b/g, "null"));
     },
     async: false,
     cache: false

@@ -14,6 +14,7 @@ info = metadata["variables"]
 idate_datetime = datetime.datetime.utcfromtimestamp(idate)
 fdate_datetime = datetime.datetime.utcfromtimestamp(fdate)
 
+undef = -9.99e+08
 #Find closet grid cell
 minlat = -34.875
 minlon = -18.875
@@ -48,6 +49,7 @@ for dataset in info:
  #Choose the variables
  for var in info[dataset]:
   var_data = fp.groups[tstep].groups[dataset].variables[var][idx]
+  var_data[var_data == undef] = float('NaN')
   data_out['VARIABLES'][var] = {}
   data_out['VARIABLES'][var]['data'] = list(np.float64(var_data))
   data_out['VARIABLES'][var]['units'] = 'mm'
@@ -55,4 +57,4 @@ for dataset in info:
   data_out['VARIABLES'][var]['dataset'] = dataset
 
 #Print json
-print json.dumps(data_out)
+print json.dumps(data_out,allow_nan=True)
