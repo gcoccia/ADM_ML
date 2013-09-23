@@ -176,13 +176,16 @@ function Create_Point_Plot() {
   var variables, subtitle;
   var plot = $('input:radio[name=plot]:checked').val();
   if (plot == "Drought_Indices"){
-    variables = {SPI:['spi1','spi3','spi6','spi12']};
+    variables = {SPI:['spi1','spi3','spi6','spi12'],VIC_DERIVED:['vcpct']};
   }
   else if (plot == "Water_Balance"){
     variables = {PGF:['prec'],VIC_PGF:['runoff','baseflow','evap']};
   }
   else if (plot == "Surface_Fluxes"){
     variables = {VIC_PGF:['net_short','net_long','r_net']};
+  }
+  else if (plot == "Streamflow"){
+    variables = {ROUTING_VIC_3B42RT:['flw']};
   };
   subtitle = plot;
  

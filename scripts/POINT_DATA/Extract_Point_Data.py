@@ -32,7 +32,7 @@ elif tstep == "YEARLY":
  pointInterval = 365.25*24*3600*1000
 
 #Read in the desired data
-file = '../../DATA/CELL/cell_%0.3f_%0.3f.nc' % (lat,lon)
+file = '../../DATA_CELL/cell_%0.3f_%0.3f.nc' % (lat,lon)
 fp = netcdf.Dataset(file,'r',format='NETCDF4')
 variables = []
 date = {'pointInterval':pointInterval,'iyear':idate_datetime.year,'imonth':idate_datetime.month,'iday':idate_datetime.day}
