@@ -67,7 +67,7 @@ text-align:center;
  position:absolute;
 }
 #Logos_Right{
- top:150px;
+ top:200px;
  right:0px;
  width:150px;
  position:absolute;
@@ -110,12 +110,12 @@ text-align:center;
 </div>
  <div id="Logos_Left">
         <a href="http://www.princeton.edu"><img id="Logos_Image" src="icons/puLogo.png"></a><br>
-        <a href="http://www.washington.edu"><img id="Logos_Image" src="icons/UW_logo.jpg"></a>
+        <a href="http://www.unesco.org"><img id="Logos_Image" src="icons/Unesco_logo.svg"></a><br>
+        <!--<a href="http://www.washington.edu"><img id="Logos_Image" src="icons/UW_logo.jpg"></a>-->
  </div>
  <div id="Logos_Right">
-        <a href="http://www.unesco.org"><img id="Logos_Image" src="icons/Unesco_logo.svg"></a><br>
-        <a href="http://www.icpac.net"><img id="Logos_Image" src="icons/ICPAC_logo.jpg"></a><br>
         <a href="http://www.agrhymet.ne"><img id="Logos_Image" src="icons/CILSS_Logo.png"></a><br>
+        <a href="http://www.icpac.net"><img id="Logos_Image" src="icons/ICPAC_logo.jpg"></a><br>
  </div>
 <script src="//code.jquery.com/jquery.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
