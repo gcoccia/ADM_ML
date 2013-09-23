@@ -1,0 +1,246 @@
+# African Water Cycle Monitor
+#
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-09-22 21:06-0400\n"
+"Last-Translator: Colby Fisher <ckf@princeton.edu>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: \n"
+"X-Generator: Poedit 1.5.7\n"
+
+msgid "African Water Cycle Monitor"
+msgstr ""
+
+msgid "Interactive  Interface"
+msgstr ""
+
+msgid "Basic Interface"
+msgstr ""
+
+msgid "Background"
+msgstr ""
+
+msgid "Glossary"
+msgstr ""
+
+msgid "Tutorial"
+msgstr ""
+
+msgid "Animation"
+msgstr ""
+
+msgid "Point Data"
+msgstr ""
+
+msgid "Spatial Data"
+msgstr ""
+
+msgid "Monitor"
+msgstr ""
+
+msgid "Forecast"
+msgstr ""
+
+msgid "Time Interval"
+msgstr ""
+
+msgid "dd/mm/yyyy"
+msgstr ""
+
+msgid "Daily"
+msgstr ""
+
+msgid "Monthly"
+msgstr ""
+
+msgid "Yearly"
+msgstr ""
+
+msgid "Initial"
+msgstr ""
+
+msgid "Final"
+msgstr ""
+
+msgid "Update"
+msgstr ""
+
+msgid "Clear"
+msgstr ""
+
+msgid "Meteorology"
+msgstr ""
+
+msgid "Precipitation (mm)"
+msgstr ""
+
+msgid "Maximum Temperature (C)"
+msgstr ""
+
+msgid "Minimum Temperature (C)"
+msgstr ""
+
+msgid "Wind (m/s)"
+msgstr ""
+
+msgid "Soil Moisture (%) - Layer 1"
+msgstr ""
+
+msgid "Soil Moisture (%) - Layer 2"
+msgstr ""
+
+msgid "Evaporation (mm/day)"
+msgstr ""
+
+msgid "Surface Runoff (mm/day)"
+msgstr ""
+
+msgid "Baseflow (mm/day)"
+msgstr ""
+
+msgid "Streamflow (mm/day)"
+msgstr ""
+
+msgid "SPI (1 month)"
+msgstr ""
+
+msgid "SPI (3 month)"
+msgstr ""
+
+msgid "SPI (6 month)"
+msgstr ""
+
+msgid "SPI (12 month)"
+msgstr ""
+
+msgid "Drought Index (%)"
+msgstr ""
+
+msgid "NDVI Percentile (30-day moving average)"
+msgstr ""
+
+msgid "Streamflow Percentile (%)"
+msgstr ""
+
+msgid "Net Radiation (W/m^2)"
+msgstr ""
+
+msgid "Net Longwave Radiation (W/m^2)"
+msgstr ""
+
+msgid "Net Shortwave Radiation (W/m^2)"
+msgstr ""
+
+msgid "NDVI (30-day moving average)"
+msgstr ""
+
+msgid "Point Data Selection"
+msgstr ""
+
+msgid "Click a point on the map to view time series data."
+msgstr ""
+
+msgid "Drought Indices"
+msgstr ""
+
+msgid "Water Balance"
+msgstr ""
+
+msgid "Surface Fluxes"
+msgstr ""
+
+msgid "Latitude"
+msgstr ""
+
+msgid "Longitude"
+msgstr ""
+
+msgid "Spatial Data Selection"
+msgstr ""
+
+msgid ""
+"Click points on the map to draw a polygon and select spatial data. Then "
+"select variables below."
+msgstr ""
+
+msgid "Resolution"
+msgstr ""
+
+msgid "File Format"
+msgstr ""
+
+msgid "Email address"
+msgstr ""
+
+msgid "Submit Data Request"
+msgstr ""
+
+msgid "Estimated Download Size"
+msgstr ""
+
+msgid "Please select a region."
+msgstr ""
+
+msgid "Please select variables."
+msgstr ""
+
+msgid "Please provide an email."
+msgstr ""
+
+msgid ""
+"The current request exceeds 1 GB. Please reduce the size of your request."
+msgstr ""
+
+#: interface.php:56
+msgid "Link to Image"
+msgstr ""
+
+#: interface.php:57
+msgid "Link to Data"
+msgstr ""
+
+#: interface.php:58
+msgid "Simulated_Discharge"
+msgstr ""
+
+#: interface.php:58
+msgid "Water_Balance"
+msgstr ""
+
+#: interface.php:58
+msgid "Soil_Moisture_Products"
+msgstr ""
+
+#: interface.php:59
+msgid "Surplus_[mm]"
+msgstr ""
+
+#: interface.php:59
+msgid "Q_[mm/day]"
+msgstr ""
+
+#: interface.php:59
+msgid "Basin_Average"
+msgstr ""
+
+#: interface.php:60
+msgid "Time_[day]"
+msgstr ""
+
+#: interface.php:61
+msgid "Time_[month]"
+msgstr ""
+
+#: interface.php:62
+msgid "Process new time interval"
+msgstr ""
+
+#: interface.php:63
+msgid "Processing request, please wait"
+msgstr ""

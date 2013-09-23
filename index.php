@@ -9,7 +9,7 @@ if (isset($_COOKIE["locale"]) && !isset($_GET["locale"])) {
 <head>
 <title>African Water Cycle Monitor</title>
 <link rel="icon" type="image/ico" href="icons/AWCM_logo.ico">
-<link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+<link href="css/bootstrap.css" rel="stylesheet" media="screen">
 <style>
 body{
  font-family:"Trebuchet MS", Helvetica, sans-serif
