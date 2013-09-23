@@ -1,5 +1,5 @@
 <?php
-if (isset($_COOKIE["locale"])) {
+if (isset($_COOKIE["locale"]) && !isset($_GET["locale"])) {
   header("Location: interface.php?locale=".$_COOKIE["locale"]);
 }
 ?>

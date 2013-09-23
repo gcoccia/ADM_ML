@@ -11,6 +11,7 @@ $textdomain="adm";
 if (isset($_GET['locale']) && !empty($_GET['locale'])) {
   $locale = $_GET['locale'];
   setcookie("locale", $locale, time()+60*30); //cookie expires 30 minutes from last page visit
+  #setcookie("locale", $locale, time()-3600); //cookie expires 30 minutes from last page visit
 }
 elseif(isset($_COOKIE["locale"]) && !empty($_COOKIE["locale"])) {
   header("Location: interface.php?locale=".$_COOKIE["locale"]);
@@ -338,7 +339,7 @@ $info_box_strings = array("Meteorology" => $_("Weather data used to drive the hy
 <div class="navbar navbar-inverse">
   <div class="navbar-inner" style="border-radius: 0px"> 
     <div class="container">
-      <a class="brand" href='index.php'>African Water Cycle Monitor</a>
+      <a class="brand" href='index.php?locale=<?php echo $_GET['locale'];?>'>African Water Cycle Monitor</a>
       <ul class="nav" >
         <li class="divider-vertical"></li>
 	<li id="InteractiveInterface" class="active"><a onclick="LoadInteractive()"><?php echo $_("Interactive Interface"); ?></a></li>
