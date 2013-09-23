@@ -365,6 +365,9 @@ function LoadBasic()
     $("#pointpill").css("visibility","hidden");
     $("#spatialpill").css("visibility","hidden");
     $("#basic_interface1").css("visibility","visible");
+    $("#basic_interface1").css("overflow-x","scroll");
+    $("#basic_interface1").css("overflow-y","scroll");
+    $("#none").click();
 
     update_basic();
 
@@ -384,7 +387,8 @@ function LoadInteractive()
     $("#pointpill").css("visibility","visible");
     $("#spatialpill").css("visibility","visible");
     $("#basic_interface1").css("visibility", "hidden");
-    
+    $("#basic_interface1").css("overflow-x","hidden");
+    $("#basic_interface1").css("overflow-y","hidden");    
     update_animation();
   }
 }
