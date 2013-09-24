@@ -44,9 +44,12 @@ function Update_Listeners(type){
   $("#Animation-Update").show();
   var sample_dataset = 'VIC_DERIVED--vcpct';
   var final_date = new Date(data_fdates[sample_dataset]);
-  $("#year_initial").val(final_date.getFullYear());
-  $("#month_initial").val(final_date.getMonth() + 1);
-  $("#day_initial").val(final_date.getDate());
+  final_date.setDate(final_date.getDate() + 7);
+  var initial_date = new Date();
+  initial_date.setDate(final_date.getDate() - 30); 
+  $("#year_initial").val(initial_date.getFullYear());
+  $("#month_initial").val(initial_date.getMonth() + 1);
+  $("#day_initial").val(initial_date.getDate());
   $("#year_final").val(final_date.getFullYear());
   $("#month_final").val(final_date.getMonth() + 1);
   $("#day_final").val(final_date.getDate());
@@ -177,19 +180,25 @@ function Create_Point_Plot() {
   var plot = $('input:radio[name=plot]:checked').val();
   if (plot == "Drought_Indices"){
     //variables = {SPI:['spi1','spi3','spi6','spi12'],VIC_DERIVED:['vcpct'],MOD09_NDVI_MA_DERIVED:['pct30day']};
-    variables = {
+    var chart_data = {
      SPI:{
-      'spi1':{'units':'',},
-      'spi3':{'units':'',},
-      'spi6':{'units':'',},
-      'spi12':{'units':'',},
+      'spi1':{'units':'SPI','name':'SPI (1 month)'},
+      'spi3':{'units':'SPI','name':'SPI (3 months)'},
+      'spi6':{'units':'SPI','name':'SPI (6 months)'},
+      'spi12':{'units':'SPI','name':'SPI (12 months)'},
      },
      VIC_DERIVED:{
-      'vcpct':{'units':'Percentile (%)',},
+      'vcpct':{'units':'Percentile (%)','name':'Soil Moisture Index'},
+     },
+     ROUTING_VIC_DERIVED:{
+      'flw_pct':{'units':'Percentile (%)','name':'Streamflow Index'},
      },
      MOD09_NDVI_MA_DERIVED:{
-      'pct30day':{'units':'',},
+      'pct30day':{'units':'Percentile (%)','name':'Vegetation Index'},
      }
+    }
+    var chart_controls = {
+     title: {text: "Drought Indices",}
     }
   }
   else if (plot == "Water_Balance"){
@@ -204,47 +213,58 @@ function Create_Point_Plot() {
   subtitle = plot;
  
  //Request data for these variables
- var Output = Request_Data(variables); 
+ var Output = Request_Data(chart_data); 
  //Create the input for the chart
  var chart_options = {
-      xAxis: {type: 'datetime',},
+      chart: {
+       borderRadius: 0,
+      },
+      xAxis: {type: 'datetime',labels: {style: {fontSize: '15px',fontFamily: 'Avant Garde, Avantgarde, Century Gothic, CenturyGothic, AppleGothic, sans-serif'}}},
       yAxis: [],
       legend: {layout: 'horizontal',align: 'center',verticalAlign: 'bottom',},
       series: [],
-      title: {text: subtitle,},
+      title: chart_controls['title'],
       subtitle: {text: 'African Water Cycle Monitor',},
-     };
- for (variable in Output["VARIABLES"]){
-  var units = Output["VARIABLES"][variable]["units"];
-  var series = {
-       marker: {enabled: false},
-       id: variable,
-       name: variable,
-       type: 'spline',
-       yAxis: units,
-       pointInterval: Output["TIME"]["pointInterval"],
-       pointStart: Date.UTC(Output["TIME"]["iyear"],Output["TIME"]["imonth"]-1,Output["TIME"]["iday"]),
-       data: Output["VARIABLES"][variable]["data"],
-      };
- //Determine if we need a new axis. If so add it
- new_axis = true;
- for (i in chart_options.yAxis){
-  id = chart_options.yAxis[i].id;
-  if (id == units){new_axis = false;}
- };
- if (new_axis == true){
-  var opposite=true;
-  if(chart_options.yAxis.length%2 == 0){opposite=false;}
-  var yAxis = {
-       title: {text: units},
-       name: units ,
-       id: units,
-       opposite: opposite,
+      tooltip: {
+       formatter: function() {
+        return Highcharts.numberFormat(this.y, 3);
+       }
       }
-  chart_options.yAxis.push(yAxis);
-  }; 
- //Add the series
- chart_options.series.push(series);
+     };
+ for (dataset in chart_data){
+  for (variable in chart_data[dataset]){
+   var units = chart_data[dataset][variable]['units'];//Output["VARIABLES"][variable]["units"];
+   var series = {
+        marker: {enabled: false},
+        id: variable,
+        name: chart_data[dataset][variable]['name'],
+        type: 'line',
+        yAxis: units,
+        pointInterval: Output["TIME"]["pointInterval"],
+        pointStart: Date.UTC(Output["TIME"]["iyear"],Output["TIME"]["imonth"]-1,Output["TIME"]["iday"]),
+        data: Output["VARIABLES"][variable]["data"],
+       };
+   //Determine if we need a new axis. If so add it
+   new_axis = true;
+   for (i in chart_options.yAxis){
+    id = chart_options.yAxis[i].id;
+    if (id == units){new_axis = false;}
+   };
+   if (new_axis == true){
+    var opposite=true;
+    if(chart_options.yAxis.length%2 == 0){opposite=false;}
+    var yAxis = {
+     title: {text: units},
+     name: units ,
+     id: units,
+     opposite: opposite,
+     labels: {style: {fontSize: '15px',fontFamily: 'Avant Garde, Avantgarde, Century Gothic, CenturyGothic, AppleGothic, sans-serif'}}
+    }
+    chart_options.yAxis.push(yAxis);
+   }; 
+   //Add the series
+   chart_options.series.push(series);
+  };
  };
  //Create the chart
  var chart = $('#popup_container').highcharts(chart_options);

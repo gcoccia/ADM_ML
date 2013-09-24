@@ -377,8 +377,6 @@ $info_box_strings = array("prec" => $_(""),
     <div class="span12" style="height:100%; width=100%;">
       <div id="blanket" style="display:none;"></div>
       <div id="popUpDiv" style="display:none;">
-        <!--Close window box-->
-        <a onclick="Hide_Data_Extraction_Popup()" style="width:80px; height:10px">[X] <?php echo $_('Close Window') ?></a>
         <!--Chart Container-->
         <div id="popup_container"></div>
       </div>
