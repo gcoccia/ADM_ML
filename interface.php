@@ -99,6 +99,7 @@ $strings_to_translate = array("Drought_Indices" => $_('Drought Indices'),
                               "Streamflow_Index" => $_('Streamflow Index'),
                               "Vegetation_Index" => $_('Vegetation Index'),
                               "Percentile" => $_('Percentile (%)'),
+                              "SPI" => $_('SPI'),
                               "African_Water_Cycle_Monitor" => $_('African Water Cycle Monitor'));
 
 ?>

@@ -182,24 +182,24 @@ function Create_Point_Plot() {
     //variables = {SPI:['spi1','spi3','spi6','spi12'],VIC_DERIVED:['vcpct'],MOD09_NDVI_MA_DERIVED:['pct30day']};
     var chart_data = {
      SPI:{
-      'spi1':{'units':'SPI','name':'SPI (1 month)'},
-      'spi3':{'units':'SPI','name':'SPI (3 months)'},
-      'spi6':{'units':'SPI','name':'SPI (6 months)'},
-      'spi12':{'units':'SPI','name':'SPI (12 months)'},
+      'spi1':{'units':TRANSLATE['SPI'],'name':TRANSLATE['SPI_1_month)']},
+      'spi3':{'units':TRANSLATE['SPI'],'name':TRANSLATE['SPI_3_months)']},
+      'spi6':{'units':TRANSLATE['SPI'],'name':TRANSLATE['SPI_6_months)']},
+      'spi12':{'units':TRANSLATE['SPI'],'name':TRANSLATE['SPI_12_months)']},
      },
      VIC_DERIVED:{
-      'vcpct':{'units':'Percentile (%)','name':'Soil Moisture Index'},
+      'vcpct':{'units':TRANSLATE['Percentile'],'name':TRANSLATE['Soil_Moisture_Index']},
      },
      ROUTING_VIC_DERIVED:{
-      'flw_pct':{'units':'Percentile (%)','name':'Streamflow Index'},
+      'flw_pct':{'units':TRANSLATE['Percentile'],'name':TRANSLATE['Streamflow_Index']},
      },
      MOD09_NDVI_MA_DERIVED:{
-      'pct30day':{'units':'Percentile (%)','name':'Vegetation Index'},
+      'pct30day':{'units':TRANSLATE['Percentile'],'name':TRANSLATE['Vegetation_Index']},
      }
-    }
+    };
     var chart_controls = {
-     title: {text: "Drought Indices",}
-    }
+     title: {text: TRANSLATE["Drought_Indices"]}
+    };
   }
   else if (plot == "Water_Balance"){
     variables = {PGF:['prec'],VIC_PGF:['runoff','baseflow','evap']};
@@ -210,7 +210,7 @@ function Create_Point_Plot() {
   else if (plot == "Streamflow"){
     variables = {ROUTING_VIC_3B42RT:['flw']};
   };
-  subtitle = plot;
+  subtitle = TRANSLATE[plot];
  
  //Request data for these variables
  var Output = Request_Data(chart_data); 
@@ -224,7 +224,7 @@ function Create_Point_Plot() {
       legend: {layout: 'horizontal',align: 'center',verticalAlign: 'bottom',},
       series: [],
       title: chart_controls['title'],
-      subtitle: {text: 'African Water Cycle Monitor',},
+      subtitle: {text: TRANSLATE['African_Water_Cycle_Monitor'],},
       tooltip: {
        formatter: function() {
         return Highcharts.numberFormat(this.y, 3);
