@@ -169,6 +169,7 @@ function Point_Data(latLng){
 }
 
 function Hide_Data_Extraction_Popup() {
+  $('#popup_container').empty();
   $("#blanket").hide();
   $("#popUpDiv").hide();
   $("#hideBtn").show();
@@ -183,18 +184,18 @@ function Create_Point_Plot() {
     var chart_data = {
      SPI:{
       'spi1':{'units':'SPI','name':'SPI (1 month)'},
-      'spi3':{'units':'SPI','name':'SPI (3 months)'},
+      //'spi3':{'units':'SPI','name':'SPI (3 months)'},
       'spi6':{'units':'SPI','name':'SPI (6 months)'},
-      'spi12':{'units':'SPI','name':'SPI (12 months)'},
+      //'spi12':{'units':'SPI','name':'SPI (12 months)'},
      },
      VIC_DERIVED:{
-      'vcpct':{'units':'Percentile (%)','name':'Soil Moisture Index'},
+      'vcpct':{'units':'Percentile (%)','name':'Soil Moisture Index (%)'},
      },
      ROUTING_VIC_DERIVED:{
-      'flw_pct':{'units':'Percentile (%)','name':'Streamflow Index'},
+      'flw_pct':{'units':'Percentile (%)','name':'Streamflow Index (%)'},
      },
      MOD09_NDVI_MA_DERIVED:{
-      'pct30day':{'units':'Percentile (%)','name':'Vegetation Index'},
+      'pct30day':{'units':'Percentile (%)','name':'Vegetation Index (%)'},
      }
     }
     var chart_controls = {
@@ -292,6 +293,10 @@ function Request_Data(variables) {
   var input = {idate:initial_date, fdate:final_date, tstep:tstep, lat:lat, lon:lon, variables:variables};
   input = JSON.stringify(input);
   var request = {script:script,input:input};
+  //if (tstep == "daily"){
+  // var sample_dataset = 'VIC_DERIVED--vcpct';
+  //}
+  var final_date = new Date(data_fdates[sample_dataset]);
   $.ajax({
     type:"post",
     url: 'scripts/Jquery_Python_JSON_Glue.php',
