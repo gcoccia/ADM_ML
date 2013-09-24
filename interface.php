@@ -87,6 +87,20 @@ $info_box_strings = array("prec" => $_(""),
 			  "t2m" => $_(""),
 			  "t2ano" => $_(""));
 
+$strings_to_translate = array("Drought_Indices" => $_('Drought Indices'),
+                              "Water_Balance" => $_('Water Balance'),
+                              "Surface_Fluxes" => $('Surface Fluxes'),
+                              "Streamflow" => $('Streamflow'),
+                              "SPI_1_month" => $('SPI (1 month)'),
+                              "SPI_3_months" => $('SPI (3 months)'),
+                              "SPI_6_months" => $('SPI (6 months)'),
+                              "SPI_12_months" => $('SPI (12 months)'),
+                              "Soil_Moisture_Index" => $('Soil Moisture Index'),
+                              "Streamflow_Index" => $('Streamflow Index'),
+                              "Vegetation_Index" => $('Vegetation Index'),
+                              "Percentile" => $('Percentile (%)'),
+                              "African_Water_Cycle_Monitor" => $('African Water Cycle Monitor'));
+
 ?>
 
 <!DOCTYPE html> 
@@ -127,6 +141,7 @@ $info_box_strings = array("prec" => $_(""),
   } ?>
 
   var DEFAULT_ANIMATION_DATASET = "VIC_DERIVED--vcpct";
+  var TRANSLATE = <?php echo json_encode($strings_to_translate, JSON_NUMERIC_CHECK) ?>;
 
   // Define JS variables from PHP arrays
   <?php 
