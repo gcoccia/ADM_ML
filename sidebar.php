@@ -94,11 +94,12 @@
   <i><?php echo $_("Click a point on the map to view time series data.") ?></i>
   <br>
   <div class="radio inline">
-    <label><input type="radio" name="plot" value="Drought_Indices" checked=checked><?php echo $_('Drought Indices') ?></label>
+    <label><input type="radio" name="plot" value="Indices" checked=checked><?php echo $_('Indices') ?></label>
     <label><input type="radio" name="plot" value="Water_Balance" ><?php echo $_('Water Balance') ?></label>
     <label><input type="radio" name="plot" value="Surface_Fluxes" ><?php echo $_('Surface Fluxes') ?></label>
     <label><input type="radio" name="plot" value="Streamflow" ><?php echo $_('Streamflow') ?></label>
     <label><input type="radio" name="plot" value="Soil_Moisture" ><?php echo $_('Soil Moisture') ?></label>
+    <label><input type="radio" name="plot" value="Vegetation" ><?php echo $_('Vegetation') ?></label>
   </div>
   <br>
   <?php echo $_('Latitude')?>: <span id="point-latitude"></span>

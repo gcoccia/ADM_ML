@@ -179,16 +179,18 @@ function Create_Point_Plot() {
 
   var variables, subtitle;
   var plot = $('input:radio[name=plot]:checked').val();
-  if (plot == "Drought_Indices"){
+  if (plot == "Indices"){
     var chart_data = {
      spi1:{units:'SPI',name:'SPI (1 month)',datasets:['SPI','GFS_7DAY_FORECAST','MultiModel'],},
+     spi3:{units:'SPI',name:'SPI (3 months)',datasets:['SPI','GFS_7DAY_FORECAST','MultiModel'],},
      spi6:{units:'SPI',name:'SPI (6 months)',datasets:['SPI','GFS_7DAY_FORECAST','MultiModel'],},
+     spi12:{units:'SPI',name:'SPI (12 months)',datasets:['SPI','GFS_7DAY_FORECAST','MultiModel'],},
      vcpct:{units:'Percentile (%)',name:'Soil Moisture Index (%)',datasets:['VIC_DERIVED','GFS_7DAY_FORECAST'],},
      flw_pct:{units:'Percentile (%)',name:'Streamflow Index (%)',datasets:['ROUTING_VIC_DERIVED','GFS_7DAY_FORECAST'],},
      pct30day:{units:'Percentile (%)',name:'Vegetation Index (%)',datasets:['MOD09_NDVI_MA_DERIVED'],},
     }
     var chart_controls = {
-     title: {text: "Drought Indices",}
+     title: {text: "Indices",}
     }
   }
   else if (plot == "Water_Balance"){
@@ -230,17 +232,59 @@ function Create_Point_Plot() {
     var chart_controls = {
      title: {text: "Soil Moisture",}
     }
+  }
+  else if (plot == "Vegetation"){
+    var chart_data = {
+     ndvi30:{units:'NDVI',name:'NDVI',datasets:['MOD09_NDVI_MA'],},
+     pct30day:{units:'%',name:'Vegetation Index (%)',datasets:['MOD09_NDVI_MA_DERIVED'],},
+    }
+    var chart_controls = {
+     title: {text: "Vegetation",}
+    }
   };
   subtitle = plot;
  
  //Request data for these variables
  var Output = Request_Data(chart_data); 
+ //Define forecast dates
+ var tstep = $("ul.ts-selection li.active").attr('id').toUpperCase(); // "daily", "monthly" or "yearly"
+ if (tstep == 'DAILY'){
+  var sample_dataset = 'VIC_DERIVED--vcpct';
+  var final_date = new Date(data_fdates[sample_dataset]);
+  var initial_date = new Date();
+  initial_date.setDate(final_date.getDate()+1);
+  final_date.setDate(final_date.getDate()+7);
+  var initial_date = Date.UTC(initial_date.getFullYear(),initial_date.getMonth(),initial_date.getDate());
+  var final_date = Date.UTC(final_date.getFullYear(),final_date.getMonth(),final_date.getDate());
+ }
+ else if (tstep == 'MONTHLY'){
+  var sample_dataset = 'MultiModel--spi1';
+  var final_date = new Date(data_fdates[sample_dataset]);
+  var initial_date = new Date();
+  initial_date.setDate(final_date.getDate());
+  final_date.setDate(final_date.getDate()+31*6);
+  var initial_date = Date.UTC(initial_date.getFullYear(),initial_date.getMonth(),initial_date.getDate());
+  var final_date = Date.UTC(final_date.getFullYear(),final_date.getMonth(),final_date.getDate());
+ }
+ else if (tstep == 'YEARLY'){
+  var forecast_initial_date = Date.UTC(parseInt($("#year_initial").val()),0,1)/1000;
+  var forecast_final_date = Date.UTC(parseInt($("#year_final").val()),11,31)/1000;
+ }
+
  //Create the input for the chart
  var chart_options = {
       chart: {
        borderRadius: 0,
       },
-      xAxis: {type: 'datetime',labels: {style: {fontSize: '15px',fontFamily: 'Avant Garde, Avantgarde, Century Gothic, CenturyGothic, AppleGothic, sans-serif'}}},
+      xAxis: {
+       type: 'datetime',
+       labels: {style: {fontSize: '15px',fontFamily: 'Avant Garde, Avantgarde, Century Gothic, CenturyGothic, AppleGothic, sans-serif'}},
+       plotBands: [{ // visualize the forecast
+        from: initial_date,//Date.UTC(2013,8,23),
+        to: final_date,//Date.UTC(2013,8,29),
+        color: 'rgba(68, 170, 213, .2)'
+       }],
+      },
       yAxis: [],
       legend: {layout: 'horizontal',align: 'center',verticalAlign: 'bottom',},
       series: [],
@@ -250,7 +294,7 @@ function Create_Point_Plot() {
        formatter: function() {
         return Highcharts.numberFormat(this.y, 3);
        }
-      }
+      },
      };
  for (variable in chart_data){
    var units = chart_data[variable]['units'];//Output["VARIABLES"][variable]["units"];
