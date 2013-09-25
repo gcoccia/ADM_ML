@@ -180,36 +180,56 @@ function Create_Point_Plot() {
   var variables, subtitle;
   var plot = $('input:radio[name=plot]:checked').val();
   if (plot == "Drought_Indices"){
-    //variables = {SPI:['spi1','spi3','spi6','spi12'],VIC_DERIVED:['vcpct'],MOD09_NDVI_MA_DERIVED:['pct30day']};
     var chart_data = {
-     SPI:{
-      'spi1':{'units':'SPI','name':'SPI (1 month)'},
-      //'spi3':{'units':'SPI','name':'SPI (3 months)'},
-      'spi6':{'units':'SPI','name':'SPI (6 months)'},
-      //'spi12':{'units':'SPI','name':'SPI (12 months)'},
-     },
-     VIC_DERIVED:{
-      'vcpct':{'units':'Percentile (%)','name':'Soil Moisture Index (%)'},
-     },
-     ROUTING_VIC_DERIVED:{
-      'flw_pct':{'units':'Percentile (%)','name':'Streamflow Index (%)'},
-     },
-     MOD09_NDVI_MA_DERIVED:{
-      'pct30day':{'units':'Percentile (%)','name':'Vegetation Index (%)'},
-     }
+     spi1:{units:'SPI',name:'SPI (1 month)',datasets:['SPI','GFS_7DAY_FORECAST','MultiModel'],},
+     spi6:{units:'SPI',name:'SPI (6 months)',datasets:['SPI','GFS_7DAY_FORECAST','MultiModel'],},
+     vcpct:{units:'Percentile (%)',name:'Soil Moisture Index (%)',datasets:['VIC_DERIVED','GFS_7DAY_FORECAST'],},
+     flw_pct:{units:'Percentile (%)',name:'Streamflow Index (%)',datasets:['ROUTING_VIC_DERIVED','GFS_7DAY_FORECAST'],},
+     pct30day:{units:'Percentile (%)',name:'Vegetation Index (%)',datasets:['MOD09_NDVI_MA_DERIVED'],},
     }
     var chart_controls = {
      title: {text: "Drought Indices",}
     }
   }
   else if (plot == "Water_Balance"){
-    variables = {PGF:['prec'],VIC_PGF:['runoff','baseflow','evap']};
+    var chart_data = {
+     prec:{units:'mm/month',name:'Precipitation',datasets:['PGF','3B42RT_BC','GFS_7DAY_FORECAST'],},
+     evap:{units:'mm/day',name:'Evaporation',datasets:['VIC_PGF','VIC_3B42RT','GFS_7DAY_FORECAST'],},
+     runoff:{units:'mm/day',name:'Runoff',datasets:['VIC_PGF','VIC_3B42RT','GFS_7DAY_FORECAST'],},
+     baseflow:{units:'mm/day',name:'Baseflow',datasets:['VIC_PGF','VIC_3B42RT','GFS_7DAY_FORECAST'],},
+    }
+    var chart_controls = {
+     title: {text: "Water Balance",}
+    }
   }
   else if (plot == "Surface_Fluxes"){
-    variables = {VIC_PGF:['net_short','net_long','r_net']};
+    var chart_data = {
+     net_short:{units:'W/m2',name:'Net Shortwave',datasets:['VIC_PGF','VIC_3B42RT','GFS_7DAY_FORECAST'],},
+     net_long:{units:'W/m2',name:'Net Longwave',datasets:['VIC_PGF','VIC_3B42RT','GFS_7DAY_FORECAST'],},
+     r_net:{units:'W/m2',name:'Net Radiation',datasets:['VIC_PGF','VIC_3B42RT','GFS_7DAY_FORECAST'],},
+    }
+    var chart_controls = {
+     title: {text: "Surface Fluxes",}
+    }
   }
   else if (plot == "Streamflow"){
-    variables = {ROUTING_VIC_3B42RT:['flw']};
+    var chart_data = {
+     flw:{units:'m3/s',name:'Streamflow (m3/s)',datasets:['ROUTING_VIC_PGF','ROUTING_VIC_3B42RT','GFS_7DAY_FORECAST'],},
+     flw_pct:{units:'%',name:'Streamflow Index (%)',datasets:['ROUTING_VIC_DERIVED','GFS_7DAY_FORECAST'],},
+    }
+    var chart_controls = {
+     title: {text: "Streamflow",}
+    }
+  }
+  else if (plot == "Soil_Moisture"){
+    var chart_data = {
+     vc1:{units:'%',name:'Soil Moisture (%) - Layer 1',datasets:['VIC_DERIVED','GFS_7DAY_FORECAST'],},
+     vc2:{units:'%',name:'Soil Moisture (%) - Layer 2',datasets:['VIC_DERIVED','GFS_7DAY_FORECAST'],},
+     vcpct:{units:'%',name:'Soil Moisture Index (%)',datasets:['VIC_DERIVED','GFS_7DAY_FORECAST'],},
+    }
+    var chart_controls = {
+     title: {text: "Soil Moisture",}
+    }
   };
   subtitle = plot;
  
@@ -232,13 +252,12 @@ function Create_Point_Plot() {
        }
       }
      };
- for (dataset in chart_data){
-  for (variable in chart_data[dataset]){
-   var units = chart_data[dataset][variable]['units'];//Output["VARIABLES"][variable]["units"];
+ for (variable in chart_data){
+   var units = chart_data[variable]['units'];//Output["VARIABLES"][variable]["units"];
    var series = {
         marker: {enabled: false},
         id: variable,
-        name: chart_data[dataset][variable]['name'],
+        name: chart_data[variable]['name'],
         type: 'line',
         yAxis: units,
         pointInterval: Output["TIME"]["pointInterval"],
@@ -265,7 +284,6 @@ function Create_Point_Plot() {
    }; 
    //Add the series
    chart_options.series.push(series);
-  };
  };
  //Create the chart
  var chart = $('#popup_container').highcharts(chart_options);
@@ -277,31 +295,34 @@ function Request_Data(variables) {
   // Use hardcoded values for now, rather than the input values.
   //var initial_date = Date.UTC(2001,0,1)/1000;
   //var final_date = Date.UTC(2001,0,11)/1000;
-  var initial_date = Date.UTC(parseInt($("#year_initial").val()),
-                           parseInt($("#month_initial").val()-1),
-                           parseInt($("#day_initial").val()))/1000;
-  var final_date = Date.UTC(parseInt($("#year_final").val()),
-                           parseInt($("#month_final").val()-1),
-                           parseInt($("#day_final").val())+1)/1000;
+  var tstep = $("ul.ts-selection li.active").attr('id').toUpperCase(); // "daily", "monthly" or "yearly"
+  if (tstep == 'DAILY'){
+   var initial_date = Date.UTC(parseInt($("#year_initial").val()),parseInt($("#month_initial").val()-1),parseInt($("#day_initial").val()))/1000;
+   var final_date = Date.UTC(parseInt($("#year_final").val()),parseInt($("#month_final").val()-1),parseInt($("#day_final").val()))/1000;
+  }
+  else if (tstep == 'MONTHLY'){
+   var initial_date = Date.UTC(parseInt($("#year_initial").val()),parseInt($("#month_initial").val()-1),1)/1000;
+   var final_date = Date.UTC(parseInt($("#year_final").val()),parseInt($("#month_final").val()-1),28)/1000;
+  }
+  else if (tstep == 'YEARLY'){
+   var initial_date = Date.UTC(parseInt($("#year_initial").val()),0,1)/1000;
+   var final_date = Date.UTC(parseInt($("#year_final").val()),11,31)/1000;
+  }
 
   //var lat = "-34.6250"; //$("#point-latitude").val();
   //var lon = "19.8750"; //$("#point-longitude").val();
   var lat = $("#point-latitude").html();
   var lon = $("#point-longitude").html();
-  var tstep = $("ul.ts-selection li.active").attr('id').toUpperCase(); // "daily", "monthly" or "yearly"
   var script = 'python POINT_DATA/Extract_Point_Data.py';
   var input = {idate:initial_date, fdate:final_date, tstep:tstep, lat:lat, lon:lon, variables:variables};
   input = JSON.stringify(input);
   var request = {script:script,input:input};
-  //if (tstep == "daily"){
-  // var sample_dataset = 'VIC_DERIVED--vcpct';
-  //}
-  var final_date = new Date(data_fdates[sample_dataset]);
   $.ajax({
     type:"post",
     url: 'scripts/Jquery_Python_JSON_Glue.php',
     data: request,
     success: function(response){
+     //alert(response);
      Output = JSON.parse(response.replace(/\bNaN\b/g, "null"));
     },
     async: false,

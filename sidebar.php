@@ -98,6 +98,7 @@
     <label><input type="radio" name="plot" value="Water_Balance" ><?php echo $_('Water Balance') ?></label>
     <label><input type="radio" name="plot" value="Surface_Fluxes" ><?php echo $_('Surface Fluxes') ?></label>
     <label><input type="radio" name="plot" value="Streamflow" ><?php echo $_('Streamflow') ?></label>
+    <label><input type="radio" name="plot" value="Soil_Moisture" ><?php echo $_('Soil Moisture') ?></label>
   </div>
   <br>
   <?php echo $_('Latitude')?>: <span id="point-latitude"></span>
