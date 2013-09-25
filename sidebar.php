@@ -107,6 +107,12 @@
   <br>
   <?php echo $_('Longitude')?>: <span id="point-longitude"></span>
   <br>
+  <i><?php echo $_('Create Corresponding Data File?') ?></i>
+  <br>
+  <div class="radio inline">
+    <label><input type="radio" name="Create_Text_Data" value="yes"><?php echo $_('Yes') ?></label>
+    <label><input type="radio" name="Create_Text_Data" value="no" checked=checked><?php echo $_('No') ?></label>
+  </div>
 </div>
 </div>
 

@@ -3,6 +3,48 @@ import numpy as np
 import netCDF4 as netcdf
 import datetime
 
+def Create_Text_File(data,tstep,idate,fdate,data_group,lat,lon):
+
+ import os 
+
+ #Change directory
+ os.chdir('../..')
+
+ #Remove old files
+ os.system("find WORKSPACE/* -mmin +400 -exec rm -rf {} \;")
+
+ #Run some initial checks 
+ dt = datetime.timedelta(days=1)
+ itime = idate.strftime('%Y%m%d')
+ ftime = fdate.strftime('%Y%m%d')
+ file = "WORKSPACE/%s_%s_%s_%.3f_%.3f.txt" % (data_group,itime,ftime,lat,lon)
+
+ #Open file
+ fp = open(file,'w')
+
+ #Write header information
+ header = ['date',]
+ for var in data['VARIABLES']:
+  header.append('%s' % data['VARIABLES'][var]['name'].replace(" ",""))
+ header = (' ').join(header)
+ fp.write('%s\n' % header)
+ 
+ #Write data
+ date = idate
+ count = 0
+ while date < fdate:
+  str = ['%s' % date.strftime('%Y%m%d')]
+  for var in data['VARIABLES']:
+   str.append('%.3f' % (data['VARIABLES'][var]['data'][count]))
+  str = (' ').join(str)
+  fp.write('%s\n' % str)
+  date = date + dt
+  count = count + 1
+ #Close file
+ fp.close()
+
+ return
+
 #Parse the JSON string
 metadata = json.loads(raw_input())
 idate = int(metadata["idate"])
@@ -13,6 +55,8 @@ tstep = metadata["tstep"]
 info = metadata["variables"]
 idate_datetime = datetime.datetime.utcfromtimestamp(idate)
 fdate_datetime = datetime.datetime.utcfromtimestamp(fdate)
+create_text_file = metadata["create_text_file"]
+data_group = metadata["data_group"]
 
 undef = -9.99e+08
 #Find closet grid cell
@@ -29,14 +73,17 @@ if tstep == "DAILY":
  pointInterval = 24*3600*1000
  nt = (fdate_datetime - idate_datetime).days + 1
  dt = 24*3600
+ dt1 = 1
 elif tstep == "MONTHLY":
  pointInterval = 30.4375*24*3600*1000
  nt = 12*(fdate_datetime.year - idate_datetime.year) + fdate_datetime.month - idate_datetime.month + 1
  dt = 24*3600*30.4375
+ dt1 = 30.4375
 elif tstep == "YEARLY":
  pointInterval = 365.25*24*3600*1000
  nt = fdate_datetime.year - idate_datetime.year + 1
  dt = 365.25*24*3600
+ dt1 = 365.25
 
 #Read in the desired data
 file = '../../DATA_CELL/cell_%0.3f_%0.3f.nc' % (lat,lon)
@@ -50,7 +97,6 @@ data = []
 
 #Choose the datasets
 data_tmp = np.ones(nt)
-date_tmp = np.ones(nt)
 for var in info:
  data_tmp[:] = undef
  for dataset in info[var]['datasets']:
@@ -62,11 +108,17 @@ for var in info:
    data_tmp[ipos] = fp.groups[tstep].groups[dataset].variables[var][idx]
    var_data = data_tmp#fp.groups[tstep].groups[dataset].variables[var][idx]
    var_data[var_data == undef] = float('NaN')
+   if var == 'prec':
+    var_data = var_data/dt1 #THIS NEEDS TO BE FIXED IN THE FUTURE
    data_out['VARIABLES'][var] = {}
    data_out['VARIABLES'][var]['data'] = list(np.float64(var_data))
-   data_out['VARIABLES'][var]['units'] = 'mm'
-   data_out['VARIABLES'][var]['long_name'] = 'long_name'
+   data_out['VARIABLES'][var]['units'] = info[var]['units']
+   data_out['VARIABLES'][var]['name'] = info[var]['name']
    data_out['VARIABLES'][var]['dataset'] = dataset
+
+#If required, create the ascii text file of data
+if create_text_file == 'yes':
+ Create_Text_File(data_out,tstep,idate_datetime,fdate_datetime,data_group,lat,lon)
 
 #Print json
 print json.dumps(data_out,allow_nan=True)

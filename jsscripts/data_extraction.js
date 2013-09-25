@@ -178,6 +178,7 @@ function Hide_Data_Extraction_Popup() {
 function Create_Point_Plot() {
 
   var variables, subtitle;
+  var Create_Text_Data = $('input:radio[name=Create_Text_Data]:checked').val();
   var plot = $('input:radio[name=plot]:checked').val();
   if (plot == "Indices"){
     var chart_data = {
@@ -196,7 +197,7 @@ function Create_Point_Plot() {
   }
   else if (plot == "Water_Balance"){
     var chart_data = {
-     prec:{units:'mm/month',name:'Precipitation',datasets:['PGF','3B42RT_BC','GFS_7DAY_FORECAST'],},
+     prec:{units:'mm/day',name:'Precipitation',datasets:['PGF','3B42RT_BC','GFS_7DAY_FORECAST'],},
      evap:{units:'mm/day',name:'Evaporation',datasets:['VIC_PGF','VIC_3B42RT','GFS_7DAY_FORECAST'],},
      runoff:{units:'mm/day',name:'Runoff',datasets:['VIC_PGF','VIC_3B42RT','GFS_7DAY_FORECAST'],},
      baseflow:{units:'mm/day',name:'Baseflow',datasets:['VIC_PGF','VIC_3B42RT','GFS_7DAY_FORECAST'],},
@@ -257,7 +258,7 @@ function Create_Point_Plot() {
   subtitle = plot;
  
  //Request data for these variables
- var Output = Request_Data(chart_data); 
+ var Output = Request_Data(chart_data,Create_Text_Data,plot); 
  //Define forecast dates
  var tstep = $("ul.ts-selection li.active").attr('id').toUpperCase(); // "daily", "monthly" or "yearly"
  if (tstep == 'DAILY'){
@@ -349,7 +350,7 @@ function Create_Point_Plot() {
 };
 
 /*Obtain all the data at once from the server*/
-function Request_Data(variables) {
+function Request_Data(variables,Create_Text_Data,data_group) {
   var Output;
   // Use hardcoded values for now, rather than the input values.
   //var initial_date = Date.UTC(2001,0,1)/1000;
@@ -373,7 +374,7 @@ function Request_Data(variables) {
   var lat = $("#point-latitude").html();
   var lon = $("#point-longitude").html();
   var script = 'python POINT_DATA/Extract_Point_Data.py';
-  var input = {idate:initial_date, fdate:final_date, tstep:tstep, lat:lat, lon:lon, variables:variables};
+  var input = {idate:initial_date, fdate:final_date, tstep:tstep, lat:lat, lon:lon, variables:variables,create_text_file:Create_Text_Data,data_group:data_group};
   input = JSON.stringify(input);
   var request = {script:script,input:input};
   $.ajax({
