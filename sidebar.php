@@ -100,6 +100,7 @@
     <label><input type="radio" name="plot" value="Streamflow" ><?php echo $_('Streamflow') ?></label>
     <label><input type="radio" name="plot" value="Soil_Moisture" ><?php echo $_('Soil Moisture') ?></label>
     <label><input type="radio" name="plot" value="Vegetation" ><?php echo $_('Vegetation') ?></label>
+    <label><input type="radio" name="plot" value="Meteorology" ><?php echo $_('Meteorology') ?></label>
   </div>
   <br>
   <?php echo $_('Latitude')?>: <span id="point-latitude"></span>

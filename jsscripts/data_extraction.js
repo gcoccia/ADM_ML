@@ -188,6 +188,7 @@ function Create_Point_Plot() {
      vcpct:{units:'Percentile (%)',name:'Soil Moisture Index (%)',datasets:['VIC_DERIVED','GFS_7DAY_FORECAST'],},
      flw_pct:{units:'Percentile (%)',name:'Streamflow Index (%)',datasets:['ROUTING_VIC_DERIVED','GFS_7DAY_FORECAST'],},
      pct30day:{units:'Percentile (%)',name:'Vegetation Index (%)',datasets:['MOD09_NDVI_MA_DERIVED'],},
+     t2ano:{units:'Temperature Anomaly (C)',name:'Temperature Anomaly (C)',datasets:['MultiModel'],},
     }
     var chart_controls = {
      title: {text: "Indices",}
@@ -202,6 +203,17 @@ function Create_Point_Plot() {
     }
     var chart_controls = {
      title: {text: "Water Balance",}
+    }
+  }
+  else if (plot == "Meteorology"){
+    var chart_data = {
+     prec:{units:'mm/day',name:'Precipitation (mm/day)',datasets:['PGF','3B42RT_BC','GFS_7DAY_FORECAST'],},
+     tmax:{units:'K',name:'Daily Maximum Temperature (K)',datasets:['PGF','GFS_ANALYSIS_BC','GFS_7DAY_FORECAST'],},
+     tmin:{units:'K',name:'Daily Minimum Temperature (K)',datasets:['PGF','GFS_ANALYSIS_BC','GFS_7DAY_FORECAST'],},
+     wind:{units:'m/s',name:'Daily Average Wind Speed (m/s)',datasets:['PGF','GFS_ANALYSIS_BC','GFS_7DAY_FORECAST'],},
+    }
+    var chart_controls = {
+     title: {text: "Meteorology",}
     }
   }
   else if (plot == "Surface_Fluxes"){
@@ -297,6 +309,9 @@ function Create_Point_Plot() {
       },
      };
  for (variable in chart_data){
+   if (!(variable in Output["VARIABLES"])){
+    continue;
+   }
    var units = chart_data[variable]['units'];//Output["VARIABLES"][variable]["units"];
    var series = {
         marker: {enabled: false},
