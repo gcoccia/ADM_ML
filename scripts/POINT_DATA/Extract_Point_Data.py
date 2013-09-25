@@ -6,6 +6,7 @@ import datetime
 def Create_Text_File(data,tstep,idate,fdate,data_group,lat,lon):
 
  import os 
+ import dateutil.relativedelta as relativedelta
 
  #Change directory
  os.chdir('../..')
@@ -15,28 +16,44 @@ def Create_Text_File(data,tstep,idate,fdate,data_group,lat,lon):
 
  #Run some initial checks 
  dt = datetime.timedelta(days=1)
- itime = idate.strftime('%Y%m%d')
- ftime = fdate.strftime('%Y%m%d')
+ if tstep == 'DAILY':
+  fmt = '%Y%m%d'
+  header = ['year,month,day',]
+  dt = relativedelta.relativedelta(days=1)
+ elif tstep == 'MONTHLY':
+  fmt = '%Y%m'
+  header = ['year,month',]
+  dt = relativedelta.relativedelta(months=1)
+ elif tstep == 'YEARLY':
+  fmt = '%Y'
+  header = ['year',]
+  dt = relativedelta.relativedelta(years=1)
+ itime = idate.strftime(fmt)
+ ftime = fdate.strftime(fmt)
  file = "WORKSPACE/%s_%s_%s_%.3f_%.3f.txt" % (data_group,itime,ftime,lat,lon)
 
  #Open file
  fp = open(file,'w')
 
  #Write header information
- header = ['date',]
  for var in data['VARIABLES']:
-  header.append('%s' % data['VARIABLES'][var]['name'].replace(" ",""))
- header = (' ').join(header)
+  header.append('%s' % data['VARIABLES'][var]['name'])
+ header = (',').join(header)
  fp.write('%s\n' % header)
  
  #Write data
  date = idate
  count = 0
  while date < fdate:
-  str = ['%s' % date.strftime('%Y%m%d')]
+  if tstep == 'DAILY':
+   str = ['%d,%d,%d' % (date.year,date.month,date.day)]
+  elif tstep == 'MONTHLY':
+   str = ['%d,%d' % (date.year,date.month)]
+  elif tstep == 'YEARLY':
+   str = ['%d' % (date.year)]
   for var in data['VARIABLES']:
    str.append('%.3f' % (data['VARIABLES'][var]['data'][count]))
-  str = (' ').join(str)
+  str = (',').join(str)
   fp.write('%s\n' % str)
   date = date + dt
   count = count + 1
