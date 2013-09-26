@@ -87,6 +87,21 @@ $info_box_strings = array("prec" => $_(""),
 			  "t2m" => $_(""),
 			  "t2ano" => $_(""));
 
+$strings_to_translate = array("Drought_Indices" => $_('Drought Indices'),
+                              "Water_Balance" => $_('Water Balance'),
+                              "Surface_Fluxes" => $_('Surface Fluxes'),
+                              "Streamflow" => $_('Streamflow'),
+                              "SPI_1_month" => $_('SPI (1 month)'),
+                              "SPI_3_months" => $_('SPI (3 months)'),
+                              "SPI_6_months" => $_('SPI (6 months)'),
+                              "SPI_12_months" => $_('SPI (12 months)'),
+                              "Soil_Moisture_Index" => $_('Soil Moisture Index'),
+                              "Streamflow_Index" => $_('Streamflow Index'),
+                              "Vegetation_Index" => $_('Vegetation Index'),
+                              "Percentile" => $_('Percentile (%)'),
+                              "SPI" => $_('SPI'),
+                              "African_Water_Cycle_Monitor" => $_('African Water Cycle Monitor'));
+
 ?>
 
 <!DOCTYPE html> 
@@ -127,6 +142,7 @@ $info_box_strings = array("prec" => $_(""),
   } ?>
 
   var DEFAULT_ANIMATION_DATASET = "VIC_DERIVED--vcpct";
+  var TRANSLATE = <?php echo json_encode($strings_to_translate, JSON_NUMERIC_CHECK) ?>;
 
   // Define JS variables from PHP arrays
   <?php 
@@ -287,8 +303,8 @@ $info_box_strings = array("prec" => $_(""),
 
         // If running animation, update
         if("none" == $("ul.data-extraction li.active>a").attr('id'))
-          update_animation();
           update_basic();
+          update_animation();
       }
     });
 

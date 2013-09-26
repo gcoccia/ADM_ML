@@ -194,6 +194,27 @@ function Create_Point_Plot() {
     var chart_controls = {
      title: {text: "Indices",}
     }
+    /*
+     SPI:{
+      'spi1':{'units':TRANSLATE['SPI'],'name':TRANSLATE['SPI_1_month)']},
+      'spi3':{'units':TRANSLATE['SPI'],'name':TRANSLATE['SPI_3_months)']},
+      'spi6':{'units':TRANSLATE['SPI'],'name':TRANSLATE['SPI_6_months)']},
+      'spi12':{'units':TRANSLATE['SPI'],'name':TRANSLATE['SPI_12_months)']},
+     },
+     VIC_DERIVED:{
+      'vcpct':{'units':TRANSLATE['Percentile'],'name':TRANSLATE['Soil_Moisture_Index']},
+     },
+     ROUTING_VIC_DERIVED:{
+      'flw_pct':{'units':TRANSLATE['Percentile'],'name':TRANSLATE['Streamflow_Index']},
+     },
+     MOD09_NDVI_MA_DERIVED:{
+      'pct30day':{'units':TRANSLATE['Percentile'],'name':TRANSLATE['Vegetation_Index']},
+     }
+    };
+    var chart_controls = {
+     title: {text: TRANSLATE["Drought_Indices"]}
+    };
+    */
   }
   else if (plot == "Water_Balance"){
     var chart_data = {
@@ -255,7 +276,7 @@ function Create_Point_Plot() {
      title: {text: "Vegetation",}
     }
   };
-  subtitle = plot;
+  subtitle = TRANSLATE[plot];
  
  //Request data for these variables
  var Output = Request_Data(chart_data,Create_Text_Data,plot); 
@@ -312,7 +333,7 @@ function Create_Point_Plot() {
       legend: {layout: 'horizontal',align: 'center',verticalAlign: 'bottom',},
       series: [],
       title: chart_controls['title'],
-      subtitle: {text: 'African Water Cycle Monitor',},
+      subtitle: {text: TRANSLATE['African_Water_Cycle_Monitor'],},
       tooltip: {
        formatter: function() {
         return Highcharts.numberFormat(this.y, 3);
