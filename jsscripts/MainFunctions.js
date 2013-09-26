@@ -138,9 +138,10 @@ function update_basic()
       div.appendChild(titlediv);
       document.getElementById("basic_interface1").appendChild(div)
 
+      ImageCounter = 0;
       ChangeTimeStamp(1, ImageCounter, dataset);  //Edit
       $( "#slider-date" ).html( ImageTimeArray[dataset][0] );
-      ImageCounter = 1;
+      ImageCounter += 1;
       
       // Make sure the play/pause icons are visible and set to "pause" when the animation starts
       $( "#slider-div").show();

@@ -303,7 +303,7 @@ $strings_to_translate = array("Drought_Indices" => $_('Drought Indices'),
 
         // If running animation, update
         if("none" == $("ul.data-extraction li.active>a").attr('id'))
-          //update_basic();
+          update_basic();
           update_animation();
       }
     });
