@@ -113,6 +113,8 @@
     <label><input type="radio" name="Create_Text_Data" value="yes"><?php echo $_('Yes') ?></label>
     <label><input type="radio" name="Create_Text_Data" value="no" checked=checked><?php echo $_('No') ?></label>
   </div>
+  <br>
+  <a id='point_data_link' href="" target="_blank" style="display:none">Download Data</a>
 </div>
 </div>
 

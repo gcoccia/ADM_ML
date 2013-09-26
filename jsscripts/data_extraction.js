@@ -259,6 +259,16 @@ function Create_Point_Plot() {
  
  //Request data for these variables
  var Output = Request_Data(chart_data,Create_Text_Data,plot); 
+ //If we have requested the data display the link
+ point_data_link = Output['point_data_link']
+ if (Create_Text_Data == 'no'){
+  $("#point_data_link").hide();
+ }
+ else{
+  $("#point_data_link").show();
+  $("#point_data_link").attr("href",point_data_link);
+ }
+
  //Define forecast dates
  var tstep = $("ul.ts-selection li.active").attr('id').toUpperCase(); // "daily", "monthly" or "yearly"
  if (tstep == 'DAILY'){
@@ -374,7 +384,7 @@ function Request_Data(variables,Create_Text_Data,data_group) {
   var lat = $("#point-latitude").html();
   var lon = $("#point-longitude").html();
   var script = 'python POINT_DATA/Extract_Point_Data.py';
-  var input = {idate:initial_date, fdate:final_date, tstep:tstep, lat:lat, lon:lon, variables:variables,create_text_file:Create_Text_Data,data_group:data_group};
+  var input = {idate:initial_date, fdate:final_date, tstep:tstep, lat:lat, lon:lon, variables:variables,create_text_file:Create_Text_Data,data_group:data_group,http:document.URL,};
   input = JSON.stringify(input);
   var request = {script:script,input:input};
   $.ajax({

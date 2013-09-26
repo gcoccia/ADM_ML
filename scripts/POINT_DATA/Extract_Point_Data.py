@@ -3,7 +3,7 @@ import numpy as np
 import netCDF4 as netcdf
 import datetime
 
-def Create_Text_File(data,tstep,idate,fdate,data_group,lat,lon):
+def Create_Text_File(data,tstep,idate,fdate,data_group,lat,lon,http_root,undef):
 
  import os 
  import dateutil.relativedelta as relativedelta
@@ -31,6 +31,7 @@ def Create_Text_File(data,tstep,idate,fdate,data_group,lat,lon):
  itime = idate.strftime(fmt)
  ftime = fdate.strftime(fmt)
  file = "WORKSPACE/%s_%s_%s_%.3f_%.3f.txt" % (data_group,itime,ftime,lat,lon)
+ http_file = http_root + '/%s' % file
 
  #Open file
  fp = open(file,'w')
@@ -52,7 +53,11 @@ def Create_Text_File(data,tstep,idate,fdate,data_group,lat,lon):
   elif tstep == 'YEARLY':
    str = ['%d' % (date.year)]
   for var in data['VARIABLES']:
-   str.append('%.3f' % (data['VARIABLES'][var]['data'][count]))
+   if np.isnan(data['VARIABLES'][var]['data'][count]) == 0:
+    tmp = data['VARIABLES'][var]['data'][count]
+   else:
+    tmp = -999.0
+   str.append('%.3f' % tmp)
   str = (',').join(str)
   fp.write('%s\n' % str)
   date = date + dt
@@ -60,7 +65,7 @@ def Create_Text_File(data,tstep,idate,fdate,data_group,lat,lon):
  #Close file
  fp.close()
 
- return
+ return http_file
 
 #Parse the JSON string
 metadata = json.loads(raw_input())
@@ -74,6 +79,8 @@ idate_datetime = datetime.datetime.utcfromtimestamp(idate)
 fdate_datetime = datetime.datetime.utcfromtimestamp(fdate)
 create_text_file = metadata["create_text_file"]
 data_group = metadata["data_group"]
+http = metadata['http'].split('/')
+http_root = '/'.join(http[0:-2])
 
 undef = -9.99e+08
 #Find closet grid cell
@@ -135,7 +142,7 @@ for var in info:
 
 #If required, create the ascii text file of data
 if create_text_file == 'yes':
- Create_Text_File(data_out,tstep,idate_datetime,fdate_datetime,data_group,lat,lon)
+ data_out['point_data_link'] = Create_Text_File(data_out,tstep,idate_datetime,fdate_datetime,data_group,lat,lon,http_root,undef)
 
 #Print json
 print json.dumps(data_out,allow_nan=True)
