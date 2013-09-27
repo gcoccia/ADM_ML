@@ -392,6 +392,7 @@ $strings_to_translate = array("Drought_Indices" => $_('Drought Indices'),
 <div class="row-fluid" style="width:100%; position: absolute; bottom: 0px; top:40px;">
     <div class="span12" style="height:100%; width=100%;">
       <div id="blanket" style="display:none;"></div>
+      <div id="ajax_request_load" style="display:none;"></div>
       <div id="popUpDiv" style="display:none;">
         <!--Chart Container-->
         <div id="popup_container"></div>

@@ -412,13 +412,15 @@ function Request_Data(variables,Create_Text_Data,data_group) {
     type:"post",
     url: 'scripts/Jquery_Python_JSON_Glue.php',
     data: request,
+    beforeSend: function() {$("#ajax_request_load").show();},
+    complete: function() {$("#ajax_request_load").hide();},
     success: function(response){
      //alert(response);
      Output = JSON.parse(response.replace(/\bNaN\b/g, "null"));
     },
     async: false,
-    cache: false
-  });    
+    cache: false,
+  })
   return Output;
 }
 
