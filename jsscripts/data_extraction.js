@@ -564,7 +564,7 @@ function Submit_Spatial_Data() {
   success: function(response){
    Output = JSON.parse(response);
   },
-  async: false,
+  async: true,
   cache: false
   });
   return Output;
