@@ -45,8 +45,8 @@ function Update_Listeners(type){
   var sample_dataset = 'VIC_DERIVED--vcpct';
   var final_date = new Date(data_fdates[sample_dataset]);
   final_date.setDate(final_date.getDate() + 7);
-  var initial_date = new Date();
-  initial_date.setDate(final_date.getDate() - 30); 
+  var initial_date = new Date(final_date);
+  initial_date.setDate(initial_date.getDate() - 30); 
   $("#year_initial").val(initial_date.getFullYear());
   $("#month_initial").val(initial_date.getMonth() + 1);
   $("#day_initial").val(initial_date.getDate());
