@@ -387,7 +387,7 @@ $strings_to_translate = array("Drought_Indices" => $_('Drought Indices'),
       	</ul>
         <ul class="nav pull-right">
           <li class="divider-vertical"></li>
-          <li id="feedbackBtn"><a onclick=""><?php echo $_("Feedback"); ?></a></li>
+          <li id="feedbackBtn"><a onclick="LoadFeedback()"><?php echo $_("Feedback"); ?></a></li>
 	  <li class="divider-vertical"></li>
         </ul>
     </div>
@@ -403,6 +403,7 @@ $strings_to_translate = array("Drought_Indices" => $_('Drought Indices'),
         <div id="popup_container"></div>
       </div>
 
+      <div id="feedbackPopup" style="visibility:hidden;"></div>
       <div id="Colorbar" style="visibility:hidden;"></div>
       <div id="TimeStamp" style="visibility:hidden;"></div>
       <div id="Logo" style="visibility:hidden;"></div>
