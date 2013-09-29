@@ -384,7 +384,12 @@ $strings_to_translate = array("Drought_Indices" => $_('Drought Indices'),
         <li><a href='Resources/ADM_Glossary.pdf'><?php echo $_("Glossary"); ?></a></li>
         <li class="divider-vertical"></li>
         <li><a href='Resources/Tutorial_HornAfrica.pdf'><?php echo $_("Tutorial"); ?></a></li>
-      </ul>
+      	</ul>
+        <ul class="nav pull-right">
+          <li class="divider-vertical"></li>
+          <li id="feedbackBtn"><a onclick=""><?php echo $_("Feedback"); ?></a></li>
+	  <li class="divider-vertical"></li>
+        </ul>
     </div>
   </div>
 </div>
