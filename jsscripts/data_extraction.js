@@ -27,7 +27,12 @@ function Update_Listeners(type){
   google.maps.event.clearListeners(map_array[0], "mousemove");
   google.maps.event.clearListeners(map_array[0], "rightclick");
   map_array[0].setOptions({draggableCursor:null});
- }
+ 
+  //Remove Popup if it is open
+  if ($("#pointpill").hasClass("active")) {
+      Hide_Data_Extraction_Popup();
+  }
+}
  else if (type == 'point'){
   //Remove present listeners
   clear_all_overlays();

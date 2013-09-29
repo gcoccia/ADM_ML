@@ -359,6 +359,9 @@ function LoadBasic()
   //Hide gmaps interface and elements of sidebar
   //Alter nav bar to show the correct link
   if ($("#InteractiveInterface").hasClass("active")) {
+    if ($("#pointpill").hasClass("active")) {
+    	Hide_Data_Extraction_Popup();
+    }
     $("#map_canvas_1").hide();
     $("#Colorbar").hide();
     $("#TimeStamp").hide();
@@ -370,7 +373,6 @@ function LoadBasic()
     $("#basic_interface1").css("overflow-x","scroll");
     $("#basic_interface1").css("overflow-y","scroll");
     $("#none").click();
-
     update_basic();
 
    }
