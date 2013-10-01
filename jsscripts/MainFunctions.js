@@ -384,6 +384,9 @@ function LoadInteractive()
   //Show gmaps interface and elements of sidebar
   //Alter nav bar to show the correct link
   if (!$("#InteractiveInterface").hasClass("active")) {
+    if ($("#feedbackBtn").hasClass("active")) {
+      clearPopup();
+    }
     $("#map_canvas_1").show();
     $("#Colorbar").show();
     $("#TimeStamp").show();
@@ -411,8 +414,7 @@ function LoadFeedback()
 }
 
 function clearPopup() {
-
-    $("#feedbackPopup").empty();
-    $("#feedbackBtn").removeClass("active");
     $("#feedbackPopup").css("visibility","hidden");
+    $("#feedbackForm").remove();
+    $("#feedbackBtn").removeClass("active");
 }
