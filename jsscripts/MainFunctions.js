@@ -359,7 +359,7 @@ function LoadBasic()
 { 
   //Hide gmaps interface and elements of sidebar
   //Alter nav bar to show the correct link
-  if ($("#InteractiveInterface").hasClass("active")) {
+  if (!$("#BasicInterface").hasClass("active")) {
     if ($("#pointpill").hasClass("active")) {
     	Hide_Data_Extraction_Popup();
     }
@@ -383,7 +383,7 @@ function LoadInteractive()
 { 
   //Show gmaps interface and elements of sidebar
   //Alter nav bar to show the correct link
-  if ($("#BasicInterface").hasClass("active")) {
+  if (!$("#InteractiveInterface").hasClass("active")) {
     $("#map_canvas_1").show();
     $("#Colorbar").show();
     $("#TimeStamp").show();
@@ -402,10 +402,18 @@ function LoadFeedback()
 {
   if (!$("#feedbackBtn").hasClass("active")) {
     $("#feedbackPopup").css("visibility","visible");
-    $("#feedbackPopup").append("<form method='POST' action='' class='form-horizontal'><div><h4 style='margin-left:10px;'>Contact Us:</h4></div><div class='control-group'><label class='control-label' for='input1'>Name</label><div class='controls'><input type='text' name='contact_name' id='input1' placeholder='Your name'></div></div><div class='control-group'><label class='control-label' for='input2'>Email Address</label><div class='controls'><input type='text' name='contact_email' id='input2' placeholder='Your email address'></div></div><div class='control-group'><label class='control-label' for='input3'>Message</label><div class='controls'><textarea name='contact_message' id='input3' rows='8' class='span9' placeholder='Message to send.'></textarea></div></div><div class='form-actions' style='border-radius:0px 0px 5px 5px;><input type='hidden' name='save' value='contact'><button type='submit' class='btn btn-primary'>Send</button><button id ='clearForm' class='btn' style='margin-left:30px'>Clear</button></div></form>");
+    $("#feedbackPopup").append("<form method='POST' action='' class='form-horizontal'><div><h4 style='margin-left:10px;'>Contact Us:</h4></div><div class='control-group'><label class='control-label' for='input1'>Name</label><div class='controls'><input type='text' name='contact_name' id='input1' placeholder='Your name'></div></div><div class='control-group'><label class='control-label' for='input2'>Email Address</label><div class='controls'><input type='text' name='contact_email' id='input2' placeholder='Your email address'></div></div><div class='control-group'><label class='control-label' for='input3'>Message</label><div class='controls'><textarea name='contact_message' id='input3' rows='8' class='span9' placeholder='Message to send.'></textarea></div></div><div class='form-actions' style='border-radius:0px 0px 5px 5px;><input type='hidden' name='save' value='contact'><button type='submit' class='btn btn-primary'>Send</button><button id ='clearForm' class='btn' style='margin-left:30px' onclick=clearPopup();>Clear</button></div></form>");
 
     $("#InteractiveInterface").removeClass("active");
     $("#BasicInterface").removeClass("active");
     $("#feedbackBtn").addClass("active");
   }
+}
+
+function clearPopup() {
+
+    $("#feedbackPopup").css("visibility","hidden");
+    $("#feedbackPopup").remove(".form-horizontal");
+    $("#feedbackBtn").removeClass("active");
+    LoadInteractive();
 }
