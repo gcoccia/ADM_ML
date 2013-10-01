@@ -110,8 +110,6 @@ elif tstep == "YEARLY":
  dt1 = 365.25
 
 #Read in the desired data
-file = '../../DATA_CELL/cell_%0.3f_%0.3f.nc' % (lat,lon)
-fp = netcdf.Dataset(file,'r',format='NETCDF4')
 variables = []
 date = {'pointInterval':pointInterval,'iyear':idate_datetime.year,'imonth':idate_datetime.month,'iday':idate_datetime.day}
 data_out = {}
@@ -119,17 +117,27 @@ data_out["TIME"] = date
 data_out["VARIABLES"] = {}
 data = []
 
+#Construct decades and open all files
+idecade = np.int(10*np.floor(idate_datetime.year/10))
+fdecade = np.int(10*np.floor(fdate_datetime.year/10))
+decades = np.arange(idecade,fdecade+10,10)
+fps = []
+for decade in decades:
+ file = '../../DATA_CELL/%d/cell_%0.3f_%0.3f.nc' % (decade,lat,lon)
+ fps.append(netcdf.Dataset(file,'r',format='NETCDF4'))
+
 #Choose the datasets
 data_tmp = np.ones(nt)
 for var in info:
  data_tmp[:] = undef
  for dataset in info[var]['datasets']:
-  if dataset in fp.groups[tstep].groups.keys():
-   date = fp.groups[tstep].groups[dataset].variables["time"][:]
-   idx = list(np.where((date >= idate) & (date <= fdate)))[0]
-   date_tmp = date[idx]
-   ipos = np.int32(np.round(np.float32(date_tmp - idate)/np.float32(dt)))
-   data_tmp[ipos] = fp.groups[tstep].groups[dataset].variables[var][idx]
+   for fp in fps:
+    if dataset in fp.groups[tstep].groups.keys():
+     date = fp.groups[tstep].groups[dataset].variables["time"][:]
+     idx = list(np.where((date >= idate) & (date <= fdate)))[0]
+     date_tmp = date[idx]
+     ipos = np.int32(np.round(np.float32(date_tmp - idate)/np.float32(dt)))
+     data_tmp[ipos] = fp.groups[tstep].groups[dataset].variables[var][idx]
    var_data = data_tmp#fp.groups[tstep].groups[dataset].variables[var][idx]
    var_data[var_data == undef] = float('NaN')
    if var == 'prec':
@@ -139,6 +147,10 @@ for var in info:
    data_out['VARIABLES'][var]['units'] = info[var]['units']
    data_out['VARIABLES'][var]['name'] = info[var]['name']
    data_out['VARIABLES'][var]['dataset'] = dataset
+
+#Close the datasets
+for fp in fps:
+ fp.close()
 
 #If required, create the ascii text file of data
 if create_text_file == 'yes':

@@ -300,8 +300,8 @@ function Create_Point_Plot() {
  if (tstep == 'DAILY'){
   var sample_dataset = 'VIC_DERIVED--vcpct';
   var final_date = new Date(data_fdates[sample_dataset]);
-  var initial_date = new Date();
-  initial_date.setDate(final_date.getDate()+1);
+  var initial_date = new Date(final_date.getTime())
+  initial_date.setDate(initial_date.getDate()+1);
   final_date.setDate(final_date.getDate()+7);
   var initial_date = Date.UTC(initial_date.getFullYear(),initial_date.getMonth(),initial_date.getDate());
   var final_date = Date.UTC(final_date.getFullYear(),final_date.getMonth(),final_date.getDate());
@@ -309,8 +309,8 @@ function Create_Point_Plot() {
  else if (tstep == 'MONTHLY'){
   var sample_dataset = 'MultiModel--spi1';
   var final_date = new Date(data_fdates[sample_dataset]);
-  var initial_date = new Date();
-  initial_date.setDate(final_date.getDate());
+  var initial_date = new Date(final_date.getTime());
+  //initial_date.setDate(final_date.getDate());
   final_date.setDate(final_date.getDate()+31*6);
   var initial_date = Date.UTC(initial_date.getFullYear(),initial_date.getMonth(),initial_date.getDate());
   var final_date = Date.UTC(final_date.getFullYear(),final_date.getMonth(),final_date.getDate());
@@ -417,10 +417,9 @@ function Request_Data(variables,Create_Text_Data,data_group) {
     type:"post",
     url: 'scripts/Jquery_Python_JSON_Glue.php',
     data: request,
-    beforeSend: function() {$("#ajax_request_load").show();},
-    complete: function() {$("#ajax_request_load").hide();},
+    //beforeSend: function() {$("#ajax_request_load").show();},
+    //complete: function() {$("#ajax_request_load").hide();},
     success: function(response){
-     //alert(response);
      Output = JSON.parse(response.replace(/\bNaN\b/g, "null"));
     },
     async: false,
