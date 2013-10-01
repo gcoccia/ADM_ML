@@ -404,7 +404,7 @@ $strings_to_translate = array("Drought_Indices" => $_('Drought Indices'),
         <div id="popup_container"></div>
       </div>
 
-      <div id="feedbackPopup" style="visibility:hidden;  position:absolute; background:white; margin:auto; left: 22%; width:700px; top:60px; height:350px; z-index:8900; padding-top:15px; border-radius:5px 5px 0px 0px"></div>
+      <div id="feedbackPopup" style="visibility:hidden; position:absolute; background:rgb(229, 227, 223); margin:auto; left: 22%; width:700px; top:60px; height:370px; z-index:8900; padding-top:15px; border-radius:5px; border:2px solid;"></div>
       <div id="Colorbar" style="visibility:hidden;"></div>
       <div id="TimeStamp" style="visibility:hidden;"></div>
       <div id="Logo" style="visibility:hidden;"></div>
