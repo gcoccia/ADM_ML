@@ -363,6 +363,9 @@ function LoadBasic()
     if ($("#pointpill").hasClass("active")) {
     	Hide_Data_Extraction_Popup();
     }
+    if ($("#feedbackBtn").hasClass("active")) {
+      clearPopup();
+    }
     $("#map_canvas_1").hide();
     $("#Colorbar").hide();
     $("#TimeStamp").hide();
