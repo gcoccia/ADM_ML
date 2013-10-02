@@ -343,7 +343,7 @@ $strings_to_translate = array("Drought_Indices" => $_('Drought Indices'),
       var copyLi = $(this).parent().clone();
       copyLi.appendTo("ul#currently-selected-vars");
       copyLi.find('a>i').remove();
-      copyLi.find('a').prepend(copyLi.find('a').attr('id').split('--')[1] + ': '); // give new element full ID including datatype
+      copyLi.find('a').prepend(copyLi.find('a').attr('id').split('--')[0] + ': '); // give new element full ID including datatype
       copyLi.find('a').prepend("<i class='icon-remove'></i>");
 
       // need to bind the removal click listener here, because the element did not exist at page load
