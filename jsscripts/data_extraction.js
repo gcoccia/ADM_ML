@@ -297,11 +297,11 @@ function Create_Point_Plot() {
   subtitle = TRANSLATE[plot];
  
  //Request data for these variables (does ajax call and plots)
- Request_Data(chart_data,Create_Text_Data,plot); 
+ Request_Data(chart_data,Create_Text_Data,plot,chart_controls); 
 
 }
 
-function Plot_Point_Ajax_Response(Output) {
+function Plot_Point_Ajax_Response(Output,Create_Text_Data,chart_controls,chart_data) {
  //If we have requested the data display the link
  point_data_link = Output['point_data_link']
  if (Create_Text_Data == 'no'){
@@ -402,7 +402,7 @@ function Plot_Point_Ajax_Response(Output) {
 }
 
 /*Obtain all the data at once from the server*/
-function Request_Data(variables,Create_Text_Data,data_group) {
+function Request_Data(variables,Create_Text_Data,data_group,chart_controls) {
 
   // Use hardcoded values for now, rather than the input values.
   //var initial_date = Date.UTC(2001,0,1)/1000;
@@ -437,7 +437,7 @@ function Request_Data(variables,Create_Text_Data,data_group) {
     success: function(response){
      var Output = JSON.parse(response.replace(/\bNaN\b/g, "null"));
      $("#ajax_request_load").hide();
-     Plot_Point_Ajax_Response(Output);
+     Plot_Point_Ajax_Response(Output,Create_Text_Data,chart_controls,variables);
     },
     async: true,
     cache: false,
