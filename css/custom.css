@@ -326,6 +326,13 @@ img {
   bottom:0%;
 }
 
+#ajax_request_load>img {
+  position:absolute;
+  z-index:8100;
+  left:40%;
+  top:40%;
+}
+
 #popUpDiv {
   position:absolute;
   /*background-color:#eeeeee;*/
