@@ -517,6 +517,12 @@ function Update_Spatial_Data_Display() {
     $("#nvars_warning").hide();
   }
 
+  if(npts == Infinity || nvars <= 0) {
+    $("#estimated_download_size").hide();
+  } else {
+    $("#estimated_download_size").show();
+  }
+
   if(estimated_download_size > 1000) {
     $("#download_size_warning").show();
   } else {
