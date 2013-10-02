@@ -365,6 +365,7 @@ $strings_to_translate = array("Drought_Indices" => $_('Drought Indices'),
     // Feedback form submit -- ajax request rather than default (page reload)
     $( "#feedbackForm" ).submit(function(e) {
       e.preventDefault();
+      console.log("WHAT IS HAPPENING");
 
       $.ajax({
         type:"post",
