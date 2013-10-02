@@ -93,7 +93,7 @@ def gradstime2datetime(str):
 
 def Send_Email(txt):
 
- with open('creds.json') as creds_file:    
+ with open('.htpasswd') as creds_file:    
   creds = json.load(creds_file)
   sender = creds["username"] + "@gmail.com"
   receiver = email
