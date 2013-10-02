@@ -9,6 +9,7 @@ import numpy as np
 import netCDF4 as netcdf
 import random
 import os
+import json
 
 def Write_Arc_Ascii(dims,file,data):
 
@@ -92,15 +93,18 @@ def gradstime2datetime(str):
 
 def Send_Email(txt):
 
- sender = "african.water.cycle.monitor@gmail.com"
- receiver = email
- msg = MIMEText(txt)
- msg['Subject'] = 'African Water Monitor Data Request'
- msg['From'] = 'african.water.cycle.monitor@gmail.com'
- msg['To'] = email
- s = smtplib.SMTP('localhost')
- s.sendmail(sender,receiver,msg.as_string())
- s.quit()
+  with open('creds.json') as creds_file:    
+    creds = json.load(creds_file)
+    receiver = email
+    msg = MIMEText(txt)
+    msg['Subject'] = 'African Water Monitor Data Request'
+    msg['From'] = creds["username"] + "@gmail.com"
+    msg['To'] = email
+    s = smtplib.SMTP('smtp.gmail.com:587')
+    s.starttls()  
+    s.login(creds["username"], creds["password"])  
+    s.sendmail(sender,receiver,msg.as_string())
+    s.quit()
 
  return
 
