@@ -518,9 +518,9 @@ function Update_Spatial_Data_Display() {
   }
 
   if(npts == Infinity || nvars <= 0) {
-    $("#estimated_download_size").hide();
+    $("#est_dl_size_holder").hide();
   } else {
-    $("#estimated_download_size").show();
+    $("#est_dl_size_holder").show();
   }
 
   if(estimated_download_size > 1000) {
