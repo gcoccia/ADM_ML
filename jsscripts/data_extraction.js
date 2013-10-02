@@ -436,6 +436,7 @@ function Request_Data(variables,Create_Text_Data,data_group) {
     beforeSend: function() {$("#ajax_request_load").show();},
     success: function(response){
      var Output = JSON.parse(response.replace(/\bNaN\b/g, "null"));
+     $("#ajax_request_load").hide();
      Plot_Point_Ajax_Response(Output);
     },
     async: true,

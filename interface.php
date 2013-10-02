@@ -238,7 +238,12 @@ $strings_to_translate = array("Drought_Indices" => $_('Drought Indices'),
         $("ul.datalist>li>a>i").removeClass("icon-ok");
         $("ul.datalist>li>ul.dropdown-menu>li>a>i").removeClass("icon-ok");
       }
-      else if(""+current_setting == "point" && $("#popUpDiv").is(":visible")) Hide_Data_Extraction_Popup();
+      else if(""+current_setting == "point") {
+        if($("#popUpDiv").is(":visible")) 
+          Hide_Data_Extraction_Popup();
+        if($("#ajax_request_load").is(":visible"))
+          $("#ajax_request_load").hide();
+      }
       else if(""+current_setting == "spatial") {
         Update_Listeners('spatial');
         $("input[name='variables_spatial_data[]']:checked").prop('checked', false);
@@ -287,6 +292,8 @@ $strings_to_translate = array("Drought_Indices" => $_('Drought Indices'),
       if(!$(this).parent().hasClass("active")) { // only act on change
         $(".de-pills").parent().removeClass("active");
         $(this).parent().addClass("active");
+        if($("#ajax_request_load").is(":visible"))
+          $("#ajax_request_load").hide();
       }
     });
     $(".mf-pills").click(function() {
