@@ -44,7 +44,6 @@ msgstr ""
 msgid "Monitor"
 msgstr ""
 
-msgid "Forecast"
 msgstr ""
 
 msgid "Time Interval"
@@ -77,6 +76,12 @@ msgstr ""
 msgid "Meteorology"
 msgstr ""
 
+msgid "Hydrology"
+msgstr ""
+
+msgid "Precipitation (mm/day)"
+msgstr ""
+
 msgid "Precipitation (mm)"
 msgstr ""
 
@@ -104,7 +109,10 @@ msgstr ""
 msgid "Baseflow (mm/day)"
 msgstr ""
 
-msgid "Streamflow (mm/day)"
+msgid "Streamflow (m^3/s)"
+msgstr ""
+
+msgid "Streamflow"
 msgstr ""
 
 msgid "SPI (1 month)"
@@ -146,7 +154,7 @@ msgstr ""
 msgid "Click a point on the map to view time series data."
 msgstr ""
 
-msgid "Drought Indices"
+msgid "Indices"
 msgstr ""
 
 msgid "Water Balance"
@@ -155,10 +163,25 @@ msgstr ""
 msgid "Surface Fluxes"
 msgstr ""
 
+msgid "Streamflow"
+msgstr ""
+
+msgid "Soil Moisture"
+msgstr ""
+
+msgid "Vegetation"
+msgstr ""
+
+msgid "Meteorology"
+msgstr ""
+
 msgid "Latitude"
 msgstr ""
 
 msgid "Longitude"
+msgstr ""
+
+msgid "Create Corresponding Data File?"
 msgstr ""
 
 msgid "Spatial Data Selection"
@@ -244,3 +267,94 @@ msgstr ""
 #: interface.php:63
 msgid "Processing request, please wait"
 msgstr ""
+
+msgid "Soil Moisture Index"
+msgstr ""
+
+msgid "Streamflow Index"
+msgstr ""
+
+msgid "Vegetation Index"
+msgstr ""
+
+msgid "Percentile (%)"
+msgstr ""
+
+msgid "SPI"
+msgstr ""
+
+msgid "Feedback"
+msgstr ""
+
+msgid "Yes"
+msgstr ""
+
+msgid "No"
+msgstr ""
+
+msgid "Dataset"
+msgstr ""
+
+msgid "arc ascii"
+msgstr ""
+
+msgid "netcdf"
+msgstr ""
+
+msgid "Satellite Precipitation (3B42RT)"
+msgstr ""
+
+msgid "Princeton Global Forcing Dataset"
+msgstr ""
+
+msgid "Princeton Global Forcing"
+msgstr ""
+
+msgid "Global Forecasting System Analysis"
+msgstr ""
+
+msgid "Derived Hydrologic Products (VIC)"
+msgstr ""
+
+msgid "VIC hydrologic model (PGF)"
+msgstr ""
+
+msgid "VIC hydrologic model (3B42RT)"
+msgstr ""
+
+msgid "Derived Meteorology"
+msgstr ""
+
+msgid "Derived Hydrology"
+msgstr ""
+
+msgid "MODIS"
+msgstr ""
+
+msgid "VIC hydrologic model"
+msgstr ""
+
+msgid "CMC1-CanCM3"
+msgstr ""
+
+msgid "GFDL-CM2p1-aer04"
+msgstr ""
+
+msgid "COLA-RSMAS-CCSM3"
+msgstr ""
+
+msgid "NASA-GMAO-062012"
+msgstr ""
+
+msgid "CMC2-CanCM4"
+msgstr ""
+
+msgid "NCEP-CFSv2"
+msgstr ""
+
+msgid "Multi Model Mean"
+msgstr ""
+
+msgid "GFS 7-day forecast"
+msgstr ""
+
