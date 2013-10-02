@@ -342,7 +342,7 @@ $strings_to_translate = array("Drought_Indices" => $_('Drought Indices'),
     $("ul.spatial-datalist>li>ul.dropdown-menu>li>a").click(function() {
       var copyLi = $(this).parent().clone();
       copyLi.appendTo("ul#currently-selected-vars");
-      copyLi.find('a').text(copyLi.find('a').attr('id')); // give new element full ID including datatype
+      //copyLi.find('a').text(copyLi.find('a').attr('id')); // give new element full ID including datatype
       copyLi.find('a').prepend("<i class='icon-remove'></i>");
 
       // need to bind the removal click listener here, because the element did not exist at page load
