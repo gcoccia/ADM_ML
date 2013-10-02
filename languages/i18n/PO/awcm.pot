@@ -44,8 +44,6 @@ msgstr ""
 msgid "Monitor"
 msgstr ""
 
-msgstr ""
-
 msgid "Time Interval"
 msgstr ""
 
@@ -163,16 +161,10 @@ msgstr ""
 msgid "Surface Fluxes"
 msgstr ""
 
-msgid "Streamflow"
-msgstr ""
-
 msgid "Soil Moisture"
 msgstr ""
 
 msgid "Vegetation"
-msgstr ""
-
-msgid "Meteorology"
 msgstr ""
 
 msgid "Latitude"
@@ -187,9 +179,7 @@ msgstr ""
 msgid "Spatial Data Selection"
 msgstr ""
 
-msgid ""
-"Click points on the map to draw a polygon and select spatial data. Then "
-"select variables below."
+msgid "Click points on the map to draw a polygon and select spatial data. Then select variables below."
 msgstr ""
 
 msgid "Resolution"

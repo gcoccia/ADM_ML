@@ -4,9 +4,9 @@ if (file_exists('../settings.xml')) {
   $xmlobj = simplexml_load_file("../settings.xml");
 } else { exit("Error: settings.xml file not found."); }
 
-require_once('php-gettext-1.0.11/gettext.inc');
+require_once('languages/php-gettext-1.0.11/gettext.inc');
 $locale = BP_LANG;
-$textdomain="adm";
+$textdomain="awcm";
 
 if (isset($_GET['locale']) && !empty($_GET['locale'])) {
   $locale = $_GET['locale'];
@@ -27,7 +27,7 @@ putenv('LC_MESSAGES='.$locale);
 T_setlocale(LC_ALL,$locale);
 T_setlocale(LC_CTYPE,$locale);
 
-$locales_dir = dirname(__FILE__).'/i18n';
+$locales_dir = dirname(__FILE__).'/languages/i18n';
 T_bindtextdomain($textdomain,$locales_dir);
 T_bind_textdomain_codeset($textdomain, 'UTF-8'); 
 T_textdomain($textdomain);

@@ -1,0 +1,5 @@
+#Language translation
+1. Add the translation to the .po file
+2. Use the following command to update the .mo file:
+msgfmt -cv -o filename.mo filename.po
+3. Make sure the filename is in a place that the php can find it
