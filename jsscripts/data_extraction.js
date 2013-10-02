@@ -293,11 +293,15 @@ function Create_Point_Plot() {
     var chart_controls = {
      title: {text: "Vegetation",}
     }
-  };
+  }
   subtitle = TRANSLATE[plot];
  
- //Request data for these variables
- var Output = Request_Data(chart_data,Create_Text_Data,plot); 
+ //Request data for these variables (does ajax call and plots)
+ Request_Data(chart_data,Create_Text_Data,plot); 
+
+}
+
+function Plot_Point_Ajax_Response(Output) {
  //If we have requested the data display the link
  point_data_link = Output['point_data_link']
  if (Create_Text_Data == 'no'){
@@ -389,17 +393,17 @@ function Create_Point_Plot() {
      labels: {style: {fontSize: '15px',fontFamily: 'Avant Garde, Avantgarde, Century Gothic, CenturyGothic, AppleGothic, sans-serif'}}
     }
     chart_options.yAxis.push(yAxis);
-   }; 
+   }
    //Add the series
    chart_options.series.push(series);
- };
+ }
  //Create the chart
  var chart = $('#popup_container').highcharts(chart_options);
-};
+}
 
 /*Obtain all the data at once from the server*/
 function Request_Data(variables,Create_Text_Data,data_group) {
-  var Output;
+
   // Use hardcoded values for now, rather than the input values.
   //var initial_date = Date.UTC(2001,0,1)/1000;
   //var final_date = Date.UTC(2001,0,11)/1000;
@@ -429,15 +433,15 @@ function Request_Data(variables,Create_Text_Data,data_group) {
     type:"post",
     url: 'scripts/Jquery_Python_JSON_Glue.php',
     data: request,
-    //beforeSend: function() {$("#ajax_request_load").show();},
-    //complete: function() {$("#ajax_request_load").hide();},
+    beforeSend: function() {$("#ajax_request_load").show();},
     success: function(response){
-     Output = JSON.parse(response.replace(/\bNaN\b/g, "null"));
+     var Output = JSON.parse(response.replace(/\bNaN\b/g, "null"));
+     $("#ajax_request_load").hide();
+     Plot_Point_Ajax_Response(Output);
     },
-    async: false,
+    async: true,
     cache: false,
   });
-  return Output;
 }
 
 /* Spatial Data functions */
