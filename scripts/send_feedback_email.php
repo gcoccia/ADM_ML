@@ -9,4 +9,6 @@ $headers = 'From: '. $email . "\r\n" .
            'X-Mailer: PHP/' . phpversion();
 
 mail('jdherman8@gmail.com', $subject, $message, $headers);
+
+header("Location: http://google.com");
 ?>
