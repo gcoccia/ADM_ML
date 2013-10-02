@@ -344,6 +344,7 @@ function update_monitor_or_forecast()
     $("#year_final").val(final_date.getFullYear());
     $("#month_final").val(final_date.getMonth() + 1);
     $("#day_final").val(final_date.getDate());
+    $("#yearly").show();
   }
   else {
     $("#Animation-Sidebar>div.dummy").hide();
@@ -351,6 +352,7 @@ function update_monitor_or_forecast()
     $("#initial-date-inputs").hide();
     $("#final-date-inputs").hide();
     $("#Animation-Update").hide();
+    $("#yearly").hide();
     //Set the date to the latest forecast
     ReadTimeInterval();
   }
