@@ -421,15 +421,15 @@ function LoadFeedback()
     $("#feedbackBtn").addClass("active");
 
     // Bind submission event
-    $( "#feedbackForm" ).submit(function(e) {
+    $("#feedbackForm").submit(function(e) {
       e.preventDefault();
-      console.log("WHAT IS HAPPENING");
 
       $.ajax({
         type:"post",
         url: 'scripts/send_feedback_email.php',
         data: $(this).serialize(),
-        //beforeSend: function() {$("#ajax_request_load").show();},
+        // Show a spinner here while request is sending.
+        // beforeSend: function() {$("#ajax_request_load").show();},
         success: function(response){
           clearPopup();
         },
