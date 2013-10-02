@@ -132,6 +132,17 @@ function Update_Listeners(type){
        mapPolygon.runEdit(true);
        Update_Spatial_Data_Display();
   });
+
+  google.maps.event.addListener(mapPolygon, 'click', function() {
+    followLine1.setMap(null);
+    followLine2.setMap(null);
+    google.maps.event.clearListeners(map_array[0], "click");
+    google.maps.event.clearListeners(map_array[0], "mousemove");
+    google.maps.event.clearListeners(map_array[0], "rightclick");
+    google.maps.event.clearListeners(mapPolygon, "click");
+    map_array[0].setOptions({draggableCursor:null});
+    Update_Spatial_Data_Display();
+  });
      
   google.maps.event.addListener(map_array[0], 'rightclick', function () {
     followLine1.setMap(null);
@@ -139,6 +150,7 @@ function Update_Listeners(type){
     google.maps.event.clearListeners(map_array[0], "click");
     google.maps.event.clearListeners(map_array[0], "mousemove");
     google.maps.event.clearListeners(map_array[0], "rightclick");
+    google.maps.event.clearListeners(mapPolygon, "click");
     map_array[0].setOptions({draggableCursor:null});
     Update_Spatial_Data_Display();
   });
