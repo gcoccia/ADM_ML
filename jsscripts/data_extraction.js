@@ -47,7 +47,7 @@ function Update_Listeners(type){
   $("#final-date-inputs").show();
   $("#initial-date-inputs").show();
   $("#Animation-Update").show();
-  var sample_dataset = 'VIC_DERIVED--vcpct';
+  var sample_dataset = 'vcpct--VIC_DERIVED';
   var final_date = new Date(data_fdates[sample_dataset]);
   final_date.setDate(final_date.getDate() + 7);
   var initial_date = new Date(final_date);
@@ -94,7 +94,7 @@ function Update_Listeners(type){
   $("#final-date-inputs").show();
   $("#initial-date-inputs").show();
   $("#Animation-Update").show();
-  var sample_dataset = 'VIC_DERIVED--vcpct';
+  var sample_dataset = 'vcpct--VIC_DERIVED';
   var final_date = new Date(data_fdates[sample_dataset]);
   $("#year_initial").val(final_date.getFullYear());
   $("#month_initial").val(final_date.getMonth() + 1);
@@ -315,7 +315,7 @@ function Plot_Point_Ajax_Response(Output,Create_Text_Data,chart_controls,chart_d
  //Define forecast dates for background color
  var tstep = $("ul.ts-selection li.active").attr('id').toUpperCase(); // "daily", "monthly" or "yearly"
  if (tstep == 'DAILY'){
-  var sample_dataset = 'VIC_DERIVED--vcpct';
+  var sample_dataset = 'vcpct--VIC_DERIVED';
   var final_date = new Date(data_fdates[sample_dataset]);
   var initial_date = new Date(final_date.getTime())
   initial_date.setDate(initial_date.getDate()+1);
@@ -324,7 +324,7 @@ function Plot_Point_Ajax_Response(Output,Create_Text_Data,chart_controls,chart_d
   var final_date = Date.UTC(final_date.getFullYear(),final_date.getMonth(),final_date.getDate());
  }
  else if (tstep == 'MONTHLY'){
-  var sample_dataset = 'MultiModel--spi1';
+  var sample_dataset = 'spi1--MultiModel';
   var final_date = new Date(data_fdates[sample_dataset]);
   var initial_date = new Date(final_date.getTime());
   final_date.setDate(final_date.getDate()+31*6);

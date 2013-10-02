@@ -16,10 +16,10 @@ function ReadTimeInterval()
     var current_timestep = $("ul.ts-selection li.active").attr('id');
     var dataset = $("ul.datalist>li>ul.dropdown-menu>li.active").find("a").attr('id');
     if (current_timestep == 'daily') {
-     var sample_dataset = "GFS_7DAY_FORECAST--vcpct";
+     var sample_dataset = "vcpct--GFS_7DAY_FORECAST";
     }
     else if (current_timestep == 'monthly') { 
-     var sample_dataset = "MultiModel--prec";
+     var sample_dataset = "prec--MultiModel";
     }
     var initial_date = new Date(data_idates[sample_dataset]);
     $("#year_initial").val(initial_date.getFullYear());
@@ -107,8 +107,8 @@ function ImageArrayPrep(ImageStrArray,ImageTimeArray)
     // ImageStrArray[framect] = "../IMAGES/" + dir_tstring + "/" + dataset + "_" + tstring + ".png";
     //else {
     //temp = dataset.split("-")
-    variable = dataset.split("--")[1]//temp[temp.length-1]
-    datadir = dataset.split("--")[0]//temp.slice(0,temp.length-1).join("_")
+    variable = dataset.split("--")[0]//temp[temp.length-1]
+    datadir = dataset.split("--")[1]//temp.slice(0,temp.length-1).join("_")
     
     if ($("#InteractiveInterface").hasClass("active"))
       ImageStrArray[framect] = "../IMAGES/" + dir_tstring + "/" + datadir + "/" + variable + "_" + tstring + ".png";
