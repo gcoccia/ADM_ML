@@ -182,6 +182,7 @@ function Hide_Data_Extraction_Popup() {
 
 function Create_Point_Plot() {
 
+  $('#popup_container').empty()
   var variables, subtitle;
   var Create_Text_Data = $('input:radio[name=Create_Text_Data]:checked').val();
   var plot = $('input:radio[name=plot]:checked').val();
@@ -295,7 +296,7 @@ function Create_Point_Plot() {
   $("#point_data_link").attr("href",point_data_link);
  }
 
- //Define forecast dates
+ //Define forecast dates for background color
  var tstep = $("ul.ts-selection li.active").attr('id').toUpperCase(); // "daily", "monthly" or "yearly"
  if (tstep == 'DAILY'){
   var sample_dataset = 'VIC_DERIVED--vcpct';
@@ -310,14 +311,13 @@ function Create_Point_Plot() {
   var sample_dataset = 'MultiModel--spi1';
   var final_date = new Date(data_fdates[sample_dataset]);
   var initial_date = new Date(final_date.getTime());
-  //initial_date.setDate(final_date.getDate());
   final_date.setDate(final_date.getDate()+31*6);
   var initial_date = Date.UTC(initial_date.getFullYear(),initial_date.getMonth(),initial_date.getDate());
   var final_date = Date.UTC(final_date.getFullYear(),final_date.getMonth(),final_date.getDate());
  }
  else if (tstep == 'YEARLY'){
-  var forecast_initial_date = Date.UTC(parseInt($("#year_initial").val()),0,1)/1000;
-  var forecast_final_date = Date.UTC(parseInt($("#year_final").val()),11,31)/1000;
+  var initial_date = Date.UTC(parseInt($("#year_final").val()),0,1)/1000;
+  var final_date = Date.UTC(parseInt($("#year_final").val()),11,31)/1000;
  }
 
  //Create the input for the chart
@@ -443,7 +443,6 @@ function Update_Spatial_Data_Display() {
     lats.push(positions.lat());
     lons.push(positions.lng());
   });
-
   var minlat = Math.min.apply(Math, lats),
       minlon = Math.min.apply(Math, lons),
       maxlat = Math.max.apply(Math, lats),
