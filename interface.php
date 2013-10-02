@@ -238,7 +238,12 @@ $strings_to_translate = array("Drought_Indices" => $_('Drought Indices'),
         $("ul.datalist>li>a>i").removeClass("icon-ok");
         $("ul.datalist>li>ul.dropdown-menu>li>a>i").removeClass("icon-ok");
       }
-      else if(""+current_setting == "point" && $("#popUpDiv").is(":visible")) Hide_Data_Extraction_Popup();
+      else if(""+current_setting == "point") {
+        if($("#popUpDiv").is(":visible")) 
+          Hide_Data_Extraction_Popup();
+        if($("#ajax_request_load").is(":visible"))
+          $("#ajax_request_load").hide();
+      }
       else if(""+current_setting == "spatial") {
         Update_Listeners('spatial');
         $("input[name='variables_spatial_data[]']:checked").prop('checked', false);
@@ -287,6 +292,8 @@ $strings_to_translate = array("Drought_Indices" => $_('Drought Indices'),
       if(!$(this).parent().hasClass("active")) { // only act on change
         $(".de-pills").parent().removeClass("active");
         $(this).parent().addClass("active");
+        if($("#ajax_request_load").is(":visible"))
+          $("#ajax_request_load").hide();
       }
     });
     $(".mf-pills").click(function() {
@@ -399,13 +406,13 @@ $strings_to_translate = array("Drought_Indices" => $_('Drought Indices'),
 <div class="row-fluid" style="width:100%; position: absolute; bottom: 0px; top:40px;">
     <div class="span12" style="height:100%; width=100%;">
       <div id="blanket" style="display:none;"></div>
-      <div id="ajax_request_load" style="display:none;"></div>
+      <div id="ajax_request_load" style="display:none;"><img src="icons/ajax-loader.gif"/></div>
       <div id="popUpDiv" style="display:none;">
         <!--Chart Container-->
         <div id="popup_container"></div>
       </div>
 
-      <div id="feedbackPopup" style="visibility:hidden; position:absolute; background:rgb(229, 227, 223); margin:auto; left: 22%; width:700px; top:60px; height:370px; z-index:8900; padding-top:15px; border-radius:5px; border:2px solid grey;"></div>
+      <div id="feedbackPopup" style="visibility:hidden; position:absolute; background:rgb(229, 227, 223); margin:auto; left: 22%; width:700px; top:60px; height:370px; z-index:9100; padding-top:15px; border-radius:5px; border:2px solid grey;"></div>
       <div id="Colorbar" style="visibility:hidden;"></div>
       <div id="TimeStamp" style="visibility:hidden;"></div>
       <div id="Logo" style="visibility:hidden;"></div>

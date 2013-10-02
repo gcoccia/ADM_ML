@@ -410,7 +410,7 @@ function LoadFeedback()
 {
   if (!$("#feedbackBtn").hasClass("active")) {
     $("#feedbackPopup").css("visibility","visible");
-    $("#feedbackPopup").append("<form id='feedbackForm' method='POST' action='' class='form-horizontal'><div><h4 style='margin-left:30px;'>Contact Us:</h4></div><div class='control-group'><label class='control-label' for='input1'>Name</label><div class='controls'><input type='text' name='contact_name' id='input1' placeholder='Your name'></div></div><div class='control-group'><label class='control-label' for='input2'>Email Address</label><div class='controls'><input type='text' name='contact_email' id='input2' placeholder='Your email address'></div></div><div class='control-group'><label class='control-label' for='input3'>Message</label><div class='controls'><textarea name='contact_message' id='input3' rows='8' class='span9' placeholder='Message to send.'></textarea></div></div><div class='form-actions' style='border-radius:0px 0px 5px 5px;'><input type='hidden' name='save' value='contact'><button type='submit' class='btn btn-primary'>Send</button><button id='closeForm' type='button' class='btn' style='margin-left:30px' onclick='clearPopup();'>Clear</button></div></form>");
+    $("#feedbackPopup").append("<form id='feedbackForm' method='POST' action='' class='form-horizontal'><div><h4 style='margin-left:30px;'>Contact Us:</h4></div><div class='control-group'><label class='control-label' for='input1'>Name</label><div class='controls'><input type='text' name='contact_name' id='input1' placeholder='Your name'></div></div><div class='control-group'><label class='control-label' for='input2'>Email Address</label><div class='controls'><input type='text' name='contact_email' id='input2' placeholder='Your email address'></div></div><div class='control-group'><label class='control-label' for='input3'>Message</label><div class='controls'><textarea name='contact_message' id='input3' rows='8' class='span9' placeholder='Message to send.'></textarea></div></div><div class='form-actions' style='border-radius:0px 0px 5px 5px;'><input type='hidden' name='save' value='contact'><button type='submit' class='btn btn-primary'>Send</button><button id='closeForm' type='button' class='btn' style='margin-left:30px' onclick='clearPopup();'>Cancel</button></div></form>");
     
     if ($("#InteractiveInterface").hasClass("active")) {
       $("#InteractiveInterface").removeClass("active");
@@ -419,6 +419,25 @@ function LoadFeedback()
       $("#BasicInterface").removeClass("active");
       previous = "#BasicInterface"; }
     $("#feedbackBtn").addClass("active");
+
+    // Bind submission event
+    $("#feedbackForm").submit(function(e) {
+      e.preventDefault();
+
+      $.ajax({
+        type:"post",
+        url: 'scripts/send_feedback_email.php',
+        data: $(this).serialize(),
+        // Show a spinner here while request is sending.
+        // beforeSend: function() {$("#ajax_request_load").show();},
+        success: function(response){
+          clearPopup();
+        },
+        async: true,
+        cache: false,
+      });
+
+    });
   }
 }
 
@@ -427,4 +446,5 @@ function clearPopup() {
     $("#feedbackForm").remove();
     $("#feedbackBtn").removeClass("active");
     $(previous).addClass("active");
+    $( "#feedbackForm" ).unbind("submit");
 }
