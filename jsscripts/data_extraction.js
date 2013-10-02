@@ -436,7 +436,7 @@ function Request_Data(variables,Create_Text_Data,data_group) {
     },
     async: false,
     cache: false,
-  })
+  });
   return Output;
 }
 
