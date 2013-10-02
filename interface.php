@@ -369,7 +369,7 @@ $strings_to_translate = array("Drought_Indices" => $_('Drought Indices'),
       }
     });
 
-    $("#email_spatial_data").keypress(function() {
+    $("#email_spatial_data").on('keyup change', function() {
       Update_Spatial_Data_Display();
     });
 
