@@ -362,25 +362,6 @@ $strings_to_translate = array("Drought_Indices" => $_('Drought Indices'),
       }
     });
 
-    // Feedback form submit -- ajax request rather than default (page reload)
-    $( "#feedbackForm" ).submit(function(e) {
-      e.preventDefault();
-      console.log("WHAT IS HAPPENING");
-
-      $.ajax({
-        type:"post",
-        url: 'scripts/send_feedback_email.php',
-        data: $(this).serialize(),
-        //beforeSend: function() {$("#ajax_request_load").show();},
-        success: function(response){
-          clearPopup();
-        },
-        async: true,
-        cache: false,
-      });
-
-    });
-
     // Load the default dataset
     $("ul.datalist>li>ul.dropdown-menu>li>a#" + DEFAULT_ANIMATION_DATASET).click();
   });
