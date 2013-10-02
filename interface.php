@@ -135,15 +135,15 @@ $strings_to_translate = array("Drought_Indices" => $_('Drought Indices'),
   <?php foreach($xmlobj->variables->group as $group) {
     foreach($group->datatype as $dt) {
       foreach($dt->dataset as $ds) {
-        echo "data_timesteps[\"".$ds['name']."--".$dt['name']."\"] = \"".$ds['ts']."\";\n";
-        echo "data_idates[\"".$ds['name']."--".$dt['name']."\"] = \"".$ds['itime']."\";\n";
-        echo "data_fdates[\"".$ds['name']."--".$dt['name']."\"] = \"".$ds['ftime']."\";\n";
-        echo "data_titles[\"".$ds['name']."--".$dt['name']."\"] = \"".$ds['title']."\";\n";
+        echo "data_timesteps[\"".$dt['name']."--".$ds['name']."\"] = \"".$ds['ts']."\";\n";
+        echo "data_idates[\"".$dt['name']."--".$ds['name']."\"] = \"".$ds['itime']."\";\n";
+        echo "data_fdates[\"".$dt['name']."--".$ds['name']."\"] = \"".$ds['ftime']."\";\n";
+        echo "data_titles[\"".$dt['name']."--".$ds['name']."\"] = \"".$ds['title']."\";\n";
       }
     }
   } ?>
 
-  var DEFAULT_ANIMATION_DATASET = "VIC_DERIVED--vcpct";
+  var DEFAULT_ANIMATION_DATASET = "vcpct--VIC_DERIVED";
   var TRANSLATE = <?php echo json_encode($strings_to_translate, JSON_NUMERIC_CHECK) ?>;
 
   // Define JS variables from PHP arrays
@@ -342,7 +342,8 @@ $strings_to_translate = array("Drought_Indices" => $_('Drought Indices'),
     $("ul.spatial-datalist>li>ul.dropdown-menu>li>a").click(function() {
       var copyLi = $(this).parent().clone();
       copyLi.appendTo("ul#currently-selected-vars");
-      copyLi.find('a').text(copyLi.find('a').attr('id')); // give new element full ID including datatype
+      copyLi.find('a>i').remove();
+      copyLi.find('a').prepend(copyLi.find('a').attr('id').split('--')[0] + ': '); // give new element full ID including datatype
       copyLi.find('a').prepend("<i class='icon-remove'></i>");
 
       // need to bind the removal click listener here, because the element did not exist at page load

@@ -336,7 +336,7 @@ function update_monitor_or_forecast()
     $("#final-date-inputs").show();
     $("#initial-date-inputs").show();
     $("#Animation-Update").show();
-    var sample_dataset = 'VIC_DERIVED--vcpct';
+    var sample_dataset = 'vcpct--VIC_DERIVED';
     var final_date = new Date(data_fdates[sample_dataset]);
     $("#year_initial").val(final_date.getFullYear());
     $("#month_initial").val(final_date.getMonth() + 1);
