@@ -369,6 +369,10 @@ $strings_to_translate = array("Drought_Indices" => $_('Drought Indices'),
       }
     });
 
+    $("#email_spatial_data").keypress(function() {
+      Update_Spatial_Data_Display();
+    });
+
     // Load the default dataset
     $("ul.datalist>li>ul.dropdown-menu>li>a#" + DEFAULT_ANIMATION_DATASET).click();
   });
