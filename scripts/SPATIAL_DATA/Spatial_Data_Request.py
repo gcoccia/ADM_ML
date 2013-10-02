@@ -92,11 +92,11 @@ def gradstime2datetime(str):
 
 def Send_Email(txt):
 
- sender = "nchaney@princeton.edu"
+ sender = "african.water.cycle.monitor@gmail.com"
  receiver = email
  msg = MIMEText(txt)
  msg['Subject'] = 'African Water Monitor Data Request'
- msg['From'] = 'nchaney@princeton.edu'
+ msg['From'] = 'african.water.cycle.monitor@gmail.com'
  msg['To'] = email
  s = smtplib.SMTP('localhost')
  s.sendmail(sender,receiver,msg.as_string())

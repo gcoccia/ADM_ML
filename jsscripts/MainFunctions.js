@@ -130,6 +130,7 @@ function update_basic()
       img.style.height = "100%";
       div.appendChild(img);
       
+      /*
       var titlediv = document.createElement("div");
       titlediv.setAttribute('class',"image_superposition");
       var titletext = document.createElement("h3");
@@ -137,6 +138,7 @@ function update_basic()
       titletext.innerHTML = dataset;
       titlediv.appendChild(titletext);
       div.appendChild(titlediv);
+      */
       document.getElementById("basic_interface1").appendChild(div)
 
       ImageCounter = 0;

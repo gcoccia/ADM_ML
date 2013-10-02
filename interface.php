@@ -129,6 +129,7 @@ $strings_to_translate = array("Drought_Indices" => $_('Drought Indices'),
 <script src="http://code.highcharts.com/highcharts.js" type="text/javascript"></script>
 <script src="http://code.highcharts.com/modules/exporting.js" type="text/javascript"></script>
 <script type="text/javascript">
+  var general_info = <?php echo json_encode($xmlobj->dimensions, JSON_NUMERIC_CHECK) ?>;
   var info_box_strings = <?php echo json_encode($info_box_strings, JSON_NUMERIC_CHECK) ?>;
   var data_timesteps = [], data_idates = [], data_fdates = [], data_titles = [];
   <?php foreach($xmlobj->variables->group as $group) {
