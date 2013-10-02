@@ -611,3 +611,11 @@ ul.datalist>li>ul.dropdown-menu>li>a, ul.spatial-datalist>li>ul.dropdown-menu>li
   margin-top:5px;
   color:#555;
 }
+
+#feedbackPopup {
+  z-index: 9100;
+}
+
+#feedbackBtn>a:hover {
+  cursor:pointer;
+}
