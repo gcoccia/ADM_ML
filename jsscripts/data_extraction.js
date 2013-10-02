@@ -517,16 +517,17 @@ function Update_Spatial_Data_Display() {
     $("#nvars_warning").hide();
   }
 
+  // only show estimated download information if region and variable(s) are selected
   if(npts == Infinity || nvars <= 0) {
     $("#est_dl_size_holder").hide();
   } else {
     $("#est_dl_size_holder").show();
-  }
 
-  if(estimated_download_size > 1000) {
-    $("#download_size_warning").show();
-  } else {
-    $("#download_size_warning").hide();
+    if(estimated_download_size > 1000) {
+      $("#download_size_warning").show();
+    } else {
+      $("#download_size_warning").hide();
+    }
   }
 
 }
