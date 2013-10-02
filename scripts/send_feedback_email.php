@@ -8,5 +8,5 @@ $headers = 'From: '. $email . "\r\n" .
            'Reply-To: '. $email . "\r\n" .
            'X-Mailer: PHP/' . phpversion();
 
-mail('african.water.cycle.monitor@gmail.com', $subject, $message, $headers);
+mail('jdherman8@gmail.com', $subject, $message, $headers);
 ?>
