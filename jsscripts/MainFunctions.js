@@ -93,7 +93,7 @@ function update_animation()
       $("ul.datalist>li>ul.dropdown-menu>li").removeClass("active");
       $("ul.datalist>li>a>i").removeClass("icon-ok");
       $("ul.datalist>li>ul.dropdown-menu>li>a>i").removeClass("icon-ok");
-      alert("Error: " + data_titles[dataset] + " is only available from " + data_idates[dataset] + " to " + data_fdates[dataset] + ".");
+      alert(TRANSLATE["Error: "] + data_titles[dataset] + TRANSLATE[" is only available from "] + data_idates[dataset] + TRANSLATE[" to "] + data_fdates[dataset] + ".");
     }
   }
 }
@@ -184,7 +184,7 @@ function update_basic()
       $("ul.datalist>li>ul.dropdown-menu>li").removeClass("active");
       $("ul.datalist>li>a>i").removeClass("icon-ok");
       $("ul.datalist>li>ul.dropdown-menu>li>a>i").removeClass("icon-ok");
-      alert("Error: " + data_titles[dataset] + " is only available from " + data_idates[dataset] + " to " + data_fdates[dataset] + ".");
+      alert(TRANSLATE["Error: "] + data_titles[dataset] + TRANSLATE[" is only available from "] + data_idates[dataset] + TRANSLATE[" to "] + data_fdates[dataset] + ".");
       //alert("Error: Dataset " + dataset + " is only available from " + data_idates[dataset] + " to " + data_fdates[dataset] + ".");
     }
   }

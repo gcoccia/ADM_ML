@@ -114,6 +114,9 @@ $strings_to_translate = array("Indices" => $_('Indices'),
 			      "Soil Moisture Index (%)" => $_('Soil Moisture Index (%)'),
 			      "Vegetation Index (%)" => $_('Vegetation Index (%)'),
 			      "Vegetation" => $_('Vegetation'),
+                              "Error: " => $_('Error: '),
+                              " is only available from " => $_(' is only available from '),
+                              " to " => $_(' to ')
                               );
 
 ?>
