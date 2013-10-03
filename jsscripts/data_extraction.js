@@ -200,10 +200,10 @@ function Create_Point_Plot() {
   var plot = $('input:radio[name=plot]:checked').val();
   if (plot == "Indices"){
     var chart_data = {
-     spi1:{units:TRANSLATE['SPI'],name:TRANSLATE['SPI (1 month)'],datasets:['SPI','GFS_7DAY_FORECAST','MultiModel'],},
-     spi3:{units:TRANSLATE['SPI'],name:TRANSLATE['SPI (3 months)'],datasets:['SPI','GFS_7DAY_FORECAST','MultiModel'],},
-     spi6:{units:TRANSLATE['SPI'],name:TRANSLATE['SPI (6 months)'],datasets:['SPI','GFS_7DAY_FORECAST','MultiModel'],},
-     spi12:{units:TRANSLATE['SPI'],name:TRANSLATE['SPI (12 months)'],datasets:['SPI','GFS_7DAY_FORECAST','MultiModel'],},
+     spi1:{units:'SPI',name:TRANSLATE['SPI (1 month)'],datasets:['SPI','GFS_7DAY_FORECAST','MultiModel'],},
+     spi3:{units:'SPI',name:TRANSLATE['SPI (3 months)'],datasets:['SPI','GFS_7DAY_FORECAST','MultiModel'],},
+     spi6:{units:'SPI',name:TRANSLATE['SPI (6 months)'],datasets:['SPI','GFS_7DAY_FORECAST','MultiModel'],},
+     spi12:{units:'SPI',name:TRANSLATE['SPI (12 months)'],datasets:['SPI','GFS_7DAY_FORECAST','MultiModel'],},
      vcpct:{units:TRANSLATE['Percentile (%)'],name:TRANSLATE['Soil Moisture Index (%)'],datasets:['VIC_DERIVED','GFS_7DAY_FORECAST'],},
      flw_pct:{units:TRANSLATE['Percentile (%)'],name:TRANSLATE['Streamflow Index (%)'],datasets:['ROUTING_VIC_DERIVED','GFS_7DAY_FORECAST'],},
      pct30day:{units:TRANSLATE['Percentile (%)'],name:TRANSLATE['Vegetation Index (%)'],datasets:['MOD09_NDVI_MA_DERIVED'],},
@@ -215,10 +215,10 @@ function Create_Point_Plot() {
   }
   else if (plot == "Water_Balance"){
     var chart_data = {
-     prec:{units:TRANSLATE['mm/day'],name:TRANSLATE['Precipitation'],datasets:['PGF','3B42RT_BC','GFS_7DAY_FORECAST'],},
-     evap:{units:TRANSLATE['mm/day'],name:TRANSLATE['Evaporation'],datasets:['VIC_PGF','VIC_3B42RT','GFS_7DAY_FORECAST'],},
-     runoff:{units:TRANSLATE['mm/day'],name:TRANSLATE['Runoff'],datasets:['VIC_PGF','VIC_3B42RT','GFS_7DAY_FORECAST'],},
-     baseflow:{units:TRANSLATE['mm/day'],name:TRANSLATE['Baseflow'],datasets:['VIC_PGF','VIC_3B42RT','GFS_7DAY_FORECAST'],},
+     prec:{units:TRANSLATE['mm/day'],name:TRANSLATE['Precipitation (mm/day)'],datasets:['PGF','3B42RT_BC','GFS_7DAY_FORECAST'],},
+     evap:{units:TRANSLATE['mm/day'],name:TRANSLATE['Evaporation (mm/day)'],datasets:['VIC_PGF','VIC_3B42RT','GFS_7DAY_FORECAST'],},
+     runoff:{units:TRANSLATE['mm/day'],name:TRANSLATE['Runoff (mm/day)'],datasets:['VIC_PGF','VIC_3B42RT','GFS_7DAY_FORECAST'],},
+     baseflow:{units:TRANSLATE['mm/day'],name:TRANSLATE['Baseflow (mm/day)'],datasets:['VIC_PGF','VIC_3B42RT','GFS_7DAY_FORECAST'],},
     }
     var chart_controls = {
      title: {text: TRANSLATE["Water Balance"],}
@@ -226,10 +226,10 @@ function Create_Point_Plot() {
   }
   else if (plot == "Meteorology"){
     var chart_data = {
-     prec:{units:'mm/day',name:'Precipitation (mm/day)',datasets:['PGF','3B42RT_BC','GFS_7DAY_FORECAST'],},
-     tmax:{units:'K',name:'Daily Maximum Temperature (K)',datasets:['PGF','GFS_ANALYSIS_BC','GFS_7DAY_FORECAST'],},
-     tmin:{units:'K',name:'Daily Minimum Temperature (K)',datasets:['PGF','GFS_ANALYSIS_BC','GFS_7DAY_FORECAST'],},
-     wind:{units:'m/s',name:'Daily Average Wind Speed (m/s)',datasets:['PGF','GFS_ANALYSIS_BC','GFS_7DAY_FORECAST'],},
+     prec:{units:TRANSLATE['mm/day'],name:TRANSLATE['Precipitation (mm/day)'],datasets:['PGF','3B42RT_BC','GFS_7DAY_FORECAST'],},
+     tmax:{units:'K',name:TRANSLATE['Daily Maximum Temperature (K)'],datasets:['PGF','GFS_ANALYSIS_BC','GFS_7DAY_FORECAST'],},
+     tmin:{units:'K',name:TRANSLATE['Daily Minimum Temperature (K)'],datasets:['PGF','GFS_ANALYSIS_BC','GFS_7DAY_FORECAST'],},
+     wind:{units:'m/s',name:TRANSLATE['Daily Average Wind Speed (m/s)'],datasets:['PGF','GFS_ANALYSIS_BC','GFS_7DAY_FORECAST'],},
     }
     var chart_controls = {
      title: {text: "Meteorology",}
@@ -237,40 +237,40 @@ function Create_Point_Plot() {
   }
   else if (plot == "Surface_Fluxes"){
     var chart_data = {
-     net_short:{units:'W/m2',name:'Net Shortwave',datasets:['VIC_PGF','VIC_3B42RT','GFS_7DAY_FORECAST'],},
-     net_long:{units:'W/m2',name:'Net Longwave',datasets:['VIC_PGF','VIC_3B42RT','GFS_7DAY_FORECAST'],},
-     r_net:{units:'W/m2',name:'Net Radiation',datasets:['VIC_PGF','VIC_3B42RT','GFS_7DAY_FORECAST'],},
+     net_short:{units:'W/m2',name:TRANSLATE['Net Shortwave (W/m2)'],datasets:['VIC_PGF','VIC_3B42RT','GFS_7DAY_FORECAST'],},
+     net_long:{units:'W/m2',name:TRANSLATE['Net Longwave (W/m2)'],datasets:['VIC_PGF','VIC_3B42RT','GFS_7DAY_FORECAST'],},
+     r_net:{units:'W/m2',name:TRANSLATE['Net Radiation (W/m2)'],datasets:['VIC_PGF','VIC_3B42RT','GFS_7DAY_FORECAST'],},
     }
     var chart_controls = {
-     title: {text: "Surface Fluxes",}
+     title: {text: TRANSLATE["Surface Fluxes"],}
     }
   }
   else if (plot == "Streamflow"){
     var chart_data = {
-     flw:{units:'m3/s',name:'Streamflow (m3/s)',datasets:['ROUTING_VIC_PGF','ROUTING_VIC_3B42RT','GFS_7DAY_FORECAST'],},
-     flw_pct:{units:'%',name:'Streamflow Index (%)',datasets:['ROUTING_VIC_DERIVED','GFS_7DAY_FORECAST'],},
+     flw:{units:'m3/s',name:TRANSLATE['Streamflow (m3/s)'],datasets:['ROUTING_VIC_PGF','ROUTING_VIC_3B42RT','GFS_7DAY_FORECAST'],},
+     flw_pct:{units:'%',name:TRANSLATE['Streamflow Index (%)'],datasets:['ROUTING_VIC_DERIVED','GFS_7DAY_FORECAST'],},
     }
     var chart_controls = {
-     title: {text: "Streamflow",}
+     title: {text: TRANSLATE["Streamflow"],}
     }
   }
   else if (plot == "Soil_Moisture"){
     var chart_data = {
-     vc1:{units:'%',name:'Soil Moisture (%) - Layer 1',datasets:['VIC_DERIVED','GFS_7DAY_FORECAST'],},
-     vc2:{units:'%',name:'Soil Moisture (%) - Layer 2',datasets:['VIC_DERIVED','GFS_7DAY_FORECAST'],},
-     vcpct:{units:'%',name:'Soil Moisture Index (%)',datasets:['VIC_DERIVED','GFS_7DAY_FORECAST'],},
+     vc1:{units:'%',name:TRANSLATE['Soil Moisture (%) - Layer 1'],datasets:['VIC_DERIVED','GFS_7DAY_FORECAST'],},
+     vc2:{units:'%',name:TRANSLATE['Soil Moisture (%) - Layer 2'],datasets:['VIC_DERIVED','GFS_7DAY_FORECAST'],},
+     vcpct:{units:'%',name:TRANSLATE['Soil Moisture Index (%)'],datasets:['VIC_DERIVED','GFS_7DAY_FORECAST'],},
     }
     var chart_controls = {
-     title: {text: "Soil Moisture",}
+     title: {text: TRANSLATE["Soil Moisture"],}
     }
   }
   else if (plot == "Vegetation"){
     var chart_data = {
      ndvi30:{units:'NDVI',name:'NDVI',datasets:['MOD09_NDVI_MA'],},
-     pct30day:{units:'%',name:'Vegetation Index (%)',datasets:['MOD09_NDVI_MA_DERIVED'],},
+     pct30day:{units:'%',name:TRANSLATE['Vegetation Index (%)'],datasets:['MOD09_NDVI_MA_DERIVED'],},
     }
     var chart_controls = {
-     title: {text: "Vegetation",}
+     title: {text: TRANSLATE["Vegetation"],}
     }
   }
   subtitle = TRANSLATE[plot];
