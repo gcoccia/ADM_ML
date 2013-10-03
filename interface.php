@@ -63,9 +63,9 @@ $label_array = array("LinktoImage" => $_('Link to Image'),
                      "ProcessNTI" => $_('Process new time interval'),
                      "ProcessRPW" => $_('Processing request, please wait'));
 
-$info_box_strings = array("prec" => $_(""),
-                          "tmax" => $_(""),
-                          "tmin" => $_(""),
+$info_box_strings = array("prec" => $_("A"),
+                          "tmax" => $_("B"),
+                          "tmin" => $_("C"),
                           "wind" => $_(""),
                           "vc1" => $_(""),
                           "vc2" => $_(""),
@@ -196,9 +196,9 @@ $strings_to_translate = array("Drought_Indices" => $_('Drought Indices'),
    
    $('a').hover(function(){
      //alert($(this).parent().attr("class")); 
-     if ($(this).parent().attr("class") == "nav-header") {
-       var string = info_box_strings[$(this).parent().attr("id")];
-       //alert(string);
+     if ($(this).parent().attr("class") == "dropdown") {
+       var string = info_box_strings[$(this).attr("id")];
+       alert(string);
        $(this).popover({
           content: string,
           html: true,
