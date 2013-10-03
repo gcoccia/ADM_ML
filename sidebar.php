@@ -141,7 +141,7 @@
               <?php foreach($group->datatype as $datatype) { ?>
                 <li class="dropdown">
                   <a class="dropdown-toggle" data-toggle="dropdown" href="javascript:void(0)"><i></i>
-                    <?php echo $datatype['title'] ?>
+                    <?php echo $_("".$datatype['title']) ?>
                     <b class="caret"></b>
                   </a>
                   <ul class="dropdown-menu">
