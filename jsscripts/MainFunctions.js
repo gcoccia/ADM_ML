@@ -115,9 +115,11 @@ function update_basic()
       var time_delay = 1000*1/frames_per_second;
 
       var div = document.createElement("div");
-      div.style.position = "relative";
-      div.style.left = "20%";
-      div.style.top = "20%";
+      div.style.position = "absolute";
+      div.style.left = "0%";
+      div.style.top = "0%";
+      div.style.right = "0%";
+      div.style.bottom = "0%";
       div.setAttribute('id','basic_image');
       
       var img = document.createElement("img");
@@ -126,8 +128,11 @@ function update_basic()
       img.onerror = function (evt){
   	this.src = 'icons/gm_noimage.gif';
       }
-      img.style.width = "100%";
-      img.style.height = "100%";
+      //img.style.width = "75%";
+      //img.style.height = "75%";
+      img.style.position = "absolute";
+      img.style.left = "16%";
+      img.style.top = "70px";
       div.appendChild(img);
       
       /*
