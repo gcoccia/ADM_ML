@@ -146,6 +146,7 @@ $strings_to_translate = array("Indices" => $_('Indices'),
 <script src="http://code.highcharts.com/highcharts.js" type="text/javascript"></script>
 <script src="http://code.highcharts.com/modules/exporting.js" type="text/javascript"></script>
 <script type="text/javascript">
+  var timeoutid;
   var general_info = <?php echo json_encode($xmlobj->dimensions, JSON_NUMERIC_CHECK) ?>;
   var info_box_strings = <?php echo json_encode($info_box_strings, JSON_NUMERIC_CHECK) ?>;
   var data_timesteps = [], data_idates = [], data_fdates = [], data_titles = [];
@@ -207,23 +208,19 @@ $strings_to_translate = array("Indices" => $_('Indices'),
       $(this).parent().find(".data-form-block").toggle();
     });
 
-   
+    
    $('a').hover(function(){
      //alert($(this).parent().attr("class")); 
      if ($(this).parent().attr("class") == "dropdown") {
-       var string = info_box_strings[$(this).attr("id")];
+      var string = info_box_strings[$(this).attr("id")];
+      var $name = $(this);
       // alert(string);
-       $(this).popover({
-          content: string,
-          html: true,
-          placement: 'top',
-          trigger: 'hover'
-       }); 
-       $(this).popover('show');
-
+      $(this).popover({content: string, html: true, placement: 'top', trigger: 'hover', delay: {show: 1500, hide: 100}});
 	}
-    });  
-          
+    }); 
+
+  $('a').trigger('mouseover'); 
+      
     $('#hideBtn').click(function() {
       $('#sidebar1').toggle();
       if ($('#hideBtnImg').attr('class') == 'icon-arrow-right') {
