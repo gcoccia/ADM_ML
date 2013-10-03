@@ -229,7 +229,8 @@ function clear_image_overlays()
 }
 
 function display_colorbar(dataset)
-{
+{ 
+  var dataset = dataset.split('--')[1] + '--' + dataset.split('--')[0]
   var current_timestep = $("ul.ts-selection li.active").attr('id').toUpperCase();
   var cbar_img = "../IMAGES/COLORBARS/" + dataset + "_" + current_timestep + ".png";
   $("#Colorbar").css({visibility: "visible", height: "52px"});
