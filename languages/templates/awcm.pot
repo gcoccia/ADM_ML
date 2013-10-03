@@ -1,350 +1,387 @@
-# African Water Cycle Monitor
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-#
+#: sidebar.php:63 sidebar.php:64 sidebar.php:65 sidebar.php:134
+#: sidebar.php:135 interface.php:66 interface.php:67 interface.php:68
+#: interface.php:69 interface.php:70 interface.php:71 interface.php:72
+#: interface.php:73 interface.php:74 interface.php:75 interface.php:76
+#: interface.php:77 interface.php:78 interface.php:79 interface.php:80
+#: interface.php:81 interface.php:82 interface.php:83 interface.php:84
+#: interface.php:85 interface.php:86 interface.php:87 interface.php:88
+#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-09-22 21:06-0400\n"
-"Last-Translator: Colby Fisher <ckf@princeton.edu>\n"
-"Language-Team: \n"
+"POT-Creation-Date: 2013-10-02 20:23-0400\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: \n"
-"X-Generator: Poedit 1.5.7\n"
 
-msgid "African Water Cycle Monitor"
+#: languages/scripts/settings_xml.php:2
+msgid "Satellite Precipitation (3B42RT)"
 msgstr ""
 
-msgid "Interactive  Interface"
+#: languages/scripts/settings_xml.php:3
+msgid "Princeton Global Forcing Dataset"
 msgstr ""
 
-msgid "Basic Interface"
+#: languages/scripts/settings_xml.php:4
+msgid "Princeton Global Forcing"
 msgstr ""
 
-msgid "Background"
+#: languages/scripts/settings_xml.php:5
+msgid "Global Forecasting System Analysis"
 msgstr ""
 
-msgid "Glossary"
+#: languages/scripts/settings_xml.php:6
+msgid "Derived Hydrologic Products (VIC)"
 msgstr ""
 
-msgid "Tutorial"
+#: languages/scripts/settings_xml.php:7
+msgid "VIC hydrologic model (PGF)"
 msgstr ""
 
+#: languages/scripts/settings_xml.php:8
+msgid "VIC hydrologic model (3B42RT)"
+msgstr ""
+
+#: languages/scripts/settings_xml.php:9
+msgid "Derived Meteorology"
+msgstr ""
+
+#: languages/scripts/settings_xml.php:10
+msgid "Derived Hydrology"
+msgstr ""
+
+#: languages/scripts/settings_xml.php:11
+msgid "MODIS"
+msgstr ""
+
+#: languages/scripts/settings_xml.php:12
+msgid "VIC hydrologic model"
+msgstr ""
+
+#: languages/scripts/settings_xml.php:13
+msgid "CMC1-CanCM3"
+msgstr ""
+
+#: languages/scripts/settings_xml.php:14
+msgid "GFDL-CM2p1-aer04"
+msgstr ""
+
+#: languages/scripts/settings_xml.php:15
+msgid "COLA-RSMAS-CCSM3"
+msgstr ""
+
+#: languages/scripts/settings_xml.php:16
+msgid "NASA-GMAO-062012"
+msgstr ""
+
+#: languages/scripts/settings_xml.php:17
+msgid "CMC2-CanCM4"
+msgstr ""
+
+#: languages/scripts/settings_xml.php:18
+msgid "NCEP-CFSv2"
+msgstr ""
+
+#: languages/scripts/settings_xml.php:19
+msgid "Multi Model Mean"
+msgstr ""
+
+#: languages/scripts/settings_xml.php:20
+msgid "GFS 7-day forecast"
+msgstr ""
+
+#: sidebar.php:3
 msgid "Animation"
 msgstr ""
 
+#: sidebar.php:4
 msgid "Point Data"
 msgstr ""
 
+#: sidebar.php:5
 msgid "Spatial Data"
 msgstr ""
 
+#: sidebar.php:12
 msgid "Monitor"
 msgstr ""
 
+#: sidebar.php:13
+msgid "Forecast"
+msgstr ""
+
+#: sidebar.php:19
 msgid "Time Interval"
 msgstr ""
 
+#: sidebar.php:19
 msgid "dd/mm/yyyy"
 msgstr ""
 
+#: sidebar.php:23
 msgid "Daily"
 msgstr ""
 
+#: sidebar.php:24
 msgid "Monthly"
 msgstr ""
 
+#: sidebar.php:25
 msgid "Yearly"
 msgstr ""
 
+#: sidebar.php:28
 msgid "Initial"
 msgstr ""
 
+#: sidebar.php:36
 msgid "Final"
 msgstr ""
 
+#: sidebar.php:44
 msgid "Update"
 msgstr ""
 
+#: sidebar.php:45
 msgid "Clear"
 msgstr ""
 
-msgid "Meteorology"
+#: sidebar.php:76 sidebar.php:148
+msgid "Dataset"
 msgstr ""
 
-msgid "Hydrology"
-msgstr ""
-
-msgid "Precipitation (mm/day)"
-msgstr ""
-
-msgid "Precipitation (mm)"
-msgstr ""
-
-msgid "Maximum Temperature (C)"
-msgstr ""
-
-msgid "Minimum Temperature (C)"
-msgstr ""
-
-msgid "Wind (m/s)"
-msgstr ""
-
-msgid "Soil Moisture (%) - Layer 1"
-msgstr ""
-
-msgid "Soil Moisture (%) - Layer 2"
-msgstr ""
-
-msgid "Evaporation (mm/day)"
-msgstr ""
-
-msgid "Surface Runoff (mm/day)"
-msgstr ""
-
-msgid "Baseflow (mm/day)"
-msgstr ""
-
-msgid "Streamflow (m^3/s)"
-msgstr ""
-
-msgid "Streamflow"
-msgstr ""
-
-msgid "SPI (1 month)"
-msgstr ""
-
-msgid "SPI (3 month)"
-msgstr ""
-
-msgid "SPI (6 month)"
-msgstr ""
-
-msgid "SPI (12 month)"
-msgstr ""
-
-msgid "Drought Index (%)"
-msgstr ""
-
-msgid "NDVI Percentile (30-day moving average)"
-msgstr ""
-
-msgid "Streamflow Percentile (%)"
-msgstr ""
-
-msgid "Net Radiation (W/m^2)"
-msgstr ""
-
-msgid "Net Longwave Radiation (W/m^2)"
-msgstr ""
-
-msgid "Net Shortwave Radiation (W/m^2)"
-msgstr ""
-
-msgid "NDVI (30-day moving average)"
-msgstr ""
-
+#: sidebar.php:92
 msgid "Point Data Selection"
 msgstr ""
 
+#: sidebar.php:94
 msgid "Click a point on the map to view time series data."
 msgstr ""
 
+#: sidebar.php:97
 msgid "Indices"
 msgstr ""
 
+#: sidebar.php:98 interface.php:91
 msgid "Water Balance"
 msgstr ""
 
+#: sidebar.php:99 interface.php:92
 msgid "Surface Fluxes"
 msgstr ""
 
+#: sidebar.php:100 interface.php:93
+msgid "Streamflow"
+msgstr ""
+
+#: sidebar.php:101
 msgid "Soil Moisture"
 msgstr ""
 
+#: sidebar.php:102
 msgid "Vegetation"
 msgstr ""
 
+#: sidebar.php:103
+msgid "Meteorology"
+msgstr ""
+
+#: sidebar.php:106
 msgid "Latitude"
 msgstr ""
 
+#: sidebar.php:108
 msgid "Longitude"
 msgstr ""
 
+#: sidebar.php:110
 msgid "Create Corresponding Data File?"
 msgstr ""
 
+#: sidebar.php:113
+msgid "Yes"
+msgstr ""
+
+#: sidebar.php:114
+msgid "No"
+msgstr ""
+
+#: sidebar.php:124
 msgid "Spatial Data Selection"
 msgstr ""
 
-msgid "Click points on the map to draw a polygon and select spatial data. Then select variables below."
+#: sidebar.php:125
+msgid ""
+"Click points on the map to draw a polygon and select spatial data. Then "
+"select variables below."
 msgstr ""
 
+#: sidebar.php:163
 msgid "Resolution"
 msgstr ""
 
+#: sidebar.php:178
 msgid "File Format"
 msgstr ""
 
+#: sidebar.php:179
+msgid "arc ascii"
+msgstr ""
+
+#: sidebar.php:180
+msgid "netcdf"
+msgstr ""
+
+#: sidebar.php:184
 msgid "Email address"
 msgstr ""
 
+#: sidebar.php:185
 msgid "Submit Data Request"
 msgstr ""
 
+#: sidebar.php:187
 msgid "Estimated Download Size"
 msgstr ""
 
+#: sidebar.php:189
 msgid "Please select a region."
 msgstr ""
 
+#: sidebar.php:190
 msgid "Please select variables."
 msgstr ""
 
+#: sidebar.php:191
 msgid "Please provide an email."
 msgstr ""
 
+#: sidebar.php:192
 msgid ""
 "The current request exceeds 1 GB. Please reduce the size of your request."
 msgstr ""
 
-#: interface.php:56
+#: interface.php:57
 msgid "Link to Image"
 msgstr ""
 
-#: interface.php:57
+#: interface.php:58
 msgid "Link to Data"
 msgstr ""
 
-#: interface.php:58
+#: interface.php:59
 msgid "Simulated_Discharge"
 msgstr ""
 
-#: interface.php:58
+#: interface.php:59
 msgid "Water_Balance"
 msgstr ""
 
-#: interface.php:58
+#: interface.php:59
 msgid "Soil_Moisture_Products"
 msgstr ""
 
-#: interface.php:59
+#: interface.php:60
 msgid "Surplus_[mm]"
 msgstr ""
 
-#: interface.php:59
+#: interface.php:60
 msgid "Q_[mm/day]"
 msgstr ""
 
-#: interface.php:59
+#: interface.php:60
 msgid "Basin_Average"
 msgstr ""
 
-#: interface.php:60
+#: interface.php:61
 msgid "Time_[day]"
 msgstr ""
 
-#: interface.php:61
+#: interface.php:62
 msgid "Time_[month]"
 msgstr ""
 
-#: interface.php:62
+#: interface.php:63
 msgid "Process new time interval"
 msgstr ""
 
-#: interface.php:63
+#: interface.php:64
 msgid "Processing request, please wait"
 msgstr ""
 
+#: interface.php:90
+msgid "Drought Indices"
+msgstr ""
+
+#: interface.php:94
+msgid "SPI (1 month)"
+msgstr ""
+
+#: interface.php:95
+msgid "SPI (3 month)"
+msgstr ""
+
+#: interface.php:96
+msgid "SPI (6 month)"
+msgstr ""
+
+#: interface.php:97
+msgid "SPI (12 month)"
+msgstr ""
+
+#: interface.php:98
 msgid "Soil Moisture Index"
 msgstr ""
 
+#: interface.php:99
 msgid "Streamflow Index"
 msgstr ""
 
+#: interface.php:100
 msgid "Vegetation Index"
 msgstr ""
 
+#: interface.php:101
 msgid "Percentile (%)"
 msgstr ""
 
+#: interface.php:102
 msgid "SPI"
 msgstr ""
 
+#: interface.php:103 interface.php:389
+msgid "African Water Cycle Monitor"
+msgstr ""
+
+#: interface.php:392
+msgid "Interactive Interface"
+msgstr ""
+
+#: interface.php:394
+msgid "Basic Interface"
+msgstr ""
+
+#: interface.php:396
+msgid "Background"
+msgstr ""
+
+#: interface.php:398
+msgid "Glossary"
+msgstr ""
+
+#: interface.php:400
+msgid "Tutorial"
+msgstr ""
+
+#: interface.php:404
 msgid "Feedback"
 msgstr ""
-
-msgid "Yes"
-msgstr ""
-
-msgid "No"
-msgstr ""
-
-msgid "Dataset"
-msgstr ""
-
-msgid "arc ascii"
-msgstr ""
-
-msgid "netcdf"
-msgstr ""
-
-msgid "Satellite Precipitation (3B42RT)"
-msgstr ""
-
-msgid "Princeton Global Forcing Dataset"
-msgstr ""
-
-msgid "Princeton Global Forcing"
-msgstr ""
-
-msgid "Global Forecasting System Analysis"
-msgstr ""
-
-msgid "Derived Hydrologic Products (VIC)"
-msgstr ""
-
-msgid "VIC hydrologic model (PGF)"
-msgstr ""
-
-msgid "VIC hydrologic model (3B42RT)"
-msgstr ""
-
-msgid "Derived Meteorology"
-msgstr ""
-
-msgid "Derived Hydrology"
-msgstr ""
-
-msgid "MODIS"
-msgstr ""
-
-msgid "VIC hydrologic model"
-msgstr ""
-
-msgid "CMC1-CanCM3"
-msgstr ""
-
-msgid "GFDL-CM2p1-aer04"
-msgstr ""
-
-msgid "COLA-RSMAS-CCSM3"
-msgstr ""
-
-msgid "NASA-GMAO-062012"
-msgstr ""
-
-msgid "CMC2-CanCM4"
-msgstr ""
-
-msgid "NCEP-CFSv2"
-msgstr ""
-
-msgid "Multi Model Mean"
-msgstr ""
-
-msgid "GFS 7-day forecast"
-msgstr ""
-
