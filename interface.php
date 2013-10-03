@@ -54,53 +54,57 @@ $_ = 'T_';
 $date_array = compact("year_initial", "month_initial", "day_initial",
                       "year_final", "month_final", "day_final");
 
-$label_array = array("LinktoImage" => $_('Link to Image'),
-                     "LinktoData" => $_('Link to Data'),
-                     "PlotTitle" => $_('Simulated_Discharge').",".$_('Water_Balance').",".$_('Soil_Moisture_Products'),
-                     "PlotYlabel" => $_('Surplus_[mm]').",".$_('Q_[mm/day]').",".$_('Basin_Average'),
-                     "PlotXlabel" => $_('Time_[day]'),
-                     "PlotXlabel_Month" => $_('Time_[month]'),
-                     "ProcessNTI" => $_('Process new time interval'),
-                     "ProcessRPW" => $_('Processing request, please wait'));
+$info_box_strings = array("prec" => $_("Daily total surface precipitation"),
+                          "tmax" => $_("Daily maximum temperature measured at 2 meters above the surface"),
+                          "tmin" => $_("Daily minimum temperature measured at 2 meters above the surface"),
+                          "wind" => $_("Daily mean wind speed measured at 2 meters above the surface"),
+                          "vc1" => $_("Relative soil moisture of the top layer (0 - 10 cm) calculated from the land surface model output."),
+                          "vc2" => $_("Relative soil moisture of the second layer (10 - ~100cm) calculated from the land surface model output. "),
+			  "evap" => $_("The sum of the land surface model’s soil evaporation, canopy interception and plant transpiration."),
+                          "runoff" => $_("Excess water from rain, snowmelt or other sources that does not infiltrate due to soil saturation or high intensity but instead flows overland."),
+  			  "baseflow" => $_("Portion of streamflow that comes from the sum of deep subsurface flow and delayed shallow subsurface flow."),
+			  "flw" => $_("Daily basin discharge calculated by inputting the baseflow and surface runoff from the VIC land surface model at each grid cell into the Velocity Driven Spatially Continuous routing model"),
+   			  "spi1" => $_("The 1 month standard precipitation index is the number of standard deviations that observed 1-month cumulative precipitation deviates from the climatological average (McKee, 1993).
+"),
+			  "spi3" => $_("The 3 month standard precipitation index is the number of standard deviations that observed 3-month cumulative precipitation deviates from the climatological average (McKee, 1993).
+"),
+			  "spi6" => $_("The 6 month standard precipitation index is the number of standard deviations that observed 6-month cumulative precipitation deviates from the climatological average (McKee, 1993)."),
+			  "spi12" => $_("The 12 month standard precipitation index is the number of standard deviations that observed 12-month cumulative precipitation deviates from the climatological average (McKee, 1993)."),
+			  "vcpct" => $_("A measure of the severity of drought in soil moisture; low values indicate drought conditions"),
+ 			  "pct30day" => $_("A measure of the severity of agricultural drought; low values indicate drought conditions. The 30-day moving average of NDVI is compared to the historical record of NDVI via the empirical cumulative distribution function to determine the percentile."),
+ 			  "flw_pct" => $_("A measure of the severity of hydrological drought; low values indicate drought conditions. Percentile of the simulated discharge at each stream gauge with respect to the historical simulations (1950 - 2008)"),
+			  "r_net" => $_("Difference between the incoming and outgoing components of radiation calculated using the VIC land surface model."),
+ 			  "net_long" => $_("Difference between the incoming and outgoing components of longwave radiation calculated using the VIC land surface model."),
+			  "net_short" => $_("Difference between the incoming and outgoing components of shortwave radiation calculated using the VIC land surface model.
+"),
+			  "ndvi30" => $_("The Normalized Difference Vegetation Index (NDVI) is measure of live green vegetation (0-1)"),
+			  "t2m" => $_("Average temperature at 2 meters above the surface."),
+			  "t2ano" => $_("Departure from the climatological value of average temperature at 2 meters above the surface."));
 
-$info_box_strings = array("prec" => $_("A"),
-                          "tmax" => $_("B"),
-                          "tmin" => $_("C"),
-                          "wind" => $_("D"),
-                          "vc1" => $_("E"),
-                          "vc2" => $_("F"),
-			  "evap" => $_("G"),
-                          "runoff" => $_("H"),
-  			  "baseflow" => $_("I"),
-			  "flw" => $_("J"),
-   			  "spi1" => $_("K"),
-			  "spi3" => $_("L"),
-			  "spi6" => $_("M"),
-			  "spi12" => $_("N"),
-			  "vcpct" => $_("O"),
- 			  "pct30day" => $_("P"),
- 			  "flw_pct" => $_("Q"),
-			  "r_net" => $_("R"),
- 			  "net_long" => $_("S"),
-			  "net_short" => $_("T"),
-			  "ndvi30" => $_("U"),
-			  "t2m" => $_("V"),
-			  "t2ano" => $_("W"));
-
-$strings_to_translate = array("Drought_Indices" => $_('Drought Indices'),
-                              "Water_Balance" => $_('Water Balance'),
-                              "Surface_Fluxes" => $_('Surface Fluxes'),
-                              "Streamflow" => $_('Streamflow'),
-                              "SPI_1_month" => $_('SPI (1 month)'),
-                              "SPI_3_months" => $_('SPI (3 month)'),
-                              "SPI_6_months" => $_('SPI (6 month)'),
-                              "SPI_12_months" => $_('SPI (12 month)'),
-                              "Soil_Moisture_Index" => $_('Soil Moisture Index'),
-                              "Streamflow_Index" => $_('Streamflow Index'),
-                              "Vegetation_Index" => $_('Vegetation Index'),
-                              "Percentile" => $_('Percentile (%)'),
+$strings_to_translate = array("Indices" => $_('Indices'),
                               "SPI" => $_('SPI'),
-                              "African_Water_Cycle_Monitor" => $_('African Water Cycle Monitor'));
+                              "SPI (1 month)" => $_('SPI (1 month)'),
+                              "SPI (3 months)" => $_('SPI (3 months)'),
+                              "SPI (6 months)" => $_('SPI (6 months)'),
+                              "SPI (12 months)" => $_('SPI (12 months)'),
+                              "Soil Moisture Index (%)" => $_('Soil Moisture Index (%)'),
+                              "Vegetation Index (%)" => $_('Vegetation Index (%)'),
+                              "Streamflow Index (%)" => $_('Streamflow Index (%)'),
+                              "Percentile (%)" => $_('Percentile (%)'),
+                              "Temperature Anomaly (C)" => $_('Temperature Anomaly (C)'),
+			      "mm/day" => $_('mm/day'),
+			      "Precipitation" => $_('Precipitation'),
+                              "Evaporation" => $_('Evaporation'),
+                              "Runoff" => $_('Runoff'),
+                              "Baseflow" => $_('Baseflow'),
+                              "Water Balance" => $_('Water Balance'),
+			      "K" => $_('K'),
+                              "m/s" => $_('m/s'),
+    			      "Meteorology" => $_('Meteorology'),
+                              "Daily Maximum Temperature (K)" => $_('Daily Maximum Temperature (K)'),
+                              "Daily Minimum Temperature (K)" => $_('Daily Minimum Temperature (K)'),
+                              "Daily Average Wind Speed (m/s)" => $_('Daily Average Wind Speed (m/s)'),
+                              );
 
 ?>
 
@@ -152,9 +156,6 @@ $strings_to_translate = array("Drought_Indices" => $_('Drought Indices'),
       echo "var ".$key." = ".$value.";\n";
       echo "var ".$key."_orig = ".$value.";\n";
     } 
-    foreach($label_array as $key => $value) {
-      echo "var ".$key." = "."\"".$value."\"".";\n";
-    }
   ?>
 
   function initialize() 
