@@ -66,26 +66,26 @@ $label_array = array("LinktoImage" => $_('Link to Image'),
 $info_box_strings = array("prec" => $_("A"),
                           "tmax" => $_("B"),
                           "tmin" => $_("C"),
-                          "wind" => $_(""),
-                          "vc1" => $_(""),
-                          "vc2" => $_(""),
-			  "evap" => $_(""),
-                          "runoff" => $_(""),
-  			  "baseflow" => $_(""),
-			  "flw" => $_(""),
-   			  "spi1" => $_(""),
-			  "spi3" => $_(""),
-			  "spi6" => $_(""),
-			  "spi12" => $_(""),
-			  "vcpct" => $_(""),
- 			  "pct30day" => $_(""),
- 			  "flw_pct" => $_(""),
-			  "r_net" => $_(""),
- 			  "net_long" => $_(""),
-			  "net_short" => $_(""),
-			  "ndvi30" => $_(""),
-			  "t2m" => $_(""),
-			  "t2ano" => $_(""));
+                          "wind" => $_("D"),
+                          "vc1" => $_("E"),
+                          "vc2" => $_("F"),
+			  "evap" => $_("G"),
+                          "runoff" => $_("H"),
+  			  "baseflow" => $_("I"),
+			  "flw" => $_("J"),
+   			  "spi1" => $_("K"),
+			  "spi3" => $_("L"),
+			  "spi6" => $_("M"),
+			  "spi12" => $_("N"),
+			  "vcpct" => $_("O"),
+ 			  "pct30day" => $_("P"),
+ 			  "flw_pct" => $_("Q"),
+			  "r_net" => $_("R"),
+ 			  "net_long" => $_("S"),
+			  "net_short" => $_("T"),
+			  "ndvi30" => $_("U"),
+			  "t2m" => $_("V"),
+			  "t2ano" => $_("W"));
 
 $strings_to_translate = array("Drought_Indices" => $_('Drought Indices'),
                               "Water_Balance" => $_('Water Balance'),
@@ -204,7 +204,10 @@ $strings_to_translate = array("Drought_Indices" => $_('Drought Indices'),
           html: true,
           placement: 'top',
           trigger: 'hover'
-       }); }
+       }); 
+       $(this).popover('show');
+
+	}
     });  
           
     $('#hideBtn').click(function() {
