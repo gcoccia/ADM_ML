@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-10-02 20:23-0400\n"
+"POT-Creation-Date: 2013-10-02 21:36-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -24,79 +24,179 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 #: languages/scripts/settings_xml.php:2
-msgid "Satellite Precipitation (3B42RT)"
+msgid "Precipitation (mm)"
 msgstr ""
 
 #: languages/scripts/settings_xml.php:3
-msgid "Princeton Global Forcing Dataset"
+msgid "Satellite Precipitation (3B42RT)"
 msgstr ""
 
 #: languages/scripts/settings_xml.php:4
-msgid "Princeton Global Forcing"
+msgid "Princeton Global Forcing Dataset"
 msgstr ""
 
-#: languages/scripts/settings_xml.php:5
-msgid "Global Forecasting System Analysis"
+#: languages/scripts/settings_xml.php:5 languages/scripts/settings_xml.php:49
+msgid "Maximum Temperature (C)"
 msgstr ""
 
 #: languages/scripts/settings_xml.php:6
-msgid "Derived Hydrologic Products (VIC)"
+msgid "Princeton Global Forcing"
 msgstr ""
 
 #: languages/scripts/settings_xml.php:7
-msgid "VIC hydrologic model (PGF)"
+msgid "Global Forecasting System Analysis"
 msgstr ""
 
-#: languages/scripts/settings_xml.php:8
-msgid "VIC hydrologic model (3B42RT)"
+#: languages/scripts/settings_xml.php:8 languages/scripts/settings_xml.php:50
+msgid "Minimum Temperature (C)"
 msgstr ""
 
-#: languages/scripts/settings_xml.php:9
-msgid "Derived Meteorology"
+#: languages/scripts/settings_xml.php:9 languages/scripts/settings_xml.php:51
+msgid "Wind (m/s)"
 msgstr ""
 
-#: languages/scripts/settings_xml.php:10
-msgid "Derived Hydrology"
+#: languages/scripts/settings_xml.php:10 languages/scripts/settings_xml.php:52
+msgid "Soil Moisture (%) - Layer 1"
 msgstr ""
 
 #: languages/scripts/settings_xml.php:11
-msgid "MODIS"
+msgid "Derived Hydrologic Products (VIC)"
 msgstr ""
 
-#: languages/scripts/settings_xml.php:12
-msgid "VIC hydrologic model"
+#: languages/scripts/settings_xml.php:12 languages/scripts/settings_xml.php:53
+msgid "Soil Moisture (%) - Layer 2"
 msgstr ""
 
-#: languages/scripts/settings_xml.php:13
-msgid "CMC1-CanCM3"
+#: languages/scripts/settings_xml.php:13 languages/scripts/settings_xml.php:54
+msgid "Evaporation (mm/day)"
 msgstr ""
 
 #: languages/scripts/settings_xml.php:14
-msgid "GFDL-CM2p1-aer04"
+msgid "VIC hydrologic model (PGF)"
 msgstr ""
 
 #: languages/scripts/settings_xml.php:15
-msgid "COLA-RSMAS-CCSM3"
+msgid "VIC hydrologic model (3B42RT)"
 msgstr ""
 
-#: languages/scripts/settings_xml.php:16
-msgid "NASA-GMAO-062012"
+#: languages/scripts/settings_xml.php:16 languages/scripts/settings_xml.php:55
+msgid "Surface Runoff (mm/day)"
 msgstr ""
 
-#: languages/scripts/settings_xml.php:17
-msgid "CMC2-CanCM4"
+#: languages/scripts/settings_xml.php:17 languages/scripts/settings_xml.php:59
+msgid "Baseflow (mm/day)"
 msgstr ""
 
-#: languages/scripts/settings_xml.php:18
-msgid "NCEP-CFSv2"
+#: languages/scripts/settings_xml.php:18 languages/scripts/settings_xml.php:62
+msgid "Streamflow (m^3/s)"
 msgstr ""
 
-#: languages/scripts/settings_xml.php:19
-msgid "Multi Model Mean"
+#: languages/scripts/settings_xml.php:19 languages/scripts/settings_xml.php:34
+#: interface.php:94
+msgid "SPI (1 month)"
 msgstr ""
 
 #: languages/scripts/settings_xml.php:20
+msgid "Derived Meteorology"
+msgstr ""
+
+#: languages/scripts/settings_xml.php:21 languages/scripts/settings_xml.php:43
+#: interface.php:95
+msgid "SPI (3 month)"
+msgstr ""
+
+#: languages/scripts/settings_xml.php:22 languages/scripts/settings_xml.php:44
+#: interface.php:96
+msgid "SPI (6 month)"
+msgstr ""
+
+#: languages/scripts/settings_xml.php:23 languages/scripts/settings_xml.php:45
+#: interface.php:97
+msgid "SPI (12 month)"
+msgstr ""
+
+#: languages/scripts/settings_xml.php:24 languages/scripts/settings_xml.php:60
+msgid "Drought Index (%)"
+msgstr ""
+
+#: languages/scripts/settings_xml.php:25
+msgid "Derived Hydrology"
+msgstr ""
+
+#: languages/scripts/settings_xml.php:26
+msgid "NDVI Percentile (30-day moving average)"
+msgstr ""
+
+#: languages/scripts/settings_xml.php:27
+msgid "MODIS"
+msgstr ""
+
+#: languages/scripts/settings_xml.php:28 languages/scripts/settings_xml.php:61
+msgid "Streamflow Percentile (%)"
+msgstr ""
+
+#: languages/scripts/settings_xml.php:29
+msgid "VIC hydrologic model"
+msgstr ""
+
+#: languages/scripts/settings_xml.php:30 languages/scripts/settings_xml.php:56
+msgid "Net Radiation (W/m^2)"
+msgstr ""
+
+#: languages/scripts/settings_xml.php:31 languages/scripts/settings_xml.php:57
+msgid "Net Longwave Radiation (W/m^2)"
+msgstr ""
+
+#: languages/scripts/settings_xml.php:32 languages/scripts/settings_xml.php:58
+msgid "Net Shortwave Radiation (W/m^2)"
+msgstr ""
+
+#: languages/scripts/settings_xml.php:33
+msgid "NDVI (30-day moving average)"
+msgstr ""
+
+#: languages/scripts/settings_xml.php:35
+msgid "CMC1-CanCM3"
+msgstr ""
+
+#: languages/scripts/settings_xml.php:36
+msgid "GFDL-CM2p1-aer04"
+msgstr ""
+
+#: languages/scripts/settings_xml.php:37
+msgid "COLA-RSMAS-CCSM3"
+msgstr ""
+
+#: languages/scripts/settings_xml.php:38
+msgid "NASA-GMAO-062012"
+msgstr ""
+
+#: languages/scripts/settings_xml.php:39
+msgid "CMC2-CanCM4"
+msgstr ""
+
+#: languages/scripts/settings_xml.php:40
+msgid "NCEP-CFSv2"
+msgstr ""
+
+#: languages/scripts/settings_xml.php:41
+msgid "Multi Model Mean"
+msgstr ""
+
+#: languages/scripts/settings_xml.php:42
 msgid "GFS 7-day forecast"
+msgstr ""
+
+#: languages/scripts/settings_xml.php:46
+msgid "Precipitation (mm/day)"
+msgstr ""
+
+#: languages/scripts/settings_xml.php:47
+msgid "Average temperature (C)"
+msgstr ""
+
+#: languages/scripts/settings_xml.php:48
+msgid "Temperature Anomaly (C)"
 msgstr ""
 
 #: sidebar.php:3
@@ -320,22 +420,6 @@ msgstr ""
 
 #: interface.php:90
 msgid "Drought Indices"
-msgstr ""
-
-#: interface.php:94
-msgid "SPI (1 month)"
-msgstr ""
-
-#: interface.php:95
-msgid "SPI (3 month)"
-msgstr ""
-
-#: interface.php:96
-msgid "SPI (6 month)"
-msgstr ""
-
-#: interface.php:97
-msgid "SPI (12 month)"
 msgstr ""
 
 #: interface.php:98

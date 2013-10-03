@@ -9,27 +9,30 @@ def Read_XML():
 
  #Pull dataset titles
  datasets = []
+ variables = []
  groups = root.find('variables').findall('group')
  for group in groups:
   group_name = group.attrib['name']
   for variable in group.findall('datatype'):
-   variable_name = variable.attrib['name']
-   variable_units = variable.attrib['units']
-   variable_mask = variable.attrib['mask']
+   variable_title = variable.attrib['title']
+   if variable_title not in variables:
+    datasets.append(variable_title)
    for dataset in variable.findall('dataset'):
     dataset_title = dataset.attrib['title']
     if dataset_title not in datasets:
      datasets.append(dataset_title)
 
- return datasets
+ return datasets,variables
 
-datasets = Read_XML()
+datasets,variables = Read_XML()
 
 #Write ot temporary php file
 fp = open('settings_xml.php','w')
 fp.write('<?php\n')
 for dataset in datasets:
  fp.write("$_('%s')\n" % dataset)
+for variable in variables:
+ fp.write("$_('%s')\n" % variable)
 fp.write('?>\n')
 fp.close()
 
