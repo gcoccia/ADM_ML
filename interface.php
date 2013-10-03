@@ -197,16 +197,18 @@ $strings_to_translate = array("Indices" => $_('Indices'),
    
    $('a').hover(function(){
      //alert($(this).parent().attr("class")); 
-     if ($(this).parent().attr("class") == "nav-header") {
-       var string = info_box_strings[$(this).parent().attr("id")];
-       //alert(string);
+     if ($(this).parent().attr("class") == "dropdown") {
+       var string = info_box_strings[$(this).attr("id")];
+      // alert(string);
        $(this).popover({
           content: string,
           html: true,
           placement: 'top',
-          container: 'body',
           trigger: 'hover'
-       }); }
+       }); 
+       $(this).popover('show');
+
+	}
     });  
           
     $('#hideBtn').click(function() {
