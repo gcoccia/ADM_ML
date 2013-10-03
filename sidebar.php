@@ -75,7 +75,7 @@
         <ul class="dropdown-menu">
           <li class="nav-header"><?php echo $_("Dataset")?></li>
           <?php foreach($datatype->dataset as $dataset) { ?>
-          <li><a id="<?php echo $datatype['name']."--".$dataset['name'] ?>" href="javascript:void(0)"><i></i><?php echo $_($dataset['title'])?></a></li>
+          <li><a id="<?php echo $datatype['name']."--".$dataset['name'] ?>" href="javascript:void(0)"><i></i><?php $title=$dataset['title']; echo $_($title);?></a></li>
           <?php } ?>
         </ul>
       </li>
