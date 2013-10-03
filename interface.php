@@ -198,12 +198,11 @@ $strings_to_translate = array("Drought_Indices" => $_('Drought Indices'),
      //alert($(this).parent().attr("class")); 
      if ($(this).parent().attr("class") == "dropdown") {
        var string = info_box_strings[$(this).attr("id")];
-       alert(string);
+      // alert(string);
        $(this).popover({
           content: string,
           html: true,
           placement: 'top',
-          container: 'body',
           trigger: 'hover'
        }); }
     });  
