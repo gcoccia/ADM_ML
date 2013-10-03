@@ -155,7 +155,7 @@ $strings_to_translate = array("Indices" => $_('Indices'),
         echo "data_timesteps[\"".$dt['name']."--".$ds['name']."\"] = \"".$ds['ts']."\";\n";
         echo "data_idates[\"".$dt['name']."--".$ds['name']."\"] = \"".$ds['itime']."\";\n";
         echo "data_fdates[\"".$dt['name']."--".$ds['name']."\"] = \"".$ds['ftime']."\";\n";
-        echo "data_titles[\"".$dt['name']."--".$ds['name']."\"] = \"".$ds['title']."\";\n";
+        echo "data_titles[\"".$dt['name']."--".$ds['name']."\"] = \"".$_("".$ds['title'])."\";\n";
       }
     }
   } ?>
