@@ -54,16 +54,7 @@ $_ = 'T_';
 $date_array = compact("year_initial", "month_initial", "day_initial",
                       "year_final", "month_final", "day_final");
 
-$label_array = array("LinktoImage" => $_('Link to Image'),
-                     "LinktoData" => $_('Link to Data'),
-                     "PlotTitle" => $_('Simulated_Discharge').",".$_('Water_Balance').",".$_('Soil_Moisture_Products'),
-                     "PlotYlabel" => $_('Surplus_[mm]').",".$_('Q_[mm/day]').",".$_('Basin_Average'),
-                     "PlotXlabel" => $_('Time_[day]'),
-                     "PlotXlabel_Month" => $_('Time_[month]'),
-                     "ProcessNTI" => $_('Process new time interval'),
-                     "ProcessRPW" => $_('Processing request, please wait'));
-
-$info_box_strings = array("prec" => $_(""),
+$info_box_strings = array("prec" => $_("Daily total surface precipitation"),
                           "tmax" => $_("Daily maximum temperature measured at 2 meters above the surface"),
                           "tmin" => $_("Daily minimum temperature measured at 2 meters above the surface"),
                           "wind" => $_("Daily mean wind speed measured at 2 meters above the surface"),
@@ -90,20 +81,30 @@ $info_box_strings = array("prec" => $_(""),
 			  "t2m" => $_("Average temperature at 2 meters above the surface."),
 			  "t2ano" => $_("Departure from the climatological value of average temperature at 2 meters above the surface."));
 
-$strings_to_translate = array("Drought_Indices" => $_('Drought Indices'),
-                              "Water_Balance" => $_('Water Balance'),
-                              "Surface_Fluxes" => $_('Surface Fluxes'),
-                              "Streamflow" => $_('Streamflow'),
-                              "SPI_1_month" => $_('SPI (1 month)'),
-                              "SPI_3_months" => $_('SPI (3 month)'),
-                              "SPI_6_months" => $_('SPI (6 month)'),
-                              "SPI_12_months" => $_('SPI (12 month)'),
-                              "Soil_Moisture_Index" => $_('Soil Moisture Index'),
-                              "Streamflow_Index" => $_('Streamflow Index'),
-                              "Vegetation_Index" => $_('Vegetation Index'),
-                              "Percentile" => $_('Percentile (%)'),
+$strings_to_translate = array("Indices" => $_('Indices'),
                               "SPI" => $_('SPI'),
-                              "African_Water_Cycle_Monitor" => $_('African Water Cycle Monitor'));
+                              "SPI (1 month)" => $_('SPI (1 month)'),
+                              "SPI (3 months)" => $_('SPI (3 months)'),
+                              "SPI (6 months)" => $_('SPI (6 months)'),
+                              "SPI (12 months)" => $_('SPI (12 months)'),
+                              "Soil Moisture Index (%)" => $_('Soil Moisture Index (%)'),
+                              "Vegetation Index (%)" => $_('Vegetation Index (%)'),
+                              "Streamflow Index (%)" => $_('Streamflow Index (%)'),
+                              "Percentile (%)" => $_('Percentile (%)'),
+                              "Temperature Anomaly (C)" => $_('Temperature Anomaly (C)'),
+			      "mm/day" => $_('mm/day'),
+			      "Precipitation" => $_('Precipitation'),
+                              "Evaporation" => $_('Evaporation'),
+                              "Runoff" => $_('Runoff'),
+                              "Baseflow" => $_('Baseflow'),
+                              "Water Balance" => $_('Water Balance'),
+			      "K" => $_('K'),
+                              "m/s" => $_('m/s'),
+    			      "Meteorology" => $_('Meteorology'),
+                              "Daily Maximum Temperature (K)" => $_('Daily Maximum Temperature (K)'),
+                              "Daily Minimum Temperature (K)" => $_('Daily Minimum Temperature (K)'),
+                              "Daily Average Wind Speed (m/s)" => $_('Daily Average Wind Speed (m/s)'),
+                              );
 
 ?>
 
@@ -155,9 +156,6 @@ $strings_to_translate = array("Drought_Indices" => $_('Drought Indices'),
       echo "var ".$key." = ".$value.";\n";
       echo "var ".$key."_orig = ".$value.";\n";
     } 
-    foreach($label_array as $key => $value) {
-      echo "var ".$key." = "."\"".$value."\"".";\n";
-    }
   ?>
 
   function initialize() 
