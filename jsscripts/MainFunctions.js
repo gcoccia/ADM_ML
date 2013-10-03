@@ -409,7 +409,7 @@ function LoadInteractive()
     $("#spatialpill").css("visibility","visible");
     $("#basic_interface1").css("visibility", "hidden");
     $("#basic_interface1").css("overflow-x","hidden");
-    $("#basic_interface1").css("overflow-y","hidden");    
+    $("#basic_interface1").css("overflow-y","hidden");
     update_animation();
   }
 }
