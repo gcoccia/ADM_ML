@@ -69,13 +69,13 @@
     <?php foreach($group->datatype as $datatype) { ?>
       <li class="dropdown">
         <a class="dropdown-toggle" data-toggle="dropdown" href="javascript:void(0)"><i></i>
-          <?php echo $datatype['title'] ?>
+          <?php echo $_("".$datatype['title'])?>
           <b class="caret"></b>
         </a>
         <ul class="dropdown-menu">
           <li class="nav-header"><?php echo $_("Dataset")?></li>
           <?php foreach($datatype->dataset as $dataset) { ?>
-          <li><a id="<?php echo $datatype['name']."--".$dataset['name'] ?>" href="javascript:void(0)"><i></i><?php $title=$dataset['title']; echo $_($title);?></a></li>
+          <li><a id="<?php echo $datatype['name']."--".$dataset['name'] ?>" href="javascript:void(0)"><i></i><?php echo $_("".$dataset["title"])?></a></li>
           <?php } ?>
         </ul>
       </li>
