@@ -430,7 +430,10 @@ $strings_to_translate = array("Indices" => $_('Indices'),
         <div id="popup_container"></div>
       </div>
 
-      <div id="feedbackPopup" style="visibility:hidden; position:absolute; background:rgb(229, 227, 223); margin:auto; left: 22%; width:700px; top:60px; height:370px; z-index:9100; padding-top:15px; border-radius:5px; border:2px solid grey;"></div>
+      <div id="feedbackPopup" style="visibility:hidden; position:absolute; background:rgb(229, 227, 223); margin:auto; left: 22%; width:700px; top:60px; height:370px; z-index:9100; padding-top:15px; border-radius:5px; border:2px solid grey;">
+      <form id='feedbackForm' method='POST' action='' class='form-horizontal'><div><h4 style='margin-left:30px;'><?php echo $_("Contact Us:")?></h4></div><div class='control-group'><label class='control-label' for='input1'><?php echo $_("Name")?></label><div class='controls'><input type='text' name='contact_name' id='input1' placeholder="<?php echo $_("Your name")?>"></div></div><div class='control-group'><label class='control-label' for='input2'><?php echo $_("Email Address")?></label><div class='controls'><input type='text' name='contact_email' id='input2' placeholder="<?php echo $_("Your email address")?>"></div></div><div class='control-group'><label class='control-label' for='input3'><?php echo $_("Message")?></label><div class='controls'><textarea name='contact_message' id='input3' rows='8' class='span9' placeholder="<?php echo $_("Message to send.")?>"></textarea></div></div><div class='form-actions' style='border-radius:0px 0px 5px 5px;'><input type='hidden' name='save' value='contact'><button type='submit' class='btn btn-primary'><?php echo $_("Send")?></button><button id='closeForm' type='button' class='btn' style='margin-left:30px' onclick='clearPopup();'><?php echo $_("Cancel")?></button></div></form>
+
+      </div>
       <div id="Colorbar" style="visibility:hidden;"></div>
       <div id="TimeStamp" style="visibility:hidden;"></div>
       <div id="Logo" style="visibility:hidden;"></div>
