@@ -3,24 +3,19 @@
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-#: sidebar.php:63 sidebar.php:64 sidebar.php:65 sidebar.php:134
-#: sidebar.php:135 interface.php:66 interface.php:67 interface.php:68
-#: interface.php:69 interface.php:70 interface.php:71 interface.php:72
-#: interface.php:73 interface.php:74 interface.php:75 interface.php:76
-#: interface.php:77 interface.php:78 interface.php:79 interface.php:80
-#: interface.php:81 interface.php:82 interface.php:83 interface.php:84
-#: interface.php:85 interface.php:86 interface.php:87 interface.php:88
+#: sidebar.php:64 sidebar.php:65 sidebar.php:72 sidebar.php:78 sidebar.php:135
+#: sidebar.php:144 sidebar.php:150
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-10-02 21:36-0400\n"
+"POT-Creation-Date: 2013-10-03 11:13-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
 #: languages/scripts/settings_xml.php:2
@@ -56,6 +51,7 @@ msgid "Wind (m/s)"
 msgstr ""
 
 #: languages/scripts/settings_xml.php:10 languages/scripts/settings_xml.php:52
+#: interface.php:112
 msgid "Soil Moisture (%) - Layer 1"
 msgstr ""
 
@@ -64,10 +60,12 @@ msgid "Derived Hydrologic Products (VIC)"
 msgstr ""
 
 #: languages/scripts/settings_xml.php:12 languages/scripts/settings_xml.php:53
+#: interface.php:113
 msgid "Soil Moisture (%) - Layer 2"
 msgstr ""
 
 #: languages/scripts/settings_xml.php:13 languages/scripts/settings_xml.php:54
+#: interface.php:96
 msgid "Evaporation (mm/day)"
 msgstr ""
 
@@ -84,6 +82,7 @@ msgid "Surface Runoff (mm/day)"
 msgstr ""
 
 #: languages/scripts/settings_xml.php:17 languages/scripts/settings_xml.php:59
+#: interface.php:98
 msgid "Baseflow (mm/day)"
 msgstr ""
 
@@ -92,7 +91,7 @@ msgid "Streamflow (m^3/s)"
 msgstr ""
 
 #: languages/scripts/settings_xml.php:19 languages/scripts/settings_xml.php:34
-#: interface.php:94
+#: interface.php:85
 msgid "SPI (1 month)"
 msgstr ""
 
@@ -101,17 +100,14 @@ msgid "Derived Meteorology"
 msgstr ""
 
 #: languages/scripts/settings_xml.php:21 languages/scripts/settings_xml.php:43
-#: interface.php:95
 msgid "SPI (3 month)"
 msgstr ""
 
 #: languages/scripts/settings_xml.php:22 languages/scripts/settings_xml.php:44
-#: interface.php:96
 msgid "SPI (6 month)"
 msgstr ""
 
 #: languages/scripts/settings_xml.php:23 languages/scripts/settings_xml.php:45
-#: interface.php:97
 msgid "SPI (12 month)"
 msgstr ""
 
@@ -187,7 +183,7 @@ msgstr ""
 msgid "GFS 7-day forecast"
 msgstr ""
 
-#: languages/scripts/settings_xml.php:46
+#: languages/scripts/settings_xml.php:46 interface.php:95
 msgid "Precipitation (mm/day)"
 msgstr ""
 
@@ -195,7 +191,7 @@ msgstr ""
 msgid "Average temperature (C)"
 msgstr ""
 
-#: languages/scripts/settings_xml.php:48
+#: languages/scripts/settings_xml.php:48 interface.php:93
 msgid "Temperature Anomaly (C)"
 msgstr ""
 
@@ -267,31 +263,31 @@ msgstr ""
 msgid "Click a point on the map to view time series data."
 msgstr ""
 
-#: sidebar.php:97
+#: sidebar.php:97 interface.php:84
 msgid "Indices"
 msgstr ""
 
-#: sidebar.php:98 interface.php:91
+#: sidebar.php:98 interface.php:99
 msgid "Water Balance"
 msgstr ""
 
-#: sidebar.php:99 interface.php:92
+#: sidebar.php:99 interface.php:104
 msgid "Surface Fluxes"
 msgstr ""
 
-#: sidebar.php:100 interface.php:93
+#: sidebar.php:100 interface.php:110
 msgid "Streamflow"
 msgstr ""
 
-#: sidebar.php:101
+#: sidebar.php:101 interface.php:111
 msgid "Soil Moisture"
 msgstr ""
 
-#: sidebar.php:102
+#: sidebar.php:102 interface.php:116
 msgid "Vegetation"
 msgstr ""
 
-#: sidebar.php:103
+#: sidebar.php:103 interface.php:100
 msgid "Meteorology"
 msgstr ""
 
@@ -371,101 +367,265 @@ msgid ""
 msgstr ""
 
 #: interface.php:57
-msgid "Link to Image"
+msgid "Daily total surface precipitation"
 msgstr ""
 
 #: interface.php:58
-msgid "Link to Data"
+msgid "Daily maximum temperature measured at 2 meters above the surface"
 msgstr ""
 
 #: interface.php:59
-msgid "Simulated_Discharge"
-msgstr ""
-
-#: interface.php:59
-msgid "Water_Balance"
-msgstr ""
-
-#: interface.php:59
-msgid "Soil_Moisture_Products"
+msgid "Daily minimum temperature measured at 2 meters above the surface"
 msgstr ""
 
 #: interface.php:60
-msgid "Surplus_[mm]"
-msgstr ""
-
-#: interface.php:60
-msgid "Q_[mm/day]"
-msgstr ""
-
-#: interface.php:60
-msgid "Basin_Average"
+msgid "Daily mean wind speed measured at 2 meters above the surface"
 msgstr ""
 
 #: interface.php:61
-msgid "Time_[day]"
+msgid ""
+"Relative soil moisture of the top layer (0 - 10 cm) calculated from the land "
+"surface model output."
 msgstr ""
 
 #: interface.php:62
-msgid "Time_[month]"
+msgid ""
+"Relative soil moisture of the second layer (10 - ~100cm) calculated from the "
+"land surface model output. "
 msgstr ""
 
 #: interface.php:63
-msgid "Process new time interval"
+msgid ""
+"The sum of the land surface model’s soil evaporation, canopy interception "
+"and plant transpiration."
 msgstr ""
 
 #: interface.php:64
-msgid "Processing request, please wait"
+msgid ""
+"Excess water from rain, snowmelt or other sources that does not infiltrate "
+"due to soil saturation or high intensity but instead flows overland."
 msgstr ""
 
-#: interface.php:90
-msgid "Drought Indices"
+#: interface.php:65
+msgid ""
+"Portion of streamflow that comes from the sum of deep subsurface flow and "
+"delayed shallow subsurface flow."
 msgstr ""
 
-#: interface.php:98
-msgid "Soil Moisture Index"
+#: interface.php:66
+msgid ""
+"Daily basin discharge calculated by inputting the baseflow and surface "
+"runoff from the VIC land surface model at each grid cell into the Velocity "
+"Driven Spatially Continuous routing model"
 msgstr ""
 
-#: interface.php:99
-msgid "Streamflow Index"
+#: interface.php:67
+msgid ""
+"The 1 month standard precipitation index is the number of standard "
+"deviations that observed 1-month cumulative precipitation deviates from the "
+"climatological average (McKee, 1993).\n"
 msgstr ""
 
-#: interface.php:100
-msgid "Vegetation Index"
+#: interface.php:69
+msgid ""
+"The 3 month standard precipitation index is the number of standard "
+"deviations that observed 3-month cumulative precipitation deviates from the "
+"climatological average (McKee, 1993).\n"
 msgstr ""
 
-#: interface.php:101
+#: interface.php:71
+msgid ""
+"The 6 month standard precipitation index is the number of standard "
+"deviations that observed 6-month cumulative precipitation deviates from the "
+"climatological average (McKee, 1993)."
+msgstr ""
+
+#: interface.php:72
+msgid ""
+"The 12 month standard precipitation index is the number of standard "
+"deviations that observed 12-month cumulative precipitation deviates from the "
+"climatological average (McKee, 1993)."
+msgstr ""
+
+#: interface.php:73
+msgid ""
+"A measure of the severity of drought in soil moisture; low values indicate "
+"drought conditions"
+msgstr ""
+
+#: interface.php:74
+msgid ""
+"A measure of the severity of agricultural drought; low values indicate "
+"drought conditions. The 30-day moving average of NDVI is compared to the "
+"historical record of NDVI via the empirical cumulative distribution function "
+"to determine the percentile."
+msgstr ""
+
+#: interface.php:75
+msgid ""
+"A measure of the severity of hydrological drought; low values indicate "
+"drought conditions. Percentile of the simulated discharge at each stream "
+"gauge with respect to the historical simulations (1950 - 2008)"
+msgstr ""
+
+#: interface.php:76
+msgid ""
+"Difference between the incoming and outgoing components of radiation "
+"calculated using the VIC land surface model."
+msgstr ""
+
+#: interface.php:77
+msgid ""
+"Difference between the incoming and outgoing components of longwave "
+"radiation calculated using the VIC land surface model."
+msgstr ""
+
+#: interface.php:78
+msgid ""
+"Difference between the incoming and outgoing components of shortwave "
+"radiation calculated using the VIC land surface model.\n"
+msgstr ""
+
+#: interface.php:80
+msgid ""
+"The Normalized Difference Vegetation Index (NDVI) is measure of live green "
+"vegetation (0-1)"
+msgstr ""
+
+#: interface.php:81
+msgid "Average temperature at 2 meters above the surface."
+msgstr ""
+
+#: interface.php:82
+msgid ""
+"Departure from the climatological value of average temperature at 2 meters "
+"above the surface."
+msgstr ""
+
+#: interface.php:86
+msgid "SPI (3 months)"
+msgstr ""
+
+#: interface.php:87
+msgid "SPI (6 months)"
+msgstr ""
+
+#: interface.php:88
+msgid "SPI (12 months)"
+msgstr ""
+
+#: interface.php:89 interface.php:114
+msgid "Soil Moisture Index (%)"
+msgstr ""
+
+#: interface.php:90 interface.php:115
+msgid "Vegetation Index (%)"
+msgstr ""
+
+#: interface.php:91 interface.php:109
+msgid "Streamflow Index (%)"
+msgstr ""
+
+#: interface.php:92
 msgid "Percentile (%)"
 msgstr ""
 
-#: interface.php:102
-msgid "SPI"
+#: interface.php:94
+msgid "mm/day"
 msgstr ""
 
-#: interface.php:103 interface.php:389
+#: interface.php:97
+msgid "Runoff (mm/day)"
+msgstr ""
+
+#: interface.php:101
+msgid "Daily Maximum Temperature (K)"
+msgstr ""
+
+#: interface.php:102
+msgid "Daily Minimum Temperature (K)"
+msgstr ""
+
+#: interface.php:103
+msgid "Daily Average Wind Speed (m/s)"
+msgstr ""
+
+#: interface.php:105
+msgid "Net Shortwave (W/m2)"
+msgstr ""
+
+#: interface.php:106
+msgid "Net Longwave (W/m2)"
+msgstr ""
+
+#: interface.php:107
+msgid "Net Radiation (W/m2)"
+msgstr ""
+
+#: interface.php:108
+msgid "Streamflow (m3/s)"
+msgstr ""
+
+#: interface.php:402
 msgid "African Water Cycle Monitor"
 msgstr ""
 
-#: interface.php:392
+#: interface.php:405
 msgid "Interactive Interface"
 msgstr ""
 
-#: interface.php:394
+#: interface.php:407
 msgid "Basic Interface"
 msgstr ""
 
-#: interface.php:396
+#: interface.php:409
 msgid "Background"
 msgstr ""
 
-#: interface.php:398
+#: interface.php:411
 msgid "Glossary"
 msgstr ""
 
-#: interface.php:400
+#: interface.php:413
 msgid "Tutorial"
 msgstr ""
 
-#: interface.php:404
+#: interface.php:417
 msgid "Feedback"
+msgstr ""
+
+#: interface.php:436
+msgid "Contact Us:"
+msgstr ""
+
+#: interface.php:439
+msgid "Name"
+msgstr ""
+
+#: interface.php:441
+msgid "Your name"
+msgstr ""
+
+#: interface.php:445
+msgid "Email Address"
+msgstr ""
+
+#: interface.php:447
+msgid "Your email address"
+msgstr ""
+
+#: interface.php:451
+msgid "Message"
+msgstr ""
+
+#: interface.php:453
+msgid "Message to send."
+msgstr ""
+
+#: interface.php:458
+msgid "Send"
+msgstr ""
+
+#: interface.php:459
+msgid "Cancel"
 msgstr ""
