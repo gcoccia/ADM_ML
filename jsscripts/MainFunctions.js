@@ -115,9 +115,9 @@ function update_basic()
       var time_delay = 1000*1/frames_per_second;
 
       var div = document.createElement("div");
-      div.style.position = "absolute";
-      div.style.left = "10%";
-      div.style.top = "50px";
+      div.style.position = "relative";
+      div.style.left = "20%";
+      div.style.top = "20%";
       div.setAttribute('id','basic_image');
       
       var img = document.createElement("img");
