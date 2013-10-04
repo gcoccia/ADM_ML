@@ -457,7 +457,7 @@ $strings_to_translate = array("Indices" => $_('Indices'),
             <div class='controls'>
               <textarea name='contact_message' id='input3' rows='8' class='span9' maxlength='5000' placeholder="<?php echo $_("Message to send.")?>"></textarea>
             </div>
-            <p><span id="feedback-num-chars-remaining">5000</span> <?php echo $_('characters remaining').</p>
+            <p><span id="feedback-num-chars-remaining">5000</span> <?php echo $_('characters remaining')?>.</p>
           </div>
           <div class='form-actions' style='border-radius:0px 0px 5px 5px;'>
             <input type='hidden' name='save' value='contact'>
