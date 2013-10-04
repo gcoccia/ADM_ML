@@ -1,7 +1,8 @@
 <?php
 $name = $_POST["contact_name"];
 $email = $_POST["contact_email"];
-$message = $_POST["contact_message"];
+$message = strip_tags($_POST["contact_message"]);
+$message = htmlspecialchars($message)
 $subject = "Website Feedback";
 
 $headers = 'From: '. $email . "\r\n" .
