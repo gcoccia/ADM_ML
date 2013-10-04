@@ -36,7 +36,7 @@ function Update_Listeners(type){
  else if (type == 'point'){
   //Remove present listeners
   clear_all_overlays();
-  point_overlay();
+  create_point_overlay();
   // Turn off the active chosen datasets
   $("ul.datalist>li").removeClass("active");
   $("ul.datalist>li>ul.dropdown-menu>li").removeClass("active");
