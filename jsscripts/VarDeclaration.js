@@ -11,6 +11,7 @@ var frames_per_second = 1;
 var map_array = [];
 var bounds;
 var overlay_obj = new Array();
+var point_overlay;
 var static_overlay_obj = new Array();
 var overlay_mask = new Array();
 var overlayImageSelect = [];

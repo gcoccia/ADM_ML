@@ -11,7 +11,7 @@ function Update_Listeners(type){
   $("#Spatial-Sidebar").hide();
   $("#monitor-or-forecast-div").show();
   $("#hideBtnImg").show();
-   
+  clear_point_overlay();
   //Set up time info accordingly
   update_monitor_or_forecast();
 
@@ -42,6 +42,7 @@ function Update_Listeners(type){
   $("ul.datalist>li>a>i").removeClass("icon-ok");
   $("ul.datalist>li>ul.dropdown-menu>li>a>i").removeClass("icon-ok");
   Update_Listeners('none');
+  create_point_overlay();
   map_array[0].setOptions({draggableCursor:'crosshair'});
   // Make sure the time info is present
   $("#final-date-inputs").show();
