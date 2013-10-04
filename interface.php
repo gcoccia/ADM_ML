@@ -443,7 +443,7 @@ $strings_to_translate = array("Indices" => $_('Indices'),
           <div class='control-group'>
             <label class='control-label' for='input1'><?php echo $_("Name")?></label>
             <div class='controls'>
-              <input type='text' name='contact_name' id='input1' placeholder="<?php echo $_("Your name")?>">
+              <input type='text' name='contact_name' id='input1' maxlength='200' placeholder="<?php echo $_("Your name")?>">
             </div>
           </div>
           <div class='control-group'>
@@ -457,7 +457,7 @@ $strings_to_translate = array("Indices" => $_('Indices'),
             <div class='controls'>
               <textarea name='contact_message' id='input3' rows='8' class='span9' maxlength='1500' placeholder="<?php echo $_("Message to send.")?>"></textarea>
             </div>
-            <p id="feedback-char-limit" style="margin: 0px; margin-left: 200px; margin-top:5px"><span id="feedback-num-chars-remaining">1500</span> <?php echo $_('characters remaining')?>.</p>
+            <p id="feedback-char-limit" style="margin: 0px; margin-left: 180px; margin-top:5px"><span id="feedback-num-chars-remaining">1500</span> <?php echo $_('characters remaining')?>.</p>
           </div>
           <div class='form-actions' style='border-radius:0px 0px 5px 5px;'>
             <input type='hidden' name='save' value='contact'>
