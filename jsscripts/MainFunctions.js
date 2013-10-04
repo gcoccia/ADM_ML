@@ -232,7 +232,7 @@ function clear_image_overlays()
   $( "#slider-div").hide();
 }
 
-function point_overlay() 
+function create_point_overlay() 
 {
   var ds = "flw--ROUTING_VIC_3B42RT";
   var fdate = data_fdates[ds];
