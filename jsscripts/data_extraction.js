@@ -11,7 +11,7 @@ function Update_Listeners(type){
   $("#Spatial-Sidebar").hide();
   $("#monitor-or-forecast-div").show();
   $("#hideBtnImg").show();
-   
+  clear_point_overlay();
   //Set up time info accordingly
   update_monitor_or_forecast();
 
@@ -36,6 +36,7 @@ function Update_Listeners(type){
  else if (type == 'point'){
   //Remove present listeners
   clear_all_overlays();
+  point_overlay();
   // Turn off the active chosen datasets
   $("ul.datalist>li").removeClass("active");
   $("ul.datalist>li>ul.dropdown-menu>li").removeClass("active");

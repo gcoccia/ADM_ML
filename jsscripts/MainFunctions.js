@@ -4,7 +4,6 @@ var ImageCounter = 0;
 var overlay_opacity = 0.6;
 var overlay_mask_dropdown = new Array();
 
-// JH: Which of these variables are actually being used??
 var ImageLoadedBoolean;
 var day;
 var daycount;
@@ -231,6 +230,19 @@ function clear_image_overlays()
   $( "#animation-slider" ).slider("option", "value", 0);
   $( "#slider-date" ).html("");
   $( "#slider-div").hide();
+}
+
+function point_overlay() 
+{
+  var ds = "flw--ROUTING_VIC_3B42RT";
+  var fdate = data_fdates[ds];
+  var imgpath = "/AWCM/IMAGES/" + fdate + "/ROUTING_VIC_3B42RT/flw_" + fdate.replace(/\//g,'') + ".png";
+  point_overlay = new ImageOverlay(bounds, imgpath, map_array[0], ds);
+}
+
+function clear_point_overlay()
+{
+  point_overlay.remove();
 }
 
 function display_colorbar(dataset)
