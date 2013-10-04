@@ -242,8 +242,10 @@ function create_point_overlay()
 
 function clear_point_overlay()
 {
-  if(point_overlay != undefined)
+  if(point_overlay != undefined) {
     point_overlay.remove();
+    point_overlay = undefined;
+  }
 }
 
 function display_colorbar(dataset)
