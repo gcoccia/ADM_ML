@@ -435,7 +435,7 @@ $strings_to_translate = array("Indices" => $_('Indices'),
         <div id="popup_container"></div>
       </div>
 
-      <div id="feedbackPopup" style="visibility:hidden; position:absolute; background:rgb(229, 227, 223); margin:auto; left: 22%; width:700px; top:60px; height:370px; z-index:9100; padding-top:15px; border-radius:5px; border:2px solid grey;">
+      <div id="feedbackPopup" style="visibility:hidden; position:absolute; background:rgb(229, 227, 223); margin:auto; left: 22%; width:700px; top:60px; height:400px; z-index:9100; padding-top:15px; border-radius:5px; border:2px solid grey;">
         <form id='feedbackForm' method='POST' action='' class='form-horizontal'>
           <div>
             <h4 style='margin-left:30px;'><?php echo $_("Contact Us:")?></h4>
