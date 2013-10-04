@@ -387,6 +387,11 @@ $strings_to_translate = array("Indices" => $_('Indices'),
       Update_Spatial_Data_Display();
     });
 
+    $("textarea#input3").on('keyup', function() {
+      var remaining = $(this).attr('maxlength') - $(this).val().length;
+      $('#feedback-num-chars-remaining').text(remaining);
+    });
+
     // Load the default dataset
     $("ul.datalist>li>ul.dropdown-menu>li>a#" + DEFAULT_ANIMATION_DATASET).click();
   });
@@ -444,14 +449,15 @@ $strings_to_translate = array("Indices" => $_('Indices'),
           <div class='control-group'>
             <label class='control-label' for='input2'><?php echo $_("Email Address")?></label>
             <div class='controls'>
-              <input type='text' name='contact_email' id='input2' placeholder="<?php echo $_("Your email address")?>">
+              <input type='text' name='contact_email' maxlength='100' id='input2' placeholder="<?php echo $_("Your email address")?>">
             </div>
           </div>
           <div class='control-group'>
             <label class='control-label' for='input3'><?php echo $_("Message")?></label>
             <div class='controls'>
-              <textarea name='contact_message' id='input3' rows='8' class='span9' placeholder="<?php echo $_("Message to send.")?>"></textarea>
+              <textarea name='contact_message' id='input3' rows='8' class='span9' maxlength='5000' placeholder="<?php echo $_("Message to send.")?>"></textarea>
             </div>
+            <p><span id="feedback-num-chars-remaining">5000</span> <?php echo $_('characters remaining').</p>
           </div>
           <div class='form-actions' style='border-radius:0px 0px 5px 5px;'>
             <input type='hidden' name='save' value='contact'>
