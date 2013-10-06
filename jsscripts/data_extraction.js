@@ -401,6 +401,13 @@ function Request_Data(variables,Create_Text_Data,data_group,chart_controls) {
    var final_date = Date.UTC(parseInt($("#year_final").val()),11,31)/1000;
   }
 
+  //If the initial and final day are the same or the final day is before the initial then quit and send an alert
+  if (initial_date >= final_date){
+   alert("Your request cannot be processed. The final date must be after the initial date.");
+   $("#clear_all").click();
+   return;
+  }
+
   //var lat = "-34.6250"; //$("#point-latitude").val();
   //var lon = "19.8750"; //$("#point-longitude").val();
   var lat = $("#point-latitude").html();

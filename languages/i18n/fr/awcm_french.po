@@ -1,0 +1,697 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-10-04 10:58-0400\n"
+"PO-Revision-Date: 2013-10-04 23:54-0500\n"
+"Last-Translator: Cynthia Gerlein <cgerlein@princeton.edu>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.7\n"
+
+#: languages/scripts/settings_xml.php:2
+msgid "Precipitation (mm)"
+msgstr "Précipitation (mm)"
+
+#: languages/scripts/settings_xml.php:3
+msgid "Satellite Precipitation (3B42RT)"
+msgstr "Précipitation par satellite (3B42RT)"
+
+#: languages/scripts/settings_xml.php:4
+msgid "Princeton Global Forcing Dataset"
+msgstr "Princeton Global Forcing Dataset"
+
+#: languages/scripts/settings_xml.php:5 languages/scripts/settings_xml.php:49
+msgid "Maximum Temperature (C)"
+msgstr "Température maximale ©"
+
+#: languages/scripts/settings_xml.php:6
+msgid "Princeton Global Forcing"
+msgstr "Princeton Global Forcing"
+
+#: languages/scripts/settings_xml.php:7
+msgid "Global Forecasting System Analysis"
+msgstr "Système d'analyse de prévisions globales"
+
+#: languages/scripts/settings_xml.php:8 languages/scripts/settings_xml.php:50
+msgid "Minimum Temperature (C)"
+msgstr "Température minimale ©"
+
+#: languages/scripts/settings_xml.php:9 languages/scripts/settings_xml.php:51
+msgid "Wind (m/s)"
+msgstr "Vent (m/s)"
+
+#: languages/scripts/settings_xml.php:10 languages/scripts/settings_xml.php:52
+#: interface.php:112
+msgid "Soil Moisture (%) - Layer 1"
+msgstr "Teneur en eau (%) - Profondeur 1"
+
+#: languages/scripts/settings_xml.php:11
+msgid "Derived Hydrologic Products (VIC)"
+msgstr "Produits hydrologiques dérivés (VIC)"
+
+#: languages/scripts/settings_xml.php:12 languages/scripts/settings_xml.php:53
+#: interface.php:113
+msgid "Soil Moisture (%) - Layer 2"
+msgstr "Teneur en eau (%) - Profondeur 2"
+
+#: languages/scripts/settings_xml.php:13 languages/scripts/settings_xml.php:54
+#: interface.php:96
+msgid "Evaporation (mm/day)"
+msgstr "Évaporation (mm/jour)"
+
+#: languages/scripts/settings_xml.php:14
+msgid "VIC hydrologic model (PGF)"
+msgstr "Modèle hydrologique VIC (PGF)"
+
+#: languages/scripts/settings_xml.php:15
+msgid "VIC hydrologic model (3B42RT)"
+msgstr "Modèle hydrologique VIC (3B42RT)"
+
+#: languages/scripts/settings_xml.php:16 languages/scripts/settings_xml.php:55
+msgid "Surface Runoff (mm/day)"
+msgstr "Ruissellement (mm/jour)"
+
+#: languages/scripts/settings_xml.php:17 languages/scripts/settings_xml.php:59
+#: interface.php:98
+msgid "Baseflow (mm/day)"
+msgstr "Étiage (mm/jour)"
+
+#: languages/scripts/settings_xml.php:18 languages/scripts/settings_xml.php:62
+msgid "Streamflow (m^3/s)"
+msgstr "Décharge (m^3/s)"
+
+#: languages/scripts/settings_xml.php:19 languages/scripts/settings_xml.php:34
+#: interface.php:85
+msgid "SPI (1 month)"
+msgstr "SPI (1 mois)"
+
+#: languages/scripts/settings_xml.php:20
+msgid "Derived Meteorology"
+msgstr "Météorologie dérivée"
+
+#: languages/scripts/settings_xml.php:21 languages/scripts/settings_xml.php:43
+msgid "SPI (3 month)"
+msgstr "SPI (3 mois)"
+
+#: languages/scripts/settings_xml.php:22 languages/scripts/settings_xml.php:44
+msgid "SPI (6 month)"
+msgstr "SPI (6 mois)"
+
+#: languages/scripts/settings_xml.php:23 languages/scripts/settings_xml.php:45
+msgid "SPI (12 month)"
+msgstr "SPI (12 mois)"
+
+#: languages/scripts/settings_xml.php:24 languages/scripts/settings_xml.php:60
+msgid "Drought Index (%)"
+msgstr "Indice de sécheresse (%)"
+
+#: languages/scripts/settings_xml.php:25
+msgid "Derived Hydrology"
+msgstr "Hydrologie dérivée"
+
+#: languages/scripts/settings_xml.php:26
+msgid "NDVI Percentile (30-day moving average)"
+msgstr "NDVI "
+
+#: languages/scripts/settings_xml.php:27
+msgid "MODIS"
+msgstr "MODIS"
+
+#: languages/scripts/settings_xml.php:28 languages/scripts/settings_xml.php:61
+msgid "Streamflow Percentile (%)"
+msgstr "Centile de décharge (%)"
+
+#: languages/scripts/settings_xml.php:29
+msgid "VIC hydrologic model"
+msgstr "Modèle hydrologique VIC"
+
+#: languages/scripts/settings_xml.php:30 languages/scripts/settings_xml.php:56
+msgid "Net Radiation (W/m^2)"
+msgstr "Radiations nettes (W/m^2)"
+
+#: languages/scripts/settings_xml.php:31 languages/scripts/settings_xml.php:57
+msgid "Net Longwave Radiation (W/m^2)"
+msgstr "Radiations nettes grandes ondes (W/m^2)"
+
+#: languages/scripts/settings_xml.php:32 languages/scripts/settings_xml.php:58
+msgid "Net Shortwave Radiation (W/m^2)"
+msgstr "Radiations nettes ondes courtes (W/m^2)"
+
+#: languages/scripts/settings_xml.php:33
+msgid "NDVI (30-day moving average)"
+msgstr "NDVI (moyenne glissante sur 30-jours)"
+
+#: languages/scripts/settings_xml.php:35
+msgid "CMC1-CanCM3"
+msgstr "CMC1-CanCM3"
+
+#: languages/scripts/settings_xml.php:36
+msgid "GFDL-CM2p1-aer04"
+msgstr "GFDL-CM2p1-aer04"
+
+#: languages/scripts/settings_xml.php:37
+msgid "COLA-RSMAS-CCSM3"
+msgstr "COLA-RSMAS-CCSM3"
+
+#: languages/scripts/settings_xml.php:38
+msgid "NASA-GMAO-062012"
+msgstr "NASA-GMAO-062012"
+
+#: languages/scripts/settings_xml.php:39
+msgid "CMC2-CanCM4"
+msgstr "CMC2-CanCM4"
+
+#: languages/scripts/settings_xml.php:40
+msgid "NCEP-CFSv2"
+msgstr "NCEP-CFSv2"
+
+#: languages/scripts/settings_xml.php:41
+msgid "Multi Model Mean"
+msgstr "Moyenne multi-modèles"
+
+#: languages/scripts/settings_xml.php:42
+msgid "GFS 7-day forecast"
+msgstr "Prévisions GFS sur 7 jours"
+
+#: languages/scripts/settings_xml.php:46 interface.php:95
+msgid "Precipitation (mm/day)"
+msgstr "Précipitations (mm/jour)"
+
+#: languages/scripts/settings_xml.php:47
+msgid "Average temperature (C)"
+msgstr "Température moyenne ©"
+
+#: languages/scripts/settings_xml.php:48 interface.php:93
+msgid "Temperature Anomaly (C)"
+msgstr "Anomalie de températures ©"
+
+#: sidebar.php:3
+msgid "Animation"
+msgstr "Animation"
+
+#: sidebar.php:4
+msgid "Point Data"
+msgstr "Point de donnée"
+
+#: sidebar.php:5
+msgid "Spatial Data"
+msgstr "Données spatiales"
+
+#: sidebar.php:12
+msgid "Monitor"
+msgstr "Moniteur"
+
+#: sidebar.php:13
+msgid "Forecast"
+msgstr "Prévisions"
+
+#: sidebar.php:19
+msgid "Time Interval"
+msgstr "Intervalle temporel"
+
+#: sidebar.php:19
+msgid "dd/mm/yyyy"
+msgstr "jj/mm/aa"
+
+#: sidebar.php:23
+msgid "Daily"
+msgstr "Quotidien"
+
+#: sidebar.php:24
+msgid "Monthly"
+msgstr "Mensuel"
+
+#: sidebar.php:25
+msgid "Yearly"
+msgstr "Annuel"
+
+#: sidebar.php:28
+msgid "Initial"
+msgstr "Initial"
+
+#: sidebar.php:36
+msgid "Final"
+msgstr "Final"
+
+#: sidebar.php:44
+msgid "Update"
+msgstr "Mettre à jour"
+
+#: sidebar.php:45
+msgid "Clear"
+msgstr "Mettre à zéro"
+
+#: sidebar.php:76 sidebar.php:148
+msgid "Dataset"
+msgstr "Base de données"
+
+#: sidebar.php:92
+msgid "Point Data Selection"
+msgstr "Sélection d'un point de donnée"
+
+#: sidebar.php:94
+msgid "Click a point on the map to view time series data."
+msgstr "Cliquez sur un point de la carte pour voir la série chronologique."
+
+#: sidebar.php:97 interface.php:84
+msgid "Indices"
+msgstr "Indices"
+
+#: sidebar.php:98 interface.php:99
+msgid "Water Balance"
+msgstr "Équilibre hydrologique"
+
+#: sidebar.php:99 interface.php:104
+msgid "Surface Fluxes"
+msgstr "Flux surperficiel"
+
+#: sidebar.php:100 interface.php:110
+msgid "Streamflow"
+msgstr "Décharge"
+
+#: sidebar.php:101 interface.php:111
+msgid "Soil Moisture"
+msgstr "Teneur en eau"
+
+#: sidebar.php:102 interface.php:116
+msgid "Vegetation"
+msgstr "Végétation"
+
+#: sidebar.php:103 interface.php:100
+msgid "Meteorology"
+msgstr "Météorologie"
+
+#: sidebar.php:106
+msgid "Latitude"
+msgstr "Latitude"
+
+#: sidebar.php:108
+msgid "Longitude"
+msgstr "Longitude"
+
+#: sidebar.php:110
+msgid "Create Corresponding Data File?"
+msgstr "Créer le fichier de données correspondant ?"
+
+#: sidebar.php:113
+msgid "Yes"
+msgstr "Oui"
+
+#: sidebar.php:114
+msgid "No"
+msgstr "Non"
+
+#: sidebar.php:124
+msgid "Spatial Data Selection"
+msgstr "Sélection de données spatiales"
+
+#: sidebar.php:125
+msgid ""
+"Click points on the map to draw a polygon and select spatial data. Then "
+"select variables below."
+msgstr ""
+"Cliquez sur les points de la carte pour dessiner un polygone et sélectionner "
+"des données spatiales. Ensuite, sélectionnez les variables ci-dessous."
+
+#: sidebar.php:163
+msgid "Resolution"
+msgstr "Résolution"
+
+#: sidebar.php:178
+msgid "File Format"
+msgstr "Format du fichier"
+
+#: sidebar.php:179
+msgid "arc ascii"
+msgstr "arc ascii"
+
+#: sidebar.php:180
+msgid "netcdf"
+msgstr "netcdf"
+
+#: sidebar.php:184
+msgid "Email address"
+msgstr "Adresse email"
+
+#: sidebar.php:185
+msgid "Submit Data Request"
+msgstr "Soumettre la requête de données"
+
+#: sidebar.php:187
+msgid "Estimated Download Size"
+msgstr "Taille estimée du téléchargement"
+
+#: sidebar.php:189
+msgid "Please select a region."
+msgstr "Sélectionnez une région."
+
+#: sidebar.php:190
+msgid "Please select variables."
+msgstr "Sélectionnez une variable."
+
+#: sidebar.php:191
+msgid "Please provide an email."
+msgstr "Vous devez fournir une adresse email."
+
+#: sidebar.php:192
+msgid ""
+"The current request exceeds 1 GB. Please reduce the size of your request."
+msgstr "La demande excède 1GB. Vous devez réduire la taille de votre requête."
+
+#: interface.php:57
+msgid "Daily total surface precipitation"
+msgstr "Précipitations quotidiennes"
+
+#: interface.php:58
+msgid "Daily maximum temperature measured at 2 meters above the surface"
+msgstr ""
+"Température quotienne maximale mesurée à 2 mètres au-dessus de la surface du "
+"sol."
+
+#: interface.php:59
+msgid "Daily minimum temperature measured at 2 meters above the surface"
+msgstr ""
+"Température quotienne minimale mesurée à 2 mètres au-dessus de la surface du "
+"sol."
+
+#: interface.php:60
+msgid "Daily mean wind speed measured at 2 meters above the surface"
+msgstr ""
+"Vitesse du vent moyenne quotidienne mesurée à 2 mètres au-dessus de la "
+"surface du sol."
+
+#: interface.php:61
+msgid ""
+"Relative soil moisture of the top layer (0 - 10 cm) calculated from the land "
+"surface model output."
+msgstr ""
+"Teneur en eau relative de la surface du sol (0-10 cm) calculée avec les "
+"résultats du modèle de surface continentale."
+
+#: interface.php:62
+msgid ""
+"Relative soil moisture of the second layer (10 - ~100cm) calculated from the "
+"land surface model output. "
+msgstr ""
+"Teneur en eau relative de la seconde couche de sol (10~100 cm) calculée avec "
+"les résultats du modèle de surface continentale."
+
+#: interface.php:63
+msgid ""
+"The sum of the land surface model’s soil evaporation, canopy interception "
+"and plant transpiration."
+msgstr ""
+"Somme de l'évaporation du sol, interception par la voûte des arbres et "
+"transpiration de la végétation calculées par le modèle de surface "
+"continentale."
+
+#: interface.php:64
+msgid ""
+"Excess water from rain, snowmelt or other sources that does not infiltrate "
+"due to soil saturation or high intensity but instead flows overland."
+msgstr ""
+"Excédent d'eau de pluie, fonte des neiges ou autres sources qui ne "
+"s'infiltrent pas à cause de la saturation en eau du sol ou de l'amplitude, "
+"et qui s'écoulent en surface à la place."
+
+#: interface.php:65
+msgid ""
+"Portion of streamflow that comes from the sum of deep subsurface flow and "
+"delayed shallow subsurface flow."
+msgstr ""
+"Part de la décharge provenant de la somme de décharge souterraine profonde "
+"et décharge souterraine de surface retardée."
+
+#: interface.php:66
+msgid ""
+"Daily basin discharge calculated by inputting the baseflow and surface "
+"runoff from the VIC land surface model at each grid cell into the Velocity "
+"Driven Spatially Continuous routing model"
+msgstr ""
+"Décharge quotienne d'un bassin calculée en entrant les données d'étiage et "
+"de ruissellement provenant du modèle de surface continentale VIC à chaque "
+"cellule de la grille, allant dans le modèle d'acheminement spatialement "
+"continu et actionné par la vitesse. "
+
+#: interface.php:67
+msgid ""
+"The 1 month standard precipitation index is the number of standard "
+"deviations that observed 1-month cumulative precipitation deviates from the "
+"climatological average (McKee, 1993).\n"
+msgstr ""
+"L'indice standard de précipitation sur 1 mois est le nombre d'écarts-types "
+"dont les précipitations cumulées sur 1 mois dévient de la moyenne "
+"climatologique (McKee, 1993).\n"
+
+#: interface.php:69
+msgid ""
+"The 3 month standard precipitation index is the number of standard "
+"deviations that observed 3-month cumulative precipitation deviates from the "
+"climatological average (McKee, 1993).\n"
+msgstr ""
+"L'indice standard de précipitation sur 3 mois est le nombre d'écarts-types "
+"dont les précipitations cumulées sur 3 mois dévient de la moyenne "
+"climatologique (McKee, 1993).\n"
+
+#: interface.php:71
+msgid ""
+"The 6 month standard precipitation index is the number of standard "
+"deviations that observed 6-month cumulative precipitation deviates from the "
+"climatological average (McKee, 1993)."
+msgstr ""
+"L'indice standard de précipitation sur 6 mois est le nombre d'écarts-types "
+"dont les précipitations cumulées sur 6 mois dévient de la moyenne "
+"climatologique (McKee, 1993)."
+
+#: interface.php:72
+msgid ""
+"The 12 month standard precipitation index is the number of standard "
+"deviations that observed 12-month cumulative precipitation deviates from the "
+"climatological average (McKee, 1993)."
+msgstr ""
+"L'indice standard de précipitation sur 12 mois est le nombre d'écarts-types "
+"dont les précipitations cumulées sur 12 mois dévient de la moyenne "
+"climatologique (McKee, 1993)."
+
+#: interface.php:73
+msgid ""
+"A measure of the severity of drought in soil moisture; low values indicate "
+"drought conditions"
+msgstr ""
+"Une mesure de la sévérité de la sécheresse de la teneur en eau : les valeurs "
+"basses indiquent des conditions de sécheresse. "
+
+#: interface.php:74
+msgid ""
+"A measure of the severity of agricultural drought; low values indicate "
+"drought conditions. The 30-day moving average of NDVI is compared to the "
+"historical record of NDVI via the empirical cumulative distribution function "
+"to determine the percentile."
+msgstr ""
+"Une mesure de la sévérité de la sécheresse agricole : les valeurs basses "
+"indiquent des conditions de sécheresse. La moyenne glissante sur 30 jours "
+"des valeurs de NDVI est comparée aux données historiques de NDVI via la "
+"distribution cumulée empirique pour déterminer les centiles."
+
+#: interface.php:75
+msgid ""
+"A measure of the severity of hydrological drought; low values indicate "
+"drought conditions. Percentile of the simulated discharge at each stream "
+"gauge with respect to the historical simulations (1950 - 2008)"
+msgstr ""
+"Une mesure de la sévérité de la sécheresse hydrologique : les valeurs basses "
+"indiquent des conditions de sécheresse. Centile de la décharge simulée à "
+"chaque jauge par rapport aux valeurs des simulations historiques (1950-2008)."
+
+#: interface.php:76
+msgid ""
+"Difference between the incoming and outgoing components of radiation "
+"calculated using the VIC land surface model."
+msgstr ""
+"La différence entre la composante entrante et sortante des radiations est "
+"calculée avec le modèle de surface continentale VIC."
+
+#: interface.php:77
+msgid ""
+"Difference between the incoming and outgoing components of longwave "
+"radiation calculated using the VIC land surface model."
+msgstr ""
+"La différence entre la composante entrante et sortante des radiations ondes "
+"longues est calculée avec le modèle de surface continentale VIC."
+
+#: interface.php:78
+msgid ""
+"Difference between the incoming and outgoing components of shortwave "
+"radiation calculated using the VIC land surface model.\n"
+msgstr ""
+"La différence entre la composante entrante et sortante des radiations ondes "
+"courtes est calculée avec le modèle de surface continentale VIC.\n"
+
+#: interface.php:80
+msgid ""
+"The Normalized Difference Vegetation Index (NDVI) is measure of live green "
+"vegetation (0-1)"
+msgstr ""
+"L'indice de différence normalisée de végétation (Normalized Difference "
+"Vegetation Index, NDVI) est mesuré à partir de végétation verte vivante "
+"(0-1)."
+
+#: interface.php:81
+msgid "Average temperature at 2 meters above the surface."
+msgstr "Température moyenne à 2 mètres au-dessus de la surface du sol."
+
+#: interface.php:82
+msgid ""
+"Departure from the climatological value of average temperature at 2 meters "
+"above the surface."
+msgstr ""
+"Écart de la valeur climatologique de la température moyenne à 2 mètres au-"
+"dessus de la surface du sol."
+
+#: interface.php:86
+msgid "SPI (3 months)"
+msgstr "SPI (3 mois)"
+
+#: interface.php:87
+msgid "SPI (6 months)"
+msgstr "SPI (6 mois)"
+
+#: interface.php:88
+msgid "SPI (12 months)"
+msgstr "SPI (12 mois)"
+
+#: interface.php:89 interface.php:114
+msgid "Soil Moisture Index (%)"
+msgstr "Indice de teneur en eau (%)"
+
+#: interface.php:90 interface.php:115
+msgid "Vegetation Index (%)"
+msgstr "Indice de végétation (%)"
+
+#: interface.php:91 interface.php:109
+msgid "Streamflow Index (%)"
+msgstr "Indice de décharge (%)"
+
+#: interface.php:92
+msgid "Percentile (%)"
+msgstr "Centile (%)"
+
+#: interface.php:94
+msgid "mm/day"
+msgstr "mm/jour"
+
+#: interface.php:97
+msgid "Runoff (mm/day)"
+msgstr "Ruissellement (mm/jour)"
+
+#: interface.php:101
+msgid "Daily Maximum Temperature (K)"
+msgstr "Température quotienne maximale (K)"
+
+#: interface.php:102
+msgid "Daily Minimum Temperature (K)"
+msgstr "Température quotienne minimale (K)"
+
+#: interface.php:103
+msgid "Daily Average Wind Speed (m/s)"
+msgstr "Vitesse du vent moyenne quotidienne (m/s)"
+
+#: interface.php:105
+msgid "Net Shortwave (W/m2)"
+msgstr "Radiations nettes ondes courtes (W/m^2)"
+
+#: interface.php:106
+msgid "Net Longwave (W/m2)"
+msgstr "Radiations nettes grandes ondes (W/m^2)"
+
+#: interface.php:107
+msgid "Net Radiation (W/m2)"
+msgstr "Radiations nettes (W/m^2)"
+
+#: interface.php:108
+msgid "Streamflow (m3/s)"
+msgstr "Décharge (m^3/s)"
+
+#: interface.php:117
+msgid "Error: "
+msgstr "Erreur :"
+
+#: interface.php:118
+msgid " is only available from "
+msgstr "est uniquement disponible depuis"
+
+#: interface.php:119
+msgid " to "
+msgstr "à"
+
+#: interface.php:402
+msgid "African Water Cycle Monitor"
+msgstr "Moniteur africain du cycle de l'eau "
+
+#: interface.php:405
+msgid "Interactive Interface"
+msgstr "Interface interactive"
+
+#: interface.php:407
+msgid "Basic Interface"
+msgstr "Interface basique"
+
+#: interface.php:409
+msgid "Background"
+msgstr "Background"
+
+#: interface.php:411
+msgid "Glossary"
+msgstr "Glossaire"
+
+#: interface.php:413
+msgid "Tutorial"
+msgstr "Tutoriel"
+
+#: interface.php:417
+msgid "Feedback"
+msgstr "Votre opinion"
+
+#: interface.php:436
+msgid "Contact Us:"
+msgstr "Contactez-nous :"
+
+#: interface.php:439
+msgid "Name"
+msgstr "Nom"
+
+#: interface.php:441
+msgid "Your name"
+msgstr "Votre nom"
+
+#: interface.php:445
+msgid "Email Address"
+msgstr "Adresse email"
+
+#: interface.php:447
+msgid "Your email address"
+msgstr "Votre adresse email"
+
+#: interface.php:451
+msgid "Message"
+msgstr "Message"
+
+#: interface.php:453
+msgid "Message to send."
+msgstr "Message à envoyer."
+
+#: interface.php:458
+msgid "Send"
+msgstr "Envoyer"
+
+#: interface.php:459
+msgid "Cancel"
+msgstr "Annuler"
