@@ -391,18 +391,21 @@ function Request_Data(variables,Create_Text_Data,data_group,chart_controls) {
   if (tstep == 'DAILY'){
    var initial_date = Date.UTC(parseInt($("#year_initial").val()),parseInt($("#month_initial").val()-1),parseInt($("#day_initial").val()))/1000;
    var final_date = Date.UTC(parseInt($("#year_final").val()),parseInt($("#month_final").val()-1),parseInt($("#day_final").val()))/1000;
+   var final_date_check = final_date;
   }
   else if (tstep == 'MONTHLY'){
    var initial_date = Date.UTC(parseInt($("#year_initial").val()),parseInt($("#month_initial").val()-1),1)/1000;
    var final_date = Date.UTC(parseInt($("#year_final").val()),parseInt($("#month_final").val()-1),28)/1000;
+   var final_date_check = Date.UTC(parseInt($("#year_final").val()),parseInt($("#month_final").val()-1),1)/1000;
   }
   else if (tstep == 'YEARLY'){
    var initial_date = Date.UTC(parseInt($("#year_initial").val()),0,1)/1000;
    var final_date = Date.UTC(parseInt($("#year_final").val()),11,31)/1000;
+   var final_date_check = Date.UTC(parseInt($("#year_final").val()),0,1)/1000;
   }
 
   //If the initial and final day are the same or the final day is before the initial then quit and send an alert
-  if (initial_date >= final_date){
+  if (initial_date >= final_date_check){
    alert("Your request cannot be processed. The final date must be after the initial date.");
    $("#clear_all").click();
    return;
