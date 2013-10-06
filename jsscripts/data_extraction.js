@@ -350,7 +350,7 @@ function Plot_Point_Ajax_Response(Output,Create_Text_Data,chart_controls,chart_d
         marker: {enabled: false},
         id: variable,
         name: chart_data[variable]['name'],
-        type: 'line',
+        type: 'spline',
         yAxis: units,
         pointInterval: Output["TIME"]["pointInterval"],
         pointStart: Date.UTC(Output["TIME"]["iyear"],Output["TIME"]["imonth"]-1,Output["TIME"]["iday"]),
