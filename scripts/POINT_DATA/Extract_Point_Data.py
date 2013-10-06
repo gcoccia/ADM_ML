@@ -2,6 +2,7 @@ import json
 import numpy as np
 import netCDF4 as netcdf
 import datetime
+import os
 
 def Create_Text_File(data,tstep,idate,fdate,data_group,lat,lon,http_root,undef):
 
@@ -122,6 +123,13 @@ idecade = np.int(10*np.floor(idate_datetime.year/10))
 fdecade = np.int(10*np.floor(fdate_datetime.year/10))
 decades = np.arange(idecade,fdecade+10,10)
 fps = []
+
+#Determine if file exists
+file = '../../DATA_CELL/%d/cell_%0.3f_%0.3f.nc' % (decades[0],lat,lon)
+if os.path.exists(file) == False:
+ print json.dumps('out_of_bounds')
+ exit()
+
 for decade in decades:
  file = '../../DATA_CELL/%d/cell_%0.3f_%0.3f.nc' % (decade,lat,lon)
  fps.append(netcdf.Dataset(file,'r',format='NETCDF4'))
