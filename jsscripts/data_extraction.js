@@ -285,7 +285,7 @@ function Plot_Point_Ajax_Response(Output,Create_Text_Data,chart_controls,chart_d
  //If the point is out of bounds alert and exit
  if (Output == 'out_of_bounds'){
   $("#clear_all").click();
-  alert('Point of out bounds. Please choose a point inside the domain.');
+  alert('Point out of bounds. Please choose a point inside the domain.');
   return;
  }
  //If we have requested the data display the link
