@@ -316,7 +316,9 @@ $strings_to_translate = array("Indices" => $_('Indices'),
         $(".mf-pills").parent().removeClass("active");
         $(this).parent().addClass("active");
         update_monitor_or_forecast();
-        $("#clear_all").click(); // when switching between monitor/forecast, clear the current animation.
+
+        if(""+$("ul.data-extraction li.active>a").attr('id') == "spatial")
+          $("#clear_all").click(); // when switching between monitor/forecast, clear the current animation.
       }
     });
     $(".ts-pills").click(function() {
