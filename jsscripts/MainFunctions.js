@@ -355,7 +355,7 @@ function update_monitor_or_forecast()
   if(""+morf == "monitor") {
 
     // Animation mode
-    if(current_setting == "none") {
+    if(""+current_setting == "none") {
       $("#Animation-Sidebar>div.dummy").show();
       $("li#Forecast").parent().hide();
     } else { // spatial mode
@@ -379,7 +379,7 @@ function update_monitor_or_forecast()
   }
   else {
 
-    if(current_setting == "none") {
+    if(""+current_setting == "none") {
       $("#Animation-Sidebar>div.dummy").hide();
       $("li#Forecast").parent().show();
     } else {
