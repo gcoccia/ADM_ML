@@ -2,12 +2,10 @@ import json
 import numpy as np
 import netCDF4 as netcdf
 import datetime
+import dateutil.relativedelta as relativedelta
 import os
 
 def Create_Text_File(data,tstep,idate,fdate,data_group,lat,lon,http_root,undef):
-
- import os 
- import dateutil.relativedelta as relativedelta
 
  #Change directory
  os.chdir('../..')
@@ -112,9 +110,7 @@ elif tstep == "YEARLY":
 
 #Read in the desired data
 variables = []
-date = {'pointInterval':pointInterval,'iyear':idate_datetime.year,'imonth':idate_datetime.month,'iday':idate_datetime.day}
 data_out = {}
-data_out["TIME"] = date
 data_out["VARIABLES"] = {}
 data = []
 
@@ -163,6 +159,23 @@ for fp in fps:
 #If required, create the ascii text file of data
 if create_text_file == 'yes':
  data_out['point_data_link'] = Create_Text_File(data_out,tstep,idate_datetime,fdate_datetime,data_group,lat,lon,http_root,undef)
+
+#Reduce the number of chart time steps if requesting too many
+maxnt = 1000
+if nt > maxnt:
+ nt = maxnt
+ if tstep == "DAILY":
+  idate_datetime = fdate_datetime - (nt-1)*relativedelta.relativedelta(days=1)
+ elif tstep == "MONTHLY":
+  idate_datetime = fdate_datetime - (nt-1)*relativedelta.relativedelta(months=1)
+ elif tstep == "YEARLY":
+  idate_datetime = fdate_datetime - (nt-1)*relativedelta.relativedelta(years=1)
+ for var in data_out['VARIABLES']:
+  data_out['VARIABLES'][var]['data'] = data_out['VARIABLES'][var]['data'][-maxnt:]
+
+#Define time info
+date = {'pointInterval':pointInterval,'iyear':idate_datetime.year,'imonth':idate_datetime.month,'iday':idate_datetime.day}
+data_out["TIME"] = date
 
 #Print json
 print json.dumps(data_out,allow_nan=True)
