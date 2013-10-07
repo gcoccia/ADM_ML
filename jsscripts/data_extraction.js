@@ -65,6 +65,7 @@ function Update_Listeners(type){
   $("#Spatial-Sidebar").hide();
   $("#monitor-or-forecast-div").hide();
   $("#hideBtnImg").hide();
+  $("#yearly").show();
 
   //Add the listeners
   google.maps.event.addListener(map_array[0], 'click', function(mEvent) {Point_Data(mEvent.latLng)});
