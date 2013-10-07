@@ -350,10 +350,20 @@ function ChangeLanguage(language)
 function update_monitor_or_forecast()
 {
   var morf = $("ul.monitor-or-forecast>li.active").find("a").attr('id');
+  var current_setting = $("ul.data-extraction li.active>a").attr('id');
 
   if(""+morf == "monitor") {
-    $("#Animation-Sidebar>div.dummy").show();
-    $("li#Forecast").parent().hide();
+
+    // Animation mode
+    if(current_setting == "none") {
+      $("#Animation-Sidebar>div.dummy").show();
+      $("li#Forecast").parent().hide();
+    } else { // spatial mode
+      $("#Spatial-Sidebar>div.dummy").show();
+      $("li#Forecast_spatial").parent().hide();
+    }
+
+    // Regardless of mode ...
     $("#final-date-inputs").show();
     $("#initial-date-inputs").show();
     $("#Animation-Update").show();
@@ -368,8 +378,14 @@ function update_monitor_or_forecast()
     $("#yearly").show();
   }
   else {
-    $("#Animation-Sidebar>div.dummy").hide();
-    $("li#Forecast").parent().show();
+
+    if(current_setting == "none") {
+      $("#Animation-Sidebar>div.dummy").hide();
+      $("li#Forecast").parent().show();
+    } else {
+      $("#Spatial-Sidebar>div.dummy").hide();
+      $("li#Forecast_spatial").parent().show();
+    }
     $("#initial-date-inputs").hide();
     $("#final-date-inputs").hide();
     $("#Animation-Update").hide();
@@ -378,6 +394,14 @@ function update_monitor_or_forecast()
     ReadTimeInterval();
   }
 
+  // If we're in spatial mode switching between monitor/forecast, clear the "currently selected" list.
+  if(current_setting == "spatial") {
+    $("ul#currently-selected-vars>li>a").each(function() {
+      $("ul.spatial-datalist>li>ul.dropdown-menu>li>a#" + $(this).attr('id')).parent().show();
+      $(this).parent().remove();
+      Update_Spatial_Data_Display();
+    });
+  }
 }
 
 function LoadBasic()

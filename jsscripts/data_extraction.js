@@ -88,7 +88,7 @@ function Update_Listeners(type){
   $("#Animation-Sidebar").hide();
   $("#Point-Sidebar").hide();
   $("#Spatial-Sidebar").show();
-  $("#monitor-or-forecast-div").hide();
+  $("#monitor-or-forecast-div").show();
   $("#hideBtnImg").hide();
 
   // Ensure the time info is present
