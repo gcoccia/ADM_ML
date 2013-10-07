@@ -385,6 +385,7 @@ function update_monitor_or_forecast()
     } else {
       $("#Spatial-Sidebar>div.dummy").hide();
       $("li#Forecast_spatial").parent().show();
+      console.log("Forecast, Spatial");
     }
     $("#initial-date-inputs").hide();
     $("#final-date-inputs").hide();
@@ -395,7 +396,7 @@ function update_monitor_or_forecast()
   }
 
   // If we're in spatial mode switching between monitor/forecast, clear the "currently selected" list.
-  if(current_setting == "spatial") {
+  if(""+current_setting == "spatial") {
     $("ul#currently-selected-vars>li>a").each(function() {
       $("ul.spatial-datalist>li>ul.dropdown-menu>li>a#" + $(this).attr('id')).parent().show();
       $(this).parent().remove();
