@@ -2,26 +2,28 @@ function update_timestep()
 {
   var current_timestep = $("ul.ts-selection li.active").attr('id');
   var abbrevs = {"daily": "D", "monthly": "M", "yearly": "Y"};
-  var ddlink;
+  var anim_string, spatial_string;
 
   for(dataset in data_timesteps) {
-    ddlink = $("ul.datalist>li>ul.dropdown-menu>li>a#" + dataset);
+    anim_string = "ul.datalist>li>ul.dropdown-menu>li>a#" + dataset;
+    spatial_string = "ul.spatial-datalist>li>ul.dropdown-menu>li>a#" + dataset;
+    $(anim_string + "," + spatial_string).each(function() {
+      if(data_timesteps[dataset].indexOf(abbrevs[current_timestep]) == -1) {
+        $(this).parent().hide(150, function() {});
+        $(this).parent().removeClass("visible-data");
 
-    if(data_timesteps[dataset].indexOf(abbrevs[current_timestep]) == -1) {
-      ddlink.parent().hide(150, function() {});
-      ddlink.parent().removeClass("visible-data");
-
-      if(ddlink.parent().hasClass("active")) {
-        ddlink.parent().removeClass("active");
-        ddlink.parent().parent().parent().removeClass("active");
-        ddlink.parent().parent().parent().find("a.dropdown-toggle>i").removeClass("icon-ok");
-        ddlink.find('i').removeClass("icon-ok");
+        if($(this).parent().hasClass("active")) {
+          $(this).parent().removeClass("active");
+         $(this).parent().parent().parent().removeClass("active");
+          $(this).parent().parent().parent().find("a.dropdown-toggle>i").removeClass("icon-ok");
+          $(this).find('i').removeClass("icon-ok");
+        }
       }
-    }
-    else {
-      ddlink.parent().show(150, function() {});
-      ddlink.parent().addClass("visible-data");
-    }
+      else {
+        $(this).parent().show(150, function() {});
+        $(this).parent().addClass("visible-data");
+      }
+    });
   }
 
   // Disable/Enable the relevant timestamp input boxes depending which radio button is selected
