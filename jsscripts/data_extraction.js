@@ -325,6 +325,7 @@ function Plot_Point_Ajax_Response(Output,Create_Text_Data,chart_controls,chart_d
  //Create the input for the chart
  var chart_options = {
       chart: {
+       zoomType: 'x',
        borderRadius: 0,
       },
       xAxis: {
@@ -342,9 +343,7 @@ function Plot_Point_Ajax_Response(Output,Create_Text_Data,chart_controls,chart_d
       title: chart_controls['title'],
       subtitle: {text: TRANSLATE['African_Water_Cycle_Monitor'],},
       tooltip: {
-       formatter: function() {
-        return Highcharts.numberFormat(this.y, 3);
-       }
+       valueDecimals: 3,
       },
      };
  for (variable in chart_data){
