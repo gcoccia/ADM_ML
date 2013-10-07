@@ -91,8 +91,8 @@ function Update_Listeners(type){
   $("#monitor-or-forecast-div").show();
   $("#hideBtnImg").hide();
 
-  // Visibility of the time info and forecast vars will be handled by update_monitor_or_forecast, 
-  // which is called as part of UpdateListeners('none') above
+  // Visibility of the time info and forecast vars will be handled by update_monitor_or_forecast
+  update_monitor_or_forecast();
 
   map_array[0].setOptions({draggableCursor:'crosshair'});
   // Add polygon and lines to map
