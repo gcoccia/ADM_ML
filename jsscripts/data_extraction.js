@@ -352,6 +352,7 @@ function Plot_Point_Ajax_Response(Output,Create_Text_Data,chart_controls,chart_d
    }
    var units = chart_data[variable]['units'];//Output["VARIABLES"][variable]["units"];
    var series = {
+        connectNulls: true,
         marker: {enabled: false},
         id: variable,
         name: chart_data[variable]['name'],
