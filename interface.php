@@ -185,7 +185,7 @@ $strings_to_translate = array("Indices" => $_('Indices'),
     
     var styleArray = [{featureType: 'administrative.country',stylers: [{ visibility: 'simplified' }]}];
 
-    var myOptions = {styles: styleArray,zoom: dim.izoom,center: mapCenter,panControl: false,zoomControl: true,zoomControlOptions:{style:      
+    var myOptions = {minZoom:3,maxZoom:8,styles: styleArray,zoom: dim.izoom,center: mapCenter,panControl: false,zoomControl: true,zoomControlOptions:{style:      
     google.maps.ZoomControlStyle.DEFAULT,position: google.maps.ControlPosition.LEFT_TOP},scaleControl: false,streetViewControl: false,mapTypeControl: 
     true,mapTypeControlOptions:{style: google.maps.MapTypeControlStyle.DROPDOWN_MENU,position: google.maps.ControlPosition.TOP_LEFT},mapTypeId: 
     google.maps.MapTypeId.TERRAIN};
