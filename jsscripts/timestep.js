@@ -38,7 +38,7 @@ function update_timestep()
     $("input[id='month_initial'], input[id='month_final']").show(150, function() {});
 
   // loop through dropdown list and hide anything with no dropdown links
-  $("ul.datalist>li").each(function(index) {
+  $("ul.datalist>li,ul.spatial-datalist>li").each(function(index) {
     if($(this).find("ul.dropdown-menu>li.visible-data").length == 0) {
       $(this).hide(150, function() {});
     } else {
