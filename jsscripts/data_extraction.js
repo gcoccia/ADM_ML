@@ -91,21 +91,8 @@ function Update_Listeners(type){
   $("#monitor-or-forecast-div").show();
   $("#hideBtnImg").hide();
 
-  // Ensure the time info is present
-  $("#final-date-inputs").show();
-  $("#initial-date-inputs").show();
-  $("#Animation-Update").show();
-  var sample_dataset = 'vcpct--VIC_DERIVED';
-  var final_date = new Date(data_fdates[sample_dataset]);
-  $("#year_initial").val(final_date.getFullYear());
-  $("#month_initial").val(final_date.getMonth() + 1);
-  $("#day_initial").val(final_date.getDate());
-  $("#year_final").val(final_date.getFullYear());
-  $("#month_final").val(final_date.getMonth() + 1);
-  $("#day_final").val(final_date.getDate());
-
-  // Remove forecast variables for now
-  $("li#Forecast_spatial").parent().hide();
+  // Visibility of the time info and forecast vars will be handled by update_monitor_or_forecast, 
+  // which is called as part of UpdateListeners('none') above
 
   map_array[0].setOptions({draggableCursor:'crosshair'});
   // Add polygon and lines to map
