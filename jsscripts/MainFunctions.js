@@ -354,16 +354,11 @@ function update_monitor_or_forecast()
 
   if(""+morf == "monitor") {
 
-    // Animation mode
-    if(""+current_setting == "none") {
-      $("#Animation-Sidebar>div.dummy").show();
-      $("li#Forecast").parent().hide();
-    } else { // spatial mode
-      $("#Spatial-Sidebar>div.dummy").show();
-      $("li#Forecast_spatial").parent().hide();
-    }
+    $("#Animation-Sidebar>div.dummy").show();
+    $("li#Forecast").parent().hide();
+    $("#Spatial-Sidebar>div.dummy").show();
+    $("li#Forecast_spatial").parent().hide();
 
-    // Regardless of mode ...
     $("#final-date-inputs").show();
     $("#initial-date-inputs").show();
     $("#Animation-Update").show();
@@ -379,13 +374,11 @@ function update_monitor_or_forecast()
   }
   else {
 
-    if(""+current_setting == "none") {
-      $("#Animation-Sidebar>div.dummy").hide();
-      $("li#Forecast").parent().show();
-    } else {
-      $("#Spatial-Sidebar>div.dummy").hide();
-      $("li#Forecast_spatial").parent().show();
-    }
+    $("#Animation-Sidebar>div.dummy").hide();
+    $("li#Forecast").parent().show();
+    $("#Spatial-Sidebar>div.dummy").hide();
+    $("li#Forecast_spatial").parent().show();
+
     $("#initial-date-inputs").hide();
     $("#final-date-inputs").hide();
     $("#Animation-Update").hide();
