@@ -317,7 +317,7 @@ $strings_to_translate = array("Indices" => $_('Indices'),
         $(this).parent().addClass("active");
         update_monitor_or_forecast();
 
-        if(""+$("ul.data-extraction li.active>a").attr('id') == "spatial")
+        if(""+$("ul.data-extraction li.active>a").attr('id') == "none")
           $("#clear_all").click(); // when switching between monitor/forecast, clear the current animation.
       }
     });
