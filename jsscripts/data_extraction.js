@@ -410,9 +410,24 @@ function Request_Data(variables,Create_Text_Data,data_group,chart_controls) {
    var final_date_check = Date.UTC(parseInt($("#year_final").val()),0,1)/1000;
   }
 
+  //Define the available data according to the soil moisture percentiles
+  var initial_date_dataset =new Date(data_idates['vcpct--VIC_DERIVED']);
+  var final_date_dataset = new Date(data_fdates['vcpct--VIC_DERIVED']);
+  final_date_dataset.setDate(final_date_dataset.getDate() + 365);
+  if (initial_date < initial_date_dataset.getTime()/1000){
+   alert("Error: The initial date must be after " + initial_date_dataset);
+   $("#clear_all").click();
+   return;
+  }
+  if (final_date > final_date_dataset.getTime()/1000){
+   alert("Error: The final date must be before " + final_date_dataset);
+   $("#clear_all").click();
+   return;
+  }
+
   //If the initial and final day are the same or the final day is before the initial then quit and send an alert
   if (initial_date >= final_date_check){
-   alert("Your request cannot be processed. The final date must be after the initial date.");
+   alert("Error: The final date must be after the initial date.");
    $("#clear_all").click();
    return;
   }
