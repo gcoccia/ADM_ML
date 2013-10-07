@@ -385,7 +385,6 @@ function update_monitor_or_forecast()
     } else {
       $("#Spatial-Sidebar>div.dummy").hide();
       $("li#Forecast_spatial").parent().show();
-      console.log("Forecast, Spatial");
     }
     $("#initial-date-inputs").hide();
     $("#final-date-inputs").hide();
