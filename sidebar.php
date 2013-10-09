@@ -22,7 +22,7 @@
     <ul class="nav nav-pills ts-selection">
       <li id="daily" class="active"><a href="javascript:void(0)" class="ts-pills"><?php echo $_("Daily")?></a></li>
       <li id="monthly"><a href="javascript:void(0)" class="ts-pills"><?php echo $_("Monthly")?></a></li>
-      <li id="yearly"><a href="javascript:void(0)"class="ts-pills"><?php echo $_("Yearly")?></a></li>
+      <li id="yearly"><a href="javascript:void(0)" class="ts-pills"><?php echo $_("Yearly")?></a></li>
     </ul>
     <div id="initial-date-inputs" class="control-group form-inline">
       <label style="width:40px;"><?php echo $_("Initial")?>:</label>
