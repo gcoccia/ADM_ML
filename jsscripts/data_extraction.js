@@ -438,7 +438,7 @@ function Request_Data(variables,Create_Text_Data,data_group,chart_controls) {
      Plot_Point_Ajax_Response(Output,Create_Text_Data,chart_controls,variables);
     },
     async: true,
-    cache: false,
+    cache: false
   });
 }
 
