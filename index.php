@@ -2,6 +2,7 @@
 if (isset($_COOKIE["locale"]) && !isset($_GET["locale"])) {
   header("Location: interface.php?locale=".$_COOKIE["locale"]);
 }
+header('X-UA-Compatible: IE=edge');
 ?>
 
 <!DOCTYPE html>
