@@ -325,7 +325,7 @@ function Plot_Point_Ajax_Response(Output,Create_Text_Data,chart_controls,chart_d
        }]
       },
       yAxis: [],
-      legend: {layout: 'horizontal',align: 'center',verticalAlign: 'bottom',},
+      legend: {layout: 'horizontal',align: 'center',verticalAlign: 'bottom'},
       series: [],
       title: chart_controls['title'],
       subtitle: {text: TRANSLATE['African_Water_Cycle_Monitor'],},
