@@ -424,7 +424,7 @@ function Request_Data(variables,Create_Text_Data,data_group,chart_controls) {
   var lat = $("#point-latitude").html();
   var lon = $("#point-longitude").html();
   var script = 'python POINT_DATA/Extract_Point_Data.py';
-  var input = {idate:initial_date, fdate:final_date, tstep:tstep, lat:lat, lon:lon, variables:variables,create_text_file:Create_Text_Data,data_group:data_group,http:document.URL,};
+  var input = {idate:initial_date, fdate:final_date, tstep:tstep, lat:lat, lon:lon, variables:variables,create_text_file:Create_Text_Data,data_group:data_group,http:document.URL};
   input = JSON.stringify(input);
   var request = {script:script,input:input};
   $.ajax({
