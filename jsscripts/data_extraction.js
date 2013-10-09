@@ -313,7 +313,7 @@ function Plot_Point_Ajax_Response(Output,Create_Text_Data,chart_controls,chart_d
  var chart_options = {
       chart: {
        zoomType: 'x',
-       borderRadius: 0,
+       borderRadius: 0
       },
       xAxis: {
        type: 'datetime',
@@ -322,7 +322,7 @@ function Plot_Point_Ajax_Response(Output,Create_Text_Data,chart_controls,chart_d
         from: initial_date,//Date.UTC(2013,8,23),
         to: final_date,//Date.UTC(2013,8,29),
         color: 'rgba(68, 170, 213, .2)'
-       }],
+       }]
       },
       yAxis: [],
       legend: {layout: 'horizontal',align: 'center',verticalAlign: 'bottom',},
@@ -331,7 +331,7 @@ function Plot_Point_Ajax_Response(Output,Create_Text_Data,chart_controls,chart_d
       subtitle: {text: TRANSLATE['African_Water_Cycle_Monitor'],},
       tooltip: {
        valueDecimals: 3,
-      },
+      }
      };
  for (variable in chart_data){
    if (!(variable in Output["VARIABLES"])){
@@ -347,7 +347,7 @@ function Plot_Point_Ajax_Response(Output,Create_Text_Data,chart_controls,chart_d
         yAxis: units,
         pointInterval: Output["TIME"]["pointInterval"],
         pointStart: Date.UTC(Output["TIME"]["iyear"],Output["TIME"]["imonth"]-1,Output["TIME"]["iday"]),
-        data: Output["VARIABLES"][variable]["data"],
+        data: Output["VARIABLES"][variable]["data"]
        };
    //Determine if we need a new axis. If so add it
    new_axis = true;
