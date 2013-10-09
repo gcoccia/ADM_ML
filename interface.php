@@ -119,6 +119,8 @@ $strings_to_translate = array("Indices" => $_('Indices'),
                               " to " => $_(' to ')
                               );
 
+header('X-UA-Compatible: IE=edge');
+
 ?>
 
 <!DOCTYPE html> 
@@ -128,7 +130,6 @@ $strings_to_translate = array("Indices" => $_('Indices'),
 <link rel="icon" type="image/ico" href="icons/AWCM_logo.ico">
 <meta name="viewport" content="initial-scale=1.0, user-scalable=no" /> 
 <meta http-equiv="content-type" content="text/html; charset=UTF-8"/> 
-<meta http-equiv="X-UA-Compatible" content="IE=edge" >
 <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
 <link rel="stylesheet" type="text/css" href="css/custom.css">
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
