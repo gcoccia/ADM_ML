@@ -220,7 +220,7 @@ function Create_Point_Plot() {
      wind:{units:'m/s',name:TRANSLATE['Daily Average Wind Speed (m/s)'],datasets:['PGF','GFS_ANALYSIS_BC','GFS_7DAY_FORECAST'],type:'line'}
     }
     var chart_controls = {
-     title: {text: "Meteorology",}
+     title: {text: "Meteorology"}
     }
   }
   else if (plot == "Surface_Fluxes"){
