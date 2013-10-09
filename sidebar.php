@@ -182,7 +182,7 @@
   </div>
   <br>
   <br>
-  <input type="text" id = "email_spatial_data" name="email_spatial_data" placeholder="<?php echo $_('Email address')?>"></br>
+  <input type="text" id = "email_spatial_data" name="email_spatial_data" placeholder="<?php echo $_('Email address')?>"><br>
   <button type="button" id="submit_request_button" onclick="Submit_Spatial_Data()"><?php echo $_('Submit Data Request')?></button>
   <br>
   <span id="est_dl_size_holder"><?php echo $_('Estimated Download Size')?>: <span id="estimated-download-size">0</span></span>
