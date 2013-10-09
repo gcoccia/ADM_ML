@@ -254,7 +254,7 @@ function Create_Point_Plot() {
   }
   else if (plot == "Vegetation"){
     var chart_data = {
-     ndvi30:{units:'NDVI',name:'NDVI',datasets:['MOD09_NDVI_MA'],},
+     ndvi30:{units:'NDVI',name:'NDVI',datasets:['MOD09_NDVI_MA']},
      pct30day:{units:'%',name:TRANSLATE['Vegetation Index (%)'],datasets:['MOD09_NDVI_MA_DERIVED'],type:'spline'}
     }
     var chart_controls = {
