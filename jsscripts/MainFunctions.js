@@ -473,7 +473,7 @@ function LoadFeedback()
           clearPopup();
         },
         async: true,
-        cache: false,
+        cache: false
       });
 
     });
