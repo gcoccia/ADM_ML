@@ -415,10 +415,10 @@ $strings_to_translate = array("Indices" => $_('Indices'),
         <li class="divider-vertical"></li>
         <li id="BasicInterface"><a onclick="LoadBasic()"><?php echo $_("Basic Interface"); ?></a></li>
         <li class="divider-vertical"></li>
-        <li><a href='Resources/ADM_Background.pdf'><?php echo $_("Background"); ?></a></li>
-        <li class="divider-vertical"></li>
-        <li><a href='Resources/ADM_Glossary.pdf'><?php echo $_("Glossary"); ?></a></li>
-        <li class="divider-vertical"></li>
+        <!--<li><a href='Resources/ADM_Background.pdf'><?php echo $_("Background"); ?></a></li>
+        <li class="divider-vertical"></li>-->
+        <!--<li><a href='Resources/ADM_Glossary.pdf'><?php echo $_("Glossary"); ?></a></li>
+        <li class="divider-vertical"></li>-->
         <li><a href='Resources/Tutorial_HornAfrica.pdf'><?php echo $_("Tutorial"); ?></a></li>
       	</ul>
         <ul class="nav pull-right">
