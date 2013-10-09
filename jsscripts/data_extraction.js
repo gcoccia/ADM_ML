@@ -577,7 +577,7 @@ function Submit_Spatial_Data() {
           variables:variables,
           format:format,
           email:email,
-          http:document.URL,
+          http:document.URL
           };
   input = JSON.stringify(input);
   var request = {script:script,input:input};
