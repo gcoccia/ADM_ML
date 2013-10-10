@@ -114,7 +114,7 @@
     <label><input type="radio" name="Create_Text_Data" value="no" checked=checked><?php echo $_('No') ?></label>
   </div>
   <br>
-  <a id='point_data_link' href="" target="_blank" style="display:none">Download Data</a>
+  <a id='point_data_link' href="" target="_blank" download="" style="display:none">Download Data</a>
   <i><?php echo $_('Only the last 1000 timesteps from the selected final date will be displayed') ?></i>
 </div>
 </div>
