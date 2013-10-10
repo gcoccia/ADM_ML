@@ -591,6 +591,8 @@ function Submit_Spatial_Data() {
   async: true,
   cache: false
   });
+  alert(TRANSLATE["Your request has been submitted. You will receive an email when the data is ready to be downloaded."])
+  $("#clear_all").click();
   return Output;
 }
  

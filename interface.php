@@ -116,7 +116,8 @@ $strings_to_translate = array("Indices" => $_('Indices'),
 			      "Vegetation" => $_('Vegetation'),
                               "Error: " => $_('Error: '),
                               " is only available from " => $_(' is only available from '),
-                              " to " => $_(' to ')
+                              " to " => $_(' to '),
+                              "Your request has been submitted. You will receive an email when the data is ready to be downloaded." => $_('Your request has been submitted. You will receive an email when the data is ready to be downloaded.'),
                               );
 
 header('X-UA-Compatible: IE=edge');
