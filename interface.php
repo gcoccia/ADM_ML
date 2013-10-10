@@ -118,6 +118,10 @@ $strings_to_translate = array("Indices" => $_('Indices'),
                               " is only available from " => $_(' is only available from '),
                               " to " => $_(' to '),
                               "Your request has been submitted. You will receive an email when the data is ready to be downloaded." => $_('Your request has been submitted. You will receive an email when the data is ready to be downloaded.'),
+			      "Point out of bounds. Please choose a point inside the domain." => $_('Point out of bounds. Please choose a point inside the domain.'),
+			      "Error: The initial date must be after " => $_("Error: The initial date must be after "),
+			      "Error: The final date must be before " => $_("Error: The final date must be before "),
+                              "Error: The final date must be after the initial date." => $_("Error: The final date must be after the initial date."),
                               );
 
 header('X-UA-Compatible: IE=edge');

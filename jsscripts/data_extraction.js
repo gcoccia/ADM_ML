@@ -272,7 +272,7 @@ function Plot_Point_Ajax_Response(Output,Create_Text_Data,chart_controls,chart_d
  //If the point is out of bounds alert and exit
  if (Output == 'out_of_bounds'){
   $("#clear_all").click();
-  alert('Point out of bounds. Please choose a point inside the domain.');
+  alert(TRANSLATE['Point out of bounds. Please choose a point inside the domain.']);
   return;
  }
  //If we have requested the data display the link
@@ -402,19 +402,19 @@ function Request_Data(variables,Create_Text_Data,data_group,chart_controls) {
   var final_date_dataset = new Date(data_fdates['vcpct--VIC_DERIVED']);
   final_date_dataset.setDate(final_date_dataset.getDate() + 365);
   if (initial_date < initial_date_dataset.getTime()/1000){
-   alert("Error: The initial date must be after " + initial_date_dataset);
+   alert(TRANSLATE["Error: The initial date must be after "] + initial_date_dataset);
    $("#clear_all").click();
    return;
   }
   if (final_date > final_date_dataset.getTime()/1000){
-   alert("Error: The final date must be before " + final_date_dataset);
+   alert(TRANSLATE["Error: The final date must be before "] + final_date_dataset);
    $("#clear_all").click();
    return;
   }
 
   //If the initial and final day are the same or the final day is before the initial then quit and send an alert
   if (initial_date >= final_date_check){
-   alert("Error: The final date must be after the initial date.");
+   alert(TRANSLATE["Error: The final date must be after the initial date."]);
    $("#clear_all").click();
    return;
   }
