@@ -235,12 +235,14 @@ for var in variables:
  ga("close 1")
 
 #Zip up the directory
-file = "WORKSPACE/%s.tar.gz" % user
+#file = "WORKSPACE/%s.tar.gz" % user
+file = "WORKSPACE/%s.zip" % user
 if os.path.exists(file) == True:
  os.system("rm %s" % file)
 http_file = http_root + '/' + file
 os.chdir('WORKSPACE')
-os.system("tar -czf %s.tar.gz %s" % (user,user) )
+#os.system("tar -czf %s.tar.gz %s" % (user,user) )
+os.system("zip -r %s.zip %s" % (user,user) )
 os.system("rm -rf %s" % user)
 
 #Send the email confirming that it succeeded and the location of the zipped archive
