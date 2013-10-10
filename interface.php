@@ -122,6 +122,8 @@ $strings_to_translate = array("Indices" => $_('Indices'),
 			      "Error: The initial date must be after " => $_("Error: The initial date must be after "),
 			      "Error: The final date must be before " => $_("Error: The final date must be before "),
                               "Error: The final date must be after the initial date." => $_("Error: The final date must be after the initial date."),
+                              "Error: The selected domain is completely outside of the monitor's coverage. Please adjust your selection." => $_("Error: The selected domain is completely outside of the monitor's coverage. Please adjust your selection."),
+			      "Warning: The selected domain is partially outside of the monitor's coverage. Your spatial request will be cropped." => $_("Warning: The selected domain is partially outside of the monitor's coverage. Your spatial request will be cropped."),
                               );
 
 header('X-UA-Compatible: IE=edge');
@@ -155,6 +157,8 @@ header('X-UA-Compatible: IE=edge');
 <script type="text/javascript">
   var timeoutid;
   var general_info = <?php echo json_encode($xmlobj->dimensions, JSON_NUMERIC_CHECK) ?>;
+  general_info.maxlon = general_info.minlon + general_info.res*(general_info.nlon-1);
+  general_info.maxlat = general_info.minlat + general_info.res*(general_info.nlat-1);
   var info_box_strings = <?php echo json_encode($info_box_strings, JSON_NUMERIC_CHECK) ?>;
   var data_timesteps = [], data_idates = [], data_fdates = [], data_titles = [];
   <?php foreach($xmlobj->variables->group as $group) {

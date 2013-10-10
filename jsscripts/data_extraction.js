@@ -541,6 +541,7 @@ function Submit_Spatial_Data() {
   var final_date = Date.UTC(parseInt($("#year_final").val()),
                            parseInt($("#month_final").val())-1,
                            parseInt($("#day_final").val()))/1000;
+  var final_date_check = final_date
 
   //Spatial Bounding Box
   var lats = []
@@ -553,6 +554,40 @@ function Submit_Spatial_Data() {
      llclon = Math.min.apply(Math, lons),
      urclat = Math.max.apply(Math, lats),
      urclon = Math.max.apply(Math, lons);
+
+  //Check that we are inside the domain 
+  //Alert if completely outside the domain
+  if ((llclat < general_info.minlat & urclat > general_info.maxlat) | (llclon < general_info.minlon & urclon > general_info.maxlon)){
+   alert(TRANSLATE["Error: The selected domain is completely outside of the monitor's coverage. Please adjust your selection."]);
+   $("#clear_all").click();
+   return;
+  }
+  //Alert if partially outside of the domain (cropping)
+  if (llclat < general_info.minlat | llclon < general_info.minlon | urclon > general_info.maxlon | urclat > general_info.maxlat){
+   alert(TRANSLATE["Warning: The selected domain is partially outside of the monitor's coverage. Your spatial request will be cropped."]);
+   if (llclat < general_info.minlat)llclat = general_info.minlat
+   if (llclon < general_info.minlon)llclon = general_info.minlon
+   if (urclat < general_info.maxlat)urclat = general_info.maxlat
+   if (urclon < general_info.maxlon)urclon = general_info.maxlon
+  }
+
+  //Determine if time period is reasonable
+  var initial_date_dataset =new Date(data_idates['vcpct--VIC_DERIVED']);
+  var final_date_dataset = new Date(data_fdates['vcpct--VIC_DERIVED']);
+  final_date_dataset.setDate(final_date_dataset.getDate() + 365);
+  if (initial_date < initial_date_dataset.getTime()/1000){
+   alert(TRANSLATE["Error: The initial date must be after "] + initial_date_dataset);
+   return;
+  }
+  if (final_date > final_date_dataset.getTime()/1000){
+   alert(TRANSLATE["Error: The final date must be before "] + final_date_dataset);
+   return;
+  }
+  //If the initial and final day are the same or the final day is before the initial then quit and send an alert
+  if (initial_date >= final_date_check){
+   alert(TRANSLATE["Error: The final date must be after the initial date."]);
+   return;
+  }
 
   //Spatial resolution
   var sres = $('input:radio[name=sres_spatial_data]:checked').val();
