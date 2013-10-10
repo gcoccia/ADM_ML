@@ -432,7 +432,8 @@ header('X-UA-Compatible: IE=edge');
         <!--<li><a href='Resources/ADM_Glossary.pdf'><?php echo $_("Glossary"); ?></a></li>
         <li class="divider-vertical"></li>-->
         <li><a href='Resources/Tutorial_HornAfrica.pdf'><?php echo $_("Tutorial"); ?></a></li>
-      	</ul>
+      	<li class="divider-vertical"></li>
+        </ul>
         <ul class="nav pull-right">
           <li class="divider-vertical"></li>
           <li id="feedbackBtn"><a onclick="LoadFeedback()"><?php echo $_("Feedback"); ?></a></li>
@@ -451,7 +452,7 @@ header('X-UA-Compatible: IE=edge');
         <div id="popup_container"></div>
       </div>
 
-      <div id="feedbackPopup" style="visibility:hidden; position:absolute; background:rgb(229, 227, 223); margin:auto; left: 22%; width:700px; top:60px; height:400px; z-index:9100; padding-top:15px; border-radius:5px; border:2px solid grey;">
+      <div id="feedbackPopup" style="visibility:hidden; position:absolute; background:rgb(229, 227, 223); margin:auto; left: 22%; width:700px; top:60px; height:400px; z-index:9100; padding-top:15px; padding-bottom:15px; border-radius:5px; border:2px solid grey;">
         <form id='feedbackForm' method='POST' action='' class='form-horizontal'>
           <div>
             <h4 style='margin-left:30px;'><?php echo $_("Contact Us:")?></h4>
@@ -471,7 +472,7 @@ header('X-UA-Compatible: IE=edge');
           <div class='control-group'>
             <label class='control-label' for='input3'><?php echo $_("Message")?></label>
             <div class='controls'>
-              <textarea name='contact_message' id='input3' rows='8' class='span9' maxlength='1500' placeholder="<?php echo $_("Message to send.")?>"></textarea>
+              <textarea name='contact_message' id='input3' rows='8' class='span9' maxlength='1500' style='resize:none;' placeholder="<?php echo $_("Message to send.")?>"></textarea>
             </div>
             <p id="feedback-char-limit" style="margin: 0px; margin-left: 180px; margin-top:5px"><span id="feedback-num-chars-remaining">1500</span> <?php echo $_('characters remaining')?>.</p>
           </div>
