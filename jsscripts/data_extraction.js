@@ -542,6 +542,9 @@ function Submit_Spatial_Data() {
                            parseInt($("#month_final").val())-1,
                            parseInt($("#day_final").val()))/1000;
   var final_date_check = final_date
+  //Determine if the submission is monitor or forecast
+  var morf = $("ul.monitor-or-forecast>li.active").find("a").attr('id');
+  alert(morf);
 
   //Spatial Bounding Box
   var lats = []
@@ -584,8 +587,8 @@ function Submit_Spatial_Data() {
    return;
   }
   //If the initial and final day are the same or the final day is before the initial then quit and send an alert
-  if (initial_date >= final_date_check){
-   alert(TRANSLATE["Error: The final date must be after the initial date."]);
+  if (initial_date > final_date_check){
+   alert(TRANSLATE["Error: The final date must be on or after the initial date."]);
    return;
   }
 

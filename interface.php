@@ -124,6 +124,7 @@ $strings_to_translate = array("Indices" => $_('Indices'),
                               "Error: The final date must be after the initial date." => $_("Error: The final date must be after the initial date."),
                               "Error: The selected domain is completely outside of the monitor's coverage. Please adjust your selection." => $_("Error: The selected domain is completely outside of the monitor's coverage. Please adjust your selection."),
 			      "Warning: The selected domain is partially outside of the monitor's coverage. Your spatial request will be cropped." => $_("Warning: The selected domain is partially outside of the monitor's coverage. Your spatial request will be cropped."),
+                              "Error: The final date must be on or after the initial date." => $_("Error: The final date must be on or after the initial date."),
                               );
 
 header('X-UA-Compatible: IE=edge');
