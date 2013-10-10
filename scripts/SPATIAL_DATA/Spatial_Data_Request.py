@@ -236,13 +236,16 @@ for var in variables:
 
 #Zip up the directory
 #file = "WORKSPACE/%s.tar.gz" % user
-file = "WORKSPACE/%s.zip" % user
+date_now = datetime.datetime.now()
+date_str = '%04d%02d%02d_%02d:%02d' % (date_now.year,date_now.month,date_now.day,date_now.hour,date_now.minute)
+filename = '%s_%s' % (user,date_str)
+file = "WORKSPACE/%s.zip" % filename
 if os.path.exists(file) == True:
  os.system("rm %s" % file)
 http_file = http_root + '/' + file
 os.chdir('WORKSPACE')
 #os.system("tar -czf %s.tar.gz %s" % (user,user) )
-os.system("zip -r %s.zip %s" % (user,user) )
+os.system("zip -r %s.zip %s" % (filename,user))
 os.system("rm -rf %s" % user)
 
 #Send the email confirming that it succeeded and the location of the zipped archive
