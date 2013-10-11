@@ -158,7 +158,7 @@ function Update_Listeners(type){
       }
     });
 
-    google.maps.event.addListener(mapPolygon, 'click', function() {
+    google.maps.event.addListener(mapPolygon, 'click', function(point) {
       if(mapPolygon.getPath().getLength() == 4) {
         mapPolygon.stopEdit();
         var oldpt = mapPolygon.getPath().getAt(0);
