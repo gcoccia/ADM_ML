@@ -119,16 +119,8 @@ function Update_Listeners(type){
                     strokeWeight  : 4,
                     path:[]
                   };
-  var lineOptions = { clickable: false,
-                    map : map_array[0],
-                    path: [],
-                    strokeColor: "#787878",
-                    strokeOpacity: 1,
-                    strokeWeight: 2
-                  };
+
   mapPolygon = new google.maps.Polygon(polyOptions);
-  followLine1 = new google.maps.Polyline(lineOptions);
-  followLine2 = new google.maps.Polyline(lineOptions);
 
   var corm = $("ul#spatial-corm li.active>a").attr('id'); // either point-manual or point-mapclick
   
@@ -176,6 +168,7 @@ function Update_Listeners(type){
         mapPolygon.setPath([oldpt, pt2, point.latLng, pt1]);
         google.maps.event.clearListeners(map_array[0], "click");
         google.maps.event.clearListeners(map_array[0], "mousemove");
+        google.maps.event.clearListeners(mapPolygon, "mousemove");
         google.maps.event.clearListeners(map_array[0], "rightclick");
         google.maps.event.clearListeners(mapPolygon, "click");
         map_array[0].setOptions({draggableCursor:null});
