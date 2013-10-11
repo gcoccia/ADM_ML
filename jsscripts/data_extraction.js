@@ -73,6 +73,7 @@ function Update_Listeners(type){
   if(""+corm == "point-mapclick") {
     $("div#point-ll-mapclick").show();
     $("div#point-ll-manual").hide();
+    $("#point-manual-entry-form").clear('submit');
     map_array[0].setOptions({draggableCursor:'crosshair'});
 
     //Add the listeners
@@ -84,6 +85,13 @@ function Update_Listeners(type){
   } else {
     $("div#point-ll-mapclick").hide();
     $("div#point-ll-manual").show();
+    $("#point-manual-entry-form").submit(function(e) {
+      e.preventDefault();
+
+      $("#point-latitude").html($("#point-manual-latitude").val());
+      $("#point-longitude").html($("#point-manual-longitude").val());
+      Point_Data(); // do not need to pass lat/lon here -- it pulls it from point-latitude and point-longitude
+    }
   }
 }
  else if (type == 'spatial'){

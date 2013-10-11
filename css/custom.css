@@ -625,7 +625,7 @@ form#point-manual-entry-form {
   margin-bottom: 5px;
 }
 form#point-manual-entry-form > .control-group {
-  margin-bottom: 5px;
+  margin-bottom: 3px;
 }
 form#point-manual-entry-form > .control-group > .control-label {
   font-size:12px;
@@ -637,7 +637,7 @@ form#point-manual-entry-form > .control-group > .controls {
 }
 form#point-manual-entry-form > .control-group > .controls > input {
   font-size:12px;
-  width: 100px;
+  width: 120px;
   padding-top:2px;
   padding-bottom:2px;
 }
