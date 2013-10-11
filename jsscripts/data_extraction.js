@@ -83,6 +83,7 @@ function Update_Listeners(type){
     });
   } else {
     $("div#point-ll-mapclick").hide();
+    console.log('HAI');
     $("div#point-ll-manual").show();
   }
 }
