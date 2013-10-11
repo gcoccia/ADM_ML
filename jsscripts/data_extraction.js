@@ -142,7 +142,7 @@ function Update_Listeners(type){
     google.maps.event.addListener(map_array[0], 'click', function(point) {
          mapPolygon.stopEdit();
          mapPolygon.getPath().push(point.latLng);
-         mapPolygon.runEdit(true, {'ghostpoints':false});
+         mapPolygon.runEdit(false);
          Update_Spatial_Data_Display();
     });
 
