@@ -175,7 +175,7 @@ function Update_Listeners(type){
         var oldpt = mapPolygon.getPath().getAt(0);
         var pt1 = new google.maps.LatLng(oldpt.lat(), point.latLng.lng());
         var pt2 = new google.maps.LatLng(point.latLng.lat(), oldpt.lng());
-        mapPolygon.setPath([oldpt, pt1, pt2, point]);
+        mapPolygon.setPath([oldpt, pt1, pt2, point.latLng]);
       }
     });
 
