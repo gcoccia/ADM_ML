@@ -627,8 +627,11 @@ form#point-manual-entry-form > .control-group > .control-label {
   text-align:left;
 }
 
+form#point-manual-entry-form > .control-group > .controls {
+  margin-left: 100px;
+}
+
 form#point-manual-entry-form > .control-group > .controls > input {
   font-size:10px;
   width: 80px;
-  margin-left: 100px;
 }
