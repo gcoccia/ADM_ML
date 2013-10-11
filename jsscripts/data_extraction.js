@@ -186,16 +186,26 @@ function Update_Listeners(type){
       console.log('dragging');
     });*/
 
-    Update_Spatial_Data_Display()
+    Update_Spatial_Data_Display();
 
   } else {
     $("div#spatial-ll-manual").show();
     $("#spatial-manual-entry-form").submit(function(e) {
       e.preventDefault();
 
-      /*$("#spatial-latitude").html($("#point-manual-latitude").val());
-      $("#spatial-longitude").html($("#point-manual-longitude").val());
-      Point_Data(); //*/// do not need to pass lat/lon here -- it pulls it from point-latitude and point-longitude
+      var minlat = $("#spatial-manual-min-latitude").val();
+      var minlon = $("#spatial-manual-min-longitude").val();
+      var maxlat = $("#spatial-manual-max-latitude").val();
+      var maxlon = $("#spatial-manual-max-longitude").val();
+
+      var pt1 = new google.maps.LatLng(minlat, minlon);
+      var pt2 = new google.maps.LatLng(minlat, maxlon);
+      var pt3 = new google.maps.LatLng(maxlat, maxlon);
+      var pt4 = new google.maps.LatLng(maxlat, minlon);
+      mapPolygon.setPath([pt1, pt2, pt3, pt4]);
+
+      Update_Spatial_Data_Display();
+
     });
   }
 
