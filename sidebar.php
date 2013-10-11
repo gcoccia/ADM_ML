@@ -91,8 +91,12 @@
   <li class="divider"></li>
   <li class="nav-header"><?php echo $_("Point Data Selection") ?></li>
   <div class="data-form-block">  
-  <i><?php echo $_("Click a point on the map to view time series data.") ?></i>
-  <br>
+  
+  <ul id="point-corm" class="nav nav-pills click-or-manual">
+    <li class="active"><a href="javascript:void(0)" id="point-mapclick" class="corm-pills" onclick='update_click_or_manual()'><?php echo $_("Map Click")?></a></li>
+    <li><a href="javascript:void(0)" id="point-manual" class="corm-pills" onclick='update_click_or_manual()'><?php echo $_("Manual")?></a></li>
+  </ul>
+
   <div class="radio inline">
     <label><input type="radio" name="plot" value="Indices" checked=checked><?php echo $_('Indices') ?></label>
     <label><input type="radio" name="plot" value="Water_Balance" ><?php echo $_('Water Balance') ?></label>
