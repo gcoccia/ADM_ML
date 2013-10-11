@@ -117,9 +117,8 @@ function Update_Listeners(type){
                     strokeColor   : '#08c',
                     strokeOpacity : 0.6,
                     strokeWeight  : 4,
-                    path:[],
-                    clickable: false
-                  };
+                    path:[]
+                    };
 
   mapPolygon = new google.maps.Polygon(polyOptions);
 
