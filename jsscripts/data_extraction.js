@@ -68,7 +68,7 @@ function Update_Listeners(type){
   $("#yearly").show();
 
 
-  var corm = $("ul#point-corm li.active>a").attr('id')); // either point-manual or point-mapclick
+  var corm = $("ul#point-corm li.active>a").attr('id'); // either point-manual or point-mapclick
   
   if(""+corm == "point-mapclick") {
     $("div#point-ll-mapclick").show();
