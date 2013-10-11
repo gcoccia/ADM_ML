@@ -195,7 +195,7 @@ header('X-UA-Compatible: IE=edge');
     //var mapCenter = new google.maps.LatLng(dim.minlat + dim.nlat*dim.res/2.5, dim.minlon + dim.nlon*dim.res/2);
     var mapCenter = new google.maps.LatLng(dim.centerlat, dim.centerlon);
     
-    var styleArray = [{featureType: 'administrative.country',stylers: [{ visibility: 'simplified' }]}];
+    var styleArray = [{featureType: 'administrative.country',stylers: [{ visibility: 'on' }]}];
 
     var myOptions = {minZoom:3,maxZoom:8,styles: styleArray,zoom: dim.izoom,center: mapCenter,panControl: false,zoomControl: true,zoomControlOptions:{style:      
     google.maps.ZoomControlStyle.DEFAULT,position: google.maps.ControlPosition.LEFT_TOP},scaleControl: false,streetViewControl: false,mapTypeControl: 
