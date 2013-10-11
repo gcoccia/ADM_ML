@@ -191,7 +191,7 @@
       </div>
     </form>
   </div>
-
+  <li class="divider"></li>
 
   <ul id="currently-selected-vars" class="nav nav-list">
   </ul>
