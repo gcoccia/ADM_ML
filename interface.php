@@ -383,6 +383,14 @@ header('X-UA-Compatible: IE=edge');
       }
     });
 
+    $(".corm-pills-spatial").click(function() {
+      if(!$(this).parent().hasClass("active")) { // only act on change
+        $(".corm-pills-spatial").parent().removeClass("active");
+        $(this).parent().addClass("active");
+        Update_Listeners("spatial");
+      }
+    });
+
     // When you click a dataset from a dropdown menu...
     // Check if it's different than the previously chosen one. If so, do a bunch of stuff.
     $("ul.datalist>li>ul.dropdown-menu>li>a").click(function() {
