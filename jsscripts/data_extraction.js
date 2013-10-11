@@ -112,6 +112,24 @@ function Update_Listeners(type){
   $("#monitor-or-forecast-div").show();
   $("#hideBtnImg").hide();
 
+  // Add polygon and lines to map
+  var polyOptions = { map : map_array[0],
+                    strokeColor   : '#08c',
+                    strokeOpacity : 0.6,
+                    strokeWeight  : 4,
+                    path:[]
+                  };
+  var lineOptions = { clickable: false,
+                    map : map_array[0],
+                    path: [],
+                    strokeColor: "#787878",
+                    strokeOpacity: 1,
+                    strokeWeight: 2
+                  };
+  mapPolygon = new google.maps.Polygon(polyOptions);
+  followLine1 = new google.maps.Polyline(lineOptions);
+  followLine2 = new google.maps.Polyline(lineOptions);
+
   var corm = $("ul#spatial-corm li.active>a").attr('id'); // either point-manual or point-mapclick
   
   if(""+corm == "spatial-mapclick") {
@@ -119,29 +137,12 @@ function Update_Listeners(type){
     $("#spatial-manual-entry-form").unbind('submit');
 
     map_array[0].setOptions({draggableCursor:'crosshair'});
-    // Add polygon and lines to map
-    var polyOptions = { map : map_array[0],
-                      strokeColor   : '#08c',
-                      strokeOpacity : 0.6,
-                      strokeWeight  : 4,
-                      path:[]
-                    };
-    var lineOptions = { clickable: false,
-                      map : map_array[0],
-                      path: [],
-                      strokeColor: "#787878",
-                      strokeOpacity: 1,
-                      strokeWeight: 2
-                    };
-    mapPolygon = new google.maps.Polygon(polyOptions);
-    followLine1 = new google.maps.Polyline(lineOptions);
-    followLine2 = new google.maps.Polyline(lineOptions);
-
+    
     // Add event handlers related to polygon drawing
     google.maps.event.addListener(map_array[0], 'click', function(point) {
          mapPolygon.stopEdit();
          mapPolygon.getPath().push(point.latLng);
-         mapPolygon.runEdit(true);
+         mapPolygon.runEdit(true, {'ghostpoints':false});
          Update_Spatial_Data_Display();
     });
 
