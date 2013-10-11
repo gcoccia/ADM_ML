@@ -558,7 +558,7 @@ div.data-form-block
     display: inline-block;
     float: none; /* Very important */
 }
-ul.data-extraction, ul.ts-selection, ul.monitor-or-forecast
+ul.data-extraction, ul.ts-selection, ul.monitor-or-forecast, ul.click-or-manual
 {
   font-size: 12px;
 /*  text-transform: uppercase;*/
@@ -566,7 +566,7 @@ ul.data-extraction, ul.ts-selection, ul.monitor-or-forecast
   padding-left: 15px;
   padding-right: 0px;
 }
-ul.data-extraction>li>a, ul.ts-selection>li>a, ul.monitor-or-forecast>li>a
+ul.data-extraction>li>a, ul.ts-selection>li>a, ul.monitor-or-forecast>li>a, ul.click-or-manual>li>a
 {
   margin-right: 0px;
   line-height: 10px;
