@@ -112,7 +112,7 @@ function Update_Listeners(type){
   $("#monitor-or-forecast-div").show();
   $("#hideBtnImg").hide();
 
-  var corm = $("ul#point-corm li.active>a").attr('id'); // either point-manual or point-mapclick
+  var corm = $("ul#spatial-corm li.active>a").attr('id'); // either point-manual or point-mapclick
   
   if(""+corm == "spatial-mapclick") {
     $("div#spatial-ll-manual").hide();
@@ -182,7 +182,7 @@ function Update_Listeners(type){
     google.maps.event.addListener(mapPolygon.getPath(), 'set_at', function(point) {
       Update_Spatial_Data_Display();
     });
-    
+
     Update_Spatial_Data_Display()
 
   } else {
