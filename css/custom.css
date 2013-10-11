@@ -629,11 +629,11 @@ form.manual-entry-form > .control-group {
 }
 form.manual-entry-form > .control-group > .control-label {
   font-size:12px;
-  width: 60px;
+  width: 75px;
   text-align:left;
 }
 form.manual-entry-form > .control-group > .controls {
-  margin-left: 70px;
+  margin-left: 85px;
 }
 form.manual-entry-form > .control-group > .controls > input {
   font-size:12px;
