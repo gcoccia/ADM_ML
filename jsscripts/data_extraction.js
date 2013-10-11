@@ -180,7 +180,7 @@ function Update_Listeners(type){
     });
 
     google.maps.event.addListener(mapPolygon.getPath(), 'set_at', function(point) {
-      Update_Spatial_Data_Display();
+      //Update_Spatial_Data_Display();
     });
 
     Update_Spatial_Data_Display()
