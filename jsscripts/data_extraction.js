@@ -73,7 +73,7 @@ function Update_Listeners(type){
   if(""+corm == "point-mapclick") {
     $("div#point-ll-mapclick").show();
     $("div#point-ll-manual").hide();
-    $("#point-manual-entry-form").clear('submit');
+    $("#point-manual-entry-form").unbind('submit');
     map_array[0].setOptions({draggableCursor:'crosshair'});
 
     //Add the listeners
