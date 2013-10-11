@@ -97,7 +97,7 @@
     <li><a href="javascript:void(0)" id="point-manual" class="corm-pills-point"><?php echo $_("Manual Entry")?></a></li>
   </ul>
 
-  <div id="point-ll-map-click">
+  <div id="point-ll-mapclick">
     <?php echo $_('Latitude')?>: <span id="point-latitude"></span>
     <br>
     <?php echo $_('Longitude')?>: <span id="point-longitude"></span>
