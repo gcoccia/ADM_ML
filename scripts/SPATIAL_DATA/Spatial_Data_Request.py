@@ -125,8 +125,6 @@ http = metadata['http'].split('/')
 http_root = '/'.join(http[0:-2])
 user = email.split('@')[0]
 morf = metadata['morf']
-print morf
-exit()
 
 #Change directory
 os.chdir('../..')
@@ -178,8 +176,15 @@ for var in variables:
  var_dir = dir + "/" + var
  os.system("mkdir %s" % var_dir)
  dataset = var.split("--")[1]
- ctl_file = "DATA_GRID/CTL/%s_%s.ctl" % (dataset,tstep.upper())
- ga("xdfopen %s" % ctl_file)
+ if morf == 'monitor':
+  ctl_file = "DATA_GRID/CTL/%s_%s.ctl" % (dataset,tstep.upper())
+  ga("xdfopen %s" % ctl_file)
+ if morf == 'forecast':
+  if tstep == 'daily':
+   ctl_file = "DATA_GRID/%04d/%02d/%02d/GFS_7DAY_FORECAST_%04d%02d%02d_daily.nc" % (idate.year,idate.month,idate.day,idate.year,idate.month,idate.day)
+  if tstep == 'monthly':
+   ctl_file = "DATA_GRID/%04d/%02d/%s_%04d%02d_monthly.nc" % (idate.year,idate.month,dataset,idate.year,idate.month)
+  ga("sdfopen %s" % ctl_file)
  var = var.split("--")[0]
  qh = ga.query("file")
  var_info = qh.var_titles[qh.vars.index(var)]

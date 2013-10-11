@@ -592,24 +592,22 @@ function Submit_Spatial_Data() {
   //Determine if the submission is monitor or forecast
   var morf = $("ul.monitor-or-forecast>li.active").find("a").attr('id');
   //If forecast then set the dates accordingly
-  alert(morf)
-  alert(tstep)
   if (tstep == 'daily' & morf == 'forecast'){
    var sample_dataset = 'vcpct--VIC_DERIVED';
    var final_date = new Date(data_fdates[sample_dataset]);
    var initial_date = new Date(final_date.getTime())
    initial_date.setDate(initial_date.getDate()+1);
    final_date.setDate(final_date.getDate()+7);
-   var initial_date = Date.UTC(initial_date.getFullYear(),initial_date.getMonth(),initial_date.getDate());
-   var final_date = Date.UTC(final_date.getFullYear(),final_date.getMonth(),final_date.getDate());
+   var initial_date = Date.UTC(initial_date.getFullYear(),initial_date.getMonth(),initial_date.getDate())/1000;
+   var final_date = Date.UTC(final_date.getFullYear(),final_date.getMonth(),final_date.getDate())/1000;
   }
   else if (tstep == 'monthly' & morf == 'forecast'){
    var sample_dataset = 'spi1--MultiModel';
    var final_date = new Date(data_fdates[sample_dataset]);
    var initial_date = new Date(final_date.getTime());
    final_date.setDate(final_date.getDate()+31*6);
-   var initial_date = Date.UTC(initial_date.getFullYear(),initial_date.getMonth(),initial_date.getDate());
-   var final_date = Date.UTC(final_date.getFullYear(),final_date.getMonth(),final_date.getDate());
+   var initial_date = Date.UTC(initial_date.getFullYear(),initial_date.getMonth(),initial_date.getDate())/1000;
+   var final_date = Date.UTC(final_date.getFullYear(),final_date.getMonth(),final_date.getDate())/1000;
   }
 
   //Spatial resolution
@@ -645,6 +643,7 @@ function Submit_Spatial_Data() {
   url: 'scripts/Jquery_Python_JSON_Glue.php',//'Spatial_Data_Request.php ',
   data: request,
   success: function(response){
+   alert(response);
    Output = JSON.parse(response);
   },
   async: true,
