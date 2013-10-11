@@ -91,8 +91,41 @@
   <li class="divider"></li>
   <li class="nav-header"><?php echo $_("Point Data Selection") ?></li>
   <div class="data-form-block">  
-  <i><?php echo $_("Click a point on the map to view time series data.") ?></i>
-  <br>
+  
+  <ul id="point-corm" class="nav nav-pills click-or-manual">
+    <li class="active"><a href="javascript:void(0)" id="point-mapclick" class="corm-pills-point"><?php echo $_("Map Click")?></a></li>
+    <li><a href="javascript:void(0)" id="point-manual" class="corm-pills-point"><?php echo $_("Manual Entry")?></a></li>
+  </ul>
+
+  <div id="point-ll-mapclick">
+    <?php echo $_('Latitude')?>: <span id="point-latitude"></span>
+    <br>
+    <?php echo $_('Longitude')?>: <span id="point-longitude"></span>
+    <br>
+  </div>
+
+  <div id="point-ll-manual" style="display:none">
+    <form class="form-horizontal" id="point-manual-entry-form">
+      <div class="control-group">
+        <label class="control-label" for="point-manual-latitude"><?php echo $_('Latitude')?>:</label>
+        <div class="controls">
+          <input type="text" id="point-manual-latitude">
+        </div>
+      </div>
+      <div class="control-group">
+        <label class="control-label" for="point-manual-longitude"><?php echo $_('Longitude')?>:</label>
+        <div class="controls">
+          <input type="text" id="point-manual-longitude">
+        </div>
+      </div>
+      <div class="control-group">
+        <div class="controls">
+          <button id="point-manual-submit" type="submit" class="btn">Submit</button>
+        </div>
+      </div>
+    </form>
+  </div>
+
   <div class="radio inline">
     <label><input type="radio" name="plot" value="Indices" checked=checked><?php echo $_('Indices') ?></label>
     <label><input type="radio" name="plot" value="Water_Balance" ><?php echo $_('Water Balance') ?></label>
@@ -102,10 +135,6 @@
     <label><input type="radio" name="plot" value="Vegetation" ><?php echo $_('Vegetation') ?></label>
     <label><input type="radio" name="plot" value="Meteorology" ><?php echo $_('Meteorology') ?></label>
   </div>
-  <br>
-  <?php echo $_('Latitude')?>: <span id="point-latitude"></span>
-  <br>
-  <?php echo $_('Longitude')?>: <span id="point-longitude"></span>
   <br>
   <i><?php echo $_('Create Corresponding Data File?') ?></i>
   <br>
