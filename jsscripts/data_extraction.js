@@ -144,7 +144,7 @@ function Update_Listeners(type){
          mapPolygon.stopEdit();
          mapPolygon.getPath().push(point.latLng);
          mapPolygon.runEdit(false);
-       } else if(mapPolygon.getPath().getLength() == 1) {
+       } else if(mapPolygon.getPath().getLength() == 4) {
           mapPolygon.stopEdit();
           var oldpt = mapPolygon.getPath().getAt(0);
           var pt1 = new google.maps.LatLng(oldpt.lat(), point.latLng.lng());
@@ -166,7 +166,7 @@ function Update_Listeners(type){
         var oldpt = mapPolygon.getPath().getAt(0);
         var pt1 = new google.maps.LatLng(oldpt.lat(), point.latLng.lng());
         var pt2 = new google.maps.LatLng(point.latLng.lat(), oldpt.lng());
-        mapPolygon.setPath([oldpt, pt1, pt2, point.latLng]);
+        mapPolygon.setPath([oldpt, pt2, point.latLng, pt1]);
       }
     });
 
