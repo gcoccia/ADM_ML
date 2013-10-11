@@ -179,6 +179,11 @@ function Update_Listeners(type){
       //Update_Spatial_Data_Display();
     });
 
+    google.maps.event.addListener(mapPolygon.getPath(), 'drag', function(point) {
+      //Update_Spatial_Data_Display();
+      console.log('dragging');
+    });
+
     Update_Spatial_Data_Display()
 
   } else {
