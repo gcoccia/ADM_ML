@@ -129,6 +129,7 @@ function Update_Listeners(type){
     $("#spatial-manual-entry-form").unbind('submit');
 
     map_array[0].setOptions({draggableCursor:'crosshair'});
+    mapPolygon.setOptions({draggableCursor:'crosshair'});
     
     // Add event handlers related to polygon drawing
     google.maps.event.addListener(map_array[0], 'click', function(point) {
