@@ -621,17 +621,20 @@ ul.datalist>li>ul.dropdown-menu>li>a, ul.spatial-datalist>li>ul.dropdown-menu>li
   cursor:pointer;
 }
 
+form#point-manual-entry-form > .control-group {
+  margin-bottom: 5px;
+}
 form#point-manual-entry-form > .control-group > .control-label {
   font-size:12px;
   width: 60px;
   text-align:left;
 }
-
 form#point-manual-entry-form > .control-group > .controls {
-  margin-left: 80px;
+  margin-left: 70px;
 }
-
 form#point-manual-entry-form > .control-group > .controls > input {
   font-size:12px;
-  width: 80px;
+  width: 100px;
+  padding-top:2px;
+  padding-bottom:2px;
 }
