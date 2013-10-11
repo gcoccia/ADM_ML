@@ -160,12 +160,11 @@ function Update_Listeners(type){
 
     google.maps.event.addListener(mapPolygon, 'click', function(point) {
       if(mapPolygon.getPath().getLength() == 4) {
-        mapPolygon.stopEdit();
+        mapPolygon.stopEdit(); // do not allow editing after rect is created
         var oldpt = mapPolygon.getPath().getAt(0);
         var pt1 = new google.maps.LatLng(oldpt.lat(), point.latLng.lng());
         var pt2 = new google.maps.LatLng(point.latLng.lat(), oldpt.lng());
         mapPolygon.setPath([oldpt, pt2, point.latLng, pt1]);
-        mapPolygon.runEdit(false);
         google.maps.event.clearListeners(map_array[0], "click");
         google.maps.event.clearListeners(map_array[0], "mousemove");
         google.maps.event.clearListeners(map_array[0], "rightclick");
@@ -175,14 +174,14 @@ function Update_Listeners(type){
       }
     });
 
-    google.maps.event.addListener(mapPolygon.getPath(), 'set_at', function(point) {
+    /*google.maps.event.addListener(mapPolygon.getPath(), 'set_at', function(point) {
       //Update_Spatial_Data_Display();
     });
 
     google.maps.event.addListener(mapPolygon.getPath(), 'drag', function(point) {
       //Update_Spatial_Data_Display();
       console.log('dragging');
-    });
+    });*/
 
     Update_Spatial_Data_Display()
 
