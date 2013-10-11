@@ -144,31 +144,22 @@ function Update_Listeners(type){
          mapPolygon.stopEdit();
          mapPolygon.getPath().push(point.latLng);
          mapPolygon.runEdit(false);
+       } else if(mapPolygon.getPath().getLength() == 1) {
+          mapPolygon.stopEdit();
+          var oldpt = mapPolygon.getPath().getAt(0);
+          var pt1 = new google.maps.LatLng(oldpt.lat(), point.latLng.lng());
+          var pt2 = new google.maps.LatLng(point.latLng.lat(), oldpt.lng());
+          mapPolygon.setPath([oldpt, pt1, pt2, point.latLng]);
+          mapPolygon.runEdit(false);
+          google.maps.event.clearListeners(map_array[0], "click");
+          google.maps.event.clearListeners(map_array[0], "mousemove");
+          google.maps.event.clearListeners(map_array[0], "rightclick");
+          google.maps.event.clearListeners(mapPolygon, "click");
+          map_array[0].setOptions({draggableCursor:null});
        }
+       Update_Spatial_Data_Display();
     });
 
-    google.maps.event.addListener(mapPolygon, 'click', function() {
-      followLine1.setMap(null);
-      followLine2.setMap(null);
-      google.maps.event.clearListeners(map_array[0], "click");
-      google.maps.event.clearListeners(map_array[0], "mousemove");
-      google.maps.event.clearListeners(map_array[0], "rightclick");
-      google.maps.event.clearListeners(mapPolygon, "click");
-      map_array[0].setOptions({draggableCursor:null});
-      Update_Spatial_Data_Display();
-    });
-     
-    google.maps.event.addListener(map_array[0], 'rightclick', function () {
-      followLine1.setMap(null);
-      followLine2.setMap(null);
-      google.maps.event.clearListeners(map_array[0], "click");
-      google.maps.event.clearListeners(map_array[0], "mousemove");
-      google.maps.event.clearListeners(map_array[0], "rightclick");
-      google.maps.event.clearListeners(mapPolygon, "click");
-      map_array[0].setOptions({draggableCursor:null});
-      Update_Spatial_Data_Display();
-    });
-       
     google.maps.event.addListener(map_array[0], 'mousemove', function(point) {
       var pathLength = mapPolygon.getPath().getLength();
       if (pathLength == 1) {
