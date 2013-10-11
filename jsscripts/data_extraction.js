@@ -140,10 +140,12 @@ function Update_Listeners(type){
     
     // Add event handlers related to polygon drawing
     google.maps.event.addListener(map_array[0], 'click', function(point) {
+      if(mapPolygon.getPath().getLength() == 0) {
          mapPolygon.stopEdit();
          mapPolygon.getPath().push(point.latLng);
          mapPolygon.runEdit(false);
          Update_Spatial_Data_Display();
+       }
     });
 
     google.maps.event.addListener(mapPolygon, 'click', function() {
