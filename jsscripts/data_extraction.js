@@ -144,22 +144,8 @@ function Update_Listeners(type){
          mapPolygon.stopEdit();
          mapPolygon.getPath().push(point.latLng);
          mapPolygon.runEdit(false);
-       } else if(mapPolygon.getPath().getLength() == 4) {
-          mapPolygon.stopEdit();
-          var oldpt = mapPolygon.getPath().getAt(0);
-          var pt1 = new google.maps.LatLng(oldpt.lat(), point.latLng.lng());
-          var pt2 = new google.maps.LatLng(point.latLng.lat(), oldpt.lng());
-          mapPolygon.setPath([oldpt, pt2, point.latLng, pt1]);
-          mapPolygon.runEdit(false);
-          google.maps.event.clearListeners(map_array[0], "click");
-          google.maps.event.clearListeners(map_array[0], "mousemove");
-          google.maps.event.clearListeners(map_array[0], "rightclick");
-          google.maps.event.clearListeners(mapPolygon, "click");
-          map_array[0].setOptions({draggableCursor:null});
-       }
+       } 
        Update_Spatial_Data_Display();
-                 console.log("should be finished");
-
     });
 
     google.maps.event.addListener(map_array[0], 'mousemove', function(point) {
@@ -169,6 +155,23 @@ function Update_Listeners(type){
         var pt1 = new google.maps.LatLng(oldpt.lat(), point.latLng.lng());
         var pt2 = new google.maps.LatLng(point.latLng.lat(), oldpt.lng());
         mapPolygon.setPath([oldpt, pt2, point.latLng, pt1]);
+      }
+    });
+
+    google.maps.event.addListener(mapPolygon, 'click', function() {
+      if(mapPolygon.getPath().getLength() == 4) {
+        mapPolygon.stopEdit();
+        var oldpt = mapPolygon.getPath().getAt(0);
+        var pt1 = new google.maps.LatLng(oldpt.lat(), point.latLng.lng());
+        var pt2 = new google.maps.LatLng(point.latLng.lat(), oldpt.lng());
+        mapPolygon.setPath([oldpt, pt2, point.latLng, pt1]);
+        mapPolygon.runEdit(false);
+        google.maps.event.clearListeners(map_array[0], "click");
+        google.maps.event.clearListeners(map_array[0], "mousemove");
+        google.maps.event.clearListeners(map_array[0], "rightclick");
+        google.maps.event.clearListeners(mapPolygon, "click");
+        map_array[0].setOptions({draggableCursor:null});
+        Update_Spatial_Data_Display();
       }
     });
 
