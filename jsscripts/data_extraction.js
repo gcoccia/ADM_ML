@@ -43,7 +43,7 @@ function Update_Listeners(type){
   $("ul.datalist>li>ul.dropdown-menu>li>a>i").removeClass("icon-ok");
   Update_Listeners('none');
   create_point_overlay();
-  map_array[0].setOptions({draggableCursor:'crosshair'});
+
   // Make sure the time info is present
   $("#final-date-inputs").show();
   $("#initial-date-inputs").show();
@@ -67,13 +67,25 @@ function Update_Listeners(type){
   $("#hideBtnImg").hide();
   $("#yearly").show();
 
-  //Add the listeners
-  google.maps.event.addListener(map_array[0], 'click', function(mEvent) {Point_Data(mEvent.latLng)});
-  google.maps.event.addListener(map_array[0], 'mousemove', function(point) {
-    $("#point-latitude").html(point.latLng.lat());
-    $("#point-longitude").html(point.latLng.lng());
-  });
- }
+
+  var corm = $("ul#point-corm li.active>a").attr('id')); // either point-manual or point-mapclick
+  
+  if(""+corm == "point-mapclick") {
+    $("div#point-ll-mapclick").show();
+    $("div#point-ll-manual").hide();
+    map_array[0].setOptions({draggableCursor:'crosshair'});
+
+    //Add the listeners
+    google.maps.event.addListener(map_array[0], 'click', function(mEvent) {Point_Data(mEvent.latLng)});
+    google.maps.event.addListener(map_array[0], 'mousemove', function(point) {
+      $("#point-latitude").html(point.latLng.lat());
+      $("#point-longitude").html(point.latLng.lng());
+    });
+  } else {
+    $("div#point-ll-mapclick").hide();
+    $("div#point-ll-manual").show();
+  }
+}
  else if (type == 'spatial'){
 
   //Remove present listeners

@@ -93,14 +93,38 @@
   <div class="data-form-block">  
   
   <ul id="point-corm" class="nav nav-pills click-or-manual">
-    <li class="active"><a href="javascript:void(0)" id="point-mapclick" class="corm-pills" onclick='update_click_or_manual()'><?php echo $_("Map Click")?></a></li>
-    <li><a href="javascript:void(0)" id="point-manual" class="corm-pills" onclick='update_click_or_manual()'><?php echo $_("Manual")?></a></li>
+    <li class="active"><a href="javascript:void(0)" id="point-mapclick" class="corm-pills-point" onclick='Update_Listeners("point")'><?php echo $_("Map Click")?></a></li>
+    <li><a href="javascript:void(0)" id="point-manual" class="corm-pills-point" onclick='Update_Listeners("point")'><?php echo $_("Manual Entry")?></a></li>
   </ul>
 
-  <?php echo $_('Latitude')?>: <span id="point-latitude"></span>
-  <br>
-  <?php echo $_('Longitude')?>: <span id="point-longitude"></span>
-  <br>
+  <div id="point-ll-map-click">
+    <?php echo $_('Latitude')?>: <span id="point-latitude"></span>
+    <br>
+    <?php echo $_('Longitude')?>: <span id="point-longitude"></span>
+    <br>
+  </div>
+  
+  <div id="point-ll-manual" style="display:none">
+    <form class="form-horizontal">
+      <div class="control-group">
+        <label class="control-label" for="point-manual-latitude"><?php echo $_('Latitude')?>:</label>
+        <div class="controls">
+          <input type="text" id="point-manual-latitude">
+        </div>
+      </div>
+      <div class="control-group">
+        <label class="control-label" for="point-manual-longitude"><?php echo $_('Longitude')?>:</label>
+        <div class="controls">
+          <input type="text" id="point-manual-longitude">
+        </div>
+      </div>
+      <div class="control-group">
+        <div class="controls">
+          <button id="point-manual-submit" type="submit" class="btn">Update</button>
+        </div>
+      </div>
+    </form>
+  </div>
 
   <div class="radio inline">
     <label><input type="radio" name="plot" value="Indices" checked=checked><?php echo $_('Indices') ?></label>
