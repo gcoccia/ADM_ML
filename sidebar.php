@@ -161,25 +161,25 @@
   <div id="spatial-ll-manual" style="display:none">
     <form class="form-horizontal manual-entry-form" id="spatial-manual-entry-form">
       <div class="control-group">
-        <label class="control-label" for="spatial-manual-min-latitude"><?php echo $_('Min. Latitude')?>:</label>
+        <label class="control-label" for="spatial-manual-min-latitude"><?php echo $_('Min. Lat.')?>:</label>
         <div class="controls">
           <input type="text" id="spatial-manual-min-latitude">
         </div>
       </div>
       <div class="control-group">
-        <label class="control-label" for="spatial-manual-max-latitude"><?php echo $_('Max. Latitude')?>:</label>
+        <label class="control-label" for="spatial-manual-max-latitude"><?php echo $_('Max. Lat.')?>:</label>
         <div class="controls">
           <input type="text" id="spatial-manual-max-latitude">
         </div>
       </div>
       <div class="control-group">
-        <label class="control-label" for="spatial-manual-min-longitude"><?php echo $_('Min. Longitude')?>:</label>
+        <label class="control-label" for="spatial-manual-min-longitude"><?php echo $_('Min. Long.')?>:</label>
         <div class="controls">
           <input type="text" id="spatial-manual-min-longitude">
         </div>
       </div>
       <div class="control-group">
-        <label class="control-label" for="spatial-manual-max-longitude"><?php echo $_('Max. Longitude')?>:</label>
+        <label class="control-label" for="spatial-manual-max-longitude"><?php echo $_('Max. Long.')?>:</label>
         <div class="controls">
           <input type="text" id="spatial-manual-max-longitude">
         </div>
