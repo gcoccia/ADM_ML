@@ -621,26 +621,26 @@ ul.datalist>li>ul.dropdown-menu>li>a, ul.spatial-datalist>li>ul.dropdown-menu>li
   cursor:pointer;
 }
 
-form#point-manual-entry-form {
+form.manual-entry-form {
   margin-bottom: 5px;
 }
-form#point-manual-entry-form > .control-group {
+form.manual-entry-form > .control-group {
   margin-bottom: 3px;
 }
-form#point-manual-entry-form > .control-group > .control-label {
+form.manual-entry-form > .control-group > .control-label {
   font-size:12px;
   width: 60px;
   text-align:left;
 }
-form#point-manual-entry-form > .control-group > .controls {
+form.manual-entry-form > .control-group > .controls {
   margin-left: 70px;
 }
-form#point-manual-entry-form > .control-group > .controls > input {
+form.manual-entry-form > .control-group > .controls > input {
   font-size:12px;
   width: 120px;
   padding-top:2px;
   padding-bottom:2px;
 }
-#point-manual-submit {
+#point-manual-submit, #spatial-manual-submit {
   font-size:12px;
 }

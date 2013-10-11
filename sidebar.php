@@ -105,7 +105,7 @@
   </div>
 
   <div id="point-ll-manual" style="display:none">
-    <form class="form-horizontal" id="point-manual-entry-form">
+    <form class="form-horizontal manual-entry-form" id="point-manual-entry-form">
       <div class="control-group">
         <label class="control-label" for="point-manual-latitude"><?php echo $_('Latitude')?>:</label>
         <div class="controls">
@@ -159,7 +159,7 @@
   </ul>
 
   <div id="spatial-ll-manual" style="display:none">
-    <form class="form-horizontal" id="spatial-manual-entry-form">
+    <form class="form-horizontal manual-entry-form" id="spatial-manual-entry-form">
       <div class="control-group">
         <label class="control-label" for="spatial-manual-min-latitude"><?php echo $_('Min. Latitude')?>:</label>
         <div class="controls">
