@@ -200,7 +200,7 @@ header('X-UA-Compatible: IE=edge');
     var myOptions = {minZoom:3,maxZoom:8,styles: styleArray,zoom: dim.izoom,center: mapCenter,panControl: false,zoomControl: true,zoomControlOptions:{style:      
     google.maps.ZoomControlStyle.DEFAULT,position: google.maps.ControlPosition.LEFT_TOP},scaleControl: false,streetViewControl: false,mapTypeControl: 
     true,mapTypeControlOptions:{style: google.maps.MapTypeControlStyle.DROPDOWN_MENU,position: google.maps.ControlPosition.TOP_LEFT},mapTypeId: 
-    google.maps.MapTypeId.ROADMAP};
+    google.maps.MapTypeId.TERRAIN};
 
     //Insert the map canvas into html
     map_array[0] = new google.maps.Map(document.getElementById("map_canvas_1"), myOptions);
