@@ -112,72 +112,86 @@ function Update_Listeners(type){
   $("#monitor-or-forecast-div").show();
   $("#hideBtnImg").hide();
 
-  // Visibility of the time info and forecast vars will be handled by update_monitor_or_forecast
+  var corm = $("ul#point-corm li.active>a").attr('id'); // either point-manual or point-mapclick
+  
+  if(""+corm == "spatial-mapclick") {
+    $("div#spatial-ll-manual").hide();
+    $("#spatial-manual-entry-form").unbind('submit');
 
-  map_array[0].setOptions({draggableCursor:'crosshair'});
-  // Add polygon and lines to map
-  var polyOptions = { map : map_array[0],
-                    strokeColor   : '#08c',
-                    strokeOpacity : 0.6,
-                    strokeWeight  : 4,
-                    path:[]
-                  };
-  var lineOptions = { clickable: false,
-                    map : map_array[0],
-                    path: [],
-                    strokeColor: "#787878",
-                    strokeOpacity: 1,
-                    strokeWeight: 2
-                  };
-  mapPolygon = new google.maps.Polygon(polyOptions);
-  followLine1 = new google.maps.Polyline(lineOptions);
-  followLine2 = new google.maps.Polyline(lineOptions);
+    map_array[0].setOptions({draggableCursor:'crosshair'});
+    // Add polygon and lines to map
+    var polyOptions = { map : map_array[0],
+                      strokeColor   : '#08c',
+                      strokeOpacity : 0.6,
+                      strokeWeight  : 4,
+                      path:[]
+                    };
+    var lineOptions = { clickable: false,
+                      map : map_array[0],
+                      path: [],
+                      strokeColor: "#787878",
+                      strokeOpacity: 1,
+                      strokeWeight: 2
+                    };
+    mapPolygon = new google.maps.Polygon(polyOptions);
+    followLine1 = new google.maps.Polyline(lineOptions);
+    followLine2 = new google.maps.Polyline(lineOptions);
 
-  // Add event handlers related to polygon drawing
-  google.maps.event.addListener(map_array[0], 'click', function(point) {
-       mapPolygon.stopEdit();
-       mapPolygon.getPath().push(point.latLng);
-       mapPolygon.runEdit(true);
-       Update_Spatial_Data_Display();
-  });
+    // Add event handlers related to polygon drawing
+    google.maps.event.addListener(map_array[0], 'click', function(point) {
+         mapPolygon.stopEdit();
+         mapPolygon.getPath().push(point.latLng);
+         mapPolygon.runEdit(true);
+         Update_Spatial_Data_Display();
+    });
 
-  google.maps.event.addListener(mapPolygon, 'click', function() {
-    followLine1.setMap(null);
-    followLine2.setMap(null);
-    google.maps.event.clearListeners(map_array[0], "click");
-    google.maps.event.clearListeners(map_array[0], "mousemove");
-    google.maps.event.clearListeners(map_array[0], "rightclick");
-    google.maps.event.clearListeners(mapPolygon, "click");
-    map_array[0].setOptions({draggableCursor:null});
-    Update_Spatial_Data_Display();
-  });
+    google.maps.event.addListener(mapPolygon, 'click', function() {
+      followLine1.setMap(null);
+      followLine2.setMap(null);
+      google.maps.event.clearListeners(map_array[0], "click");
+      google.maps.event.clearListeners(map_array[0], "mousemove");
+      google.maps.event.clearListeners(map_array[0], "rightclick");
+      google.maps.event.clearListeners(mapPolygon, "click");
+      map_array[0].setOptions({draggableCursor:null});
+      Update_Spatial_Data_Display();
+    });
      
-  google.maps.event.addListener(map_array[0], 'rightclick', function () {
-    followLine1.setMap(null);
-    followLine2.setMap(null);
-    google.maps.event.clearListeners(map_array[0], "click");
-    google.maps.event.clearListeners(map_array[0], "mousemove");
-    google.maps.event.clearListeners(map_array[0], "rightclick");
-    google.maps.event.clearListeners(mapPolygon, "click");
-    map_array[0].setOptions({draggableCursor:null});
-    Update_Spatial_Data_Display();
-  });
-     
-  google.maps.event.addListener(map_array[0], 'mousemove', function(point) {
-    var pathLength = mapPolygon.getPath().getLength();
-    if (pathLength >= 1) {
-      var startingPoint1 = mapPolygon.getPath().getAt(pathLength - 1);
-      var followCoordinates1 = [startingPoint1, point.latLng];
-      followLine1.setPath(followCoordinates1);
-      var startingPoint2 = mapPolygon.getPath().getAt(0);
-      var followCoordinates2 = [startingPoint2, point.latLng];
-      followLine2.setPath(followCoordinates2);
-    }
-  });
+    google.maps.event.addListener(map_array[0], 'rightclick', function () {
+      followLine1.setMap(null);
+      followLine2.setMap(null);
+      google.maps.event.clearListeners(map_array[0], "click");
+      google.maps.event.clearListeners(map_array[0], "mousemove");
+      google.maps.event.clearListeners(map_array[0], "rightclick");
+      google.maps.event.clearListeners(mapPolygon, "click");
+      map_array[0].setOptions({draggableCursor:null});
+      Update_Spatial_Data_Display();
+    });
+       
+    google.maps.event.addListener(map_array[0], 'mousemove', function(point) {
+      var pathLength = mapPolygon.getPath().getLength();
+      if (pathLength >= 1) {
+        var startingPoint1 = mapPolygon.getPath().getAt(pathLength - 1);
+        var followCoordinates1 = [startingPoint1, point.latLng];
+        followLine1.setPath(followCoordinates1);
+        var startingPoint2 = mapPolygon.getPath().getAt(0);
+        var followCoordinates2 = [startingPoint2, point.latLng];
+        followLine2.setPath(followCoordinates2);
+      }
+    });
 
-  google.maps.event.addListener(mapPolygon.getPath(), 'set_at', function(point) {
-    Update_Spatial_Data_Display();
-  });
+    google.maps.event.addListener(mapPolygon.getPath(), 'set_at', function(point) {
+      Update_Spatial_Data_Display();
+    });
+  } else {
+    $("div#spatial-ll-manual").show();
+    $("#spatial-manual-entry-form").submit(function(e) {
+      e.preventDefault();
+
+      /*$("#spatial-latitude").html($("#point-manual-latitude").val());
+      $("#spatial-longitude").html($("#point-manual-longitude").val());
+      Point_Data(); //*/// do not need to pass lat/lon here -- it pulls it from point-latitude and point-longitude
+    });
+  }
 
  //Initialize errors
  Update_Spatial_Data_Display()

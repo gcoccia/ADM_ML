@@ -152,8 +152,46 @@
 <div id="Spatial-Sidebar" style="display: none">
   <li class="divider"></li>
   <li class="nav-header"><?php echo $_("Spatial Data Selection") ?></li>
-  <i><?php echo $_("Click points on the map to draw a polygon and select spatial data. Then select variables below.") ?></i>
-  <br>
+  
+  <ul id="spatial-corm" class="nav nav-pills click-or-manual">
+    <li class="active"><a href="javascript:void(0)" id="spatial-mapclick" class="corm-pills-spatial"><?php echo $_("Map Click")?></a></li>
+    <li><a href="javascript:void(0)" id="spatial-manual" class="spatial-pills-point"><?php echo $_("Manual Entry")?></a></li>
+  </ul>
+
+  <div id="spatial-ll-manual" style="display:none">
+    <form class="form-horizontal" id="spatial-manual-entry-form">
+      <div class="control-group">
+        <label class="control-label" for="spatial-manual-min-latitude"><?php echo $_('Min. Latitude')?>:</label>
+        <div class="controls">
+          <input type="text" id="spatial-manual-min-latitude">
+        </div>
+      </div>
+      <div class="control-group">
+        <label class="control-label" for="spatial-manual-max-latitude"><?php echo $_('Max. Latitude')?>:</label>
+        <div class="controls">
+          <input type="text" id="spatial-manual-max-latitude">
+        </div>
+      </div>
+      <div class="control-group">
+        <label class="control-label" for="spatial-manual-min-longitude"><?php echo $_('Min. Longitude')?>:</label>
+        <div class="controls">
+          <input type="text" id="spatial-manual-min-longitude">
+        </div>
+      </div>
+      <div class="control-group">
+        <label class="control-label" for="spatial-manual-max-longitude"><?php echo $_('Max. Longitude')?>:</label>
+        <div class="controls">
+          <input type="text" id="spatial-manual-max-longitude">
+        </div>
+      </div>
+      <div class="control-group">
+        <div class="controls">
+          <button id="spatial-manual-submit" type="submit" class="btn">Submit</button>
+        </div>
+      </div>
+    </form>
+  </div>
+
 
   <ul id="currently-selected-vars" class="nav nav-list">
   </ul>
