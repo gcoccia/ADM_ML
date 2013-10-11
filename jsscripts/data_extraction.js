@@ -156,9 +156,10 @@ function Update_Listeners(type){
           google.maps.event.clearListeners(map_array[0], "rightclick");
           google.maps.event.clearListeners(mapPolygon, "click");
           map_array[0].setOptions({draggableCursor:null});
-          console.log("should be finished");
        }
        Update_Spatial_Data_Display();
+                 console.log("should be finished");
+
     });
 
     google.maps.event.addListener(map_array[0], 'mousemove', function(point) {
