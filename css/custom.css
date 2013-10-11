@@ -620,3 +620,15 @@ ul.datalist>li>ul.dropdown-menu>li>a, ul.spatial-datalist>li>ul.dropdown-menu>li
 #feedbackBtn>a:hover {
   cursor:pointer;
 }
+
+form#point-manual-entry-form > .control-group > .control-label {
+  font-size:10px;
+  width: 80px;
+  text-align:left;
+}
+
+form#point-manual-entry-form > .control-group > .controls > input {
+  font-size:10px;
+  width: 80px;
+  margin-left: 100px;
+}

@@ -105,7 +105,7 @@
   </div>
 
   <div id="point-ll-manual" style="display:none">
-    <form class="form-horizontal">
+    <form class="form-horizontal" id="point-manual-entry-form">
       <div class="control-group">
         <label class="control-label" for="point-manual-latitude"><?php echo $_('Latitude')?>:</label>
         <div class="controls">
