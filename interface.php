@@ -210,7 +210,7 @@ header('X-UA-Compatible: IE=edge');
 
     var myOptions = {
      minZoom:3,
-     maxZoom:8,
+     //maxZoom:8,
      styles:styleArray,
      zoom:dim.izoom,
      center:mapCenter,
