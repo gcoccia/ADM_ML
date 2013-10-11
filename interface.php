@@ -378,6 +378,7 @@ header('X-UA-Compatible: IE=edge');
       if(!$(this).parent().hasClass("active")) { // only act on change
         $(".corm-pills-point").parent().removeClass("active");
         $(this).parent().addClass("active");
+        Update_Listeners("point");
       }
     });
 

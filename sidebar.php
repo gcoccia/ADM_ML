@@ -93,8 +93,8 @@
   <div class="data-form-block">  
   
   <ul id="point-corm" class="nav nav-pills click-or-manual">
-    <li class="active"><a href="javascript:void(0)" id="point-mapclick" class="corm-pills-point" onclick='Update_Listeners("point")'><?php echo $_("Map Click")?></a></li>
-    <li><a href="javascript:void(0)" id="point-manual" class="corm-pills-point" onclick='Update_Listeners("point")'><?php echo $_("Manual Entry")?></a></li>
+    <li class="active"><a href="javascript:void(0)" id="point-mapclick" class="corm-pills-point"><?php echo $_("Map Click")?></a></li>
+    <li><a href="javascript:void(0)" id="point-manual" class="corm-pills-point"><?php echo $_("Manual Entry")?></a></li>
   </ul>
 
   <div id="point-ll-map-click">
@@ -103,7 +103,7 @@
     <?php echo $_('Longitude')?>: <span id="point-longitude"></span>
     <br>
   </div>
-  
+
   <div id="point-ll-manual" style="display:none">
     <form class="form-horizontal">
       <div class="control-group">
