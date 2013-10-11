@@ -195,12 +195,40 @@ header('X-UA-Compatible: IE=edge');
     //var mapCenter = new google.maps.LatLng(dim.minlat + dim.nlat*dim.res/2.5, dim.minlon + dim.nlon*dim.res/2);
     var mapCenter = new google.maps.LatLng(dim.centerlat, dim.centerlon);
     
-    var styleArray = [{featureType: 'administrative.country',stylers: [{ visibility: 'on' }]}];
+    /*var styleArray = [
+     {featureType: 'administrative.country',stylers: [{ visibility: 'on' }]},
+     {elementType: 'all',styles: [{visibility:'off'}]}
+    ];*/
+    //var styleArray = [{stylers: [{ visibility:'on'}]}];
+    var styleArray = [{
+     featureType: "administrative.country",
+     elementType: "labels",
+     stylers: [
+      { visibility: "simplified" }
+     ]
+    }]
 
-    var myOptions = {minZoom:3,maxZoom:8,styles: styleArray,zoom: dim.izoom,center: mapCenter,panControl: false,zoomControl: true,zoomControlOptions:{style:      
-    google.maps.ZoomControlStyle.DEFAULT,position: google.maps.ControlPosition.LEFT_TOP},scaleControl: false,streetViewControl: false,mapTypeControl: 
-    true,mapTypeControlOptions:{style: google.maps.MapTypeControlStyle.DROPDOWN_MENU,position: google.maps.ControlPosition.TOP_LEFT},mapTypeId: 
-    google.maps.MapTypeId.TERRAIN};
+    var myOptions = {
+     minZoom:3,
+     maxZoom:8,
+     styles:styleArray,
+     zoom:dim.izoom,
+     center:mapCenter,
+     panControl:false,
+     zoomControl:true,
+     zoomControlOptions:{
+      style:google.maps.ZoomControlStyle.DEFAULT,
+      position: google.maps.ControlPosition.LEFT_TOP
+     },
+     scaleControl:false,
+     streetViewControl:false,
+     mapTypeControl:true,
+     mapTypeControlOptions:{
+      style: google.maps.MapTypeControlStyle.DROPDOWN_MENU,
+      position: google.maps.ControlPosition.TOP_LEFT
+     },
+     mapTypeId:google.maps.MapTypeId.TERRAIN
+    };
 
     //Insert the map canvas into html
     map_array[0] = new google.maps.Map(document.getElementById("map_canvas_1"), myOptions);
