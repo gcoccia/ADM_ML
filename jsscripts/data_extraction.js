@@ -170,13 +170,11 @@ function Update_Listeners(type){
        
     google.maps.event.addListener(map_array[0], 'mousemove', function(point) {
       var pathLength = mapPolygon.getPath().getLength();
-      if (pathLength >= 1) {
-        var startingPoint1 = mapPolygon.getPath().getAt(pathLength - 1);
-        var followCoordinates1 = [startingPoint1, point.latLng];
-        followLine1.setPath(followCoordinates1);
-        var startingPoint2 = mapPolygon.getPath().getAt(0);
-        var followCoordinates2 = [startingPoint2, point.latLng];
-        followLine2.setPath(followCoordinates2);
+      if (pathLength == 1) {
+        var oldpt = mapPolygon.getPath().getAt(0);
+        var pt1 = [oldpt.lat(), point.lng()];
+        var pt2 = [point.lat(), oldpt.lng()];
+        mapPolygon.setPath([oldpt, pt1, pt2, point]);
       }
     });
 
