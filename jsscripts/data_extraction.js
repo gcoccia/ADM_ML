@@ -443,6 +443,13 @@ function Request_Data(variables,Create_Text_Data,data_group,chart_controls) {
   //var lon = "19.8750"; //$("#point-longitude").val();
   var lat = $("#point-latitude").html();
   var lon = $("#point-longitude").html();
+  //If the lat/lon are not defined
+  if (lat == '' | lon == ''){
+   alert(TRANSLATE['Error: The latitude and/or longitude have not been defined.'])
+   $("#clear_all").click();
+   return;
+  }
+   
   var script = 'python POINT_DATA/Extract_Point_Data.py';
   var input = {idate:initial_date, fdate:final_date, tstep:tstep, lat:lat, lon:lon, variables:variables,create_text_file:Create_Text_Data,data_group:data_group,http:document.URL};
   input = JSON.stringify(input);
