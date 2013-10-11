@@ -161,10 +161,13 @@ function Update_Listeners(type){
     });
 
     google.maps.event.addListener(map_array[0], 'mousemove', function(point) {
-      var oldpt = mapPolygon.getPath().getAt(0);
-      var pt1 = new google.maps.LatLng(oldpt.lat(), point.latLng.lng());
-      var pt2 = new google.maps.LatLng(point.latLng.lat(), oldpt.lng());
-      mapPolygon.setPath([oldpt, pt1, pt2, point.latLng]);
+      var pathLength = mapPolygon.getPath().getLength();
+      if (pathLength >= 1) {
+        var oldpt = mapPolygon.getPath().getAt(0);
+        var pt1 = new google.maps.LatLng(oldpt.lat(), point.latLng.lng());
+        var pt2 = new google.maps.LatLng(point.latLng.lat(), oldpt.lng());
+        mapPolygon.setPath([oldpt, pt1, pt2, point.latLng]);
+      }
     });
 
     google.maps.event.addListener(mapPolygon.getPath(), 'set_at', function(point) {
