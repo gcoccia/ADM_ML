@@ -643,14 +643,13 @@ function Submit_Spatial_Data() {
   url: 'scripts/Jquery_Python_JSON_Glue.php',//'Spatial_Data_Request.php ',
   data: request,
   success: function(response){
-   alert(response);
    Output = JSON.parse(response);
   },
   async: true,
   cache: false
   });
   alert(TRANSLATE["Your request has been submitted. You will receive an email when the data is ready to be downloaded."])
-  //$("#clear_all").click();
+  $("#clear_all").click();
   return Output;
 }
  
