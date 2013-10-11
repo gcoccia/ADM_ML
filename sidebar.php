@@ -120,7 +120,7 @@
       </div>
       <div class="control-group">
         <div class="controls">
-          <button id="point-manual-submit" type="submit" class="btn">Update</button>
+          <button id="point-manual-submit" type="submit" class="btn">Submit</button>
         </div>
       </div>
     </form>

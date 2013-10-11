@@ -621,6 +621,9 @@ ul.datalist>li>ul.dropdown-menu>li>a, ul.spatial-datalist>li>ul.dropdown-menu>li
   cursor:pointer;
 }
 
+form#point-manual-entry-form {
+  margin-bottom: 5px;
+}
 form#point-manual-entry-form > .control-group {
   margin-bottom: 5px;
 }
@@ -637,4 +640,7 @@ form#point-manual-entry-form > .control-group > .controls > input {
   width: 100px;
   padding-top:2px;
   padding-bottom:2px;
+}
+#point-manual-submit {
+  font-size:12px;
 }
