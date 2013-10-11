@@ -155,7 +155,7 @@
   
   <ul id="spatial-corm" class="nav nav-pills click-or-manual">
     <li class="active"><a href="javascript:void(0)" id="spatial-mapclick" class="corm-pills-spatial"><?php echo $_("Map Click")?></a></li>
-    <li><a href="javascript:void(0)" id="spatial-manual" class="spatial-pills-point"><?php echo $_("Manual Entry")?></a></li>
+    <li><a href="javascript:void(0)" id="spatial-manual" class="corm-pills-spatial"><?php echo $_("Manual Entry")?></a></li>
   </ul>
 
   <div id="spatial-ll-manual" style="display:none">
