@@ -194,16 +194,16 @@ function Update_Listeners(type){
     $("#spatial-manual-entry-form").submit(function(e) {
       e.preventDefault();
 
-      if (lat == '' | lon == ''){
-        alert(TRANSLATE['Error: The latitude and/or longitude have not been defined.']);
-        $("#clear_all").click();
-        return;
-      }
-
       var minlat = $("#spatial-manual-min-latitude").val();
       var minlon = $("#spatial-manual-min-longitude").val();
       var maxlat = $("#spatial-manual-max-latitude").val();
       var maxlon = $("#spatial-manual-max-longitude").val();
+
+      if (minlat == '' | minlon == '' | maxlat == '' | maxlon == ''){
+        alert(TRANSLATE['Error: The latitude and/or longitude have not been defined.']);
+        $("#clear_all").click();
+        return;
+      }
 
       var pt1 = new google.maps.LatLng(minlat, minlon);
       var pt2 = new google.maps.LatLng(minlat, maxlon);
