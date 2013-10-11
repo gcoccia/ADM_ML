@@ -182,6 +182,9 @@ function Update_Listeners(type){
     google.maps.event.addListener(mapPolygon.getPath(), 'set_at', function(point) {
       Update_Spatial_Data_Display();
     });
+    
+    Update_Spatial_Data_Display()
+
   } else {
     $("div#spatial-ll-manual").show();
     $("#spatial-manual-entry-form").submit(function(e) {
@@ -192,9 +195,6 @@ function Update_Listeners(type){
       Point_Data(); //*/// do not need to pass lat/lon here -- it pulls it from point-latitude and point-longitude
     });
   }
-
- //Initialize errors
- Update_Spatial_Data_Display()
 
  }
 }
