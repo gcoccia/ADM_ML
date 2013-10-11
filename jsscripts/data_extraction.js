@@ -143,7 +143,6 @@ function Update_Listeners(type){
       if(mapPolygon.getPath().getLength() == 0) {
          mapPolygon.stopEdit();
          mapPolygon.getPath().push(point.latLng);
-         mapPolygon.runEdit(false);
        } 
        Update_Spatial_Data_Display();
     });
