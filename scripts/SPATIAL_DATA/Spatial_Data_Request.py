@@ -20,7 +20,7 @@ def Write_Arc_Ascii(dims,file,data):
  yllcorner = dims["minlat"] - dims["res"]/2
  cellsize = dims["res"]
  undef = -9.99e+08
- header = 'ncols %d\nnrows %d\nxllcorner %f\nyllcorner %f\ncellsize %f\n NODATA_value %.3f' % (ncols,nrows,xllcorner,yllcorner,cellsize,undef)
+ header = 'ncols %d\nnrows %d\nxllcorner %f\nyllcorner %f\ncellsize %f\nNODATA_value %.3f' % (ncols,nrows,xllcorner,yllcorner,cellsize,undef)
  comments=''
  data = np.flipud(data)
  np.savetxt(file,data,fmt='%.3f',header=header,comments=comments)
