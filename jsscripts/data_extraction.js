@@ -542,9 +542,6 @@ function Submit_Spatial_Data() {
                            parseInt($("#month_final").val())-1,
                            parseInt($("#day_final").val()))/1000;
   var final_date_check = final_date
-  //Determine if the submission is monitor or forecast
-  var morf = $("ul.monitor-or-forecast>li.active").find("a").attr('id');
-  alert(morf);
 
   //Spatial Bounding Box
   var lats = []
@@ -592,6 +589,29 @@ function Submit_Spatial_Data() {
    return;
   }
 
+  //Determine if the submission is monitor or forecast
+  var morf = $("ul.monitor-or-forecast>li.active").find("a").attr('id');
+  //If forecast then set the dates accordingly
+  alert(morf)
+  alert(tstep)
+  if (tstep == 'daily' & morf == 'forecast'){
+   var sample_dataset = 'vcpct--VIC_DERIVED';
+   var final_date = new Date(data_fdates[sample_dataset]);
+   var initial_date = new Date(final_date.getTime())
+   initial_date.setDate(initial_date.getDate()+1);
+   final_date.setDate(final_date.getDate()+7);
+   var initial_date = Date.UTC(initial_date.getFullYear(),initial_date.getMonth(),initial_date.getDate());
+   var final_date = Date.UTC(final_date.getFullYear(),final_date.getMonth(),final_date.getDate());
+  }
+  else if (tstep == 'monthly' & morf == 'forecast'){
+   var sample_dataset = 'spi1--MultiModel';
+   var final_date = new Date(data_fdates[sample_dataset]);
+   var initial_date = new Date(final_date.getTime());
+   final_date.setDate(final_date.getDate()+31*6);
+   var initial_date = Date.UTC(initial_date.getFullYear(),initial_date.getMonth(),initial_date.getDate());
+   var final_date = Date.UTC(final_date.getFullYear(),final_date.getMonth(),final_date.getDate());
+  }
+
   //Spatial resolution
   var sres = $('input:radio[name=sres_spatial_data]:checked').val();
   //Variables
@@ -615,7 +635,8 @@ function Submit_Spatial_Data() {
           variables:variables,
           format:format,
           email:email,
-          http:document.URL
+          http:document.URL,
+	  morf:morf,
           };
   input = JSON.stringify(input);
   var request = {script:script,input:input};
@@ -630,7 +651,7 @@ function Submit_Spatial_Data() {
   cache: false
   });
   alert(TRANSLATE["Your request has been submitted. You will receive an email when the data is ready to be downloaded."])
-  $("#clear_all").click();
+  //$("#clear_all").click();
   return Output;
 }
  

@@ -47,8 +47,16 @@ function update_timestep()
   });
 
   // If selecting spatial data, update the "estimated download size" display
-  if("spatial" == $("ul.data-extraction li.active>a").attr('id'))
-      Update_Spatial_Data_Display();
+  //if("spatial" == $("ul.data-extraction li.active>a").attr('id'))
+  //    Update_Spatial_Data_Display();
+      //Remove all the selections
+  if("spatial" == $("ul.data-extraction li.active>a").attr('id')){
+    $("ul#currently-selected-vars>li>a").each(function() {
+    $("ul.spatial-datalist>li>ul.dropdown-menu>li>a#" + $(this).attr('id')).parent().show();
+    $(this).parent().remove();
+    Update_Spatial_Data_Display();
+    });
+  }
 }
 
 function Update_TimeStamp_MP(increment, flag_timestamp)

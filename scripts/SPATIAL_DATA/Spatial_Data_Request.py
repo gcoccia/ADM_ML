@@ -124,6 +124,9 @@ res = float(metadata['sres'])
 http = metadata['http'].split('/')
 http_root = '/'.join(http[0:-2])
 user = email.split('@')[0]
+morf = metadata['morf']
+print morf
+exit()
 
 #Change directory
 os.chdir('../..')
