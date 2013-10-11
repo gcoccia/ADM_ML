@@ -157,6 +157,16 @@ function Update_Listeners(type){
       }
     });
 
+    google.maps.event.addListener(mapPolygon, 'mousemove', function(point) {
+      var pathLength = mapPolygon.getPath().getLength();
+      if (pathLength >= 1) {
+        var oldpt = mapPolygon.getPath().getAt(0);
+        var pt1 = new google.maps.LatLng(oldpt.lat(), point.latLng.lng());
+        var pt2 = new google.maps.LatLng(point.latLng.lat(), oldpt.lng());
+        mapPolygon.setPath([oldpt, pt2, point.latLng, pt1]);
+      }
+    });
+
     google.maps.event.addListener(mapPolygon, 'click', function(point) {
       if(mapPolygon.getPath().getLength() == 4) {
         mapPolygon.stopEdit(); // do not allow editing after rect is created
