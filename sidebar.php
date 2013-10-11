@@ -97,6 +97,11 @@
     <li><a href="javascript:void(0)" id="point-manual" class="corm-pills" onclick='update_click_or_manual()'><?php echo $_("Manual")?></a></li>
   </ul>
 
+  <?php echo $_('Latitude')?>: <span id="point-latitude"></span>
+  <br>
+  <?php echo $_('Longitude')?>: <span id="point-longitude"></span>
+  <br>
+
   <div class="radio inline">
     <label><input type="radio" name="plot" value="Indices" checked=checked><?php echo $_('Indices') ?></label>
     <label><input type="radio" name="plot" value="Water_Balance" ><?php echo $_('Water Balance') ?></label>
@@ -106,10 +111,6 @@
     <label><input type="radio" name="plot" value="Vegetation" ><?php echo $_('Vegetation') ?></label>
     <label><input type="radio" name="plot" value="Meteorology" ><?php echo $_('Meteorology') ?></label>
   </div>
-  <br>
-  <?php echo $_('Latitude')?>: <span id="point-latitude"></span>
-  <br>
-  <?php echo $_('Longitude')?>: <span id="point-longitude"></span>
   <br>
   <i><?php echo $_('Create Corresponding Data File?') ?></i>
   <br>
