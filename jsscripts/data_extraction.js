@@ -91,7 +91,7 @@ function Update_Listeners(type){
       $("#point-latitude").html($("#point-manual-latitude").val());
       $("#point-longitude").html($("#point-manual-longitude").val());
       Point_Data(); // do not need to pass lat/lon here -- it pulls it from point-latitude and point-longitude
-    }
+    });
   }
 }
  else if (type == 'spatial'){
