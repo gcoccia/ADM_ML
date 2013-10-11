@@ -149,7 +149,7 @@ function Update_Listeners(type){
           var oldpt = mapPolygon.getPath().getAt(0);
           var pt1 = new google.maps.LatLng(oldpt.lat(), point.latLng.lng());
           var pt2 = new google.maps.LatLng(point.latLng.lat(), oldpt.lng());
-          mapPolygon.setPath([oldpt, pt1, pt2, point.latLng]);
+          mapPolygon.setPath([oldpt, pt2, point.latLng, pt1]);
           mapPolygon.runEdit(false);
           google.maps.event.clearListeners(map_array[0], "click");
           google.maps.event.clearListeners(map_array[0], "mousemove");
