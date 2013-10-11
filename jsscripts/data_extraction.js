@@ -160,6 +160,7 @@ function Update_Listeners(type){
       }
     });
 
+    // The last "click" technically happens inside the polygon, because the polygon is always moving with the mouse
     google.maps.event.addListener(mapPolygon, 'click', function(point) {
       if(mapPolygon.getPath().getLength() == 4) {
         mapPolygon.stopEdit(); // do not allow editing after rect is created
@@ -192,6 +193,12 @@ function Update_Listeners(type){
     $("div#spatial-ll-manual").show();
     $("#spatial-manual-entry-form").submit(function(e) {
       e.preventDefault();
+
+      if (lat == '' | lon == ''){
+        alert(TRANSLATE['Error: The latitude and/or longitude have not been defined.']);
+        $("#clear_all").click();
+        return;
+      }
 
       var minlat = $("#spatial-manual-min-latitude").val();
       var minlon = $("#spatial-manual-min-longitude").val();
