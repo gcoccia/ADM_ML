@@ -79,8 +79,8 @@ function Update_Listeners(type){
     //Add the listeners
     google.maps.event.addListener(map_array[0], 'click', function(mEvent) {Point_Data(mEvent.latLng)});
     google.maps.event.addListener(map_array[0], 'mousemove', function(point) {
-      $("#point-latitude").html(point.latLng.lat());
-      $("#point-longitude").html(point.latLng.lng());
+      $("#point-latitude").html(point.latLng.lat().toFixed(3));
+      $("#point-longitude").html(point.latLng.lng().toFixed(3));
     });
   } else {
     $("div#point-ll-mapclick").hide();
@@ -289,8 +289,8 @@ function Create_Point_Plot() {
   }
   else if (plot == "Streamflow"){
     var chart_data = {
-     flw:{units:'m3/s',name:TRANSLATE['Streamflow (m3/s)'],datasets:['ROUTING_VIC_PGF','ROUTING_VIC_3B42RT','GFS_7DAY_FORECAST'],type:'spline'},
-     flw_pct:{units:'%',name:TRANSLATE['Streamflow Index (%)'],datasets:['ROUTING_VIC_DERIVED','GFS_7DAY_FORECAST'],type:'spline'}
+     flw:{units:'m3/s',name:TRANSLATE['Streamflow (m3/s)'],datasets:['ROUTING_VIC_PGF','ROUTING_VIC_3B42RT','GFS_7DAY_FORECAST'],type:'spline',percentiles:[1,10,25,50,75,90,99]},
+     //flw50:{units:'m3/s',name:TRANSLATE['Streamflow (m3/s)'],datasets:['ROUTING_VIC_PGF'],type:'spline',percentile:{'flw':50}},
     }
     var chart_controls = {
      title: {text: TRANSLATE["Streamflow"]}
@@ -494,6 +494,7 @@ function Request_Data(variables,Create_Text_Data,data_group,chart_controls) {
     data: request,
     beforeSend: function() {$("#ajax_request_load").show();},
     success: function(response){
+     alert(response);
      var Output = JSON.parse(response.replace(/\bNaN\b/g, "null"));
      $("#ajax_request_load").hide();
      Plot_Point_Ajax_Response(Output,Create_Text_Data,chart_controls,variables);

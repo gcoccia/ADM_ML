@@ -5,6 +5,65 @@ import datetime
 import dateutil.relativedelta as relativedelta
 import os
 
+def Calculate_Percentiles(var,pcts,dataset,tstep,lat,lon,idate,fdate,undef):
+
+ #var = info.keys()[0]
+ #pct = info[var]
+ decades = np.arange(1950,2000+10,10)
+ for decade in decades:
+  file = '../../DATA_CELL/%d/cell_%0.3f_%0.3f.nc' % (decade,lat,lon)
+  fp = netcdf.Dataset(file,'r',format='NETCDF4')
+  if decade == decades[0]:
+   dates = fp.groups[tstep].groups[dataset].variables["time"][:]
+   data = fp.groups[tstep].groups[dataset].variables[var][:]
+  else:
+   dates = np.append(dates,fp.groups[tstep].groups[dataset].variables["time"][:])
+   data = np.append(data,fp.groups[tstep].groups[dataset].variables[var][:])
+  fp.close()
+ #pcts = [1,10,25,50,75,90,99]
+
+ #Conver dates to an array of year/month/day
+ dates_array = []
+ for date in dates:
+  date_datetime = datetime.datetime.utcfromtimestamp(date)
+  tmp = [date_datetime.year,date_datetime.month,date_datetime.day]
+  dates_array.append(tmp)
+ dates_array = np.array(dates_array)
+ #Define the timestep
+ if tstep == 'DAILY':
+  dt = relativedelta.relativedelta(days=1)
+ elif tstep == 'MONTHLY':
+  dt = relativedelta.relativedelta(months=1)
+ elif tstep == 'YEARLY':
+  dt = relativedelta.relativedelta(years=1)
+
+ #Find the percentiles for each datay
+ vals = []
+ date = idate
+ while date <= fdate:
+  if tstep == 'DAILY':
+   idx = np.where((dates_array[:,1] == date.month) & (dates_array[:,2] == date.day))
+   data_new = data[idx]
+  elif tstep == 'MONTHLY':
+   idx = np.where(dates_array[:,1] == date.month)[0]
+   data_new = data[idx]
+  elif tstep == 'YEARLY':
+   data_new = data
+  #find the desired percentiles
+  vals.append(np.percentile(data_new,pcts))
+  date = date + dt
+ #Convert to a dictionary for output
+ vals = np.array(vals).T
+ percentiles = {}
+ i = 0
+ for pct in pcts:
+  tmp = vals[i]
+  tmp[tmp == undef] = float('NaN')
+  percentiles[pct] = list(np.float64(tmp))
+  i = i + 1
+  
+ return percentiles
+
 def Create_Text_File(data,tstep,idate,fdate,data_group,lat,lon,http_root,undef):
 
  #Change directory
@@ -134,23 +193,30 @@ for decade in decades:
 data_tmp = np.ones(nt)
 for var in info:
  data_tmp[:] = undef
+ data_out['VARIABLES'][var] = {}
+ #Extract normal data or calculate percentiles
+ if 'percentiles' in info[var]:
+  pcts = info[var]['percentiles']
+  dataset = info[var]['datasets'][0]
+  percentiles = Calculate_Percentiles(var,pcts,dataset,tstep,lat,lon,idate_datetime,fdate_datetime,undef)
+  data_out['VARIABLES'][var]['percentiles'] = percentiles
  for dataset in info[var]['datasets']:
-   for fp in fps:
-    if dataset in fp.groups[tstep].groups.keys():
-     date = fp.groups[tstep].groups[dataset].variables["time"][:]
-     idx = list(np.where((date >= idate) & (date <= fdate)))[0]
-     date_tmp = date[idx]
-     ipos = np.int32(np.round(np.float32(date_tmp - idate)/np.float32(dt)))
-     data_tmp[ipos] = fp.groups[tstep].groups[dataset].variables[var][idx]
-   var_data = data_tmp#fp.groups[tstep].groups[dataset].variables[var][idx]
-   var_data[var_data == undef] = float('NaN')
-   if var == 'prec':
-    var_data = var_data/dt1 #THIS NEEDS TO BE FIXED IN THE FUTURE
-   data_out['VARIABLES'][var] = {}
-   data_out['VARIABLES'][var]['data'] = list(np.float64(var_data))
-   data_out['VARIABLES'][var]['units'] = info[var]['units']
-   data_out['VARIABLES'][var]['name'] = info[var]['name']
-   data_out['VARIABLES'][var]['dataset'] = dataset
+  for fp in fps:
+   if dataset in fp.groups[tstep].groups.keys():
+    date = fp.groups[tstep].groups[dataset].variables["time"][:]
+    idx = list(np.where((date >= idate) & (date <= fdate)))[0]
+    date_tmp = date[idx]
+    ipos = np.int32(np.round(np.float32(date_tmp - idate)/np.float32(dt)))
+    data_tmp[ipos] = fp.groups[tstep].groups[dataset].variables[var][idx]
+ var_data = data_tmp#fp.groups[tstep].groups[dataset].variables[var][idx]
+ #Place the data
+ var_data[var_data == undef] = float('NaN')
+ if var == 'prec':
+  var_data = var_data/dt1 #THIS NEEDS TO BE FIXED IN THE FUTURE
+ data_out['VARIABLES'][var]['data'] = list(np.float64(var_data))
+ data_out['VARIABLES'][var]['units'] = info[var]['units']
+ data_out['VARIABLES'][var]['name'] = info[var]['name']
+ data_out['VARIABLES'][var]['dataset'] = dataset
 
 #Close the datasets
 for fp in fps:
