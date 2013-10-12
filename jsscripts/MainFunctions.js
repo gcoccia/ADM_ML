@@ -433,6 +433,7 @@ function LoadInteractive()
       clearPopup();
     }
     $("#map_canvas_1").show();
+    google.maps.event.trigger(map_array[0], "resize");
     $("#Colorbar").show();
     $("#TimeStamp").show();
     $("#InteractiveInterface").addClass("active");
