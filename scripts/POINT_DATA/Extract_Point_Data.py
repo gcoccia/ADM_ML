@@ -5,11 +5,16 @@ import datetime
 import dateutil.relativedelta as relativedelta
 import os
 
-def Calculate_Percentiles(var,pcts,dataset,tstep,lat,lon,idate,fdate,undef):
+def Calculate_Percentiles(var,info,dataset,tstep,lat,lon,idate,fdate,undef):
 
- #var = info.keys()[0]
- #pct = info[var]
- decades = np.arange(1950,2000+10,10)
+ pcts = info['values']
+ 
+ #REMAINING ISSUES: NDVI decades and do not need to redo what has already been calculated...
+ if var == 'ndvi30':
+  decades = np.array([2000,])
+ else:
+  decades = np.arange(1950,2000+10,10)
+
  for decade in decades:
   file = '../../DATA_CELL/%d/cell_%0.3f_%0.3f.nc' % (decade,lat,lon)
   fp = netcdf.Dataset(file,'r',format='NETCDF4')
@@ -20,7 +25,6 @@ def Calculate_Percentiles(var,pcts,dataset,tstep,lat,lon,idate,fdate,undef):
    dates = np.append(dates,fp.groups[tstep].groups[dataset].variables["time"][:])
    data = np.append(data,fp.groups[tstep].groups[dataset].variables[var][:])
   fp.close()
- #pcts = [1,10,25,50,75,90,99]
 
  #Conver dates to an array of year/month/day
  dates_array = []
@@ -50,15 +54,20 @@ def Calculate_Percentiles(var,pcts,dataset,tstep,lat,lon,idate,fdate,undef):
   elif tstep == 'YEARLY':
    data_new = data
   #find the desired percentiles
-  vals.append(np.percentile(data_new,pcts))
+  vals.append(np.percentile(data_new[data_new > 0],pcts))
   date = date + dt
  #Convert to a dictionary for output
  vals = np.array(vals).T
+ #Subtract the previous one for stacking purposes
  percentiles = {}
  i = 0
  for pct in pcts:
   tmp = vals[i]
   tmp[tmp == undef] = float('NaN')
+  #if i >= 1:
+  # tmp0 = vals[i-1]
+  # tmp0[tmp0 == undef] = float('NaN')
+  # tmp = tmp - tmp0
   percentiles[pct] = list(np.float64(tmp))
   i = i + 1
   
@@ -196,9 +205,8 @@ for var in info:
  data_out['VARIABLES'][var] = {}
  #Extract normal data or calculate percentiles
  if 'percentiles' in info[var]:
-  pcts = info[var]['percentiles']
   dataset = info[var]['datasets'][0]
-  percentiles = Calculate_Percentiles(var,pcts,dataset,tstep,lat,lon,idate_datetime,fdate_datetime,undef)
+  percentiles = Calculate_Percentiles(var,info[var]['percentiles'],dataset,tstep,lat,lon,idate_datetime,fdate_datetime,undef)
   data_out['VARIABLES'][var]['percentiles'] = percentiles
  for dataset in info[var]['datasets']:
   for fp in fps:
@@ -209,10 +217,17 @@ for var in info:
     ipos = np.int32(np.round(np.float32(date_tmp - idate)/np.float32(dt)))
     data_tmp[ipos] = fp.groups[tstep].groups[dataset].variables[var][idx]
  var_data = data_tmp#fp.groups[tstep].groups[dataset].variables[var][idx]
+ #Compute min/max
+ tmp = var_data[var_data != undef]
+ if tmp.size > 1:
+  min = np.min(var_data[var_data != undef])
+  max = np.max(var_data[var_data != undef])
+  data_out['VARIABLES'][var]['min'] = min
+  data_out['VARIABLES'][var]['max'] = max
  #Place the data
  var_data[var_data == undef] = float('NaN')
  if var == 'prec':
-  var_data = var_data/dt1 #THIS NEEDS TO BE FIXED IN THE FUTURE
+  var_data = var_data/dt1 #THIS NEEDS TO BE FIXED IN THE FUTURE 
  data_out['VARIABLES'][var]['data'] = list(np.float64(var_data))
  data_out['VARIABLES'][var]['units'] = info[var]['units']
  data_out['VARIABLES'][var]['name'] = info[var]['name']

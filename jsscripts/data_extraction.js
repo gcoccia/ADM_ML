@@ -289,27 +289,37 @@ function Create_Point_Plot() {
   }
   else if (plot == "Streamflow"){
     var chart_data = {
-     flw:{units:'m3/s',name:TRANSLATE['Streamflow (m3/s)'],datasets:['ROUTING_VIC_PGF','ROUTING_VIC_3B42RT','GFS_7DAY_FORECAST'],type:'spline',percentiles:[1,10,25,50,75,90,99]},
-     //flw50:{units:'m3/s',name:TRANSLATE['Streamflow (m3/s)'],datasets:['ROUTING_VIC_PGF'],type:'spline',percentile:{'flw':50}},
+     flw:{units:'m3/s',name:TRANSLATE['Streamflow'],datasets:['ROUTING_VIC_PGF','ROUTING_VIC_3B42RT','GFS_7DAY_FORECAST'],type:'spline',
+     percentiles:{values:[1,10,25,50,75,90,99],colors:['#660000','#FF6600','#FFFF00','#00CC00','#009999','#0099FF','#0000FF']},}
+     //percentiles:{values:[99,90,75,50,25,10,1],colors:['#0000FF','#0099FF','#009999','#00CC00','#FFFF00','#FF6600','#660000']},}
     }
     var chart_controls = {
      title: {text: TRANSLATE["Streamflow"]}
     }
   }
-  else if (plot == "Soil_Moisture"){
+  else if (plot == "Soil_Moisture_1"){
     var chart_data = {
-     vc1:{units:'%',name:TRANSLATE['Soil Moisture (%) - Layer 1'],datasets:['VIC_DERIVED','GFS_7DAY_FORECAST'],type:'spline'},
-     vc2:{units:'%',name:TRANSLATE['Soil Moisture (%) - Layer 2'],datasets:['VIC_DERIVED','GFS_7DAY_FORECAST'],type:'spline'},
-     vcpct:{units:'%',name:TRANSLATE['Soil Moisture Index (%)'],datasets:['VIC_DERIVED','GFS_7DAY_FORECAST'],type:'spline'}
+     vc1:{units:'Relative Soil Moisture (%)',name:TRANSLATE['Soil Moisture'],datasets:['VIC_DERIVED','GFS_7DAY_FORECAST'],type:'spline',
+     percentiles:{values:[1,10,25,50,75,90,99],colors:['#660000','#FF6600','#FFFF00','#00CC00','#009999','#0099FF','#0000FF']},}
     }
     var chart_controls = {
-     title: {text: TRANSLATE["Soil Moisture"]}
+     title: {text: TRANSLATE["Soil Moisture (Layer 1)"]}
+    }
+  }
+  else if (plot == "Soil_Moisture_2"){
+    var chart_data = {
+     vc2:{units:'Relative Soil Moisture (%)',name:TRANSLATE['Soil Moisture'],datasets:['VIC_DERIVED','GFS_7DAY_FORECAST'],type:'spline',
+     percentiles:{values:[1,10,25,50,75,90,99],colors:['#660000','#FF6600','#FFFF00','#00CC00','#009999','#0099FF','#0000FF']},}
+    }
+    var chart_controls = {
+     title: {text: TRANSLATE["Soil Moisture (Layer 2)"]}
     }
   }
   else if (plot == "Vegetation"){
     var chart_data = {
-     ndvi30:{units:'NDVI',name:'NDVI',datasets:['MOD09_NDVI_MA']},
-     pct30day:{units:'%',name:TRANSLATE['Vegetation Index (%)'],datasets:['MOD09_NDVI_MA_DERIVED'],type:'spline'}
+     ndvi30:{units:'NDVI',name:'NDVI',datasets:['MOD09_NDVI_MA'],type:'spline',
+     percentiles:{values:[1,10,25,50,75,90,99],colors:['#660000','#FF6600','#FFFF00','#00CC00','#009999','#0099FF','#0000FF']},}
+     //pct30day:{units:'%',name:TRANSLATE['Vegetation Index (%)'],datasets:['MOD09_NDVI_MA_DERIVED'],type:'spline'}
     }
     var chart_controls = {
      title: {text: TRANSLATE["Vegetation"]}
@@ -385,14 +395,46 @@ function Plot_Point_Ajax_Response(Output,Create_Text_Data,chart_controls,chart_d
       subtitle: {text: TRANSLATE['African_Water_Cycle_Monitor']},
       tooltip: {
        valueDecimals: 3
-      }
+      },
+      /*plotOptions: {
+       areaspline: {
+        stacking: 'normal',
+       }
+      }*/
      };
  for (variable in chart_data){
    if (!(variable in Output["VARIABLES"])){
     continue;
    }
    var units = chart_data[variable]['units'];//Output["VARIABLES"][variable]["units"];
+   //If percentiles in variable then place before the variable
+   if ('percentiles' in Output["VARIABLES"][variable]){  
+    index = 7;
+    i = 0;
+    for (pct in Output["VARIABLES"][variable]['percentiles']){
+     index = index - 1;
+     var series = {
+      enableMouseTracking:false,
+      lineWidth:0,
+      fillOpacity: 0.5,
+      id: variable + '_' + pct,
+      index:index,
+      name: pct+'%',
+      marker: {enabled: false},
+      type: 'areaspline',
+      yAxis: units,
+      pointInterval: Output["TIME"]["pointInterval"],
+      pointStart: Date.UTC(Output["TIME"]["iyear"],Output["TIME"]["imonth"]-1,Output["TIME"]["iday"]),
+      data: Output["VARIABLES"][variable]["percentiles"][pct],
+      color: chart_data[variable]['percentiles']['colors'][i],
+     }
+     //Add the series
+     chart_options.series.push(series);
+     i = i + 1;
+    }
+   }
    var series = {
+        index:chart_options.series.length,
         connectNulls: true,
         marker: {enabled: false},
         id: variable,
@@ -401,8 +443,12 @@ function Plot_Point_Ajax_Response(Output,Create_Text_Data,chart_controls,chart_d
         yAxis: units,
         pointInterval: Output["TIME"]["pointInterval"],
         pointStart: Date.UTC(Output["TIME"]["iyear"],Output["TIME"]["imonth"]-1,Output["TIME"]["iday"]),
-        data: Output["VARIABLES"][variable]["data"]
+        data: Output["VARIABLES"][variable]["data"],
        };
+   if ('percentiles' in Output["VARIABLES"][variable]){
+    series.lineColor = 'black';
+    series.lineWidth = 3;
+   }
    //Determine if we need a new axis. If so add it
    new_axis = true;
    for (i in chart_options.yAxis){
@@ -419,6 +465,10 @@ function Plot_Point_Ajax_Response(Output,Create_Text_Data,chart_controls,chart_d
      opposite: opposite,
      labels: {style: {fontSize: '15px',fontFamily: 'Avant Garde, Avantgarde, Century Gothic, CenturyGothic, AppleGothic, sans-serif'}}
     }
+   if ('percentiles' in Output["VARIABLES"][variable]){
+    yAxis.min = Output["VARIABLES"][variable]['min'];
+    yAxis.max = Output["VARIABLES"][variable]['max'];
+   }
     chart_options.yAxis.push(yAxis);
    }
    //Add the series
