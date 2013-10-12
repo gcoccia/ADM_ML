@@ -46,7 +46,12 @@ def Calculate_Percentiles(var,info,dataset,tstep,lat,lon,idate,fdate,undef):
  date = idate
  while date <= fdate:
   if tstep == 'DAILY':
-   idx = np.where((dates_array[:,1] == date.month) & (dates_array[:,2] == date.day))
+   for tside in xrange(-5,5):
+    tdate = date + tside*dt
+    if tside == -5:
+     idx = np.where((dates_array[:,1] == tdate.month) & (dates_array[:,2] == tdate.day))[0]
+    else:
+     idx = np.append(idx,np.where((dates_array[:,1] == tdate.month) & (dates_array[:,2] == tdate.day))[0])
    data_new = data[idx]
   elif tstep == 'MONTHLY':
    idx = np.where(dates_array[:,1] == date.month)[0]
