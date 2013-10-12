@@ -5,7 +5,7 @@ import datetime
 import dateutil.relativedelta as relativedelta
 import os
 
-def Calculate_Percentiles(var,info,dataset,tstep,lat,lon,idate,fdate,undef):
+def Calculate_Percentiles(var,info,dataset,tstep,lat,lon,idate,fdate,undef,maxnt):
 
  pcts = info['values']
  
@@ -43,9 +43,16 @@ def Calculate_Percentiles(var,info,dataset,tstep,lat,lon,idate,fdate,undef):
 
  #Find the percentiles for each datay
  vals = []
- date = idate
- while date <= fdate:
+ date = fdate
+ #dates_done = []
+ nt = 0
+ while date >= idate:
   if tstep == 'DAILY':
+   #date_simple = datetime.datetime(2000,date.month,date.day)
+   #if date_simple in dates_done:
+   # vals.append(vals[dates_done.index(date_simple)])
+   # date = date + dt
+   # continue
    for tside in xrange(-5,5):
     tdate = date + tside*dt
     if tside == -5:
@@ -53,16 +60,23 @@ def Calculate_Percentiles(var,info,dataset,tstep,lat,lon,idate,fdate,undef):
     else:
      idx = np.append(idx,np.where((dates_array[:,1] == tdate.month) & (dates_array[:,2] == tdate.day))[0])
    data_new = data[idx]
+   #dates_done.append(date_simple)
   elif tstep == 'MONTHLY':
    idx = np.where(dates_array[:,1] == date.month)[0]
    data_new = data[idx]
   elif tstep == 'YEARLY':
    data_new = data
+  #data_done = np.append(data_done,np.percentile(data_new[data_new > 0],pcts))
   #find the desired percentiles
   vals.append(np.percentile(data_new[data_new > 0],pcts))
-  date = date + dt
+  date = date - dt
+  nt = nt + 1
+  if nt > maxnt:
+   break
+
  #Convert to a dictionary for output
  vals = np.array(vals).T
+ vals = np.fliplr(vals)
  #Subtract the previous one for stacking purposes
  percentiles = {}
  i = 0
@@ -156,6 +170,7 @@ http_root = '/'.join(http[0:-2])
 
 undef = -9.99e+08
 #Find closet grid cell
+maxnt = 1000
 minlat = -34.875
 minlon = -18.875
 res = 0.25
@@ -211,7 +226,7 @@ for var in info:
  #Extract normal data or calculate percentiles
  if 'percentiles' in info[var]:
   dataset = info[var]['datasets'][0]
-  percentiles = Calculate_Percentiles(var,info[var]['percentiles'],dataset,tstep,lat,lon,idate_datetime,fdate_datetime,undef)
+  percentiles = Calculate_Percentiles(var,info[var]['percentiles'],dataset,tstep,lat,lon,idate_datetime,fdate_datetime,undef,maxnt)
   data_out['VARIABLES'][var]['percentiles'] = percentiles
  for dataset in info[var]['datasets']:
   for fp in fps:
@@ -247,7 +262,6 @@ if create_text_file == 'yes':
  data_out['point_data_link'] = Create_Text_File(data_out,tstep,idate_datetime,fdate_datetime,data_group,lat,lon,http_root,undef)
 
 #Reduce the number of chart time steps if requesting too many
-maxnt = 1000
 if nt > maxnt:
  nt = maxnt
  if tstep == "DAILY":

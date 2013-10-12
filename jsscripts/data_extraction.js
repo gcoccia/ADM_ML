@@ -289,7 +289,7 @@ function Create_Point_Plot() {
   }
   else if (plot == "Streamflow"){
     var chart_data = {
-     flw:{units:'m3/s',name:TRANSLATE['Streamflow'],datasets:['ROUTING_VIC_PGF','ROUTING_VIC_3B42RT','GFS_7DAY_FORECAST'],type:'spline',
+     flw:{units:'m3/s',name:TRANSLATE['Streamflow (m3/s)'],datasets:['ROUTING_VIC_PGF','ROUTING_VIC_3B42RT','GFS_7DAY_FORECAST'],type:'spline',
      percentiles:{values:[1,10,25,50,75,90,99],colors:['#660000','#FF6600','#FFFF00','#00CC00','#009999','#0099FF','#0000FF']},}
      //percentiles:{values:[99,90,75,50,25,10,1],colors:['#0000FF','#0099FF','#009999','#00CC00','#FFFF00','#FF6600','#660000']},}
     }
@@ -299,7 +299,7 @@ function Create_Point_Plot() {
   }
   else if (plot == "Soil_Moisture_1"){
     var chart_data = {
-     vc1:{units:'Relative Soil Moisture (%)',name:TRANSLATE['Soil Moisture'],datasets:['VIC_DERIVED','GFS_7DAY_FORECAST'],type:'spline',
+     vc1:{units:TRANSLATE['Relative Soil Moisture (%)'],name:TRANSLATE['Relative Soil Moisture (%)'],datasets:['VIC_DERIVED','GFS_7DAY_FORECAST'],type:'spline',
      percentiles:{values:[1,10,25,50,75,90,99],colors:['#660000','#FF6600','#FFFF00','#00CC00','#009999','#0099FF','#0000FF']},}
     }
     var chart_controls = {
@@ -308,7 +308,7 @@ function Create_Point_Plot() {
   }
   else if (plot == "Soil_Moisture_2"){
     var chart_data = {
-     vc2:{units:'Relative Soil Moisture (%)',name:TRANSLATE['Soil Moisture'],datasets:['VIC_DERIVED','GFS_7DAY_FORECAST'],type:'spline',
+     vc2:{units:TRANSLATE['Relative Soil Moisture (%)'],name:TRANSLATE['Relative Soil Moisture (%)'],datasets:['VIC_DERIVED','GFS_7DAY_FORECAST'],type:'spline',
      percentiles:{values:[1,10,25,50,75,90,99],colors:['#660000','#FF6600','#FFFF00','#00CC00','#009999','#0099FF','#0000FF']},}
     }
     var chart_controls = {
@@ -319,7 +319,6 @@ function Create_Point_Plot() {
     var chart_data = {
      ndvi30:{units:'NDVI',name:'NDVI',datasets:['MOD09_NDVI_MA'],type:'spline',
      percentiles:{values:[1,10,25,50,75,90,99],colors:['#660000','#FF6600','#FFFF00','#00CC00','#009999','#0099FF','#0000FF']},}
-     //pct30day:{units:'%',name:TRANSLATE['Vegetation Index (%)'],datasets:['MOD09_NDVI_MA_DERIVED'],type:'spline'}
     }
     var chart_controls = {
      title: {text: TRANSLATE["Vegetation"]}
@@ -358,7 +357,8 @@ function Plot_Point_Ajax_Response(Output,Create_Text_Data,chart_controls,chart_d
   initial_date.setDate(initial_date.getDate()+1);
   final_date.setDate(final_date.getDate()+7);
   var initial_date = Date.UTC(initial_date.getFullYear(),initial_date.getMonth(),initial_date.getDate());
-  var final_date = Date.UTC(final_date.getFullYear(),final_date.getMonth(),final_date.getDate());
+  //var final_date = Date.UTC(final_date.getFullYear(),final_date.getMonth(),final_date.getDate());
+  var final_date = Date.UTC(parseInt($("#year_final").val()),parseInt($("#month_final").val()-1),parseInt($("#day_final").val()))/1000;
  }
  else if (tstep == 'MONTHLY'){
   var sample_dataset = 'spi1--MultiModel';
@@ -366,7 +366,8 @@ function Plot_Point_Ajax_Response(Output,Create_Text_Data,chart_controls,chart_d
   var initial_date = new Date(final_date.getTime());
   final_date.setDate(final_date.getDate()+31*6);
   var initial_date = Date.UTC(initial_date.getFullYear(),initial_date.getMonth(),initial_date.getDate());
-  var final_date = Date.UTC(final_date.getFullYear(),final_date.getMonth(),final_date.getDate());
+  //var final_date = Date.UTC(final_date.getFullYear(),final_date.getMonth(),final_date.getDate());
+  var final_date = Date.UTC(parseInt($("#year_final").val()),parseInt($("#month_final").val()-1),28)/1000;
  }
  else if (tstep == 'YEARLY'){
   var initial_date = Date.UTC(parseInt($("#year_final").val()),0,1)/1000;
@@ -384,8 +385,8 @@ function Plot_Point_Ajax_Response(Output,Create_Text_Data,chart_controls,chart_d
        labels: {style: {fontSize: '15px',fontFamily: 'Avant Garde, Avantgarde, Century Gothic, CenturyGothic, AppleGothic, sans-serif'}},
        plotBands: [{ // visualize the forecast
         from: initial_date,//Date.UTC(2013,8,23),
-        to: final_date,//Date.UTC(2013,8,29),
-        color: 'rgba(68, 170, 213, .2)'
+        to: Date.UTC(2016,8,29),
+        color: '#CCCCCC'
        }]
       },
       yAxis: [],
@@ -416,7 +417,7 @@ function Plot_Point_Ajax_Response(Output,Create_Text_Data,chart_controls,chart_d
      var series = {
       enableMouseTracking:false,
       lineWidth:0,
-      fillOpacity: 0.5,
+      fillOpacity: 0.6,
       id: variable + '_' + pct,
       index:index,
       name: pct+'%',
@@ -544,7 +545,7 @@ function Request_Data(variables,Create_Text_Data,data_group,chart_controls) {
     data: request,
     beforeSend: function() {$("#ajax_request_load").show();},
     success: function(response){
-     alert(response);
+     //alert(response);
      var Output = JSON.parse(response.replace(/\bNaN\b/g, "null"));
      $("#ajax_request_load").hide();
      Plot_Point_Ajax_Response(Output,Create_Text_Data,chart_controls,variables);
