@@ -358,7 +358,7 @@ function Plot_Point_Ajax_Response(Output,Create_Text_Data,chart_controls,chart_d
   final_date.setDate(final_date.getDate()+7);
   var initial_date = Date.UTC(initial_date.getFullYear(),initial_date.getMonth(),initial_date.getDate());
   //var final_date = Date.UTC(final_date.getFullYear(),final_date.getMonth(),final_date.getDate());
-  var final_date = Date.UTC(parseInt($("#year_final").val()),parseInt($("#month_final").val()-1),parseInt($("#day_final").val()))/1000;
+  var final_date = Date.UTC(parseInt($("#year_final").val()),parseInt($("#month_final").val()-1),parseInt($("#day_final").val()));
  }
  else if (tstep == 'MONTHLY'){
   var sample_dataset = 'spi1--MultiModel';
@@ -367,11 +367,11 @@ function Plot_Point_Ajax_Response(Output,Create_Text_Data,chart_controls,chart_d
   final_date.setDate(final_date.getDate()+31*6);
   var initial_date = Date.UTC(initial_date.getFullYear(),initial_date.getMonth(),initial_date.getDate());
   //var final_date = Date.UTC(final_date.getFullYear(),final_date.getMonth(),final_date.getDate());
-  var final_date = Date.UTC(parseInt($("#year_final").val()),parseInt($("#month_final").val()-1),28)/1000;
+  var final_date = Date.UTC(parseInt($("#year_final").val()),parseInt($("#month_final").val()-1),28);
  }
  else if (tstep == 'YEARLY'){
-  var initial_date = Date.UTC(parseInt($("#year_final").val()),0,1)/1000;
-  var final_date = Date.UTC(parseInt($("#year_final").val()),11,31)/1000;
+  var initial_date = Date.UTC(parseInt($("#year_final").val()),0,1);
+  var final_date = Date.UTC(parseInt($("#year_final").val()),11,31);
  }
 
  //Create the input for the chart
@@ -385,8 +385,8 @@ function Plot_Point_Ajax_Response(Output,Create_Text_Data,chart_controls,chart_d
        labels: {style: {fontSize: '15px',fontFamily: 'Avant Garde, Avantgarde, Century Gothic, CenturyGothic, AppleGothic, sans-serif'}},
        plotBands: [{ // visualize the forecast
         from: initial_date,//Date.UTC(2013,8,23),
-        to: Date.UTC(2016,8,29),
-        color: '#CCCCCC'
+        to: final_date,
+        color: '#CCCCCC',
        }]
       },
       yAxis: [],
@@ -417,7 +417,7 @@ function Plot_Point_Ajax_Response(Output,Create_Text_Data,chart_controls,chart_d
      var series = {
       enableMouseTracking:false,
       lineWidth:0,
-      fillOpacity: 0.6,
+      fillOpacity: 0.5,
       id: variable + '_' + pct,
       index:index,
       name: pct+'%',
