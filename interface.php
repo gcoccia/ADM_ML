@@ -437,7 +437,7 @@ header('X-UA-Compatible: IE=edge');
 
     // Animation play/pause buttons
     $( "#pause-or-continue").click(function() {
-      if($(this).attr('class') == "icon-pause") {
+      if($(this).hasClass("icon-pause")) {
         clearInterval(t);
         $(this).removeClass("icon-pause");
         $(this).addClass("icon-play");

@@ -56,7 +56,7 @@ function update_animation()
       
       // Make sure the play/pause icons are visible and set to "pause" when the animation starts
       $( "#slider-div").show();
-      if($( "#pause-or-continue").attr('class') == "icon-play")
+      if($("#pause-or-continue").hasClass("icon-play"))
       {
         $("#pause-or-continue").removeClass("icon-play");
         $("#pause-or-continue").addClass("icon-pause");
@@ -71,13 +71,13 @@ function update_animation()
           step: 1,
           disabled: false,
           slide: function( event, ui ) {
-            if($("#pause-or-continue").attr('class') == "icon-pause") // if playing
+            if($("#pause-or-continue").hasClass("icon-pause")) // if playing
               clearInterval(t);
             ImageCounter = ui.value;
             $( "#slider-date" ).html( ImageTimeArray[dataset][ImageCounter] );
             next_image();
             
-            if($("#pause-or-continue").attr('class') == "icon-pause") // if playing
+            if($("#pause-or-continue").hasClass("icon-pause")) // if playing
               t = setInterval(next_image, 1000*1/frames_per_second);
           }
         });
@@ -152,7 +152,7 @@ function update_basic()
       
       // Make sure the play/pause icons are visible and set to "pause" when the animation starts
       $( "#slider-div").show();
-      if($( "#pause-or-continue").attr('class') == "icon-play")
+      if($( "#pause-or-continue").hasClass("icon-play"))
       {
         $("#pause-or-continue").removeClass("icon-play");
         $("#pause-or-continue").addClass("icon-pause");
@@ -167,13 +167,13 @@ function update_basic()
           step: 1,
           disabled: false,
           slide: function( event, ui ) {
-            if($("#pause-or-continue").attr('class') == "icon-pause") // if playing
+            if($("#pause-or-continue").hasClass("icon-pause")) // if playing
               clearInterval(t);
             ImageCounter = ui.value;
             $( "#slider-date" ).html(ImageTimeArray[dataset][ImageCounter] );
             next_image();  //edit
             
-            if($("#pause-or-continue").attr('class') == "icon-pause") // if playing
+            if($("#pause-or-continue").hasClass("icon-pause")) // if playing
               t = setInterval(next_image, 1000*1/frames_per_second); //edit
           }
         });
