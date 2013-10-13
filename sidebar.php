@@ -52,7 +52,7 @@
  <!-- Slider for animation -->
 <div id="slider-div" style="display:none">
   <span id="slider-date"></span>
-  <span><i id="pause-or-continue" class="icon-pause"></i></span>
+  <span><i id="pause-or-continue" class="icon-pause icon-large"></i></span>
   <div id="animation-slider"></div>
 </div>
 
