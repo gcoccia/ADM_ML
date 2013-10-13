@@ -270,11 +270,11 @@ header('X-UA-Compatible: IE=edge');
       
     $('#hideBtn').click(function() {
       $('#sidebar1').toggle();
-      if ($('#hideBtnImg').attr('class') == 'icon-arrow-right') {
+      if ($('#hideBtnImg').hasClass('icon-arrow-right')) {
 	  $('#hideBtnImg').removeClass('icon-arrow-right');
           $('#hideBtnImg').addClass('icon-arrow-left');
           $('#hideBtnImg').css({"background-color": "#FFFFFF", "border-radius" : "2px"}); 
-      } else if ($('#hideBtnImg').attr('class') == 'icon-arrow-left') {
+      } else if ($('#hideBtnImg').hasClass('icon-arrow-left')) {
 	  $('#hideBtnImg').removeClass('icon-arrow-left');
           $('#hideBtnImg').addClass('icon-arrow-right');
           $('#hideBtnImg').css({"background-color": "transparent", "border-radius" : "2px"}); 
@@ -544,7 +544,7 @@ header('X-UA-Compatible: IE=edge');
      <div id="basic_interface1" class="span11 scrollDiv" style="visibility:hidden; overflow:hidden; position: absolute; top:0px; bottom:0px; margin-left:0; margin-right:0;"></div>
      </div>
      </div>
-   <div id="hideBtn"><i id="hideBtnImg" class="icon-arrow-right" style="position: absolute; top:0px; right:0px; z-index: 9100;"></i></div>
+   <div id="hideBtn"><i id="hideBtnImg" class="icon-arrow-right icon-large" style="position: absolute; top:0px; right:0px; z-index: 9100;"></i></div>
 </div>
 </div>
 </body>
