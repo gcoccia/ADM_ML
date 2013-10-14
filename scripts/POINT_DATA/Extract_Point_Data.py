@@ -54,9 +54,7 @@ def Calculate_Percentiles(var,info,dataset,tstep,lat,lon,idate,fdate,undef,maxnt
    # date = date + dt
    # continue
    for tside in xrange(-5,5):
-    dt_tmp = relativedelta.relativedelta(days=tside)
-    #tdate = date + tside*dt
-    tdate = date + dt_tmp
+    tdate = date + tside*dt
     if tside == -5:
      idx = np.where((dates_array[:,1] == tdate.month) & (dates_array[:,2] == tdate.day))[0]
     else:
@@ -273,11 +271,11 @@ if create_text_file == 'yes':
 if nt > maxnt:
  nt = maxnt
  if tstep == "DAILY":
-  idate_datetime = fdate_datetime - relativedelta.relativedelta(days=nt-1)#(nt-1)*relativedelta.relativedelta(days=1)
+  idate_datetime = fdate_datetime - (nt-1)*relativedelta.relativedelta(days=1)
  elif tstep == "MONTHLY":
-  idate_datetime = fdate_datetime - relativedelta.relativedelta(months=nt-1)#(nt-1)*relativedelta.relativedelta(months=1)
+  idate_datetime = fdate_datetime - (nt-1)*relativedelta.relativedelta(months=1)
  elif tstep == "YEARLY":
-  idate_datetime = fdate_datetime - relativedelta.relativedelta(years=nt-1)#(nt-1)*relativedelta.relativedelta(years=1)
+  idate_datetime = fdate_datetime - (nt-1)*relativedelta.relativedelta(years=1)
  for var in data_out['VARIABLES']:
   data_out['VARIABLES'][var]['data'] = data_out['VARIABLES'][var]['data'][-maxnt:]
 
