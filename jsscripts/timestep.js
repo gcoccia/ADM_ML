@@ -1,9 +1,11 @@
 function update_timestep()
 {
+  var idate = new Date(parseInt($("#year_initial").val()),parseInt($("#month_initial").val())-1,parseInt($("#day_initial").val()));
+  var fdate = new Date(parseInt($("#year_final").val()),parseInt($("#month_final").val())-1,parseInt($("#day_final").val()));
+  var morf = $("ul.monitor-or-forecast>li.active").find("a").attr('id');
   var current_timestep = $("ul.ts-selection li.active").attr('id');
   var abbrevs = {"daily": "D", "monthly": "M", "yearly": "Y"};
   var anim_string, spatial_string;
-
   for(dataset in data_timesteps) {
     anim_string = "ul.datalist>li>ul.dropdown-menu>li>a#" + dataset;
     spatial_string = "ul.spatial-datalist>li>ul.dropdown-menu>li>a#" + dataset;
@@ -22,6 +24,13 @@ function update_timestep()
       else {
         $(this).parent().show(150, function() {});
         $(this).parent().addClass("visible-data");
+        var nav_header_id = $(this).parent().parent().parent().parent().parent().siblings(".nav-header").attr('id');
+        if (nav_header_id != 'Forecast' && nav_header_id != 'Forecast_spatial'){
+         if (Date.parse(data_fdates[dataset]).valueOf() >= fdate.valueOf() && Date.parse(data_idates[dataset]).valueOf() <= idate.valueOf())
+          $(this).css("background-color","rgba(194, 238, 194, 0.3)")
+         else if (Date.parse(data_fdates[dataset]).valueOf() < fdate.valueOf() || Date.parse(data_idates[dataset]).valueOf() > idate.valueOf())
+          $(this).css("background-color","rgba(250, 158, 158, 0.3")
+        }
       }
     });
   }

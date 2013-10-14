@@ -284,10 +284,10 @@ header('X-UA-Compatible: IE=edge');
 
     $("#update_interval").click(function() {
       var current_setting = $("ul.data-extraction li.active>a").attr('id');
-      if(""+current_setting == "none" && $("#InteractiveInterface").hasClass("active")) update_animation();
-      else if(""+current_setting == "none") update_basic();
+      if(""+current_setting == "none" && $("#InteractiveInterface").hasClass("active")) {update_timestep();update_animation();}
+      else if(""+current_setting == "none") {update_timestep();update_basic();}
       else if(""+current_setting == "point" && $("#popUpDiv").is(":visible")) Create_Point_Plot();
-      else if(""+current_setting == "spatial") Update_Spatial_Data_Display();
+      else if(""+current_setting == "spatial") {update_timestep();Update_Spatial_Data_Display();}
     });
     $("#clear_all").click(function() {
       var current_setting = $("ul.data-extraction li.active>a").attr('id');
