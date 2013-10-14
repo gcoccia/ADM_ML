@@ -83,11 +83,17 @@ def Calculate_Percentiles(var,info,dataset,tstep,lat,lon,idate,fdate,undef,maxnt
  for pct in pcts:
   tmp = vals[i]
   tmp[tmp == undef] = float('NaN')
-  #if i >= 1:
-  # tmp0 = vals[i-1]
-  # tmp0[tmp0 == undef] = float('NaN')
-  # tmp = tmp - tmp0
-  percentiles[pct] = list(np.float64(tmp))
+  if i >= 1:
+   tmp0 = vals[i-1]
+   tmp0[tmp0 == undef] = float('NaN')
+  else:
+   tmp0 = np.zeros(tmp.size)
+  tmp = list(np.float64(tmp))
+  tmp0 = list(np.float64(tmp0))
+  tmp_final = []
+  for j in xrange(0,len(tmp)):
+   tmp_final.append([tmp0[j],tmp[j]])
+  percentiles[pct] = tmp_final#list(np.float64(tmp))
   i = i + 1
   
  return percentiles
@@ -170,7 +176,7 @@ http_root = '/'.join(http[0:-2])
 
 undef = -9.99e+08
 #Find closet grid cell
-maxnt = 1000
+maxnt = 2*365#1000
 minlat = -34.875
 minlon = -18.875
 res = 0.25
