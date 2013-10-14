@@ -670,17 +670,46 @@ function Submit_Spatial_Data() {
      urclon = Math.max.apply(Math, lons);
 
   //Check that we are inside the domain 
-  //Alert if completely outside the domain
-  if ((llclat < general_info.minlat & urclat > general_info.maxlat) | (llclon < general_info.minlon & urclon > general_info.maxlon)){
-   alert('here')
-   if (!((llclat - general_info.minlat < 0) & (llclon - general_info.minlon < 0) & (urclat - general_info.maxlat > 0) & (urclon - general_info.maxlon > 0))){
-    alert(TRANSLATE["Error: The selected domain is completely outside of the monitor's coverage. Please adjust your selection."]);
-    $("#clear_all").click();
-    return;
+  //Check if both lower left and upper right are outside the domain
+  var spatial_bounds = {llc:false,urc:false,lrc:false,ulc:false};
+  if (llclat >= general_info.minlat & llclat <= general_info.maxlat & llclon >= general_info.minlon & llclon <= general_info.maxlon){
+   spatial_bounds.llc = true;
+  }
+  if (urclat >= general_info.minlat & urclat <= general_info.maxlat & urclon >= general_info.minlon & urclon <= general_info.maxlon){
+   spatial_bounds.urc = true;
+  }
+  if (urclat >= general_info.minlat & urclat <= general_info.maxlat & llclon >= general_info.minlon & llclon <= general_info.maxlon){
+   spatial_bounds.ulc = true;
+  }
+  if (llclat >= general_info.minlat & llclat <= general_info.maxlat & urclon >= general_info.minlon & urclon <= general_info.maxlon){
+   spatial_bounds.lrc = true;
+  }
+
+  //If the four are false, then determine if it is completely outside of the domain
+  var flag_pass = false;
+  if (spatial_bounds.lrc == false & spatial_bounds.ulc == false & spatial_bounds.llc == false & spatial_bounds.urc == false){
+   if ((llclat - general_info.minlat < 0) & (urclat - general_info.maxlat > 0)){
+     if ((llclon - general_info.minlon < 0) & (urclon - general_info.minlon > 0))flag_pass = true;
+     if ((llclon - general_info.maxlon < 0) & (urclon - general_info.maxlon > 0))flag_pass = true;
+     if ((llclon - general_info.minlon > 0) & (urclon - general_info.maxlon < 0))flag_pass = true;
+   }
+   if ((llclon - general_info.minlon < 0) & (urclon - general_info.maxlon > 0)){
+     if ((llclat - general_info.minlat < 0) & (urclat - general_info.minlat > 0))flag_pass = true;
+     if ((llclat - general_info.maxlat < 0) & (urclat - general_info.maxlat > 0))flag_pass = true;
+     if ((llclat - general_info.minlat > 0) & (urclat - general_info.maxlat < 0))flag_pass = true;
    }
   }
+  if (spatial_bounds.lrc == true | spatial_bounds.ulc == true | spatial_bounds.llc == true | spatial_bounds.urc == true)flag_pass = true;
+
+  if (flag_pass == false){
+   alert(TRANSLATE["Error: The selected domain is completely outside of the monitor's coverage. Please adjust your selection."]);
+   $("#clear_all").click();
+   return;
+  }
+
   //Alert if partially outside of the domain (cropping)
-  if (llclat < general_info.minlat | llclon < general_info.minlon | urclon > general_info.maxlon | urclat > general_info.maxlat){
+  //if (llclat < general_info.minlat | llclon < general_info.minlon | urclon > general_info.maxlon | urclat > general_info.maxlat){
+  if (spatial_bounds.lrc == false | spatial_bounds.ulc == false | spatial_bounds.llc == false | spatial_bounds.urc == false){
    alert(TRANSLATE["Warning: The selected domain is partially outside of the monitor's coverage. Your spatial request will be cropped."]);
    if (llclat < general_info.minlat)llclat = general_info.minlat
    if (llclon < general_info.minlon)llclon = general_info.minlon
