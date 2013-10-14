@@ -27,9 +27,9 @@ function update_timestep()
         var nav_header_id = $(this).parent().parent().parent().parent().parent().siblings(".nav-header").attr('id');
         if (nav_header_id != 'Forecast' && nav_header_id != 'Forecast_spatial'){
          if (Date.parse(data_fdates[dataset]).valueOf() >= fdate.valueOf() && Date.parse(data_idates[dataset]).valueOf() <= idate.valueOf())
-          $(this).css("background-color","rgba(194, 238, 194, 0.3)")
-         else if (Date.parse(data_fdates[dataset]).valueOf() < fdate.valueOf() || Date.parse(data_idates[dataset]).valueOf() > idate.valueOf())
-          $(this).css("background-color","rgba(250, 158, 158, 0.3")
+          $(this).css("background-color","rgba(194, 238, 194, 0.0)")
+         if (Date.parse(data_fdates[dataset]).valueOf() < fdate.valueOf() || Date.parse(data_idates[dataset]).valueOf() > idate.valueOf())
+          $(this).css("background-color","rgba(250, 158, 158, 0.2")
         }
       }
     });
