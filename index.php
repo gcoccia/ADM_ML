@@ -99,10 +99,10 @@ text-align:center;
  <h3 id="Language">Choose a Language
   <select name="locale" id="ChangeLanguage" onchange=ChangeLanguage(value)>
    <option value="en">English</option>
-   <option value="sp">Spanish</option>
-   <option value="fr">French</option>
-   <option value="cn">Chinese</option>
-   <option value="ar">Arabic</option>
+   <option value="sp">Español</option>
+   <option value="fr">Français</option>
+   <option value="cn">中國</option>
+   <option value="ar">عربي</option>
   </select>
  </h3>
  <hr noshade>
