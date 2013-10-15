@@ -3,14 +3,12 @@
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-#: sidebar.php:64 sidebar.php:65 sidebar.php:72 sidebar.php:78 sidebar.php:203
-#: sidebar.php:212 sidebar.php:218 interface.php:177
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-10-14 14:07-0400\n"
-"PO-Revision-Date: 2013-10-04 23:54-0500\n"
+"PO-Revision-Date: 2013-10-14 16:07-0500\n"
 "Last-Translator: Cynthia Gerlein <cgerlein@princeton.edu>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -31,9 +29,8 @@ msgid "Princeton Global Forcing Dataset"
 msgstr "Princeton Global Forcing Dataset"
 
 #: languages/scripts/settings_xml.php:5
-#, fuzzy
 msgid "Maximum Temperature (K)"
-msgstr "Température maximale ©"
+msgstr "Température maximale (K)"
 
 #: languages/scripts/settings_xml.php:6
 msgid "Princeton Global Forcing"
@@ -44,9 +41,8 @@ msgid "Global Forecasting System Analysis"
 msgstr "Système d'analyse de prévisions globales"
 
 #: languages/scripts/settings_xml.php:8
-#, fuzzy
 msgid "Minimum Temperature (K)"
-msgstr "Température minimale ©"
+msgstr "Température minimale (K)"
 
 #: languages/scripts/settings_xml.php:9 languages/scripts/settings_xml.php:51
 msgid "Wind (m/s)"
@@ -267,11 +263,11 @@ msgstr "Sélection d'un point de donnée"
 
 #: sidebar.php:96 sidebar.php:158
 msgid "Map Click"
-msgstr ""
+msgstr "Click sur la carte"
 
 #: sidebar.php:97 sidebar.php:159
 msgid "Manual Entry"
-msgstr ""
+msgstr "Saisie de données manuelle"
 
 #: sidebar.php:101 sidebar.php:110
 msgid "Latitude"
@@ -331,6 +327,8 @@ msgstr "Non"
 msgid ""
 "Only the last 1000 timesteps from the selected final date will be displayed"
 msgstr ""
+"Seulement les 1000 derniers intervalles de temps de la date selectionnée "
+"vont être affichés."
 
 #: sidebar.php:155
 msgid "Spatial Data Selection"
@@ -338,19 +336,19 @@ msgstr "Sélection de données spatiales"
 
 #: sidebar.php:165
 msgid "Min. Lat."
-msgstr ""
+msgstr "Latitude min."
 
 #: sidebar.php:171
 msgid "Max. Lat."
-msgstr ""
+msgstr "Latitude max."
 
 #: sidebar.php:177
 msgid "Min. Long."
-msgstr ""
+msgstr "Longitude min."
 
 #: sidebar.php:183
 msgid "Max. Long."
-msgstr ""
+msgstr "Longitude max."
 
 #: sidebar.php:231
 msgid "Resolution"
@@ -572,8 +570,8 @@ msgid ""
 "vegetation (0-1)"
 msgstr ""
 "L'indice de différence normalisée de végétation (Normalized Difference "
-"Vegetation Index, NDVI) est mesuré à partir de végétation verte vivante (0-"
-"1)."
+"Vegetation Index, NDVI) est mesuré à partir de végétation verte vivante "
+"(0-1)."
 
 #: interface.php:81
 msgid "Average temperature at 2 meters above the surface."
@@ -681,42 +679,50 @@ msgid ""
 "Your request has been submitted. You will receive an email when the data is "
 "ready to be downloaded."
 msgstr ""
+"Votre demande a été transmise. Vous recevrez un email dès que les données "
+"seront prêtes à être téléchargées."
 
 #: interface.php:124
 msgid "Point out of bounds. Please choose a point inside the domain."
 msgstr ""
+"Point sélectionné en dehors des limites. Choisissez un point dans les limtes "
+"du domaine."
 
 #: interface.php:125
 msgid "Error: The initial date must be after "
-msgstr ""
+msgstr "Erreur: la date de début doit être après"
 
 #: interface.php:126
 msgid "Error: The final date must be before "
-msgstr ""
+msgstr "Erreur: la date de fin doit être avant"
 
 #: interface.php:127
 msgid "Error: The final date must be after the initial date."
-msgstr ""
+msgstr "Erreur: la date de fin doit être après la date de début."
 
 #: interface.php:128
 msgid ""
 "Error: The selected domain is completely outside of the monitor's coverage. "
 "Please adjust your selection."
 msgstr ""
+"Erreur: le domaine selectionné est complètement en dehors de la zone de "
+"couverture du moniteur. Ajustez votre sélection."
 
 #: interface.php:129
 msgid ""
 "Warning: The selected domain is partially outside of the monitor's coverage. "
 "Your spatial request will be cropped."
 msgstr ""
+"Attention: le domaine selectionné est partiellement en dehors de la zone de "
+"couverture du moniteur. Votre demande va être rognée."
 
 #: interface.php:130
 msgid "Error: The final date must be on or after the initial date."
-msgstr ""
+msgstr "Erreur: la date de fin doit être au moins à la date de début ou après."
 
 #: interface.php:131
 msgid "Error: The latitude and/or longitude have not been defined."
-msgstr ""
+msgstr "Erreur: la longitude et/ou latitude n'a pas été définie."
 
 #: interface.php:473
 msgid "African Water Cycle Monitor"
@@ -776,7 +782,7 @@ msgstr "Message à envoyer."
 
 #: interface.php:527
 msgid "characters remaining"
-msgstr ""
+msgstr "Caractères restants"
 
 #: interface.php:531
 msgid "Send"
