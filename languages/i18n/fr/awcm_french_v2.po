@@ -247,11 +247,11 @@ msgstr "Final"
 
 #: sidebar.php:44
 msgid "Update"
-msgstr "Mettre à jour"
+msgstr "Actualiser"
 
 #: sidebar.php:45
 msgid "Clear"
-msgstr "Mettre à zéro"
+msgstr "Effacer"
 
 #: sidebar.php:76 sidebar.php:216
 msgid "Dataset"
