@@ -101,7 +101,7 @@ text-align:center;
    <option value="en">English</option>
    <option value="sp">Español</option>
    <option value="fr">Français</option>
-   <option value="cn">中國</option>
+   <option value="cn">中文</option>
    <option value="ar">عربي</option>
   </select>
  </h3>
