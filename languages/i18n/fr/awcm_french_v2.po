@@ -4,12 +4,12 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 #: sidebar.php:64 sidebar.php:65 sidebar.php:72 sidebar.php:78 sidebar.php:203
-#: sidebar.php:212 sidebar.php:218 interface.php:175
+#: sidebar.php:212 sidebar.php:218 interface.php:177
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-10-12 22:18-0400\n"
+"POT-Creation-Date: 2013-10-14 14:07-0400\n"
 "PO-Revision-Date: 2013-10-04 23:54-0500\n"
 "Last-Translator: Cynthia Gerlein <cgerlein@princeton.edu>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -718,71 +718,71 @@ msgstr ""
 msgid "Error: The latitude and/or longitude have not been defined."
 msgstr ""
 
-#: interface.php:471
+#: interface.php:473
 msgid "African Water Cycle Monitor"
 msgstr "Moniteur africain du cycle de l'eau "
 
-#: interface.php:474
+#: interface.php:476
 msgid "Interactive Interface"
 msgstr "Interface interactive"
 
-#: interface.php:476
+#: interface.php:478
 msgid "Basic Interface"
 msgstr "Interface basique"
 
-#: interface.php:478
+#: interface.php:480
 msgid "Background"
 msgstr "Background"
 
-#: interface.php:480
+#: interface.php:482
 msgid "Glossary"
 msgstr "Glossaire"
 
-#: interface.php:482
+#: interface.php:484
 msgid "Tutorial"
 msgstr "Tutoriel"
 
-#: interface.php:487
+#: interface.php:489
 msgid "Feedback"
 msgstr "Votre opinion"
 
-#: interface.php:506
+#: interface.php:508
 msgid "Contact Us:"
 msgstr "Contactez-nous :"
 
-#: interface.php:509
+#: interface.php:511
 msgid "Name"
 msgstr "Nom"
 
-#: interface.php:511
+#: interface.php:513
 msgid "Your name"
 msgstr "Votre nom"
 
-#: interface.php:515
+#: interface.php:517
 msgid "Email Address"
 msgstr "Adresse email"
 
-#: interface.php:517
+#: interface.php:519
 msgid "Your email address"
 msgstr "Votre adresse email"
 
-#: interface.php:521
+#: interface.php:523
 msgid "Message"
 msgstr "Message"
 
-#: interface.php:523
+#: interface.php:525
 msgid "Message to send."
 msgstr "Message à envoyer."
 
-#: interface.php:525
+#: interface.php:527
 msgid "characters remaining"
 msgstr ""
 
-#: interface.php:529
+#: interface.php:531
 msgid "Send"
 msgstr "Envoyer"
 
-#: interface.php:530
+#: interface.php:532
 msgid "Cancel"
 msgstr "Annuler"
 
