@@ -118,7 +118,6 @@ text-align:center;
         <a href="http://www.agrhymet.ne"><img id="Logos_Image" src="icons/CILSS_Logo.png"></a><br>
         <a href="http://www.icpac.net"><img id="Logos_Image" src="icons/ICPAC_logo.jpg"></a><br>
  </div>
-<script src="//code.jquery.com/jquery.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="jsscripts/bootstrap.min.js"></script>
 </body>

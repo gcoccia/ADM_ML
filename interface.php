@@ -144,9 +144,9 @@ header('X-UA-Compatible: IE=edge');
 <meta http-equiv="content-type" content="text/html; charset=UTF-8"/> 
 <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
 <link rel="stylesheet" type="text/css" href="css/custom.css">
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">
-<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+<script src="jsscripts/jquery.min.js"></script>
+<link rel="stylesheet" href="css/jquery-ui.css">
+<script src="jsscripts/jquery-ui.js"></script>
 <script type="text/javascript" src="jsscripts/bootstrap.min.js"></script>
 <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
 <script type="text/javascript" src="jsscripts/MiscFunctions.js"></script>
@@ -157,9 +157,9 @@ header('X-UA-Compatible: IE=edge');
 <script type="text/javascript" src="jsscripts/timestep.js"></script>
 <script type="text/javascript" src="jsscripts/polygonEdit_packed.js"></script>
 <script type="text/javascript" src="jsscripts/data_extraction.js"></script>
-<script src="http://code.highcharts.com/highcharts.js" type="text/javascript"></script>
-<script src="http://code.highcharts.com/highcharts-more.js" type="text/javascript"></script>
-<script src="http://code.highcharts.com/modules/exporting.js" type="text/javascript"></script>
+<script src="jsscripts/highcharts.js" type="text/javascript"></script>
+<script src="jsscripts/highcharts-more.js" type="text/javascript"></script>
+<script src="jsscripts/exporting.js" type="text/javascript"></script>
 <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
 <script type="text/javascript">
   var timeoutid;
