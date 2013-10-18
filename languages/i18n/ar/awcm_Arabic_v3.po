@@ -1,0 +1,762 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-10-14 14:07-0400\n"
+"PO-Revision-Date: 2013-10-16 02:13+0100\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.7\n"
+
+#: languages/scripts/settings_xml.php:2 languages/scripts/settings_xml.php:46
+msgid "Precipitation (mm)"
+msgstr "الامطار مم"
+
+#: languages/scripts/settings_xml.php:3
+msgid "Satellite Precipitation (3B42RT)"
+msgstr "استشعار عن بعد أمطار"
+
+#: languages/scripts/settings_xml.php:4
+msgid "Princeton Global Forcing Dataset"
+msgstr "بنك المعلومات الكلي لجامعة برنستون"
+
+#: languages/scripts/settings_xml.php:5
+msgid "Maximum Temperature (K)"
+msgstr "الحرارة القصوى سلسيوس"
+
+#: languages/scripts/settings_xml.php:6
+msgid "Princeton Global Forcing"
+msgstr "المعلومات الإفتتاحية لجامعة برنستون"
+
+#: languages/scripts/settings_xml.php:7
+msgid "Global Forecasting System Analysis"
+msgstr "دراسة النظام الكلي للرصد"
+
+#: languages/scripts/settings_xml.php:8
+msgid "Minimum Temperature (K)"
+msgstr "الحرارة الادنى سلسيوس"
+
+#: languages/scripts/settings_xml.php:9 languages/scripts/settings_xml.php:51
+msgid "Wind (m/s)"
+msgstr " سرعة الريح متر ف ساعة"
+
+#: languages/scripts/settings_xml.php:10 languages/scripts/settings_xml.php:52
+#: interface.php:113
+msgid "Soil Moisture (%) - Layer 1"
+msgstr "رطوبة الارض طبقة 1"
+
+#: languages/scripts/settings_xml.php:11
+msgid "Derived Hydrologic Products (VIC)"
+msgstr "النتائج الهيدرولوجية لفيك"
+
+#: languages/scripts/settings_xml.php:12 languages/scripts/settings_xml.php:53
+#: interface.php:114
+msgid "Soil Moisture (%) - Layer 2"
+msgstr "رطوبة الارض طبقة 2"
+
+#: languages/scripts/settings_xml.php:13 languages/scripts/settings_xml.php:54
+#: interface.php:96
+msgid "Evaporation (mm/day)"
+msgstr "التبخر م في إليوم"
+
+#: languages/scripts/settings_xml.php:14
+msgid "VIC hydrologic model (PGF)"
+msgstr "ناموذج ف. أي. ك.    (ب. ج. ف)"
+
+#: languages/scripts/settings_xml.php:15
+msgid "VIC hydrologic model (3B42RT)"
+msgstr "ناموذج ف. أي. ك. ( 3ب. 42  ر . ت.)"
+
+#: languages/scripts/settings_xml.php:16 languages/scripts/settings_xml.php:55
+msgid "Surface Runoff (mm/day)"
+msgstr "السيلان السطحي مم  في إليوم"
+
+#: languages/scripts/settings_xml.php:17 languages/scripts/settings_xml.php:59
+#: interface.php:98
+msgid "Baseflow (mm/day)"
+msgstr "السيلان القاعدي مم  في إليوم"
+
+#: languages/scripts/settings_xml.php:18 languages/scripts/settings_xml.php:62
+msgid "Streamflow (m^3/s)"
+msgstr "السيلان متر  مكعب في  الثانية"
+
+#: languages/scripts/settings_xml.php:19 languages/scripts/settings_xml.php:34
+#: interface.php:85
+msgid "SPI (1 month)"
+msgstr " دليل معيار للامطار   س ب أي 1  شهر"
+
+#: languages/scripts/settings_xml.php:20
+msgid "Derived Meteorology"
+msgstr "متفرعات متورلوجية"
+
+#: languages/scripts/settings_xml.php:21 languages/scripts/settings_xml.php:43
+msgid "SPI (3 month)"
+msgstr " دليل معيار للامطار   س ب أي 3 اشهر"
+
+#: languages/scripts/settings_xml.php:22 languages/scripts/settings_xml.php:44
+msgid "SPI (6 month)"
+msgstr "دليل معيار للامطار   س ب أي 6 اشهر"
+
+#: languages/scripts/settings_xml.php:23 languages/scripts/settings_xml.php:45
+msgid "SPI (12 month)"
+msgstr " دليل معيار للامطار   س ب أي 12 اشهر"
+
+#: languages/scripts/settings_xml.php:24 languages/scripts/settings_xml.php:60
+msgid "Drought Index (%)"
+msgstr "دليل الجفاف %"
+
+#: languages/scripts/settings_xml.php:25
+msgid "Derived Hydrology"
+msgstr "المتفرعات الهيدرولوجية"
+
+#: languages/scripts/settings_xml.php:26
+msgid "NDVI Percentile (30-day moving average)"
+msgstr "ن. د.  ف .أي.  30 يوم معدل متحرك نسبة ميوية"
+
+#: languages/scripts/settings_xml.php:27
+msgid "MODIS"
+msgstr "موديس"
+
+#: languages/scripts/settings_xml.php:28 languages/scripts/settings_xml.php:61
+msgid "Streamflow Percentile (%)"
+msgstr " السيلان نسبة ميوية"
+
+#: languages/scripts/settings_xml.php:29
+msgid "VIC hydrologic model"
+msgstr "ناموذج ف. أي. ك."
+
+#: languages/scripts/settings_xml.php:30 languages/scripts/settings_xml.php:56
+msgid "Net Radiation (W/m^2)"
+msgstr "طاقة إشعاعية صافية وط في م مربع"
+
+#: languages/scripts/settings_xml.php:31 languages/scripts/settings_xml.php:57
+msgid "Net Longwave Radiation (W/m^2)"
+msgstr "طاقة إشعاعية  طويلة المدى  صافية وط في م مربع"
+
+#: languages/scripts/settings_xml.php:32 languages/scripts/settings_xml.php:58
+msgid "Net Shortwave Radiation (W/m^2)"
+msgstr "طاقة إشعاعية قصيرة المدى  صافية وط في م مربع"
+
+#: languages/scripts/settings_xml.php:33
+msgid "NDVI (30-day moving average)"
+msgstr "ن. د.  ف .أي.  30 يوم معدل متحرك"
+
+#: languages/scripts/settings_xml.php:35
+msgid "CMC1-CanCM3"
+msgstr ""
+
+#: languages/scripts/settings_xml.php:36
+msgid "GFDL-CM2p1-aer04"
+msgstr ""
+
+#: languages/scripts/settings_xml.php:37
+msgid "COLA-RSMAS-CCSM3"
+msgstr ""
+
+#: languages/scripts/settings_xml.php:38
+msgid "NASA-GMAO-062012"
+msgstr ""
+
+#: languages/scripts/settings_xml.php:39
+msgid "CMC2-CanCM4"
+msgstr ""
+
+#: languages/scripts/settings_xml.php:40
+msgid "NCEP-CFSv2"
+msgstr ""
+
+#: languages/scripts/settings_xml.php:41
+msgid "Multi Model Mean"
+msgstr "معدل النماذج"
+
+#: languages/scripts/settings_xml.php:42
+msgid "GFS 7-day forecast"
+msgstr "ج. ف. س. معدل 7 أيام"
+
+#: languages/scripts/settings_xml.php:47
+msgid "Average temperature (C)"
+msgstr "معدل الحرارة سلسيوس"
+
+#: languages/scripts/settings_xml.php:48 interface.php:93
+msgid "Temperature Anomaly (C)"
+msgstr "شذوذ الحرارة سلسيوس"
+
+#: languages/scripts/settings_xml.php:49
+msgid "Maximum Temperature (C)"
+msgstr "الحرارة القصوى سلسيوس"
+
+#: languages/scripts/settings_xml.php:50
+msgid "Minimum Temperature (C)"
+msgstr "الحرارة الادنى سلسيوس"
+
+#: sidebar.php:3
+msgid "Animation"
+msgstr "تحريك الرسوم"
+
+#: sidebar.php:4
+msgid "Point Data"
+msgstr "الأعداد في نقطة معينة"
+
+#: sidebar.php:5
+msgid "Spatial Data"
+msgstr "الأعداد  المحيزة"
+
+#: sidebar.php:12
+msgid "Monitor"
+msgstr "المراقبة الموجهة"
+
+#: sidebar.php:13
+msgid "Forecast"
+msgstr "رصد"
+
+#: sidebar.php:19
+msgid "Time Interval"
+msgstr "المدة الزمنية"
+
+#: sidebar.php:19
+msgid "dd/mm/yyyy"
+msgstr "إليوم/الشهر/السنة"
+
+#: sidebar.php:23
+msgid "Daily"
+msgstr "التواتر اليومي"
+
+#: sidebar.php:24
+msgid "Monthly"
+msgstr "التواتر الشهري"
+
+#: sidebar.php:25
+msgid "Yearly"
+msgstr "التواتر السنوي"
+
+#: sidebar.php:28
+msgid "Initial"
+msgstr "أولي"
+
+#: sidebar.php:36
+msgid "Final"
+msgstr "ختامي"
+
+#: sidebar.php:44
+msgid "Update"
+msgstr "إعداد"
+
+#: sidebar.php:45
+msgid "Clear"
+msgstr "إزالة"
+
+#: sidebar.php:76 sidebar.php:216
+msgid "Dataset"
+msgstr "عينة"
+
+#: sidebar.php:92
+msgid "Point Data Selection"
+msgstr "إختيار العينات"
+
+#: sidebar.php:96 sidebar.php:158
+msgid "Map Click"
+msgstr "الضغط على الخارطة"
+
+#: sidebar.php:97 sidebar.php:159
+msgid "Manual Entry"
+msgstr "دخول المعلومات يدوياً"
+
+#: sidebar.php:101 sidebar.php:110
+msgid "Latitude"
+msgstr "خط العرض"
+
+#: sidebar.php:103 sidebar.php:116
+msgid "Longitude"
+msgstr "خط الطول"
+
+#: sidebar.php:130 interface.php:84
+msgid "Indices"
+msgstr "نسب و دلايل"
+
+#: sidebar.php:131 interface.php:99
+msgid "Water Balance"
+msgstr "ميزانية المياه"
+
+#: sidebar.php:132 interface.php:104
+msgid "Surface Fluxes"
+msgstr "الاندفقات السطحية"
+
+#: sidebar.php:133 interface.php:110
+msgid "Streamflow"
+msgstr "السيلان السطحي من الوديان"
+
+#: sidebar.php:134 interface.php:116
+msgid "Soil Moisture (Layer 1)"
+msgstr "رطوبة الارض طبقة 1"
+
+#: sidebar.php:135 interface.php:117
+msgid "Soil Moisture (Layer 2)"
+msgstr "رطوبة الارض طبقة 2"
+
+#: sidebar.php:136 interface.php:119
+msgid "Vegetation"
+msgstr "النباتات"
+
+#: sidebar.php:137 interface.php:100
+msgid "Meteorology"
+msgstr "الارصاد الجوية"
+
+#: sidebar.php:140
+msgid "Create Corresponding Data File?"
+msgstr "هل تريد انشاه جوذذية أعداد مناظرة؟"
+
+#: sidebar.php:143
+msgid "Yes"
+msgstr "نعم"
+
+#: sidebar.php:144
+msgid "No"
+msgstr "لا"
+
+#: sidebar.php:148
+msgid ""
+"Only the last 1000 timesteps from the selected final date will be displayed"
+msgstr "الالف مدة زمنية الأخيرة  منذ  التاريخ  الختامي  هي التي ستضهر فحسب"
+
+#: sidebar.php:155
+msgid "Spatial Data Selection"
+msgstr "إختيار الأعداد المحيزة"
+
+#: sidebar.php:165
+msgid "Min. Lat."
+msgstr " خط العرض الأدنى"
+
+#: sidebar.php:171
+msgid "Max. Lat."
+msgstr "خط العرض الأقصى"
+
+#: sidebar.php:177
+msgid "Min. Long."
+msgstr "خط الطول الأدنى"
+
+#: sidebar.php:183
+msgid "Max. Long."
+msgstr "خط الطول الأقصى"
+
+#: sidebar.php:231
+msgid "Resolution"
+msgstr "التحيز (التصميم"
+
+#: sidebar.php:246
+msgid "File Format"
+msgstr "رتب  جذديته المعلومات"
+
+#: sidebar.php:247
+msgid "arc ascii"
+msgstr ""
+
+#: sidebar.php:248
+msgid "netcdf"
+msgstr ""
+
+#: sidebar.php:252
+msgid "Email address"
+msgstr "العنوان  الالكتروني"
+
+#: sidebar.php:253
+msgid "Submit Data Request"
+msgstr "عرض مطلب في المعلومات"
+
+#: sidebar.php:255
+msgid "Estimated Download Size"
+msgstr "تقدير حجم جذاذات المعلومات"
+
+#: sidebar.php:257
+msgid "Please select a region."
+msgstr "من فضلك إختر منطقة"
+
+#: sidebar.php:258
+msgid "Please select variables."
+msgstr "من فضلك إختر متغيرات"
+
+#: sidebar.php:259
+msgid "Please provide an email."
+msgstr "من فضلك اعطي عنوان إلكتروني"
+
+#: sidebar.php:260
+msgid ""
+"The current request exceeds 1 GB. Please reduce the size of your request."
+msgstr "المطلوب يتجاوز حجمه 1 ب ج  من فضلك اعطي مطلباً أخراً"
+
+#: interface.php:57
+msgid "Daily total surface precipitation"
+msgstr "الأمطار اليومية على المنطقة"
+
+#: interface.php:58
+msgid "Daily maximum temperature measured at 2 meters above the surface"
+msgstr "الحرارة القصوى اليومية المسجلة 2 أمتار  فوق سطح الأرض"
+
+#: interface.php:59
+msgid "Daily minimum temperature measured at 2 meters above the surface"
+msgstr "الحرارة  الأدنى اليومية المسجلة 2 أمتار  فوق سطح الأرض"
+
+#: interface.php:60
+msgid "Daily mean wind speed measured at 2 meters above the surface"
+msgstr " معدل سرعة الرياح اليومي المسجل 2 أمتار  فوق سطح الأرض"
+
+#: interface.php:61
+msgid ""
+"Relative soil moisture of the top layer (0 - 10 cm) calculated from the land "
+"surface model output."
+msgstr ""
+"رتبة الأرض الميوية في الأفق السطحي من 1  إلى 10 سنتيمتر ناتج عن أنموذج سطح "
+"الأرض"
+
+#: interface.php:62
+msgid ""
+"Relative soil moisture of the second layer (10 - ~100cm) calculated from the "
+"land surface model output. "
+msgstr ""
+"رتبة الأرض الميوية في الأفق السطحي من 1  إلى 100 سنتيمتر ناتج عن أنموذج سطح "
+"الأرض"
+
+#: interface.php:63
+msgid ""
+"The sum of the land surface model’s soil evaporation, canopy interception "
+"and plant transpiration."
+msgstr ""
+" مجموع التبخر من  سطح  الأرض  مياه و نباتات وكذلك  إحتجاز الأمطار من النباتات"
+
+#: interface.php:64
+msgid ""
+"Excess water from rain, snowmelt or other sources that does not infiltrate "
+"due to soil saturation or high intensity but instead flows overland."
+msgstr ""
+"   كمية المياه التي تتجاوز   الأمطار و سيلان الثلج   و التي  لا تتسرب في  "
+"الأرض لتشبعها أو لاهمية تهاطل   الامطار والتي تنجرف  على   سطح  الأرض"
+
+#: interface.php:65
+msgid ""
+"Portion of streamflow that comes from the sum of deep subsurface flow and "
+"delayed shallow subsurface flow."
+msgstr "كمية  السيلان التي  تنجر عن المياه الجوفية  القريبة أو البعيدة"
+
+#: interface.php:66
+msgid ""
+"Daily basin discharge calculated by inputting the baseflow and surface "
+"runoff from the VIC land surface model at each grid cell into the Velocity "
+"Driven Spatially Continuous routing model"
+msgstr ""
+"  كمية  السيلان  اليومي المنجرة عن حسابات نموذج  ف. أي. ك. في كل نقطة تقاطع"
+
+#: interface.php:67
+msgid ""
+"The 1 month standard precipitation index is the number of standard "
+"deviations that observed 1-month cumulative precipitation deviates from the "
+"climatological average (McKee, 1993)."
+msgstr ""
+"دليل معيار للامطار لشهر  س. ب. أي- 1 يمثل عدد معايير إنحرافط شهر  عن المعدل"
+
+#: interface.php:69
+msgid ""
+"The 3 month standard precipitation index is the number of standard "
+"deviations that observed 3-month cumulative precipitation deviates from the "
+"climatological average (McKee, 1993)."
+msgstr ""
+"دليل معيار للامطار لثلاثة أشهر س. ب. أي-3 يمثل عدد معايير إنحرافط 3  أشهر "
+"متتالية عن المعدل"
+
+#: interface.php:71
+msgid ""
+"The 6 month standard precipitation index is the number of standard "
+"deviations that observed 6-month cumulative precipitation deviates from the "
+"climatological average (McKee, 1993)."
+msgstr ""
+"  دليل معيار للامطار ل6 أشهر س. ب. أي-6 يمثل عدد معايير إنحرافط 6  أشهر "
+"متتالية عن المعدل"
+
+#: interface.php:72
+msgid ""
+"The 12 month standard precipitation index is the number of standard "
+"deviations that observed 12-month cumulative precipitation deviates from the "
+"climatological average (McKee, 1993)."
+msgstr ""
+"    دليل معيار للامطار ل12  شهر س. ب. أي-12 يمثل عدد معايير إنحرافط 12 شهر "
+"متتالية عن المعدل"
+
+#: interface.php:73
+msgid ""
+"A measure of the severity of drought in soil moisture; low values indicate "
+"drought conditions"
+msgstr " عيار لقسوة الجفاف من حيث رطوبة الأرض. عدد ضعيف يدل على  ضروف  جفاف"
+
+#: interface.php:74
+msgid ""
+"A measure of the severity of agricultural drought; low values indicate "
+"drought conditions. The 30-day moving average of NDVI is compared to the "
+"historical record of NDVI via the empirical cumulative distribution function "
+"to determine the percentile."
+msgstr ""
+" عيار لقسوة الجفاف من حيث رطوبة الزرع. عدد ضعيف يدل على  ضروف  جفاف.  ن. د.  "
+"ف .أي.  30 يقارن بالعدد التاريخي الناجم عن الإحصائيات"
+
+#: interface.php:75
+msgid ""
+"A measure of the severity of hydrological drought; low values indicate "
+"drought conditions. Percentile of the simulated discharge at each stream "
+"gauge with respect to the historical simulations (1950 - 2008)"
+msgstr ""
+" عيار لقسوة الجفاف من حيث رطوبة الأرض. عدد ضعيف يدل على  ضروف  جفاف. النسبة  "
+"الميوية للسيلان الصوري في كل محطة تسجيل مستوى  السيلان بالنظر إلى التصورات "
+"التاريخية الناتجة عن مدة  (1950 - 2008)"
+
+#: interface.php:76
+msgid ""
+"Difference between the incoming and outgoing components of radiation "
+"calculated using the VIC land surface model."
+msgstr ""
+" القرق بين الواردات و النفقات من الطاقة الإشعاعية حسب النموذج ف. أي. ك."
+
+#: interface.php:77
+msgid ""
+"Difference between the incoming and outgoing components of longwave "
+"radiation calculated using the VIC land surface model."
+msgstr ""
+" القرق بين الواردات و النفقات من الطاقة alإشعاعية على المدى البعيد حسب "
+"النموذج ف. أي. ك."
+
+#: interface.php:78
+msgid ""
+"Difference between the incoming and outgoing components of shortwave "
+"radiation calculated using the VIC land surface model."
+msgstr ""
+" القرق بين الواردات و النفقات من الطاقة alإشعاعية على المدى القصير حسب "
+"النموذج ف. أي. ك."
+
+#: interface.php:80
+msgid ""
+"The Normalized Difference Vegetation Index (NDVI) is measure of live green "
+"vegetation (0-1)"
+msgstr ""
+"ن.د.ف.أي هي علامة فارق مضبوطة للنباتات تمثل مقدار الاخضرار بين صفر  و واحد"
+
+#: interface.php:81
+msgid "Average temperature at 2 meters above the surface."
+msgstr "معدل الحرارة 2 م فوق سطح الأرض"
+
+#: interface.php:82
+msgid ""
+"Departure from the climatological value of average temperature at 2 meters "
+"above the surface."
+msgstr "  الفرق مع معدل الحرارة 2 م فوق سطح الأرض"
+
+#: interface.php:86
+msgid "SPI (3 months)"
+msgstr "س.ب.أي. 3 أشهر "
+
+#: interface.php:87
+msgid "SPI (6 months)"
+msgstr "س.ب.أي. 6 أشهر"
+
+#: interface.php:88
+msgid "SPI (12 months)"
+msgstr "س.ب.أي. 12 أشهر"
+
+#: interface.php:89 interface.php:115
+msgid "Soil Moisture Index (%)"
+msgstr "دليل رطوبة الأرض %"
+
+#: interface.php:90 interface.php:118
+msgid "Vegetation Index (%)"
+msgstr "دليل يخص النبات %"
+
+#: interface.php:91 interface.php:109
+msgid "Streamflow Index (%)"
+msgstr "دليل يخص السيلان %"
+
+#: interface.php:92
+msgid "Percentile (%)"
+msgstr "المطابق للنسبة الميوية:  %"
+
+#: interface.php:94
+msgid "mm/day"
+msgstr "مم في اليوم"
+
+#: interface.php:95
+msgid "Precipitation (mm/day)"
+msgstr "الامطار مم في إليوم"
+
+#: interface.php:97
+msgid "Runoff (mm/day)"
+msgstr "   السيلان مم في اليوم"
+
+#: interface.php:101
+msgid "Daily Maximum Temperature (K)"
+msgstr "الحرارة اليومية القصوى كلفين"
+
+#: interface.php:102
+msgid "Daily Minimum Temperature (K)"
+msgstr "الحرارة اليومية  الأدنى  كلفين"
+
+#: interface.php:103
+msgid "Daily Average Wind Speed (m/s)"
+msgstr " المعدل  اليومي  لسرعة الرياح م في الثانية"
+
+#: interface.php:105
+msgid "Net Shortwave (W/m2)"
+msgstr "طاقة إشعاعية قصيرة المدى  صافية وط في م مربع"
+
+#: interface.php:106
+msgid "Net Longwave (W/m2)"
+msgstr "طاقة إشعاعية  طويلة المدى  صافية وط في م مربع"
+
+#: interface.php:107
+msgid "Net Radiation (W/m2)"
+msgstr "طاقة إشعاعية صافية وط في م مربع"
+
+#: interface.php:108
+msgid "Streamflow (m3/s)"
+msgstr "السيلان م 3 في الثانية"
+
+#: interface.php:111
+msgid "Soil Moisture"
+msgstr "رطوبة الارض"
+
+#: interface.php:112
+msgid "Relative Soil Moisture (%)"
+msgstr "رطوبة الارض"
+
+#: interface.php:120
+msgid "Error: "
+msgstr "  خطا"
+
+#: interface.php:121
+msgid " is only available from "
+msgstr "معد إلا من"
+
+#: interface.php:122
+msgid " to "
+msgstr " إلى"
+
+#: interface.php:123
+msgid ""
+"Your request has been submitted. You will receive an email when the data is "
+"ready to be downloaded."
+msgstr "قد عرض مطلبكم سوف يرسل لك عندما تصبح المعلومات جاهزةً  للشحن"
+
+#: interface.php:124
+msgid "Point out of bounds. Please choose a point inside the domain."
+msgstr " النقطة خارجة عن  المنطقة. من فضلك إختر نقطة داخل المنطقة"
+
+#: interface.php:125
+msgid "Error: The initial date must be after "
+msgstr "ة خطا. التاريخ الأولي يكون بعد"
+
+#: interface.php:126
+msgid "Error: The final date must be before "
+msgstr "خطا. التاريخ الأولي يكون قبل"
+
+#: interface.php:127
+msgid "Error: The final date must be after the initial date."
+msgstr "خطا. التاريخ الختامي يكون بعد التاريخ الأولي"
+
+#: interface.php:128
+msgid ""
+"Error: The selected domain is completely outside of the monitor's coverage. "
+"Please adjust your selection."
+msgstr "خطا. المنطقة المختارة خارجة عن الحدود. من فضلك طابق اختيارك"
+
+#: interface.php:129
+msgid ""
+"Warning: The selected domain is partially outside of the monitor's coverage. "
+"Your spatial request will be cropped."
+msgstr "حذاري إن المنطقة المختارة توجد نسبياً خارج المنطقة الخاصة بالمونتور"
+
+#: interface.php:130
+msgid "Error: The final date must be on or after the initial date."
+msgstr "خطا. التاريخ الختامي يكون بعد أو يساوي التاريخ الأولي "
+
+#: interface.php:131
+msgid "Error: The latitude and/or longitude have not been defined."
+msgstr " خطا. لم تحدد خط العرض و /أو خط الطول  "
+
+#: interface.php:473
+msgid "African Water Cycle Monitor"
+msgstr "المونتور لدورة المياه بافريقيا"
+
+#: interface.php:476
+msgid "Interactive Interface"
+msgstr "حد مشترك متفاعل"
+
+#: interface.php:478
+msgid "Basic Interface"
+msgstr "حد مشترك قاعدي"
+
+#: interface.php:480
+msgid "Background"
+msgstr "خلفية العمل"
+
+#: interface.php:482
+msgid "Glossary"
+msgstr "فهرس"
+
+#: interface.php:484
+msgid "Tutorial"
+msgstr "دعم و مراجعة"
+
+#: interface.php:489
+msgid "Feedback"
+msgstr "رد فعل"
+
+#: interface.php:508
+msgid "Contact Us:"
+msgstr ":  إتصل بنا"
+
+#: interface.php:511
+msgid "Name"
+msgstr "الاسم"
+
+#: interface.php:513
+msgid "Your name"
+msgstr "اسمك"
+
+#: interface.php:517
+msgid "Email Address"
+msgstr "العنوان الالكتروني"
+
+#: interface.php:519
+msgid "Your email address"
+msgstr "عنوانك الالكتروني"
+
+#: interface.php:523
+msgid "Message"
+msgstr "تبليغ"
+
+#: interface.php:525
+msgid "Message to send."
+msgstr "تبليغ للرسل"
+
+#: interface.php:527
+msgid "characters remaining"
+msgstr "بعض الحروف أو الرسوم باقية"
+
+#: interface.php:531
+msgid "Send"
+msgstr " إبعث"
+
+#: interface.php:532
+msgid "Cancel"
+msgstr " طمس"
+
+#~ msgid "Click a point on the map to view time series data."
+#~ msgstr "إضغط على الخارطة لروية سلسلة الأعداد في الزمن"
+
+#~ msgid ""
+#~ "Click points on the map to draw a polygon and select spatial data. Then "
+#~ "select variables below."
+#~ msgstr ""
+#~ "إضغط على الخارطة لرسم  مضلع و إختر الأعداد المحيزة ثم إختر المتغيرات "
+#~ "التالية"
