@@ -726,7 +726,7 @@ msgstr "Erreur: la longitude et/ou latitude n'a pas été définie."
 
 #: interface.php:473
 msgid "African Water Cycle Monitor"
-msgstr "Moniteur africain du cycle de l'eau "
+msgstr "Système de gestion du cycle de l'eau en Afrique"
 
 #: interface.php:476
 msgid "Interactive Interface"
