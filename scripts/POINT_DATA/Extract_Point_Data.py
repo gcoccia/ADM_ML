@@ -130,7 +130,7 @@ def Create_Text_File(data,tstep,idate,fdate,data_group,lat,lon,http_root,undef):
 
  #Write header information
  for var in data['VARIABLES']:
-  header.append('%s' % data['VARIABLES'][var]['name'])
+  header.append('%s' % data['VARIABLES'][var]['name'].encode('utf-8'))
  header = (',').join(header)
  fp.write('%s\n' % header)
  
