@@ -6,7 +6,7 @@ $message = htmlspecialchars($message);
 $subject = "Website Feedback";
 
 $headers = 'From: '. $email . "\r\n" .
-           'Reply-To: '. $email . "\r\n" .
+           'Reply-To: '.$name.'<'. $email .'>'."\r\n" .
            'X-Mailer: PHP/' . phpversion();
 
 mail('african.water.cycle.monitor@gmail.com', $subject, $message, $headers);
