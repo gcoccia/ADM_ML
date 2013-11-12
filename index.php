@@ -8,7 +8,7 @@ header('X-UA-Compatible: IE=edge');
 <!DOCTYPE html>
 <html>
 <head>
-<title>African Water Cycle Monitor</title>
+<title>African Flood and Drought Monitor</title>
 <link rel="icon" type="image/ico" href="icons/AWCM_logo.ico">
 <link href="css/bootstrap.css" rel="stylesheet" media="screen">
 <style>
