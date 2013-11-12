@@ -91,7 +91,7 @@ text-align:center;
 <body>
 <img src="icons/NigerSunset.jpg" id="Background_Image">
 <div id="Welcome">
- <img id="Title_Image" src="icons/AWCM_logo.png"><br>
+ <img id="Title_Image" src="icons/AFDM.png"><br>
  <!--<h1 id="Title">African Water Cycle Monitor</h1>-->
 </div>
 <div id="Controls">
