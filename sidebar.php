@@ -228,10 +228,10 @@
   <li class="divider"></li>
 
   <div class="btn-group form-inline">
-    <label class="radio inline control-label"><?php echo $_('Resolution')?>: </label>
-    <label class="radio inline">
+    <!--<label class="radio inline control-label"><?php echo $_('Resolution')?>: </label>-->
+    <!--<label class="radio inline">
       <input type="radio" name="sres_spatial_data" value="0.25" checked>0.25&deg;
-    </label>
+    </label>-->
     <!--
     <label class="radio inline">
       <input type="radio" name="sres_spatial_data" value="0.25" checked>0.25&deg;

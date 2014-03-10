@@ -565,7 +565,7 @@ function Update_Spatial_Data_Display() {
 
  
   //Get spatial resolution
-  var sres = $('input:radio[name=sres_spatial_data]:checked').val();
+  var sres = general_info.res;//$('input:radio[name=sres_spatial_data]:checked').val();
 
   //Compute the bounding box
   var lats = []
@@ -760,7 +760,7 @@ function Submit_Spatial_Data() {
   }
 
   //Spatial resolution
-  var sres = $('input:radio[name=sres_spatial_data]:checked').val();
+  var sres = general_info.res;//$('input:radio[name=sres_spatial_data]:checked').val();
   //Variables
   var variables = [];
 
@@ -784,6 +784,10 @@ function Submit_Spatial_Data() {
           email:email,
           http:document.URL,
 	  morf:morf,
+          minlat:general_info.minlat,
+          minlon:general_info.minlon,
+          maxlat:general_info.maxlat,
+          maxlon:general_info.maxlon,
           };
   input = JSON.stringify(input);
   var request = {script:script,input:input};

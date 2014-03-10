@@ -115,6 +115,10 @@ llclat = float(metadata['llclat'])
 llclon = float(metadata['llclon'])
 urclat = float(metadata['urclat'])
 urclon = float(metadata['urclon'])
+minlat = float(metadata['minlat'])
+minlon = float(metadata['minlon'])
+maxlat = float(metadata['maxlat'])
+maxlon = float(metadata['maxlon'])
 idate = datetime.datetime.utcfromtimestamp(int(metadata['idate']))
 fdate = datetime.datetime.utcfromtimestamp(int(metadata['fdate']))
 format= metadata['format']
@@ -137,10 +141,10 @@ if tstep == "yearly":
  dt = relativedelta.relativedelta(years=1)
 
 #Define the monitor's boundaries
-minlat = -35.0
-minlon = -19.0
-maxlat = 38.0
-maxlon = 55.0
+#minlat = -35.0
+#minlon = -19.0
+#maxlat = 38.0
+#maxlon = 55.0
 
 #Not allow for more than 1 gb request
 nlat = (urclat - llclat)/res
