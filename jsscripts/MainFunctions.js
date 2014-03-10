@@ -236,7 +236,7 @@ function create_point_overlay()
 {
   var ds = "flw--ROUTING_VIC_3B42RT";
   var fdate = data_fdates[ds];
-  var imgpath = "/AWCM/IMAGES/" + fdate + "/ROUTING_VIC_3B42RT/flw_" + fdate.replace(/\//g,'') + ".png";
+  var imgpath = "../IMAGES/" + fdate + "/ROUTING_VIC_3B42RT/flw_" + fdate.replace(/\//g,'') + ".png";
   point_overlay = new ImageOverlay(bounds, imgpath, map_array[0], ds);
 }
 
