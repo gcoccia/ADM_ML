@@ -138,8 +138,8 @@ header('X-UA-Compatible: IE=edge');
 <!DOCTYPE html> 
 <html style="height:100%"> 
 <head> 
-<title>African Flood and Drought Monitor</title>
-<link rel="icon" type="image/ico" href="icons/AWCM_logo.ico">
+<title>Latin American Flood and Drought Monitor</title>
+<link rel="icon" type="image/ico" href="icons/LAFDM_icon.ico">
 <meta name="viewport" content="initial-scale=1.0, user-scalable=no" /> 
 <meta http-equiv="content-type" content="text/html; charset=UTF-8"/> 
 <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
@@ -470,7 +470,7 @@ header('X-UA-Compatible: IE=edge');
 <div class="navbar navbar-inverse">
   <div class="navbar-inner" style="border-radius: 0px"> 
     <div class="container">
-      <a class="brand" href='index.php?locale=<?php echo $_GET['locale'];?>'><?php echo $_("African Flood and Drought Monitor"); ?></a>
+      <a class="brand" href='index.php?locale=<?php echo $_GET['locale'];?>'><?php echo $_("Latin American Flood and Drought Monitor"); ?></a>
       <ul class="nav" >
         <li class="divider-vertical"></li>
 	<li id="InteractiveInterface" class="active"><a onclick="LoadInteractive()"><?php echo $_("Interactive Interface"); ?></a></li>
@@ -481,8 +481,8 @@ header('X-UA-Compatible: IE=edge');
         <li class="divider-vertical"></li>-->
         <!--<li><a href='Resources/ADM_Glossary.pdf'><?php echo $_("Glossary"); ?></a></li>
         <li class="divider-vertical"></li>-->
-        <li><a href='Resources/AWCMTutorial.pdf'><?php echo $_("Tutorial"); ?></a></li>
-      	<li class="divider-vertical"></li>
+        <!---<li><a href='Resources/AWCMTutorial.pdf'><?php echo $_("Tutorial"); ?></a></li>
+      	<li class="divider-vertical"></li>-->
         </ul>
         <ul class="nav pull-right">
           <li class="divider-vertical"></li>

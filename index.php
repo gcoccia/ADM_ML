@@ -8,8 +8,8 @@ header('X-UA-Compatible: IE=edge');
 <!DOCTYPE html>
 <html>
 <head>
-<title>African Flood and Drought Monitor</title>
-<link rel="icon" type="image/ico" href="icons/AWCM_logo.ico">
+<title>Latin American Flood and Drought Monitor</title>
+<link rel="icon" type="image/ico" href="icons/LAFDM_icon.ico">
 <link href="css/bootstrap.css" rel="stylesheet" media="screen">
 <style>
 body{
@@ -22,7 +22,7 @@ left: 0;
 min-width: 100%;
 min-height: 100%;
 z-index:-1;
-opacity:0.8;
+opacity:0.5;
 }
 #Welcome{
 text-align:center;
@@ -89,10 +89,9 @@ text-align:center;
 </style>
 </head>
 <body>
-<img src="icons/NigerSunset.jpg" id="Background_Image">
+<img src="icons/Amazon.jpg" id="Background_Image">
 <div id="Welcome">
- <img id="Title_Image" src="icons/AFDM.png"><br>
- <!--<h1 id="Title">African Water Cycle Monitor</h1>-->
+ <img id="Title_Image" src="icons/LAFDM_Blk.png"><br>
 </div>
 <div id="Controls">
  <form name="select" action="interface.php" method="get">
@@ -115,9 +114,10 @@ text-align:center;
         <!--<a href="http://www.washington.edu"><img id="Logos_Image" src="icons/UW_logo.jpg"></a>-->
  </div>
  <div id="Logos_Right">
-        <a href="http://www.agrhymet.ne"><img id="Logos_Image" src="icons/CILSS_Logo.png"></a><br>
+        <!--<a href="http://www.agrhymet.ne"><img id="Logos_Image" src="icons/CILSS_Logo.png"></a><br>
         <a href="http://www.icpac.net"><img id="Logos_Image" src="icons/ICPAC_logo.jpg"></a><br>
- </div>
+        -->
+  </div>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="jsscripts/bootstrap.min.js"></script>
 </body>
