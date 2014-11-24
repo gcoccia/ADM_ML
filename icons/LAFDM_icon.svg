@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="16px"
+   height="16px"
+   id="svg3344"
+   version="1.1"
+   inkscape:version="0.48.5 r10040"
+   sodipodi:docname="LAFDM_icon.ico.png">
+  <defs
+     id="defs3346">
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3846"
+       id="radialGradient3094"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(-1.2391875,18.128425,-26.573324,-1.8164459,367.14928,594.95229)"
+       cx="-18.248837"
+       cy="13.237884"
+       fx="-18.248837"
+       fy="13.237884"
+       r="3.2187147" />
+    <linearGradient
+       id="linearGradient3846">
+      <stop
+         style="stop-color:#009aff;stop-opacity:0.09756097;"
+         offset="0"
+         id="stop3848" />
+      <stop
+         style="stop-color:#009aff;stop-opacity:1;"
+         offset="1"
+         id="stop3850" />
+    </linearGradient>
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3838"
+       id="radialGradient3096"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(-1.1749432,1.3180628,-1.0119651,-0.90208261,-27.750108,50.680288)"
+       cx="-18.745983"
+       cy="13.154287"
+       fx="-18.745983"
+       fy="13.154287"
+       r="3.1174946" />
+    <linearGradient
+       id="linearGradient3838">
+      <stop
+         style="stop-color:#0077e4;stop-opacity:0.09756097;"
+         offset="0"
+         id="stop3840" />
+      <stop
+         style="stop-color:#0077e4;stop-opacity:1;"
+         offset="1"
+         id="stop3842" />
+    </linearGradient>
+    <radialGradient
+       r="3.1174946"
+       fy="13.154287"
+       fx="-18.745983"
+       cy="13.154287"
+       cx="-18.745983"
+       gradientTransform="matrix(-1.1749432,1.3180628,-1.0119651,-0.90208261,-27.750108,50.680288)"
+       gradientUnits="userSpaceOnUse"
+       id="radialGradient3394"
+       xlink:href="#linearGradient3838"
+       inkscape:collect="always" />
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="8"
+     inkscape:cx="3.7236111"
+     inkscape:cy="9.3106602"
+     inkscape:current-layer="layer1"
+     showgrid="true"
+     inkscape:grid-bbox="true"
+     inkscape:document-units="px"
+     inkscape:window-width="1000"
+     inkscape:window-height="818"
+     inkscape:window-x="2322"
+     inkscape:window-y="47"
+     inkscape:window-maximized="0" />
+  <metadata
+     id="metadata3349">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     id="layer1"
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer">
+    <g
+       inkscape:export-ydpi="570.62341"
+       inkscape:export-xdpi="570.62341"
+       inkscape:export-filename="/Users/ajbc/Projects/Favors/FDM/LAFDM2.png"
+       transform="matrix(-2.0993049,-1.26036,-1.4827058,1.7844942,-9.346985,-45.80029)"
+       id="g3352">
+      <path
+         style="fill:url(#radialGradient3094);fill-opacity:1"
+         d="m 33.21875,238.71875 c 12.895497,0.28602 19.967816,10.88235 15.8125,23.9375 -4.212671,13.23532 -18.358431,23.96875 -31.59375,23.96875 -10.340093,0 -17.05956179,-6.54074 -17.5,-15.71875 -0.37686676,10.64252 6.7295769,18.4375 18.0625,18.4375 13.66505,0 28.275553,-11.32493 32.625,-25.3125 4.349447,-13.98759 -3.20995,-25.3125 -16.875,-25.3125 -0.176957,0 -0.354002,-0.004 -0.53125,0 z m -3.78125,2.75 c -10.402319,0 -21.5015435,8.44142 -24.8125,18.84375 -0.867064,2.72414 -1.0760915,5.28491 -0.78125,7.625 -0.042145,-2.0145 0.2395095,-4.16155 0.9375,-6.40625 3.4184497,-10.99357 14.884931,-19.90625 25.625,-19.90625 0.671254,0 1.336189,0.0259 1.96875,0.0937 -0.928065,-0.15658 -1.91527,-0.25 -2.9375,-0.25 z"
+         transform="matrix(0.12389622,0,0,0.12389622,-22.955461,-16.430104)"
+         id="path3354"
+         inkscape:connector-curvature="0" />
+      <path
+         inkscape:connector-curvature="0"
+         id="path3356"
+         d="m -18.906105,13.146349 c -1.639806,0 -3.392194,1.326444 -3.914127,2.96625 -0.521934,1.639806 0.384873,2.969999 2.024679,2.969999 1.639806,0 3.393388,-1.330193 3.915322,-2.969999 0.521933,-1.639806 -0.386068,-2.96625 -2.025874,-2.96625 z m -0.401117,0.34125 c 1.288808,0 2.000304,1.043691 1.590089,2.3325 -0.410214,1.288808 -1.787296,2.33625 -3.076104,2.33625 -1.288808,0 -1.99911,-1.047442 -1.588896,-2.33625 0.410215,-1.288809 1.786103,-2.3325 3.074911,-2.3325 z"
+         style="fill:url(#radialGradient3394);fill-opacity:1" />
+    </g>
+    <path
+       inkscape:export-ydpi="570.62341"
+       inkscape:export-xdpi="570.62341"
+       inkscape:export-filename="/Users/ajbc/Projects/Favors/FDM/LAFDM2.png"
+       sodipodi:nodetypes="cccsssssssssssssssssccccssccssssssss"
+       inkscape:connector-curvature="0"
+       id="path3358"
+       d="m 5.5812563,3.5847371 c -0.5098738,-0.081288 0.013081,1.0318974 0.00917,0.3777845 0.404685,0.037041 0.2819671,0.8150865 0.6578444,1.0413119 0.4959015,0.4179367 1.3291138,0.1914909 1.7348178,0.7119502 0.3392527,0.4352114 1.1953858,0.2816906 1.1772704,0.8718648 -0.012909,0.420012 -0.4594886,0.7281585 -0.345984,1.1927757 0.127576,0.5222817 0.4216686,1.0050219 0.866837,1.3189001 0.4814301,0.3394431 0.3890421,0.9314857 0.2636932,1.4248327 -0.1337267,0.526303 -0.1295305,1.082574 -0.3098805,1.599484 -0.1380759,0.39575 0.1108599,1.169738 0.4332284,0.594378 0.242958,-0.433633 0.570308,-0.804155 1.023154,-1.094326 0.486247,-0.311573 0.919144,-0.645442 1.24664,-1.170541 0.281804,-0.451835 1.069768,-0.4716884 1.162357,-1.0925234 0.07391,-0.4956359 0.715846,-0.8000301 0.477259,-1.357045 C 13.701639,7.3591632 12.83306,7.7506844 12.542839,7.2004383 12.352729,6.8399956 12.170751,6.5376444 11.76053,6.3854446 11.438981,6.2661561 11.174148,6.0322789 10.84919,5.9103802 10.395553,5.7402082 9.7738664,5.7085397 9.3592405,6.0158574 9.1223617,6.1914301 8.5809339,5.8841509 8.3863515,5.4383853 8.2543923,5.1360555 7.9200817,5.1739737 7.8906233,4.7680849 7.8734822,4.5320352 6.9102122,5.220822 6.9638799,4.5347042 6.9044881,4.1096248 6.6089678,3.6059883 6.1047834,3.6643863 5.9282125,3.6794715 5.738035,3.6756605 5.5812257,3.5847395 z m 3.2474928,3.9198113 c -0.03817,0.098846 0.040289,-0.1043498 0,0 z M 5.6586484,3.9157416 c -0.09795,0.019959 0.087928,0.059901 0,0 z m 3.1215324,0.5262302 c -0.711327,0 -0.089762,0.189349 0.056399,0.2495365 C 9.0825575,4.792791 9.4992652,4.6924855 9.0400397,4.5278541 8.9541199,4.4970669 8.8720994,4.441973 8.7801785,4.441973 z M 9.7498901,4.8010653 C 9.1818492,5.4396141 10.833982,4.7891313 9.881663,4.8063753 9.837559,4.8071692 9.7787351,4.7686933 9.7498901,4.8010653 z"
+       style="fill:#de923b;fill-opacity:1;stroke:none" />
+  </g>
+</svg>
