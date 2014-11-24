@@ -9,5 +9,5 @@ $headers = 'From: '. $email . "\r\n" .
            'Reply-To: '.$name.'<'. $email .'>'."\r\n" .
            'X-Mailer: PHP/' . phpversion();
 
-mail('african.water.cycle.monitor@gmail.com', $subject, $message, $headers);
+mail('princetonfdm@gmail.com', $subject, $message, $headers);
 ?>

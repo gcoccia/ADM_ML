@@ -63,12 +63,12 @@ msgstr "Productos Hidrologicos VIC)"
 #: languages/scripts/settings_xml.php:12 languages/scripts/settings_xml.php:53
 #: interface.php:114
 msgid "Soil Moisture (%) - Layer 2"
-msgstr "Indice de agua del subsuelo"
+msgstr "Humedad del suelo (%) - Segunda capa"
 
 #: languages/scripts/settings_xml.php:13 languages/scripts/settings_xml.php:54
 #: interface.php:96
 msgid "Evaporation (mm/day)"
-msgstr "Evaporation (mm/dia)"
+msgstr "Evaporacion (mm/dia)"
 
 #: languages/scripts/settings_xml.php:14
 msgid "VIC hydrologic model (PGF)"
@@ -80,16 +80,16 @@ msgstr "Model hidrologico (3B42RT)"
 
 #: languages/scripts/settings_xml.php:16 languages/scripts/settings_xml.php:55
 msgid "Surface Runoff (mm/day)"
-msgstr ""
+msgstr "Escurrimiento Directo (mm/dia)"
 
 #: languages/scripts/settings_xml.php:17 languages/scripts/settings_xml.php:59
 #: interface.php:98
 msgid "Baseflow (mm/day)"
-msgstr ""
+msgstr "Escurrimiento de Base (mm/dia)"
 
 #: languages/scripts/settings_xml.php:18 languages/scripts/settings_xml.php:62
 msgid "Streamflow (m^3/s)"
-msgstr "Flujo de agua"
+msgstr "Caudal (m^3/s)"
 
 #: languages/scripts/settings_xml.php:19 languages/scripts/settings_xml.php:34
 #: interface.php:85
@@ -114,7 +114,7 @@ msgstr "SPI (12 meses)"
 
 #: languages/scripts/settings_xml.php:24 languages/scripts/settings_xml.php:60
 msgid "Drought Index (%)"
-msgstr ""
+msgstr "Indice de Sequia (%)"
 
 #: languages/scripts/settings_xml.php:25
 msgid "Derived Hydrology"
@@ -122,7 +122,7 @@ msgstr "Products Hidrologicos"
 
 #: languages/scripts/settings_xml.php:26
 msgid "NDVI Percentile (30-day moving average)"
-msgstr ""
+msgstr "Percentil del NDVI"
 
 #: languages/scripts/settings_xml.php:27
 msgid "MODIS"
@@ -131,7 +131,7 @@ msgstr "MODIS"
 #: languages/scripts/settings_xml.php:28 languages/scripts/settings_xml.php:61
 #, fuzzy
 msgid "Streamflow Percentile (%)"
-msgstr "Percentil (%)"
+msgstr "Percentil del Caudal (%)"
 
 #: languages/scripts/settings_xml.php:29
 msgid "VIC hydrologic model"
@@ -139,19 +139,19 @@ msgstr "Model Hidrologico VIC"
 
 #: languages/scripts/settings_xml.php:30 languages/scripts/settings_xml.php:56
 msgid "Net Radiation (W/m^2)"
-msgstr ""
+msgstr "Radiacion Neta (W/m^2)"
 
 #: languages/scripts/settings_xml.php:31 languages/scripts/settings_xml.php:57
 msgid "Net Longwave Radiation (W/m^2)"
-msgstr ""
+msgstr "Radiacion Neta de Onda Larga (W/m2)"
 
 #: languages/scripts/settings_xml.php:32 languages/scripts/settings_xml.php:58
 msgid "Net Shortwave Radiation (W/m^2)"
-msgstr ""
+msgstr "Radiacion Neta de Onda Corta (W/m2)"
 
 #: languages/scripts/settings_xml.php:33
 msgid "NDVI (30-day moving average)"
-msgstr ""
+msgstr "NDVI"
 
 #: languages/scripts/settings_xml.php:35
 msgid "CMC1-CanCM3"
@@ -183,7 +183,7 @@ msgstr "La media de los modelos"
 
 #: languages/scripts/settings_xml.php:42
 msgid "GFS 7-day forecast"
-msgstr "Prediccion 7 dias (GFS)"
+msgstr "Prediccion a 7 dias (GFS)"
 
 #: languages/scripts/settings_xml.php:47
 msgid "Average temperature (C)"
@@ -291,19 +291,19 @@ msgstr "Balance de agua"
 
 #: sidebar.php:132 interface.php:104
 msgid "Surface Fluxes"
-msgstr "Flujo de la Superficie"
+msgstr "Flujos de materia y energia"
 
 #: sidebar.php:133 interface.php:110
 msgid "Streamflow"
-msgstr "Flujo de agua"
+msgstr "Caudal"
 
 #: sidebar.php:134 interface.php:116
 msgid "Soil Moisture (Layer 1)"
-msgstr "Humedad del suelo"
+msgstr "Humedad del suelo (Primera Capa)"
 
 #: sidebar.php:135 interface.php:117
 msgid "Soil Moisture (Layer 2)"
-msgstr "Humdedad del suelo"
+msgstr "Humdedad del suelo (Segunda Capa)"
 
 #: sidebar.php:136 interface.php:119
 msgid "Vegetation"
@@ -328,7 +328,7 @@ msgstr "No"
 #: sidebar.php:148
 msgid ""
 "Only the last 1000 timesteps from the selected final date will be displayed"
-msgstr ""
+msgstr "Solo se enseñaran los datos mas recientes a la ultima fecha que eligió"
 
 #: sidebar.php:155
 msgid "Spatial Data Selection"
@@ -352,7 +352,7 @@ msgstr "Lon. Max."
 
 #: sidebar.php:231
 msgid "Resolution"
-msgstr "Resolucion"
+msgstr "Resolución"
 
 #: sidebar.php:246
 msgid "File Format"
@@ -376,7 +376,7 @@ msgstr "Pedir datos"
 
 #: sidebar.php:255
 msgid "Estimated Download Size"
-msgstr "Tamano del archivo"
+msgstr "Tamaño del archivo"
 
 #: sidebar.php:257
 msgid "Please select a region."
@@ -397,90 +397,90 @@ msgstr "Su petición es mas de 1 gb. Reduzca el tamaño del archivo."
 
 #: interface.php:57
 msgid "Daily total surface precipitation"
-msgstr ""
+msgstr "Precipitation diaria en la superficie"
 
 #: interface.php:58
 msgid "Daily maximum temperature measured at 2 meters above the surface"
-msgstr ""
+msgstr "Temperatura maxima diaria"
 
 #: interface.php:59
 msgid "Daily minimum temperature measured at 2 meters above the surface"
-msgstr ""
+msgstr "Temperature maxima diaria"
 
 #: interface.php:60
 msgid "Daily mean wind speed measured at 2 meters above the surface"
-msgstr ""
+msgstr "Velocidad del viento media diaria"
 
 #: interface.php:61
 msgid ""
 "Relative soil moisture of the top layer (0 - 10 cm) calculated from the land "
 "surface model output."
-msgstr ""
+msgstr "Humedad relativa del suelo de la primera capa (10 cm) calculada a partir del modelo hidrologico"
 
 #: interface.php:62
 msgid ""
 "Relative soil moisture of the second layer (10 - ~100cm) calculated from the "
 "land surface model output. "
-msgstr ""
+msgstr "Humdedad relativa del suelo de la segunda capa calculada a partir del modelo hidrologico"
 
 #: interface.php:63
 msgid ""
 "The sum of the land surface model’s soil evaporation, canopy interception "
 "and plant transpiration."
-msgstr ""
+msgstr "La suma de la evaporacion y transpiration del suelo y la vegetación"
 
 #: interface.php:64
 msgid ""
 "Excess water from rain, snowmelt or other sources that does not infiltrate "
 "due to soil saturation or high intensity but instead flows overland."
-msgstr ""
+msgstr "Agua proveniente del exceso de precipitation, nieve derretida que no puede infiltrarse en el suelo sino que se transforma en escurrimiento superficial"
 
 #: interface.php:65
 msgid ""
 "Portion of streamflow that comes from the sum of deep subsurface flow and "
 "delayed shallow subsurface flow."
-msgstr ""
+msgstr "Porción del caudal que viene de la suma del flujo subterraneo y flujo subsuperficial"
 
 #: interface.php:66
 msgid ""
 "Daily basin discharge calculated by inputting the baseflow and surface "
 "runoff from the VIC land surface model at each grid cell into the Velocity "
 "Driven Spatially Continuous routing model"
-msgstr ""
+msgstr "Caudal diario calculada mediante el model VCSD a partir del escurrimiento directo y base del model hidrologico VIC"
 
 #: interface.php:67
 msgid ""
 "The 1 month standard precipitation index is the number of standard "
 "deviations that observed 1-month cumulative precipitation deviates from the "
 "climatological average (McKee, 1993).\n"
-msgstr ""
+msgstr "El SPI de 1 un mes es el numero de deviaciones estandar que la precipitacion acumulada de un 1 mes se desvia de la media climatologica (Mckee, 1993).\n"
 
 #: interface.php:69
 msgid ""
 "The 3 month standard precipitation index is the number of standard "
 "deviations that observed 3-month cumulative precipitation deviates from the "
 "climatological average (McKee, 1993).\n"
-msgstr ""
+msgstr "El SPI de tres meses es el numero de deviaciones estandar que la precipitacion acumulada de tres meses se desvia de la media climatologica (Mckee, 1993).\n"
 
 #: interface.php:71
 msgid ""
 "The 6 month standard precipitation index is the number of standard "
 "deviations that observed 6-month cumulative precipitation deviates from the "
 "climatological average (McKee, 1993)."
-msgstr ""
+msgstr "El SPI de 6 meses es el numero de deviaciones estandar que la precipitacion acumulada de tres meses se desvia de la media climatologica (Mckee, 1993)."
 
 #: interface.php:72
 msgid ""
 "The 12 month standard precipitation index is the number of standard "
 "deviations that observed 12-month cumulative precipitation deviates from the "
 "climatological average (McKee, 1993)."
-msgstr ""
+msgstr "El SPI de 12 meses es el numero de deviaciones estandar que la precipitacion acumulada de doce meses   se desvia de la media climatologica (Mckee, 1993)."
 
 #: interface.php:73
 msgid ""
 "A measure of the severity of drought in soil moisture; low values indicate "
 "drought conditions"
-msgstr ""
+msgstr "Indice de la severidad de sequia hidrologica calculada a partir de la humedad del suelo. Indices bajos indican condiciones de sequia."
 
 #: interface.php:74
 msgid ""
@@ -488,48 +488,48 @@ msgid ""
 "drought conditions. The 30-day moving average of NDVI is compared to the "
 "historical record of NDVI via the empirical cumulative distribution function "
 "to determine the percentile."
-msgstr ""
+msgstr "Indice de la severidad de sequia en la agricultura. Indices bajos indican condiciones de sequia. Para calcula el indice, se compara el NDVI a los datos historicos de NDVI mediante la function empirica de probabilidad acumulada para calcular el percentil."
 
 #: interface.php:75
 msgid ""
 "A measure of the severity of hydrological drought; low values indicate "
 "drought conditions. Percentile of the simulated discharge at each stream "
 "gauge with respect to the historical simulations (1950 - 2008)"
-msgstr ""
+msgstr "Indice de la severida de sequia hidrologica. Valores bajos indican condiciones de sequia. El indice es el percentil del caudal simulado con respecto a las simulaciones historicas (1950 - 2008)"
 
 #: interface.php:76
 msgid ""
 "Difference between the incoming and outgoing components of radiation "
 "calculated using the VIC land surface model."
-msgstr ""
+msgstr "Diferencia entre los componentes de radiacion entrantes y salientes calculada mediante el modelo hidrologico VIC"
 
 #: interface.php:77
 msgid ""
 "Difference between the incoming and outgoing components of longwave "
 "radiation calculated using the VIC land surface model."
-msgstr ""
+msgstr "Diferencia entre los componentes entrantes y salientes de radiacion de onda larga calculada mediante el modelo hidrologico VIC"
 
 #: interface.php:78
 msgid ""
 "Difference between the incoming and outgoing components of shortwave "
 "radiation calculated using the VIC land surface model.\n"
-msgstr ""
+msgstr "Diferencia entre los componentes entrantes y salientes de radiacion de onda corta calculada mediante el modelo hidrologico VIC.\n"
 
 #: interface.php:80
 msgid ""
 "The Normalized Difference Vegetation Index (NDVI) is measure of live green "
 "vegetation (0-1)"
-msgstr ""
+msgstr "El NDVI is un indice de vegetación verde (0-1)"
 
 #: interface.php:81
 msgid "Average temperature at 2 meters above the surface."
-msgstr ""
+msgstr "Temperatura media a 2 metros de altura"
 
 #: interface.php:82
 msgid ""
 "Departure from the climatological value of average temperature at 2 meters "
 "above the surface."
-msgstr ""
+msgstr "Diferencia con respecto a la media climatologica de temperature media a 2 metros de la superficie"
 
 #: interface.php:86
 #, fuzzy
@@ -547,15 +547,15 @@ msgstr "SPI (12 meses)"
 
 #: interface.php:89 interface.php:115
 msgid "Soil Moisture Index (%)"
-msgstr "Indice de la humedad del suelo"
+msgstr "Indice de la humedad del suelo (%)"
 
 #: interface.php:90 interface.php:118
 msgid "Vegetation Index (%)"
-msgstr "Indice de vegetacion"
+msgstr "Indice de vegetacion (%)"
 
 #: interface.php:91 interface.php:109
 msgid "Streamflow Index (%)"
-msgstr "Indice del flujo de agua"
+msgstr "Indice del caudal"
 
 #: interface.php:92
 msgid "Percentile (%)"
@@ -720,11 +720,11 @@ msgstr "Mensaje"
 
 #: interface.php:523
 msgid "Message to send."
-msgstr "Mensaje a envia"
+msgstr "Mensaje a enviar"
 
 #: interface.php:525
 msgid "characters remaining"
-msgstr "caracteres"
+msgstr "caracteres restantes"
 
 #: interface.php:529
 msgid "Send"

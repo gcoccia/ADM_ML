@@ -38,6 +38,6 @@ fp.close()
 
 #2.Recursively create the pot file
 os.chdir('../..')
-os.system('xgettext --from-code=utf-8 -k_e -k_x -k__ -o languages/templates/awcm.pot $(find . -name "*.php")')
+os.system('xgettext --from-code=utf-8 -k_e -k_x -k__ -o languages/templates/lafdm.pot $(find . -name "*.php")')
 #msgmerge -o ../i18n/fr/awcm_french_v2.po ../i18n/fr/awcm_french.po awcm.pot 
 #msgfmt -o file.mo file.po

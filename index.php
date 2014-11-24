@@ -99,6 +99,7 @@ text-align:center;
   <select name="locale" id="ChangeLanguage" onchange=ChangeLanguage(value)>
    <option value="en">English</option>
    <option value="sp">Español</option>
+   <option value="pt">Português</option>
    <option value="fr">Français</option>
    <option value="cn">中文</option>
    <option value="ar">عربي</option>

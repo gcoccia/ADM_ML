@@ -98,7 +98,7 @@ def Send_Email(txt):
   sender = creds["username"] + "@gmail.com"
   receiver = email
   msg = MIMEText(txt)
-  msg['Subject'] = 'African Water Monitor Data Request'
+  msg['Subject'] = 'Princeton Flood and Drought Monitor Data Request'
   msg['From'] = creds["username"] + "@gmail.com"
   msg['To'] = email
   s = smtplib.SMTP('smtp.gmail.com:587')

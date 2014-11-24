@@ -481,8 +481,8 @@ header('X-UA-Compatible: IE=edge');
         <li class="divider-vertical"></li>-->
         <!--<li><a href='Resources/ADM_Glossary.pdf'><?php echo $_("Glossary"); ?></a></li>
         <li class="divider-vertical"></li>-->
-        <!---<li><a href='Resources/AWCMTutorial.pdf'><?php echo $_("Tutorial"); ?></a></li>
-      	<li class="divider-vertical"></li>-->
+        <li><a href='Resources/LAFDMTutorial.pdf'><?php echo $_("Tutorial"); ?></a></li>
+      	<li class="divider-vertical"></li>
         </ul>
         <ul class="nav pull-right">
           <li class="divider-vertical"></li>
